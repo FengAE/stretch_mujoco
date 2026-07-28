@@ -1,0 +1,205 @@
+from pathlib import Path
+
+from stretch_mujoco.agents import (
+    ActionCommand,
+    ActionType,
+    OfficeAgentRuntime,
+    ReservationManager,
+    RobotTaskStatus,
+)
+from stretch_mujoco.semantics import RelationType, SemanticWorld
+
+
+MODELS_PATH = Path(__file__).resolve().parents[1] / "stretch_mujoco" / "models"
+
+
+def load_runtime(*, auto_plan: bool = False) -> OfficeAgentRuntime:
+    world = SemanticWorld.from_json(MODELS_PATH / "office_semantics.json")
+    return OfficeAgentRuntime.from_json(
+        world,
+        MODELS_PATH / "office_agents.json",
+        auto_plan=auto_plan,
+    )
+
+
+def test_action_protocol_is_closed_and_rejects_unknown_actions() -> None:
+    try:
+        ActionCommand.from_dict({"agent_id": "employee_01", "action": "invent_new_action"})
+    except ValueError as error:
+        assert "is not allowed" in str(error)
+    else:
+        raise AssertionError("Unknown action was accepted")
+
+
+def test_action_validation_checks_location_and_target() -> None:
+    runtime = load_runtime()
+
+    sit_result = runtime.submit_action(ActionCommand("employee_01", ActionType.SIT, "chair_right"))
+    missing_result = runtime.submit_action(
+        ActionCommand("employee_01", ActionType.MOVE_TO, "missing_room")
+    )
+
+    assert not sit_result.valid
+    assert "not at required location" in sit_result.errors[0]
+    assert not missing_result.valid
+    assert "does not exist" in missing_result.errors[0]
+
+
+def test_reservations_reject_conflicting_agents() -> None:
+    reservations = ReservationManager()
+
+    assert reservations.reserve("soda_can", "employee_01")
+    assert not reservations.reserve("soda_can", "employee_02")
+    assert reservations.owner("soda_can") == "employee_01"
+
+
+def test_robot_request_creates_verified_task_and_updates_world() -> None:
+    runtime = load_runtime()
+    result = runtime.submit_action(
+        {
+            "agent_id": "employee_01",
+            "action": "request_robot",
+            "target": "stretch",
+            "parameters": {
+                "task": "deliver",
+                "object": "document_report",
+                "destination": "workstation_right",
+            },
+        }
+    )
+
+    runtime.tick(1.0)
+    task = runtime.pending_robot_tasks()[0]
+
+    assert result.valid
+    assert task.status == RobotTaskStatus.PENDING
+    assert runtime.reservations.owner("document_report") == "employee_01"
+    assert runtime.world.find_relations(
+        subject="document_report",
+        relation=RelationType.REQUESTED_BY,
+        object_id="employee_01",
+    )
+
+    runtime.complete_robot_task(task.task_id, success=True)
+
+    assert task.status == RobotTaskStatus.SUCCEEDED
+    assert runtime.world.location_of("document_report").object_id == "workstation_right"
+    assert runtime.reservations.owner("document_report") is None
+
+
+def test_robot_result_can_be_verified_against_physical_snapshot() -> None:
+    runtime = load_runtime()
+    runtime.submit_action(
+        {
+            "agent_id": "employee_01",
+            "action": "request_robot",
+            "target": "stretch",
+            "parameters": {
+                "task": "deliver",
+                "object": "soda_can",
+                "destination": "workstation_right",
+            },
+        }
+    )
+    runtime.tick(1.0)
+    task = runtime.pending_robot_tasks()[0]
+    far_snapshot = {
+        "objects": {
+            "soda_can": {"position": [0.0, -1.25, 0.8]},
+            "workstation_right": {"position": [2.25, 1.25, 0.0]},
+        }
+    }
+
+    runtime.complete_robot_task(
+        task.task_id,
+        success=True,
+        semantic_snapshot=far_snapshot,
+    )
+
+    assert task.status == RobotTaskStatus.FAILED
+    assert "from destination" in task.error
+
+
+def test_permission_and_graspability_are_checked_before_robot_request() -> None:
+    runtime = load_runtime()
+    runtime.world.remove_relation("document_report", RelationType.ALLOWED_FOR, "employee_01")
+
+    denied = runtime.submit_action(
+        {
+            "agent_id": "employee_01",
+            "action": "request_robot",
+            "target": "stretch_3",
+            "parameters": {
+                "task": "deliver",
+                "object": "document_report",
+                "destination": "workstation_right",
+            },
+        }
+    )
+    not_graspable = runtime.submit_action(
+        {
+            "agent_id": "employee_01",
+            "action": "request_robot",
+            "target": "stretch_3",
+            "parameters": {
+                "task": "deliver",
+                "object": "coffee_machine",
+                "destination": "workstation_right",
+            },
+        }
+    )
+
+    assert not denied.valid
+    assert any("not allowed" in error for error in denied.errors)
+    assert not not_graspable.valid
+    assert any("not graspable" in error for error in not_graspable.errors)
+
+
+def test_move_pick_up_and_drink_update_agent_needs_and_memory() -> None:
+    runtime = load_runtime()
+    agent = runtime.agents["employee_01"]
+
+    assert runtime.submit_action(
+        ActionCommand("employee_01", ActionType.MOVE_TO, "snack_counter")
+    ).valid
+    runtime.tick(3.0)
+    assert agent.state.location == "snack_counter"
+
+    assert runtime.submit_action(ActionCommand("employee_01", ActionType.PICK_UP, "soda_can")).valid
+    runtime.tick(0.5)
+    assert agent.state.held_object == "soda_can"
+
+    agent.needs.thirst = 0.9
+    assert runtime.submit_action(ActionCommand("employee_01", ActionType.DRINK, "soda_can")).valid
+    runtime.tick(2.0)
+
+    assert agent.state.held_object is None
+    assert agent.needs.thirst < 0.4
+    assert runtime.world.object("soda_can").attributes["consumed"] is True
+    assert runtime.world.object("soda_can").attributes["available"] is False
+    assert agent.memory.entries[-1].event == "action_succeeded"
+
+
+def test_schedule_has_deterministic_daily_variation() -> None:
+    runtime = load_runtime()
+    item = runtime.agents["employee_01"].schedule.items[0]
+
+    windows = {item.shifted_window("employee_01", day, runtime.seed) for day in range(5)}
+
+    assert len(windows) > 1
+    assert item.shifted_window("employee_01", 2, runtime.seed) == item.shifted_window(
+        "employee_01", 2, runtime.seed
+    )
+
+
+def test_auto_planner_does_not_duplicate_an_active_robot_request() -> None:
+    runtime = load_runtime(auto_plan=True)
+    runtime.minute_of_day = 13 * 60
+    runtime.agents["employee_01"].needs.thirst = 0.9
+
+    runtime.tick(1.0)
+    runtime.tick(1.0)
+    runtime.tick(10.0)
+
+    assert len(runtime.robot_tasks) == 1
+    assert len(runtime.pending_robot_tasks()) == 1

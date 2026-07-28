@@ -3,7 +3,7 @@ import math
 import re
 import time
 import xml.etree.ElementTree as ET
-from typing import TYPE_CHECKING, Callable, Tuple
+from typing import TYPE_CHECKING, Callable, Tuple, get_type_hints
 
 import cv2
 import numpy as np
@@ -374,12 +374,22 @@ def get_depth_color_map(depth_image, clor_map=cv2.COLORMAP_JET):
 
 
 def dataclass_from_dict(klass, dict_data: dict):
-    # references https://stackoverflow.com/a/54769644
+    """Recursively rebuild a dataclass, including postponed annotations."""
+    if not dataclasses.is_dataclass(klass) or not isinstance(dict_data, dict):
+        return dict_data
     try:
-        fieldtypes = {f.name: f.type for f in dataclasses.fields(klass)}
-        return klass(**{f: dataclass_from_dict(fieldtypes[f], dict_data[f]) for f in dict_data})
-    except:
-        return dict_data  # Not a dataclass field
+        fieldtypes = get_type_hints(klass)
+        return klass(
+            **{
+                field.name: dataclass_from_dict(
+                    fieldtypes.get(field.name, field.type), dict_data[field.name]
+                )
+                for field in dataclasses.fields(klass)
+                if field.name in dict_data
+            }
+        )
+    except (NameError, TypeError):
+        return klass(**dict_data)
 
 
 def block_until_check_succeeds(

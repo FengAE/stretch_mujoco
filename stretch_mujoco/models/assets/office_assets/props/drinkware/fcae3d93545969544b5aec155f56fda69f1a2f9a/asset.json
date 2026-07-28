@@ -1,0 +1,24 @@
+{
+  "asset_id": "fcae3d93545969544b5aec155f56fda69f1a2f9a",
+  "display_name": "Love birds mug blue",
+  "category": "props/drinkware",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/fcae3d93545969544b5aec155f56fda69f1a2f9a.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.03832578286528587,
+      -0.04000001400709152,
+      -0.00023054968914948404
+    ],
+    [
+      0.07200715690851212,
+      0.04000002518296242,
+      0.08002219349145889
+    ]
+  ],
+  "material_part_count": 1
+}

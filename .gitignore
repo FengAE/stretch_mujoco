@@ -18,7 +18,32 @@ wheels/
 .mypy_cache/
 .vscode/
 .idea/
+.claude/
+.codex/
+.agents/
+.pytest_cache/
 MUJOCO_LOG.TXT
+*.mp4
+*.png
+*.jpg
+/output/
 
 # Temp runtime XML 
 stretch_temp_abs.xml
+
+# Licensed humanoid model parameters must not be redistributed.
+models_smplx_*.zip
+smplx_uv_*.zip
+stretch_mujoco/models/assets/humanoid/private/*
+!stretch_mujoco/models/assets/humanoid/private/README.md
+stretch_mujoco/models/assets/humanoid/generated/*
+!stretch_mujoco/models/assets/humanoid/generated/README.md
+
+# Local LLM credentials must never be committed.
+**/*.local.json
+
+# strech_codex — only source code is committed
+strech_codex/build/
+strech_codex/.pytest_cache/
+strech_codex/src/*.egg-info/
+strech_codex/src/strech_codex/logs/

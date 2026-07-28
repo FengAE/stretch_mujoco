@@ -1,0 +1,24 @@
+{
+  "asset_id": "ed95f32cc00075ceed5bd4b593d2a06a444c0eec",
+  "display_name": "Pantone Mugs",
+  "category": "props/drinkware",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/ed95f32cc00075ceed5bd4b593d2a06a444c0eec.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.070677749812603,
+      -0.0399998240172863,
+      -2.8134847852651827e-16
+    ],
+    [
+      0.03932182490825653,
+      0.0399998314678669,
+      0.10000000149011612
+    ]
+  ],
+  "material_part_count": 2
+}

@@ -1,0 +1,24 @@
+{
+  "asset_id": "xxxx07289eaex9e77x42acxaeacxd40ba4b679c4",
+  "display_name": "Isla Bronze Triangle Floor Lamp",
+  "category": "lighting",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/x/xxxx07289eaex9e77x42acxaeacxd40ba4b679c4.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.25752583146095276,
+      -0.25752583146095276,
+      0.00010788440704345703
+    ],
+    [
+      0.25752583146095276,
+      0.25752583146095276,
+      1.5469002723693848
+    ]
+  ],
+  "material_part_count": 2
+}

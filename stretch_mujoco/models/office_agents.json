@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "seed": 23,
+  "llm_daily_budget": 30,
+  "llm_config": "office_llm.local.json",
+  "daily_events": true,
+  "clock": {
+    "start": "09:00",
+    "minutes_per_second": 1.0
+  },
+  "frequencies": {
+    "state_machine_hz": 4.0,
+    "needs_hz": 0.5,
+    "utility_interval_seconds": [5.0, 15.0]
+  },
+  "employees": {
+    "employee_01": {
+      "profile": {
+        "role": "Operations Specialist",
+        "department": "Operations",
+        "personality": {
+          "conscientiousness": 0.82,
+          "sociability": 0.58,
+          "patience": 0.66
+        },
+        "preferences": {
+          "snack": "bread_snack",
+          "drink": "soda_can",
+          "chair": "chair_right",
+          "workstation": "workstation_right",
+          "handover": "employee_01_handover"
+        }
+      },
+      "initial_location": "workstation_right",
+      "needs": {
+        "hunger": 0.28,
+        "thirst": 0.34,
+        "fatigue": 0.22
+      },
+      "schedule": [
+        {
+          "id": "morning_work",
+          "start": "09:00",
+          "end": "10:25",
+          "activity": "work",
+          "location": "workstation_right",
+          "variation_minutes": 6
+        },
+        {
+          "id": "coffee_break",
+          "start": "10:30",
+          "end": "10:45",
+          "activity": "rest",
+          "location": "chair_right",
+          "variation_minutes": 8
+        },
+        {
+          "id": "team_meeting",
+          "start": "11:00",
+          "end": "11:30",
+          "activity": "meeting",
+          "location": "meeting_table",
+          "variation_minutes": 5
+        },
+        {
+          "id": "late_morning_work",
+          "start": "11:35",
+          "end": "12:30",
+          "activity": "work",
+          "location": "workstation_right",
+          "variation_minutes": 7
+        }
+      ]
+    }
+  }
+}

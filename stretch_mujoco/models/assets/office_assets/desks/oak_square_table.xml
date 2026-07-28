@@ -1,0 +1,21 @@
+<mujoco model="oak_square_table">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_132" file="meshes/part_000_FINISH_461.obj" scale="1 0.999999881 0.999999881" />
+    <mesh name="object_mesh_133" file="meshes/part_001_FINISH_621.obj" scale="1 0.999999881 0.999999881" />
+    <material name="object_032_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_032_part_000_texture" />
+    <material name="object_032_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_032_part_001_texture" />
+    <texture name="object_032_part_001_texture" type="2d" file="textures/image_002.png" />
+    <texture name="object_032_part_000_texture" type="2d" file="textures/image_004.png" />
+  </asset>
+
+  <worldbody>
+    <body name="object_054_2be31ee230714129948eda5af7d3b29777601dba" pos="-7.56051445 1.88813389 1.12541557e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_054_000" type="mesh" mesh="object_mesh_132" material="object_032_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_054_001" type="mesh" mesh="object_mesh_133" material="object_032_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>

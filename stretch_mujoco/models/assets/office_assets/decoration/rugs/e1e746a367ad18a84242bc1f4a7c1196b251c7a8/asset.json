@@ -1,0 +1,24 @@
+{
+  "asset_id": "e1e746a367ad18a84242bc1f4a7c1196b251c7a8",
+  "display_name": "Jackson Handwoven Runner Rug, Marine",
+  "category": "decoration/rugs",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e1e746a367ad18a84242bc1f4a7c1196b251c7a8.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -1.5239999294281006,
+      -0.3962399959564209,
+      4.999999873689376e-05
+    ],
+    [
+      1.5239999294281006,
+      0.3962399959564209,
+      0.015290000475943089
+    ]
+  ],
+  "material_part_count": 1
+}

@@ -1,0 +1,25 @@
+<mujoco model="dry_wipe_module">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_204" file="meshes/part_000_Arch___Design__mi__2.obj" scale="0.999999881 0.999999821 0.999999881" />
+    <mesh name="object_mesh_205" file="meshes/part_001_Arch___Design__mi__1.obj" scale="0.999999881 0.999999821 0.999999881" />
+    <material name="object_048_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_048_part_000_material" rgba="0.21764 0.21764 0.21764 1" specular="0.1675" shininess="0" reflectance="0" />
+  </asset>
+
+  <worldbody>
+    <body name="object_083_b579dad917d549c04323882cc1c55f888b0253d2" pos="0.861647904 -0.57981738 -3.4559811e-08" quat="0.707106802 -1.25607408e-15 -4.21468485e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_083_000" type="mesh" mesh="object_mesh_204" material="object_048_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_083_001" type="mesh" mesh="object_mesh_205" material="object_048_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_084_b579dad917d549c04323882cc1c55f888b0253d2" pos="0.861647904 0.420182561 2.50448338e-08" quat="0.707106802 -1.25607408e-15 -4.21468485e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_084_000" type="mesh" mesh="object_mesh_204" material="object_048_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_084_001" type="mesh" mesh="object_mesh_205" material="object_048_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>

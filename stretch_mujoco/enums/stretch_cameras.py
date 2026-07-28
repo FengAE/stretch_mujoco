@@ -1,13 +1,15 @@
-from dataclasses import dataclass
 from enum import Enum
 from typing import Callable
 
+import mujoco
 import numpy as np
 
 from stretch_mujoco import config, utils
+from stretch_mujoco.datamodels.camera import CameraCrop, CameraSettings  # noqa: F401 — re-export
+from stretch_mujoco.robots.base import RobotCameras
 
 
-class StretchCameras(Enum):
+class StretchCameras(RobotCameras):
     """
     An enum of the camera's available to the simulation.
     """
@@ -19,6 +21,7 @@ class StretchCameras(Enum):
     cam_d435i_depth = 3
 
     cam_nav_rgb = 4
+    office_overview_rgb = 5
 
     def get_render_params(self):
         return (self.camera_name_in_mjcf, self.name, self.post_processing_callback)
@@ -29,6 +32,20 @@ class StretchCameras(Enum):
         Returns all the available cameras
         """
         return [camera for camera in StretchCameras]
+
+    @staticmethod
+    def from_mjmodel(mjmodel: mujoco.MjModel) -> list["StretchCameras"]:
+        """Return only cameras whose MJCF camera exists in ``mjmodel``."""
+        return [
+            camera
+            for camera in StretchCameras
+            if mujoco.mj_name2id(
+                mjmodel,
+                mujoco.mjtObj.mjOBJ_CAMERA,
+                camera.camera_name_in_mjcf,
+            )
+            >= 0
+        ]
 
     @staticmethod
     def none() -> list["StretchCameras"]:
@@ -46,6 +63,7 @@ class StretchCameras(Enum):
             StretchCameras.cam_d405_rgb,
             StretchCameras.cam_d435i_rgb,
             StretchCameras.cam_nav_rgb,
+            StretchCameras.office_overview_rgb,
         ]
 
     @staticmethod
@@ -54,6 +72,13 @@ class StretchCameras(Enum):
         Returns the Depth camera's only
         """
         return [StretchCameras.cam_d405_depth, StretchCameras.cam_d435i_depth]
+
+    @staticmethod
+    def none() -> list["StretchCameras"]:
+        """
+        Short-hand for not using any cameras.
+        """
+        return []
 
     @property
     def camera_name_in_mjcf(self) -> str:
@@ -67,8 +92,14 @@ class StretchCameras(Enum):
             return "d435i_camera_depth"
         if self == StretchCameras.cam_nav_rgb:
             return "nav_camera_rgb"
+        if self == StretchCameras.office_overview_rgb:
+            return "office_overview"
 
         raise NotImplementedError(f"Camera {self} camera_name_in_mjcf is not implemented")
+
+    @property
+    def is_rgb(self) -> bool:
+        return not self.is_depth
 
     @property
     def is_depth(self) -> bool:
@@ -78,6 +109,7 @@ class StretchCameras(Enum):
             self == StretchCameras.cam_d405_rgb
             or self == StretchCameras.cam_d435i_rgb
             or self == StretchCameras.cam_nav_rgb
+            or self == StretchCameras.office_overview_rgb
         ):
             return False
 
@@ -96,6 +128,7 @@ class StretchCameras(Enum):
             self == StretchCameras.cam_d405_rgb
             or self == StretchCameras.cam_d435i_rgb
             or self == StretchCameras.cam_nav_rgb
+            or self == StretchCameras.office_overview_rgb
         ):
             return None
 
@@ -153,143 +186,13 @@ class StretchCameras(Enum):
                 # sensor_pixel_size_micrometers=3.0 # from ov9782 spec, note: enabling this will not work with 0 `focal`
             )
 
+        if self == StretchCameras.office_overview_rgb:
+            return CameraSettings(
+                field_of_view_vertical_in_degrees=55,
+                focal=(0.0, 0.0),
+                width=960,
+                height=540,
+                sensor_resolution=(960, 540),
+            )
+
         raise NotImplementedError(f"Camera {self} initial settings are not implemented")
-
-
-@dataclass
-class CameraCrop:
-    x_min: int
-    x_max: int
-    y_min: int
-    y_max: int
-
-    @property
-    def x_offset(self):
-        return self.x_min
-
-    @property
-    def y_offset(self):
-        return self.y_min
-
-    @property
-    def width(self):
-        return self.x_max - self.x_min
-
-    @property
-    def height(self):
-        return self.y_max - self.y_min
-
-
-@dataclass
-class CameraSettings:
-    field_of_view_vertical_in_degrees: int
-    """Vertical FOV for the camera in degrees."""
-    focal: tuple[float, float]
-    """(x,y) Focal lengths in mm."""
-    width: int
-    """Width of the rendered image - this is different from `sensor_resolution` which is the max resolution"""
-    height: int
-    """Height of the rendered image - this is different from `sensor_resolution` which is the max resolution"""
-    sensor_resolution: tuple[float, float] | None = None
-    """The resolution of the image sensor."""
-    sensor_pixel_size_micrometers: float | None = None
-    """The size of a single pixel in µm"""
-    sensor_size_millimeters: tuple[float, float] | None = None
-    """Optional, sensor_size() can calculate this if you specify `sensor_pixel_size_micrometers` and `sensor_resolution`"""
-    crop: CameraCrop | None = None
-    """This is currently being used in Stretch Web Teleop to crop a ROI"""
-    distortion_params: tuple | None = None
-    """Specify this if they are available. Zeros will be used in `get_distortion_params_d()` otherwise."""
-
-    @property
-    def sensor_size(self) -> tuple[float, float] | None:
-        """
-        Returns the `sensor_size_millimeters` property if it is not None.
-        Otherwise, calculated the sensor size if `sensor_pixel_size_micrometers` and `sensor_resolution` are given.
-        Otherwise, returns None.
-        The dimensions of the camera sensor can be calculated from the sensor's resolution (width and height) multiplied with its pixel size, if they are known.
-        """
-        if self.sensor_size_millimeters is not None:
-            return self.sensor_size_millimeters
-
-        if self.sensor_pixel_size_micrometers is None or self.sensor_resolution is None:
-            return None
-
-        return (
-            self.sensor_pixel_size_micrometers * self.sensor_resolution[0] / 1000,
-            self.sensor_pixel_size_micrometers * self.sensor_resolution[1] / 1000,
-        )  # mm
-
-    @staticmethod
-    def field_of_view_vertical_from_horizontal(
-        fov_horizontal_degrees: int, width: int, height: int
-    ) -> int:
-        """Calculates vertical FOV from horizontal using aspect ratio."""
-        horizontal_fov = np.radians(fov_horizontal_degrees)
-        aspect_ratio = width / height
-        vertical_fov = np.rad2deg(2 * np.arctan(np.tan(horizontal_fov / 2) * aspect_ratio))
-        return int(abs(vertical_fov))
-
-    def get_distortion_params_d(self):
-        """
-        Distortion Parameters (D):
-        D is an array of floating-point numbers representing the camera's distortion coefficients.
-        These coefficients describe how the camera lens distorts the image.
-        The number of parameters and their interpretation depend on the distortion_model field.
-        For the common "plumb_bob" model, D contains five parameters: (k1, k2, t1, t2, k3), representing radial and tangential distortion.
-        k1, k2, and k3 are radial distortion coefficients.
-        t1 and t2 are tangential distortion coefficients.
-        """
-        return self.distortion_params or [0.0] * 5
-
-    def get_intrinsic_params_k(self):
-        """
-        Intrinsic Camera Matrix (K):
-        K is a 3x3 matrix describing the camera's intrinsic parameters: focal lengths and principal point.
-        It represents the transformation from normalized camera coordinates to pixel coordinates.
-        The matrix has the following form:
-        K = [fx 0 cx]
-            [0 fy cy]
-            [0  0  1]
-        fx and fy are the focal lengths in pixels along the x and y axes, respectively.
-        cx and cy are the coordinates of the principal point (center of the image) in pixels.
-        """
-        return [
-            self.focal[0],
-            0.0,
-            self.width / 2,
-            0.0,
-            self.focal[1],
-            self.height / 2,
-            0.0,
-            0.0,
-            1.0,
-        ]
-
-    def get_projection_matrix_p(self):
-        """
-        P is a 3x4 projection matrix that projects 3D points in the camera coordinate frame onto the 2D image plane.
-        It's typically derived from the camera's intrinsic matrix (K) and may include additional transformations like rotation and translation.
-        The matrix has the following form:
-        P = [fx' 0 cx' Tx]
-            [0 fy' cy' Ty]
-            [0  0  1   0]
-        fx' and fy' are the focal lengths in pixels for the rectified image.
-        cx' and cy' represent the principal point (center of the image) in pixels.
-        Tx and Ty are used in stereo setups to represent the translation of the second camera relative to the first. For monocular cameras, Tx and Ty are typically 0.
-
-        """
-        return [
-            self.focal[0],
-            0.0,
-            self.width / 2,
-            0.0,
-            0.0,
-            self.focal[1],
-            self.height / 2,
-            0.0,
-            0.0,
-            0.0,
-            1.0,
-            0.0,
-        ]

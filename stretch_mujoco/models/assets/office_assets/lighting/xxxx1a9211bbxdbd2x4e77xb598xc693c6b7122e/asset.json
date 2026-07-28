@@ -1,0 +1,24 @@
+{
+  "asset_id": "xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e",
+  "display_name": "Orbs Champagne Floor Lamp\r\n",
+  "category": "lighting",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/x/xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.2637644410133362,
+      -0.15191732347011566,
+      0.0
+    ],
+    [
+      0.2637644410133362,
+      0.15206100046634674,
+      1.7271995544433594
+    ]
+  ],
+  "material_part_count": 2
+}

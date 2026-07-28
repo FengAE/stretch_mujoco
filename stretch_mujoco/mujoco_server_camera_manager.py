@@ -109,7 +109,9 @@ class MujocoServerCameraManagerSync:
             self.mujoco_server.mjmodel, width=settings.width, height=settings.height
         )
 
-        renderer._scene_option.flags[mujoco._enums.mjtVisFlag.mjVIS_RANGEFINDER] = False # Disables the lidar yellow lines.
+        renderer._scene_option.flags[mujoco._enums.mjtVisFlag.mjVIS_RANGEFINDER] = (
+            False  # Disables the lidar yellow lines.
+        )
 
         from stretch_mujoco.mujoco_server_passive import MujocoServerPassive
 
@@ -167,19 +169,22 @@ class MujocoServerCameraManagerSync:
 
     def get_camera_params(self, camera: StretchCameras) -> np.ndarray:
         """
-        Get camera parameters
+        Get intrinsics matching StatusStretchCameras.get_camera_data defaults.
         """
-        cam = self.mujoco_server.mjmodel.camera(camera.camera_name_in_mjcf)
-        d = {
-            "f": self.mujoco_server.mjmodel.cam_intrinsic[cam.id][:2],
-            "p": self.mujoco_server.mjmodel.cam_intrinsic[cam.id][2:],
-            "res": self.mujoco_server.mjmodel.cam_resolution[cam.id],
-        }
+        settings = camera.initial_camera_settings
         camera_k = utils.compute_K(
-            camera.initial_camera_settings.field_of_view_vertical_in_degrees,
-            d["res"][0],
-            d["res"][1],
+            settings.field_of_view_vertical_in_degrees,
+            settings.width,
+            settings.height,
         )
+        if camera == StretchCameras.cam_d435i_rgb:
+            camera_k = np.array(
+                [
+                    [camera_k[1, 1], 0.0, settings.height / 2.0],
+                    [0.0, camera_k[0, 0], settings.width / 2.0],
+                    [0.0, 0.0, 1.0],
+                ]
+            )
         return camera_k
 
     def set_camera_params(self, camera: StretchCameras) -> None:
@@ -220,7 +225,14 @@ Initializing camera {camera.name}:
         """
         Set the camera properties and create a camera renderer for each camera in use.
         """
+        available = set(StretchCameras.from_mjmodel(self.mujoco_server.mjmodel))
         for camera in cameras_to_use:
+            if camera not in available:
+                print(
+                    f"Skipping camera {camera.name}: MJCF camera "
+                    f"'{camera.camera_name_in_mjcf}' is not present in this scene."
+                )
+                continue
             self.set_camera_params(
                 camera,
             )

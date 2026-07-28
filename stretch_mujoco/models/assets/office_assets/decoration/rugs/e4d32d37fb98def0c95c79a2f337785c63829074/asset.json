@@ -1,0 +1,24 @@
+{
+  "asset_id": "e4d32d37fb98def0c95c79a2f337785c63829074",
+  "display_name": "Jaden Hand Loomed 2'6'' x 10' Runner in Light Grey",
+  "category": "decoration/rugs",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e4d32d37fb98def0c95c79a2f337785c63829074.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -1.5239999294281006,
+      -0.38099998235702515,
+      -8.349987266561849e-17
+    ],
+    [
+      1.5239999294281006,
+      0.38099998235702515,
+      0.009999999776482582
+    ]
+  ],
+  "material_part_count": 1
+}

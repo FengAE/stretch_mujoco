@@ -1,0 +1,24 @@
+{
+  "asset_id": "da6ab8a359f639f9bbd92f51bf7ffc89f65714ee",
+  "display_name": "Hidden Home Office",
+  "category": "furniture/desks",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/da6ab8a359f639f9bbd92f51bf7ffc89f65714ee.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.5650033354759216,
+      -0.28251972794532776,
+      7.629394360719743e-08
+    ],
+    [
+      0.565002977848053,
+      0.28251972794532776,
+      0.800000011920929
+    ]
+  ],
+  "material_part_count": 2
+}

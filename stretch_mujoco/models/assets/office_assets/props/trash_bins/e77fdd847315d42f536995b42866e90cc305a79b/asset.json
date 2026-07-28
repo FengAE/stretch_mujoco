@@ -1,0 +1,24 @@
+{
+  "asset_id": "e77fdd847315d42f536995b42866e90cc305a79b",
+  "display_name": "Nick Munro Frost Wastepaper Bin",
+  "category": "props/trash_bins",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e77fdd847315d42f536995b42866e90cc305a79b.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.08499999344348907,
+      -0.08499999344348907,
+      -1.635728485499931e-17
+    ],
+    [
+      0.08499999344348907,
+      0.08499999344348907,
+      0.21999938786029816
+    ]
+  ],
+  "material_part_count": 1
+}

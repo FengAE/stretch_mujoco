@@ -1,0 +1,24 @@
+{
+  "asset_id": "b645ac0b787d641c9a28d4edee3fd99704d63654",
+  "display_name": "John Lewis The Godfather Movie Poster Print on Canvas, 30 x 40cm",
+  "category": "decoration/wall_art",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/b/b645ac0b787d641c9a28d4edee3fd99704d63654.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.15000000596046448,
+      -0.19999998807907104,
+      -4.44089183380283e-17
+    ],
+    [
+      0.14999999105930328,
+      0.20000000298023224,
+      0.009999999776482582
+    ]
+  ],
+  "material_part_count": 2
+}

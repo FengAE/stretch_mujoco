@@ -1,0 +1,24 @@
+{
+  "asset_id": "8c73109a6020fbf91d2491766b22e7167f13ae21",
+  "display_name": "Disney Cars Poster Wall Canvas - 30x50 cms",
+  "category": "decoration/wall_art",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/8/8c73109a6020fbf91d2491766b22e7167f13ae21.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.15000000596046448,
+      -0.25,
+      -5.551115123125783e-17
+    ],
+    [
+      0.15000000596046448,
+      0.25,
+      0.019999999552965164
+    ]
+  ],
+  "material_part_count": 2
+}

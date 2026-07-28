@@ -1,0 +1,72 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/d/d6f9b4561838f68f34d3fc36a7b700bc2c180253.glb",
+  "source_size": 866188,
+  "source_mtime_ns": 1784796008834272564,
+  "bounds": [
+    [
+      -0.30092108249664307,
+      -0.3065962493419647,
+      -2.3841859597695247e-09
+    ],
+    [
+      0.2992319166660309,
+      0.3058100640773773,
+      0.7458463311195374
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_unicolor_black.obj",
+      "texture": null,
+      "rgba": [
+        0.00775,
+        0.00775,
+        0.00775,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_unicolor_grey.obj",
+      "texture": null,
+      "rgba": [
+        0.3636,
+        0.3636,
+        0.3636,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Remix_123.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Chrome.obj",
+      "texture": null,
+      "rgba": [
+        0.766439,
+        0.766439,
+        0.766439,
+        1.0
+      ],
+      "specular": 0.7888211500000001,
+      "shininess": 0.96875,
+      "reflectance": 0.30668504999999996
+    }
+  ]
+}

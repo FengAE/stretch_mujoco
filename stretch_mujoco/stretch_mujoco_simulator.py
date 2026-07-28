@@ -20,6 +20,8 @@ from stretch_mujoco.enums.stretch_cameras import StretchCameras
 from stretch_mujoco.mujoco_server import MujocoServer, MujocoServerProxies
 from stretch_mujoco.mujoco_server_managed import MujocoServerManaged
 from stretch_mujoco.mujoco_server_passive import MujocoServerPassive
+from stretch_mujoco.semantics import SemanticWorld
+from stretch_mujoco.agents import OfficeAgentRuntime
 from stretch_mujoco.datamodels.status_command import (
     CommandBaseVelocity,
     CommandCoordinateFrameArrowsViz,
@@ -50,8 +52,8 @@ class StretchMujocoSimulator:
         model: MjModel | None = None,
         camera_hz: float = 30,
         cameras_to_use: list[StretchCameras] = [],
-        start_translation: list|None = None,
-        start_rotation_quat: list|None = None
+        start_translation: list | None = None,
+        start_rotation_quat: list | None = None,
     ) -> None:
         self.scene_xml_path = scene_xml_path
         self.model = model
@@ -61,9 +63,13 @@ class StretchMujocoSimulator:
         self._cameras_to_use = cameras_to_use
         self._start_translation = start_translation
         self._start_rotation_quat = start_rotation_quat
+        self.semantic_world = SemanticWorld.for_scene(scene_xml_path)
+        self.agent_runtime: OfficeAgentRuntime | None = None
 
         self.is_stop_called = False
 
+        # Manager must use spawn when this simulator is constructed from an MCP worker thread.
+        multiprocessing.set_start_method("spawn", force=True)
         self._manager = Manager()
         self._stop_mujoco_process_event = self._manager.Event()
 
@@ -97,8 +103,6 @@ class StretchMujocoSimulator:
             print(f"{mjpython_path=}")
             multiprocessing.set_executable(mjpython_path)
 
-        multiprocessing.set_start_method("spawn", force=True)
-
         self._server_process = Process(
             target=mujoco_server.launch_server,
             name="MujocoProcess",
@@ -118,8 +122,9 @@ class StretchMujocoSimulator:
         self._server_process.start()
 
         # Handle stopping, in all its various ways:
-        signal.signal(signal.SIGTERM, lambda num, sig: self.stop())
-        signal.signal(signal.SIGINT, lambda num, sig: self.stop())
+        if threading.current_thread() is threading.main_thread():
+            signal.signal(signal.SIGTERM, lambda num, sig: self.stop())
+            signal.signal(signal.SIGINT, lambda num, sig: self.stop())
         atexit.register(self.stop)
 
         click.secho("Starting Stretch Mujoco Simulator...", fg="green")
@@ -158,26 +163,6 @@ class StretchMujocoSimulator:
         )
 
         self.stop_mujoco_process()
-
-        # We're going to try to wait for threads to end. They might not gracefully stop before hitting an exception. Race conditions are rampant.
-        # For example, the main thread or a thread may not be checking `sim.is_running()` and is oblivious that it should stop. Nothing we can do to stop it except sigkill.
-        active_threads = threading.enumerate()
-        for index, thread in enumerate(active_threads):
-            if (
-                thread != threading.current_thread()
-                and thread != threading.main_thread()
-                and not isinstance(thread, threading._DummyThread)
-            ):
-                click.secho(
-                    f"Stopping thread {index}/{len(active_threads)-1}.",
-                    fg="yellow",
-                )
-                thread.join(timeout=10.0)
-                if thread.is_alive():
-                    click.secho(
-                        f"{thread.name} is not terminating. Make sure to check 'sim.is_running()' in threading loops.",
-                        fg="red",
-                    )
 
         click.secho(
             f"The Stretch Mujoco Simulator has ended. Good-bye!",
@@ -231,6 +216,116 @@ class StretchMujocoSimulator:
             )
 
         self.wait_while_is_moving(Actuators.wrist_pitch)
+
+    def set_humanoid_animation(self, animation: str) -> None:
+        """Select a pre-baked office NPC animation clip."""
+        available_animations = {"eat", "idle", "sit", "walk", "work"}
+        if animation not in available_animations:
+            available = ", ".join(sorted(available_animations))
+            raise ValueError(f"Unknown humanoid animation '{animation}'. Available: {available}")
+        self.data_proxies.set_humanoid_animation(animation)
+
+    def set_humanoid_sit_target(self, chair: str) -> None:
+        """Choose which office chair the NPC uses for the sit animation."""
+        site_name = chair if chair.endswith("_sit") else f"{chair}_sit"
+        available_targets = {"chair_left_sit", "chair_right_sit"}
+        if site_name not in available_targets:
+            available = ", ".join(
+                sorted(target.removesuffix("_sit") for target in available_targets)
+            )
+            raise ValueError(f"Unknown office chair '{chair}'. Available: {available}")
+        self.data_proxies.set_humanoid_sit_target(site_name)
+
+    def set_humanoid_navigation_target(self, target: str) -> None:
+        """Choose an office interaction site for the NPC walk root motion."""
+        target_sites = {
+            "workstation_left": "desk_left_work_site",
+            "workstation_right": "desk_right_work_site",
+            "chair_left": "chair_left_sit",
+            "chair_right": "chair_right_sit",
+            "meeting_table": "meeting_human_stand_site",
+            "storage_cabinet": "cabinet_human_stand_site",
+            "snack_counter": "snack_human_stand_site",
+            "coffee_bar": "coffee_human_stand_site",
+            "coffee_machine": "coffee_human_stand_site",
+        }
+        site_name = target_sites.get(target, target)
+        if site_name not in set(target_sites.values()):
+            available = ", ".join(sorted(target_sites))
+            raise ValueError(
+                f"Unknown humanoid navigation target '{target}'. Available: {available}"
+            )
+        self.data_proxies.set_humanoid_navigation_target(site_name)
+
+    def set_humanoid_playback_speed(self, speed: float) -> None:
+        """Scale NPC root motion and baked animation playback together."""
+        if speed <= 0:
+            raise ValueError("Humanoid playback speed must be positive")
+        self.data_proxies.set_humanoid_playback_speed(speed)
+
+    def set_object_visibility(self, object_id: str, visible: bool) -> None:
+        """Show or hide an object body and enable or disable its collisions."""
+        self.data_proxies.set_object_visibility(object_id, visible)
+
+    def consume_office_object(self, object_id: str) -> None:
+        """Mark an office object consumed and remove it from physics/rendering."""
+        if self.semantic_world is not None and object_id in self.semantic_world.objects:
+            semantic_object = self.semantic_world.object(object_id)
+            semantic_object.attributes["consumed"] = True
+            semantic_object.attributes["available"] = False
+        self.set_object_visibility(object_id, False)
+
+    def restore_office_object(self, object_id: str) -> None:
+        """Restore a consumed object for a fresh replay or simulation day."""
+        if self.semantic_world is not None and object_id in self.semantic_world.objects:
+            semantic_object = self.semantic_world.object(object_id)
+            semantic_object.attributes["consumed"] = False
+            semantic_object.attributes["available"] = True
+        self.set_object_visibility(object_id, True)
+
+    def attach_object_to_gripper(self, object_id: str) -> None:
+        """Keep a free object fixed to the current gripper-relative pose."""
+        self.data_proxies.set_grasped_object(object_id)
+
+    def release_grasped_object(self) -> None:
+        """Release an object previously attached to the gripper."""
+        self.data_proxies.set_grasped_object("")
+
+    def request_grasp_metrics(self, object_id: str) -> None:
+        """Ask the physics process to report finger contacts for an object."""
+        self.data_proxies.set_grasp_validation_target(object_id)
+
+    def pull_grasp_metrics(self) -> dict:
+        """Return the latest object-to-gripper distance and finger contacts."""
+        return self.data_proxies.get_grasp_metrics()
+
+    def set_robot_motion_speed(self, speed: float) -> None:
+        """Scale lift and arm controller response for accelerated demonstrations."""
+        if speed <= 0:
+            raise ValueError("Robot motion speed must be positive")
+        self.data_proxies.set_robot_motion_speed(speed)
+
+    def create_office_agent_runtime(
+        self,
+        config_path: str | None = None,
+        *,
+        seed: int | None = None,
+        auto_plan: bool = True,
+    ) -> OfficeAgentRuntime:
+        """Create the deterministic employee runtime for this semantic scene."""
+        if self.semantic_world is None:
+            raise ValueError("The current scene does not define a semantic world")
+        if config_path is None:
+            if self.semantic_world.source_path is None:
+                raise ValueError("Cannot infer the office agent configuration path")
+            config_path = str(self.semantic_world.source_path.with_name("office_agents.json"))
+        self.agent_runtime = OfficeAgentRuntime.from_json(
+            self.semantic_world,
+            config_path,
+            seed=seed,
+            auto_plan=auto_plan,
+        )
+        return self.agent_runtime
 
     def is_reached_set_position(self, actuator: str | Actuators, position_tolerance: float = 0.05):
         """
@@ -320,9 +415,7 @@ class StretchMujocoSimulator:
                 Actuators.base_rotate,
                 Actuators.base_translate,
             ]:
-                current_position = actuator.get_position_relative(
-                    self.pull_status()
-                )
+                current_position = actuator.get_position_relative(self.pull_status())
                 if actuator == Actuators.left_wheel_vel or actuator == Actuators.base_translate:
                     current_position = current_position[0]
                 elif actuator == Actuators.right_wheel_vel:
@@ -498,6 +591,11 @@ class StretchMujocoSimulator:
         Pull sensor data from the simulator and return as a StatusStretchSensors
         """
         return self.data_proxies.get_sensors()
+
+    @require_connection
+    def pull_semantic_state(self) -> dict:
+        """Return the latest low-frequency semantic object and interaction poses."""
+        return self.data_proxies.get_semantic_state()
 
     @require_connection
     def pull_status(self) -> StatusStretchJoints:

@@ -1,0 +1,72 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/f/fa26f3ac2b4003fae1a5025526aabaaaa8458d37.glb",
+  "source_size": 1099504,
+  "source_mtime_ns": 1784796105732272182,
+  "bounds": [
+    [
+      -0.3283432722091675,
+      -0.3357982635498047,
+      -0.0004314034595154226
+    ],
+    [
+      0.32625988125801086,
+      0.3357991874217987,
+      0.9793210029602051
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Material__3.obj",
+      "texture": null,
+      "rgba": [
+        0.10616,
+        0.10616,
+        0.11926,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Fabric_Seethrough2.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Material__2.obj",
+      "texture": null,
+      "rgba": [
+        0.05459,
+        0.05459,
+        0.05459,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Material__1.obj",
+      "texture": null,
+      "rgba": [
+        0.03026,
+        0.03026,
+        0.03026,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

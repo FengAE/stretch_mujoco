@@ -1,0 +1,24 @@
+{
+  "asset_id": "2efebdcc1ba9514b0deb0dfb05951341432bd26a",
+  "display_name": "APPLE iMac 5K 27\"",
+  "category": "electronics",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/2/2efebdcc1ba9514b0deb0dfb05951341432bd26a.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.3224344253540039,
+      -0.23331543803215027,
+      0.0005881160614080727
+    ],
+    [
+      0.3224335014820099,
+      0.23331691324710846,
+      0.48944348096847534
+    ]
+  ],
+  "material_part_count": 5
+}

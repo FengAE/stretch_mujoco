@@ -1,0 +1,39 @@
+<mujoco model="office_chair">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_004" file="meshes/part_000_Shader4.obj" scale="1 0.999999881 0.999999881" />
+    <mesh name="object_mesh_006" file="meshes/part_002_Shader2.obj" scale="1 0.999999881 0.999999881" />
+    <mesh name="object_mesh_007" file="meshes/part_003_Shader1.obj" scale="1 0.999999881 0.999999881" />
+    <mesh name="object_mesh_002" file="meshes/part_002_Shader2.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_003" file="meshes/part_003_Shader1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_000" file="meshes/part_000_Shader4.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_001" file="meshes/part_001_Shader3.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_005" file="meshes/part_001_Shader3.obj" scale="1 0.999999881 0.999999881" />
+    <material name="object_000_part_001_material" rgba="0.778745 0.778745 0.778745 1" specular="0.690136" shininess="1" reflectance="0.332586" />
+    <material name="object_000_part_003_material" rgba="1 1 1 1" specular="0.155" shininess="0.96017" reflectance="0" texture="object_000_part_003_texture" />
+    <material name="object_000_part_000_material" rgba="0.127225 0.127225 0.127225 1" specular="0.113382" shininess="0.949234" reflectance="0.00545891" />
+    <material name="object_000_part_002_material" rgba="1 1 1 1" specular="0.163039" shininess="0.894888" reflectance="0" texture="object_000_part_002_texture" />
+    <texture name="object_000_part_002_texture" type="2d" file="textures/image_005.png" />
+    <texture name="object_000_part_003_texture" type="2d" file="textures/image_002.png" />
+  </asset>
+
+  <worldbody>
+    <body name="object_000_0070649630e7b2262ec0427c0e2035232240fb4d" pos="-0.9581002 4.96487111 2.95929397e-07" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_000_000" type="mesh" mesh="object_mesh_000" material="object_000_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_001" type="mesh" mesh="object_mesh_001" material="object_000_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_002" type="mesh" mesh="object_mesh_002" material="object_000_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_003" type="mesh" mesh="object_mesh_003" material="object_000_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_001_0070649630e7b2262ec0427c0e2035232240fb4d" pos="-5.66692972 6.82364662 4.06721057e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_001_000" type="mesh" mesh="object_mesh_004" material="object_000_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_001" type="mesh" mesh="object_mesh_005" material="object_000_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_002" type="mesh" mesh="object_mesh_006" material="object_000_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_003" type="mesh" mesh="object_mesh_007" material="object_000_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>

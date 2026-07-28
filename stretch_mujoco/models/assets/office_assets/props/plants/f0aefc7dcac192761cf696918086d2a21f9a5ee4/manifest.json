@@ -1,0 +1,72 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/f/f0aefc7dcac192761cf696918086d2a21f9a5ee4.glb",
+  "source_size": 3095308,
+  "source_mtime_ns": 1784796110898272161,
+  "bounds": [
+    [
+      -0.21879799664020538,
+      -0.20304346084594727,
+      1.931589857138115e-14
+    ],
+    [
+      0.2187986671924591,
+      0.2030433863401413,
+      0.599999725818634
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Soil.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_glass.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.3275,
+      "shininess": 0.99710054,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_unicolor_creme_t.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_yellow.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

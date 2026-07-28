@@ -1,0 +1,46 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/f/f8c1be8fafd7d652e850774aa20a4e33feddea4c.glb",
+  "source_size": 188328,
+  "source_mtime_ns": 1784796107819272173,
+  "bounds": [
+    [
+      -0.6858001947402954,
+      -0.38115963339805603,
+      -5.301661190060258e-07
+    ],
+    [
+      0.6858000755310059,
+      0.38115963339805603,
+      0.6609318852424622
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Metal___Black_4.obj",
+      "texture": null,
+      "rgba": [
+        0.312093,
+        0.292358,
+        0.265197,
+        1.0
+      ],
+      "specular": 0.46824605,
+      "shininess": 0.9175308,
+      "reflectance": 0.20106135
+    },
+    {
+      "obj": "meshes/part_001_Wenge_good.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "asset_id": "d344e96d26c7f5ca8ffcad826d39617635f81def",
+  "display_name": "Bardot - A5 Notebook",
+  "category": "props/books",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/d344e96d26c7f5ca8ffcad826d39617635f81def.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.08224622160196304,
+      -0.10500360280275345,
+      -0.0032688952051103115
+    ],
+    [
+      0.07686857134103775,
+      0.10500360280275345,
+      0.020404094830155373
+    ]
+  ],
+  "material_part_count": 3
+}

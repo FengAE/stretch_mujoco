@@ -1,0 +1,24 @@
+{
+  "asset_id": "f8c1be8fafd7d652e850774aa20a4e33feddea4c",
+  "display_name": "Zain Writing Desk",
+  "category": "furniture/desks",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/f8c1be8fafd7d652e850774aa20a4e33feddea4c.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.6858001947402954,
+      -0.38115963339805603,
+      -5.301661190060258e-07
+    ],
+    [
+      0.6858000755310059,
+      0.38115963339805603,
+      0.6609318852424622
+    ]
+  ],
+  "material_part_count": 2
+}

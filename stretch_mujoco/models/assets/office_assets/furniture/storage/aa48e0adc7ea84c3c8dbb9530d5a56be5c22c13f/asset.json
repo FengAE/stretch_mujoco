@@ -1,0 +1,24 @@
+{
+  "asset_id": "aa48e0adc7ea84c3c8dbb9530d5a56be5c22c13f",
+  "display_name": "Telegraph Lateral Storage Cabinet, Spencer Brown",
+  "category": "furniture/storage",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/a/aa48e0adc7ea84c3c8dbb9530d5a56be5c22c13f.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -1.0191468000411987,
+      -0.32077300548553467,
+      -3.400813000098424e-07
+    ],
+    [
+      1.0191470384597778,
+      0.32067298889160156,
+      0.9081000089645386
+    ]
+  ],
+  "material_part_count": 8
+}

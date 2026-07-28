@@ -1,0 +1,376 @@
+{
+  "scene_id": "office_04_central_meeting",
+  "title": "Central Meeting Office",
+  "layout": "single_open_area",
+  "dimensions_m": [
+    21,
+    10.4
+  ],
+  "area_m2": 218.4,
+  "zones": [
+    {
+      "type": "work",
+      "bounds": [
+        -10.5,
+        10.5,
+        0.5,
+        5.2
+      ]
+    },
+    {
+      "type": "meeting",
+      "bounds": [
+        -10.5,
+        -2.0,
+        -5.2,
+        0.5
+      ]
+    },
+    {
+      "type": "lounge",
+      "bounds": [
+        -2.0,
+        4.5,
+        -5.2,
+        0.5
+      ]
+    },
+    {
+      "type": "snack",
+      "bounds": [
+        4.5,
+        10.5,
+        -5.2,
+        0.5
+      ]
+    }
+  ],
+  "workstation_layout": "rows_x",
+  "meeting_layout": "round",
+  "robot": {
+    "model": "Hello Robot Stretch",
+    "initial_pose": [
+      9.2,
+      1.3,
+      0.0
+    ],
+    "minimum_clearance_m": 2.7264748850576477,
+    "body": "base_link"
+  },
+  "asset_instance_count": 23,
+  "assets": [
+    {
+      "instance": 0,
+      "asset_id": "new_cb_desk_2400",
+      "name": "CB Desk 2400 Workstation Pod",
+      "category": "workstation_pods",
+      "position": [
+        -3.010984565079762,
+        2.85,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 3.0794247792316884
+    },
+    {
+      "instance": 1,
+      "asset_id": "new_cb_desk_2400",
+      "name": "CB Desk 2400 Workstation Pod",
+      "category": "workstation_pods",
+      "position": [
+        3.010984565079762,
+        2.85,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 3.0794247792316884
+    },
+    {
+      "instance": 2,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        10.0,
+        4.7,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 3,
+      "asset_id": "procedural_Waste Bin",
+      "name": "Waste Bin",
+      "category": "props/trash_bins",
+      "position": [
+        -10.0,
+        1.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.18
+    },
+    {
+      "instance": 4,
+      "asset_id": "procedural_Area Rug",
+      "name": "Area Rug",
+      "category": "decoration/rugs",
+      "position": [
+        -6.25,
+        -2.35,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 5,
+      "asset_id": "new_teaming_table",
+      "name": "Teaming Meeting Table",
+      "category": "meeting_tables",
+      "position": [
+        -6.25,
+        -2.35,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 1.6311335493901054
+    },
+    {
+      "instance": 6,
+      "asset_id": "new_imac_24",
+      "name": "iMac 24",
+      "category": "displays",
+      "position": [
+        -6.25,
+        -2.35,
+        0.9928999366941336
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 7,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -4.05,
+        -2.35,
+        0.0
+      ],
+      "yaw": -1.5707963267948966,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 8,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -5.1499999999999995,
+        -1.1375644347017861,
+        0.0
+      ],
+      "yaw": -0.5235987755982989,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 9,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -7.35,
+        -1.137564434701786,
+        0.0
+      ],
+      "yaw": 0.5235987755982987,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 10,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -8.45,
+        -2.35,
+        0.0
+      ],
+      "yaw": 1.5707963267948966,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 11,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -7.350000000000001,
+        -3.562435565298214,
+        0.0
+      ],
+      "yaw": 2.617993877991494,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 12,
+      "asset_id": "new_dining_chair",
+      "name": "Dining Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        -5.1499999999999995,
+        -3.5624355652982143,
+        0.0
+      ],
+      "yaw": 3.6651914291880923,
+      "collision_radius": 0.38487387816883323
+    },
+    {
+      "instance": 13,
+      "asset_id": "new_dry_wipe_module",
+      "name": "Double Dry Wipe Board",
+      "category": "whiteboards",
+      "position": [
+        -2.35,
+        -2.35,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 1.0334516140661798
+    },
+    {
+      "instance": 14,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        -10.05,
+        0.04999999999999999,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 15,
+      "asset_id": "procedural_Area Rug",
+      "name": "Area Rug",
+      "category": "decoration/rugs",
+      "position": [
+        1.25,
+        -2.35,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 16,
+      "asset_id": "9a0e617b83c901d346ce9fb020b49bf91442273c",
+      "name": "Tufted Curved Settee, Navy",
+      "category": "legacy_sofas",
+      "position": [
+        1.25,
+        -0.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.7835309498443843
+    },
+    {
+      "instance": 17,
+      "asset_id": "9a0e617b83c901d346ce9fb020b49bf91442273c",
+      "name": "Tufted Curved Settee, Navy",
+      "category": "legacy_sofas",
+      "position": [
+        1.25,
+        -4.45,
+        0.0
+      ],
+      "yaw": 3.141592653589793,
+      "collision_radius": 0.7835309498443843
+    },
+    {
+      "instance": 18,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        4.05,
+        0.04999999999999999,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 19,
+      "asset_id": "procedural_Snack Counter",
+      "name": "Snack Counter",
+      "category": "furniture/snack_counter",
+      "position": [
+        7.5,
+        -2.35,
+        0.0
+      ],
+      "yaw": 1.5707963267948966,
+      "collision_radius": 0.95
+    },
+    {
+      "instance": 20,
+      "asset_id": "procedural_Snack Storage Cabinet",
+      "name": "Snack Storage Cabinet",
+      "category": "furniture/storage",
+      "position": [
+        5.15,
+        0.04999999999999999,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.62
+    },
+    {
+      "instance": 21,
+      "asset_id": "procedural_Waste Bin",
+      "name": "Waste Bin",
+      "category": "props/trash_bins",
+      "position": [
+        10.05,
+        -4.75,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.18
+    },
+    {
+      "instance": 22,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        4.95,
+        -4.75,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    }
+  ],
+  "mjcf": "office_04_central_meeting.xml",
+  "robot_include": "office_04_central_meeting_robot.xml",
+  "preview": "office_04_central_meeting.png",
+  "model": {
+    "textures": 47,
+    "materials": 124,
+    "meshes": 178,
+    "geoms": 397,
+    "robot_start_xyz": [
+      9.2,
+      1.3,
+      0.0
+    ]
+  }
+}

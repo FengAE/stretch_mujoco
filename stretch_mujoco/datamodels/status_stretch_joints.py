@@ -1,27 +1,8 @@
 import copy
 from dataclasses import asdict, dataclass
+
+from stretch_mujoco.datamodels.common import BaseStatus, PositionVelocity  # noqa: F401 — re-export
 from stretch_mujoco.utils import dataclass_from_dict
-
-@dataclass
-class PositionVelocity:
-    pos: float
-    vel: float
-
-    @staticmethod
-    def default():
-        return PositionVelocity(0, 0)
-
-@dataclass
-class BaseStatus:
-    x:float
-    y:float
-    theta:float
-    x_vel:float
-    theta_vel:float
-
-    @staticmethod
-    def default():
-        return BaseStatus(0, 0, 0,0,0)
 
 @dataclass
 class StatusStretchJoints:

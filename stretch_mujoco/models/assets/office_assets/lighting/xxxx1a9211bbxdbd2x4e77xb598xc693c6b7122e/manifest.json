@@ -1,0 +1,46 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/x/xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e.glb",
+  "source_size": 766948,
+  "source_mtime_ns": 1784796024540272502,
+  "bounds": [
+    [
+      -0.2637644410133362,
+      -0.15191732347011566,
+      0.0
+    ],
+    [
+      0.2637644410133362,
+      0.15206100046634674,
+      1.7271995544433594
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_orbs_champagne_floor_lamp_clear.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_orbs_champagne_floor_lamp.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

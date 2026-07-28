@@ -1,0 +1,24 @@
+{
+  "asset_id": "e3479ce73271171bdaa163968c50500719ed4d72",
+  "display_name": "Street Art - Know Your Rights Small Mug",
+  "category": "props/drinkware",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e3479ce73271171bdaa163968c50500719ed4d72.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.0404379665851593,
+      -0.04048968851566315,
+      1.1006190106854774e-05
+    ],
+    [
+      0.07349684089422226,
+      0.04039040580391884,
+      0.09626028686761856
+    ]
+  ],
+  "material_part_count": 2
+}

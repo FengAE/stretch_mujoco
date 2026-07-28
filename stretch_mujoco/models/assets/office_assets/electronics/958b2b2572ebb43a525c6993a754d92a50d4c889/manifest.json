@@ -1,0 +1,85 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/9/958b2b2572ebb43a525c6993a754d92a50d4c889.glb",
+  "source_size": 771648,
+  "source_mtime_ns": 1784796067419272333,
+  "bounds": [
+    [
+      -0.30207934975624084,
+      -0.21417221426963806,
+      0.0013856157893314958
+    ],
+    [
+      0.3020870089530945,
+      0.2141728401184082,
+      0.4040713906288147
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_unicolor_creme_t.obj",
+      "texture": "textures/image_009.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Metal___Stainless_steel.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Metal___Stainless_steel.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Material__0.obj",
+      "texture": null,
+      "rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_Standard_1.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/e/e77fdd847315d42f536995b42866e90cc305a79b.glb",
+  "source_size": 14360,
+  "source_mtime_ns": 1784796090612272241,
+  "bounds": [
+    [
+      -0.08499999344348907,
+      -0.08499999344348907,
+      -1.635728485499931e-17
+    ],
+    [
+      0.08499999344348907,
+      0.08499999344348907,
+      0.21999938786029816
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Shader1.obj",
+      "texture": null,
+      "rgba": [
+        0.955199,
+        0.944003,
+        0.917871,
+        1.0
+      ],
+      "specular": 0.20763821500000001,
+      "shininess": 0.9492342,
+      "reflectance": 0.017587955
+    }
+  ]
+}

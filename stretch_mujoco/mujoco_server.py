@@ -22,6 +22,8 @@ from stretch_mujoco.enums.actuators import Actuators
 from stretch_mujoco.enums.stretch_cameras import StretchCameras
 import stretch_mujoco.config as config
 from stretch_mujoco.enums.stretch_sensors import StretchSensors
+from stretch_mujoco.humanoid.mesh_animator import HumanoidMeshAnimator
+from stretch_mujoco.semantics import SemanticWorld
 from stretch_mujoco.mujoco_server_camera_manager import (
     MujocoServerCameraManagerThreaded,
     MujocoServerCameraManagerSync,
@@ -39,6 +41,16 @@ class MujocoServerProxies:
     _cameras: "DictProxy[str, StatusStretchCameras]"
     _sensors: "DictProxy[str, StatusStretchSensors]"
     _joint_limits: "DictProxy[str, dict[Actuators, tuple[float, float]]]"
+    _humanoid_animation: "DictProxy[str, str]"
+    _humanoid_sit_target: "DictProxy[str, str]"
+    _humanoid_navigation_target: "DictProxy[str, str]"
+    _humanoid_playback_speed: "DictProxy[str, float]"
+    _object_visibility: "DictProxy[str, dict[str, bool]]"
+    _grasped_object: "DictProxy[str, str]"
+    _grasp_validation_target: "DictProxy[str, str]"
+    _grasp_metrics: "DictProxy[str, dict]"
+    _robot_motion_speed: "DictProxy[str, float]"
+    _semantic_state: "DictProxy[str, dict]"
 
     def __setattr__(self, name: str, value) -> None:
         try:
@@ -79,6 +91,68 @@ class MujocoServerProxies:
 
         self._joint_limits["val"] = limits
 
+    def get_humanoid_animation(self) -> str:
+        return self._humanoid_animation["val"]
+
+    def set_humanoid_animation(self, animation: str) -> None:
+        self._humanoid_animation["val"] = animation
+
+    def get_humanoid_sit_target(self) -> str:
+        return self._humanoid_sit_target["val"]
+
+    def set_humanoid_sit_target(self, site_name: str) -> None:
+        self._humanoid_sit_target["val"] = site_name
+
+    def get_humanoid_navigation_target(self) -> str:
+        return self._humanoid_navigation_target["val"]
+
+    def set_humanoid_navigation_target(self, site_name: str) -> None:
+        self._humanoid_navigation_target["val"] = site_name
+
+    def get_humanoid_playback_speed(self) -> float:
+        return float(self._humanoid_playback_speed["val"])
+
+    def set_humanoid_playback_speed(self, speed: float) -> None:
+        self._humanoid_playback_speed["val"] = float(speed)
+
+    def get_object_visibility(self) -> dict[str, bool]:
+        return dict(self._object_visibility["val"])
+
+    def set_object_visibility(self, object_id: str, visible: bool) -> None:
+        visibility = dict(self._object_visibility["val"])
+        visibility[object_id] = bool(visible)
+        self._object_visibility["val"] = visibility
+
+    def get_grasped_object(self) -> str:
+        return str(self._grasped_object["val"])
+
+    def set_grasped_object(self, object_id: str) -> None:
+        self._grasped_object["val"] = object_id
+
+    def get_grasp_validation_target(self) -> str:
+        return str(self._grasp_validation_target["val"])
+
+    def set_grasp_validation_target(self, object_id: str) -> None:
+        self._grasp_validation_target["val"] = object_id
+
+    def get_grasp_metrics(self) -> dict:
+        return dict(self._grasp_metrics["val"])
+
+    def set_grasp_metrics(self, metrics: dict) -> None:
+        self._grasp_metrics["val"] = metrics
+
+    def get_robot_motion_speed(self) -> float:
+        return float(self._robot_motion_speed["val"])
+
+    def set_robot_motion_speed(self, speed: float) -> None:
+        self._robot_motion_speed["val"] = float(speed)
+
+    def get_semantic_state(self) -> dict:
+        return self._semantic_state["val"]
+
+    def set_semantic_state(self, state: dict) -> None:
+        self._semantic_state["val"] = state
+
     @staticmethod
     def default(manager: SyncManager) -> "MujocoServerProxies":
         return MujocoServerProxies(
@@ -87,6 +161,18 @@ class MujocoServerProxies:
             _cameras=manager.dict({"val": StatusStretchCameras.default()}),
             _sensors=manager.dict({"val": StatusStretchSensors.default()}),
             _joint_limits=manager.dict({"val": {}}),
+            _humanoid_animation=manager.dict({"val": "idle"}),
+            _humanoid_sit_target=manager.dict({"val": "chair_right_sit"}),
+            _humanoid_navigation_target=manager.dict({"val": ""}),
+            _humanoid_playback_speed=manager.dict({"val": 1.0}),
+            _object_visibility=manager.dict({"val": {}}),
+            _grasped_object=manager.dict({"val": ""}),
+            _grasp_validation_target=manager.dict({"val": ""}),
+            _grasp_metrics=manager.dict({"val": {}}),
+            _robot_motion_speed=manager.dict({"val": 1.0}),
+            _semantic_state=manager.dict(
+                {"val": {"time": 0.0, "objects": {}, "interaction_points": {}}}
+            ),
         )
 
 
@@ -172,8 +258,16 @@ class BaseController:
             omega: float, angular velocity
         """
         w_left, w_right = utils.diff_drive_inv_kinematics(v_linear, omega)
-        self.mujoco_server.mjdata.actuator(Actuators.left_wheel_vel.name).ctrl = w_left
-        self.mujoco_server.mjdata.actuator(Actuators.right_wheel_vel.name).ctrl = w_right
+        model = self.mujoco_server.mjmodel
+        data = self.mujoco_server.mjdata
+        ids = [
+            mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_ACTUATOR, name)
+            for name in (Actuators.left_wheel_vel.name, Actuators.right_wheel_vel.name)
+        ]
+        targets = np.array([w_left, w_right]) * model.actuator_gear[ids, 0]
+        limits = np.max(np.abs(model.actuator_ctrlrange[ids]), axis=1)
+        scale = max(1.0, float(np.max(np.abs(targets) / limits)))
+        data.ctrl[ids] = targets / scale
 
 
 class MujocoServer:
@@ -193,42 +287,49 @@ class MujocoServer:
         stop_mujoco_process_event: threading.Event,
         data_proxies: MujocoServerProxies,
         cameras_to_use: list[StretchCameras],
-        start_translation: list|None,
-        start_rotation_quat: list|None
+        start_translation: list | None,
+        start_rotation_quat: list | None,
     ):
-        server = cls(scene_xml_path, model, stop_mujoco_process_event, data_proxies,start_translation , start_rotation_quat)
+        server = cls(
+            scene_xml_path,
+            model,
+            stop_mujoco_process_event,
+            data_proxies,
+            start_translation,
+            start_rotation_quat,
+        )
         server.run(
             show_viewer_ui=show_viewer_ui,
             camera_hz=camera_hz,
             cameras_to_use=cameras_to_use,
         )
 
-    def change_start_pose(self,model: MjModel, translation: list|None, rotation_quat: list|None):
+    def change_start_pose(
+        self, model: MjModel, translation: list | None, rotation_quat: list | None
+    ):
         body_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, "base_link")
-        
+
         if body_id == -1:
             raise ValueError("Body 'base_link' not found in the MjModel.")
-    
+
         joint_id = -1
         for j in range(model.njnt):
             if model.jnt_bodyid[j] == body_id:
                 joint_id = j
                 break
-    
+
         # Since the model has a Free Joint, we must change the default QPOS (qpos0).
         qadr = model.jnt_qposadr[joint_id]
 
         if translation is not None:
-            model.qpos0[qadr:qadr+3] = translation
-            
+            model.qpos0[qadr : qadr + 3] = translation
+
         if rotation_quat is not None:
-            model.qpos0[qadr+3:qadr+7] = rotation_quat
+            model.qpos0[qadr + 3 : qadr + 7] = rotation_quat
 
         print(f"Start pose: {model.qpos0[qadr:qadr+3]}, {model.qpos0[qadr+3:qadr+7]}")
 
         return model
-        
-
 
     def __init__(
         self,
@@ -236,8 +337,8 @@ class MujocoServer:
         model: MjModel | None,
         stop_mujoco_process_event: threading.Event,
         data_proxies: MujocoServerProxies,
-        start_translation: list|None,
-        start_rotation_quat: list|None
+        start_translation: list | None,
+        start_rotation_quat: list | None,
     ):
         """
         Initialize the Simulator handle with a scene
@@ -255,7 +356,37 @@ class MujocoServer:
 
         self.mjmodel = model
 
+        # Wheel velocity controls target gear-scaled actuator velocity.  The bundled
+        # [-6, 6] range only permits about 0.1 m/s with gear=3, despite the 0.3 m/s
+        # configured base speed.
+        for actuator_name in (Actuators.left_wheel_vel.name, Actuators.right_wheel_vel.name):
+            actuator_id = mujoco.mj_name2id(
+                self.mjmodel, mujoco.mjtObj.mjOBJ_ACTUATOR, actuator_name
+            )
+            self.mjmodel.actuator_ctrlrange[actuator_id] = (-40.0, 40.0)
+
         self.mjdata = MjData(self.mjmodel)
+        self.humanoid_animator = HumanoidMeshAnimator(self.mjmodel)
+        self._object_visibility_state: dict[str, bool] = {}
+        self._object_geom_defaults: dict[int, tuple[float, int, int]] = {}
+        self._grasp_attachment_object = ""
+        self._grasp_attachment_transform: np.ndarray | None = None
+        self._grasp_attachment_gravcomp: float | None = None
+        self._robot_motion_speed = 1.0
+        self._robot_actuator_defaults: dict[int, tuple[np.ndarray, np.ndarray, np.ndarray]] = {}
+        for actuator_name in ("lift", "arm", "gripper"):
+            actuator_id = mujoco.mj_name2id(
+                self.mjmodel, mujoco.mjtObj.mjOBJ_ACTUATOR, actuator_name
+            )
+            self._robot_actuator_defaults[actuator_id] = (
+                self.mjmodel.actuator_gainprm[actuator_id].copy(),
+                self.mjmodel.actuator_biasprm[actuator_id].copy(),
+                self.mjmodel.actuator_forcerange[actuator_id].copy(),
+            )
+        self.semantic_world = SemanticWorld.for_scene(scene_xml_path)
+        self._next_semantic_update_time = 0.0
+        if self.semantic_world is not None:
+            self.semantic_world.validate_model(self.mjmodel)
 
         self._base_in_pos_motion = False
 
@@ -459,8 +590,198 @@ class MujocoServer:
             return
 
         self.physics_fps_counter.tick(sim_time=data.time)
+        self._apply_robot_motion_speed()
+        self.humanoid_animator.update(
+            sim_time=data.time,
+            clip=self.data_proxies.get_humanoid_animation(),
+            data=data,
+            sit_target_site=self.data_proxies.get_humanoid_sit_target(),
+            navigation_target_site=self.data_proxies.get_humanoid_navigation_target(),
+            speed_scale=self.data_proxies.get_humanoid_playback_speed(),
+        )
+        self._apply_grasp_attachment(data)
+        self._update_grasp_metrics(data)
+        self._apply_object_visibility()
+        if self.semantic_world is not None and data.time >= self._next_semantic_update_time:
+            self.data_proxies.set_semantic_state(self.semantic_world.pose_snapshot(model, data))
+            self._next_semantic_update_time = data.time + 0.2
         self.pull_status()
         self.push_command(self.data_proxies.get_command())
+
+    def _apply_object_visibility(self) -> None:
+        for object_id, visible in self.data_proxies.get_object_visibility().items():
+            if self._object_visibility_state.get(object_id) == visible:
+                continue
+            body_id = mujoco.mj_name2id(self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, object_id)
+            if body_id < 0:
+                continue
+            for geom_id in range(self.mjmodel.ngeom):
+                if int(self.mjmodel.geom_bodyid[geom_id]) != body_id:
+                    continue
+                defaults = self._object_geom_defaults.setdefault(
+                    geom_id,
+                    (
+                        float(self.mjmodel.geom_rgba[geom_id, 3]),
+                        int(self.mjmodel.geom_contype[geom_id]),
+                        int(self.mjmodel.geom_conaffinity[geom_id]),
+                    ),
+                )
+                self.mjmodel.geom_rgba[geom_id, 3] = defaults[0] if visible else 0.0
+                self.mjmodel.geom_contype[geom_id] = defaults[1] if visible else 0
+                self.mjmodel.geom_conaffinity[geom_id] = defaults[2] if visible else 0
+            self._object_visibility_state[object_id] = visible
+
+    def _apply_robot_motion_speed(self) -> None:
+        speed = self.data_proxies.get_robot_motion_speed()
+        if np.isclose(speed, self._robot_motion_speed):
+            return
+        self._robot_motion_speed = speed
+        for actuator_id, defaults in self._robot_actuator_defaults.items():
+            gain, bias, force_range = defaults
+            self.mjmodel.actuator_gainprm[actuator_id] = gain * speed
+            self.mjmodel.actuator_biasprm[actuator_id] = bias * speed
+            self.mjmodel.actuator_forcerange[actuator_id] = force_range * speed
+
+    def _apply_grasp_attachment(self, data: MjData) -> None:
+        requested_object = self.data_proxies.get_grasped_object()
+        if requested_object != self._grasp_attachment_object:
+            if self._grasp_attachment_object:
+                previous_id = mujoco.mj_name2id(
+                    self.mjmodel,
+                    mujoco.mjtObj.mjOBJ_BODY,
+                    self._grasp_attachment_object,
+                )
+                if previous_id >= 0:
+                    self._set_attachment_physics(previous_id, enabled=True)
+            self._grasp_attachment_object = requested_object
+            self._grasp_attachment_transform = None
+            self._grasp_attachment_gravcomp = None
+            if requested_object:
+                gripper_id = mujoco.mj_name2id(
+                    self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, "link_grasp_center"
+                )
+                object_id = mujoco.mj_name2id(
+                    self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, requested_object
+                )
+                if gripper_id < 0 or object_id < 0:
+                    self._grasp_attachment_object = ""
+                    self.data_proxies.set_grasped_object("")
+                    return
+                self._grasp_attachment_transform = np.linalg.inv(
+                    self._body_pose(data, gripper_id)
+                ) @ self._body_pose(data, object_id)
+                self._set_attachment_physics(object_id, enabled=False)
+
+        if not self._grasp_attachment_object or self._grasp_attachment_transform is None:
+            return
+        gripper_id = mujoco.mj_name2id(self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, "link_grasp_center")
+        object_id = mujoco.mj_name2id(
+            self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, self._grasp_attachment_object
+        )
+        joint_id = int(self.mjmodel.body_jntadr[object_id])
+        if joint_id < 0 or self.mjmodel.jnt_type[joint_id] != mujoco.mjtJoint.mjJNT_FREE:
+            return
+        target = self._body_pose(data, gripper_id) @ self._grasp_attachment_transform
+        qpos_address = int(self.mjmodel.jnt_qposadr[joint_id])
+        dof_address = int(self.mjmodel.jnt_dofadr[joint_id])
+        quaternion = np.empty(4)
+        mujoco.mju_mat2Quat(quaternion, target[:3, :3].reshape(9))
+        data.qpos[qpos_address : qpos_address + 3] = target[:3, 3]
+        data.qpos[qpos_address + 3 : qpos_address + 7] = quaternion
+        data.qvel[dof_address : dof_address + 6] = 0.0
+
+    def _set_attachment_physics(self, body_id: int, *, enabled: bool) -> None:
+        if enabled:
+            if self._grasp_attachment_gravcomp is not None:
+                self.mjmodel.body_gravcomp[body_id] = self._grasp_attachment_gravcomp
+        else:
+            self._grasp_attachment_gravcomp = float(self.mjmodel.body_gravcomp[body_id])
+            self.mjmodel.body_gravcomp[body_id] = 1.0
+        for geom_id in range(self.mjmodel.ngeom):
+            if int(self.mjmodel.geom_bodyid[geom_id]) != body_id:
+                continue
+            defaults = self._object_geom_defaults.setdefault(
+                geom_id,
+                (
+                    float(self.mjmodel.geom_rgba[geom_id, 3]),
+                    int(self.mjmodel.geom_contype[geom_id]),
+                    int(self.mjmodel.geom_conaffinity[geom_id]),
+                ),
+            )
+            self.mjmodel.geom_contype[geom_id] = defaults[1] if enabled else 0
+            self.mjmodel.geom_conaffinity[geom_id] = defaults[2] if enabled else 0
+
+    def _update_grasp_metrics(self, data: MjData) -> None:
+        object_name = self.data_proxies.get_grasp_validation_target()
+        if not object_name:
+            return
+        object_id = mujoco.mj_name2id(self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, object_name)
+        grasp_id = mujoco.mj_name2id(self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, "link_grasp_center")
+        left_id = mujoco.mj_name2id(
+            self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, "link_gripper_finger_left"
+        )
+        right_id = mujoco.mj_name2id(
+            self.mjmodel, mujoco.mjtObj.mjOBJ_BODY, "link_gripper_finger_right"
+        )
+        if min(object_id, grasp_id, left_id, right_id) < 0:
+            self.data_proxies.set_grasp_metrics(
+                {"object_id": object_name, "error": "Missing grasp validation body"}
+            )
+            return
+
+        left_contacts = 0
+        right_contacts = 0
+        minimum_contact_distance = None
+        for contact_index in range(data.ncon):
+            contact = data.contact[contact_index]
+            body1 = int(self.mjmodel.geom_bodyid[contact.geom1])
+            body2 = int(self.mjmodel.geom_bodyid[contact.geom2])
+            if body1 == object_id:
+                other_body = body2
+            elif body2 == object_id:
+                other_body = body1
+            else:
+                continue
+            if self._body_is_descendant(other_body, left_id):
+                left_contacts += 1
+            if self._body_is_descendant(other_body, right_id):
+                right_contacts += 1
+            if left_contacts or right_contacts:
+                distance = float(contact.dist)
+                minimum_contact_distance = (
+                    distance
+                    if minimum_contact_distance is None
+                    else min(minimum_contact_distance, distance)
+                )
+
+        center_distance = float(np.linalg.norm(data.xpos[object_id] - data.xpos[grasp_id]))
+        self.data_proxies.set_grasp_metrics(
+            {
+                "time": float(data.time),
+                "object_id": object_name,
+                "center_distance_m": center_distance,
+                "left_finger_contacts": left_contacts,
+                "right_finger_contacts": right_contacts,
+                "bilateral_contact": left_contacts > 0 and right_contacts > 0,
+                "minimum_contact_distance_m": minimum_contact_distance,
+                "object_position": data.xpos[object_id].tolist(),
+                "grasp_center_position": data.xpos[grasp_id].tolist(),
+            }
+        )
+
+    def _body_is_descendant(self, body_id: int, ancestor_id: int) -> bool:
+        while body_id > 0:
+            if body_id == ancestor_id:
+                return True
+            body_id = int(self.mjmodel.body_parentid[body_id])
+        return False
+
+    @staticmethod
+    def _body_pose(data: MjData, body_id: int) -> np.ndarray:
+        pose = np.eye(4)
+        pose[:3, :3] = data.xmat[body_id].reshape(3, 3)
+        pose[:3, 3] = data.xpos[body_id]
+        return pose
 
     def pull_status(self):
         """
@@ -524,7 +845,7 @@ class MujocoServer:
             config.robot_settings["gripper_min_max"],
         )
 
-    def push_command(self, command_status:StatusCommand):
+    def push_command(self, command_status: StatusCommand):
         """
         Handles setting mujoco ctrl properties to move joints.
         """

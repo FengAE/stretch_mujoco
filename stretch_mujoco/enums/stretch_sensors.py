@@ -3,9 +3,13 @@ from functools import cache
 
 import mujoco
 import mujoco._structs
+import numpy as np
+
+from stretch_mujoco.datamodels.sensors import SensorMetadata, SensorType
+from stretch_mujoco.robots.base import RobotSensors
 
 
-class StretchSensors(Enum):
+class StretchSensors(RobotSensors):
     """
     An enum of the sensors available to the simulation.
     """
@@ -13,6 +17,53 @@ class StretchSensors(Enum):
     base_gyro = 0
     base_accel = 1
     base_lidar = 2
+
+    # -- RobotSensors ABC interface ------------------------------------
+
+    @property
+    def sensor_name_in_mjcf(self) -> str:
+        return self.name
+
+    @property
+    def metadata(self) -> SensorMetadata:
+        if self == StretchSensors.base_gyro:
+            return SensorMetadata(
+                sensor_type=SensorType.IMU_GYRO,
+                shape=(3,),
+                units="rad/s",
+                frame="base",
+                description="3-axis gyroscope at base_imu site",
+            )
+        if self == StretchSensors.base_accel:
+            return SensorMetadata(
+                sensor_type=SensorType.IMU_ACCEL,
+                shape=(3,),
+                units="m/s²",
+                frame="base",
+                description="3-axis accelerometer at base_imu site",
+            )
+        if self == StretchSensors.base_lidar:
+            return SensorMetadata(
+                sensor_type=SensorType.LIDAR_2D,
+                shape=(360,),
+                units="m",
+                frame="base",
+                description="360-point 2D lidar rangefinder array, 10m max range",
+            )
+        return SensorMetadata(sensor_type=SensorType.CUSTOM, shape=(), description="unknown")
+
+    @property
+    def is_replicated(self) -> bool:
+        return self == StretchSensors.base_lidar
+
+    def get_replicated_names(self, resolution: int = 360) -> list[str]:
+        if self == StretchSensors.base_lidar:
+            num_digits = len(str(resolution))
+            return [
+                f"{self.name}{str(i).zfill(num_digits)}"
+                for i in range(resolution)
+            ]
+        return [self.sensor_name_in_mjcf]
 
     @staticmethod
     def all() -> list["StretchSensors"]:

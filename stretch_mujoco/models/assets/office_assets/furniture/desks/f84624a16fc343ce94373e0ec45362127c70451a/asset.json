@@ -1,0 +1,24 @@
+{
+  "asset_id": "f84624a16fc343ce94373e0ec45362127c70451a",
+  "display_name": "Shia 47 Inch Writing Desk",
+  "category": "furniture/desks",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/f84624a16fc343ce94373e0ec45362127c70451a.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.6049013137817383,
+      -0.26177504658699036,
+      -5.5277926003187276e-17
+    ],
+    [
+      0.6049010753631592,
+      0.25400009751319885,
+      0.7619999647140503
+    ]
+  ],
+  "material_part_count": 2
+}

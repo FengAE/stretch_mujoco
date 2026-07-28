@@ -1,0 +1,24 @@
+{
+  "asset_id": "ff3f501d99144ddb7e9aca99702f609ae6754a4c",
+  "display_name": "156 Runner - Beige",
+  "category": "decoration/rugs",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/ff3f501d99144ddb7e9aca99702f609ae6754a4c.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.2999991476535797,
+      -1.1499998569488525,
+      -2.553512639000505e-16
+    ],
+    [
+      0.2999991476535797,
+      1.1499998569488525,
+      0.0010000013280659914
+    ]
+  ],
+  "material_part_count": 1
+}

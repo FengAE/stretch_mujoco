@@ -1,0 +1,24 @@
+{
+  "asset_id": "dbaf471314440f77d069d09e56fd02d3ed70a99e",
+  "display_name": "Triple moth orchid in rattan planter",
+  "category": "props/plants",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/dbaf471314440f77d069d09e56fd02d3ed70a99e.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.1999998688697815,
+      -0.19999974966049194,
+      -2.3383735826745275e-17
+    ],
+    [
+      0.1999998688697815,
+      0.19999974966049194,
+      0.7000021934509277
+    ]
+  ],
+  "material_part_count": 6
+}

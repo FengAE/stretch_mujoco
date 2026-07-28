@@ -1,0 +1,24 @@
+{
+  "asset_id": "fbe1da92b4ec1d1ab6540aca91a52c64d42a6229",
+  "display_name": "LaserJet P3005d, Mono A4 Duplex 33ppm 1200x1200 dpi",
+  "category": "electronics",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/fbe1da92b4ec1d1ab6540aca91a52c64d42a6229.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.21000099182128906,
+      -0.20500004291534424,
+      -4.2788706437330885e-17
+    ],
+    [
+      0.21000099182128906,
+      0.20500004291534424,
+      0.3100000023841858
+    ]
+  ],
+  "material_part_count": 2
+}

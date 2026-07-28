@@ -1,0 +1,24 @@
+{
+  "asset_id": "958b2b2572ebb43a525c6993a754d92a50d4c889",
+  "display_name": "APPLE iMac 21\"",
+  "category": "electronics",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/9/958b2b2572ebb43a525c6993a754d92a50d4c889.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.30207934975624084,
+      -0.21417221426963806,
+      0.0013856157893314958
+    ],
+    [
+      0.3020870089530945,
+      0.2141728401184082,
+      0.4040713906288147
+    ]
+  ],
+  "material_part_count": 5
+}

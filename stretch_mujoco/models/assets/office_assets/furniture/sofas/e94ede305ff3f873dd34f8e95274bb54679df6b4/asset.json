@@ -1,0 +1,24 @@
+{
+  "asset_id": "e94ede305ff3f873dd34f8e95274bb54679df6b4",
+  "display_name": "Kelly Settee by Nate Berkus and Jeremiah Brent, Blue",
+  "category": "furniture/sofas",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e94ede305ff3f873dd34f8e95274bb54679df6b4.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.9270999431610107,
+      -0.3308224081993103,
+      -5.831478633311349e-10
+    ],
+    [
+      0.9270999431610107,
+      0.33072853088378906,
+      0.7869727611541748
+    ]
+  ],
+  "material_part_count": 3
+}

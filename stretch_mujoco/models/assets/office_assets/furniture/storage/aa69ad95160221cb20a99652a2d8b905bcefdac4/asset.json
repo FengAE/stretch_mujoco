@@ -1,0 +1,24 @@
+{
+  "asset_id": "aa69ad95160221cb20a99652a2d8b905bcefdac4",
+  "display_name": "Tall Closed Storage",
+  "category": "furniture/storage",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/a/aa69ad95160221cb20a99652a2d8b905bcefdac4.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.5986703038215637,
+      -0.238786980509758,
+      -4.341853499061856e-17
+    ],
+    [
+      0.5986716747283936,
+      0.23878557980060577,
+      1.4999184608459473
+    ]
+  ],
+  "material_part_count": 3
+}

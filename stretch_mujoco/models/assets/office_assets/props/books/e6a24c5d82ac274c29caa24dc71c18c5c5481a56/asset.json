@@ -1,0 +1,24 @@
+{
+  "asset_id": "e6a24c5d82ac274c29caa24dc71c18c5c5481a56",
+  "display_name": "London Travel Companion",
+  "category": "props/books",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e6a24c5d82ac274c29caa24dc71c18c5c5481a56.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.044996872544288635,
+      -0.06999286264181137,
+      3.658776040538214e-05
+    ],
+    [
+      0.044993747025728226,
+      0.06998692452907562,
+      0.025010500103235245
+    ]
+  ],
+  "material_part_count": 1
+}

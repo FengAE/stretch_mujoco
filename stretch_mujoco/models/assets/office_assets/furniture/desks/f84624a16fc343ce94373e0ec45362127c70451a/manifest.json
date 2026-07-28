@@ -1,0 +1,46 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/f/f84624a16fc343ce94373e0ec45362127c70451a.glb",
+  "source_size": 125368,
+  "source_mtime_ns": 1784796109058272168,
+  "bounds": [
+    [
+      -0.6049013137817383,
+      -0.26177504658699036,
+      -5.5277926003187276e-17
+    ],
+    [
+      0.6049010753631592,
+      0.25400009751319885,
+      0.7619999647140503
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Metal___Stainless_steel_2017.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9175308,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_White.obj",
+      "texture": null,
+      "rgba": [
+        0.90755,
+        0.90755,
+        0.90755,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

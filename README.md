@@ -60,6 +60,69 @@ export DYLD_LIBRARY_PATH=/usr/lib:$DYLD_LIBRARY_PATH
 
 ## Example Scripts
 
+[Office and snack scene](./examples/office_scene.py)
+
+Launch Stretch 3 in a furnished office with work, meeting, lounge, and break areas.
+The four graspable snacks use imported textured 3D meshes with lightweight collision proxies:
+
+```
+uv run examples/office_scene.py
+```
+
+Use `--headless` to run the same scene without the interactive viewer.
+
+Cycle through the pre-baked SMPL-X NPC animations:
+
+```
+uv run examples/office_scene.py --animation-demo
+```
+
+The `sit` request makes the NPC walk around the workstation, approach the chair,
+turn, and lower into the seat. It uses the right office chair by default. Select
+the other chair with `--npc-chair chair_left`:
+
+```
+uv run examples/office_scene.py --npc-animation sit --npc-chair chair_left
+```
+
+The office semantic world maps MuJoCo entities to typed objects, relations, and
+agent-facing interaction points. Inspect the graph without launching the viewer:
+
+```
+uv run examples/office_semantics.py --object-id document_report
+```
+
+When the office simulator is running, `sim.semantic_world` exposes relation queries
+and updates, while `sim.pull_semantic_state()` returns the latest 5 Hz world-space
+poses for semantic objects and interaction points. See
+[Office Semantic World](./docs/office_semantics.md) for relation direction and
+Agent update rules.
+
+Run the deterministic employee action protocol and create a robot delivery task:
+
+```
+uv run examples/office_agents.py --complete-task
+```
+
+The runtime contains no LLM calls. `ActionCommand` accepts only the built-in action
+enum, and `OfficeAgentRuntime` owns validation, reservations, conflicts, needs,
+schedules, memory, execution state, robot requests, and result verification. See
+[Office Employee Agents](./docs/office_agents.md) for the simulator loop and
+physical-controller handoff contract.
+
+Inspect the seeded low-compute state machine, utility decisions, daily events, and
+event-only LLM triggers:
+
+```
+uv run examples/office_autonomy.py --seconds 60
+```
+
+See [Low-Compute Autonomous Behavior](./docs/low_compute_behavior.md) for update
+frequencies, utility factors, anti-repetition behavior, and the LLM call boundary.
+Local provider credentials belong in the ignored
+`stretch_mujoco/models/office_llm.local.json`; start from the adjacent
+`office_llm.example.json` template and set its permissions to `600`.
+
 [Keyboard teleop](https://github.com/hello-robot/stretch_mujoco/tree/main/examples/keyboard_teleop.py)
 
 ```

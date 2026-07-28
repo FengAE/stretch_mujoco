@@ -1,0 +1,24 @@
+{
+  "asset_id": "5274751529e50c02430fb9b3ee3019ea9c091520",
+  "display_name": "Kendrick Stone Settee",
+  "category": "furniture/sofas",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/5/5274751529e50c02430fb9b3ee3019ea9c091520.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.7614309787750244,
+      -0.4347851276397705,
+      6.435389877879061e-06
+    ],
+    [
+      0.7614303827285767,
+      0.4347851574420929,
+      0.8167960047721863
+    ]
+  ],
+  "material_part_count": 2
+}

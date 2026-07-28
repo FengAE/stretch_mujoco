@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "source": {
+    "agent": "employee_01",
+    "planner": "deepseek-v4-flash",
+    "llm_calls": 2
+  },
+  "workday": {
+    "start": "09:00",
+    "end": "18:00"
+  },
+  "highlights": [
+    {
+      "time": "09:00",
+      "action": "request_robot",
+      "label": "Request invoice delivery",
+      "object": "document_invoice",
+      "destination": "workstation_right"
+    },
+    {
+      "time": "11:00",
+      "action": "attend_meeting",
+      "label": "Attend team meeting",
+      "destination": "meeting_table"
+    },
+    {
+      "time": "12:46",
+      "action": "eat",
+      "label": "Eat bread snack",
+      "object": "bread_snack",
+      "destination": "snack_counter"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "morning_work",
+      "start": "09:00",
+      "end": "10:25",
+      "activity": "work",
+      "location": "workstation_right"
+    },
+    {
+      "id": "coffee_break",
+      "start": "10:30",
+      "end": "10:45",
+      "activity": "rest",
+      "location": "chair_right"
+    },
+    {
+      "id": "team_meeting",
+      "start": "11:00",
+      "end": "11:30",
+      "activity": "meeting",
+      "location": "meeting_table"
+    },
+    {
+      "id": "late_morning_work",
+      "start": "11:35",
+      "end": "12:30",
+      "activity": "work",
+      "location": "workstation_right"
+    },
+    {
+      "id": "lunch_break",
+      "start": "12:30",
+      "end": "13:15",
+      "activity": "rest",
+      "location": "snack_counter"
+    },
+    {
+      "id": "afternoon_work",
+      "start": "13:20",
+      "end": "15:25",
+      "activity": "work",
+      "location": "workstation_right"
+    },
+    {
+      "id": "afternoon_break",
+      "start": "15:30",
+      "end": "15:45",
+      "activity": "rest",
+      "location": "chair_right"
+    },
+    {
+      "id": "final_work",
+      "start": "15:50",
+      "end": "17:40",
+      "activity": "work",
+      "location": "workstation_right"
+    },
+    {
+      "id": "end_of_day_rest",
+      "start": "17:45",
+      "end": "18:00",
+      "activity": "rest",
+      "location": "chair_right"
+    }
+  ]
+}

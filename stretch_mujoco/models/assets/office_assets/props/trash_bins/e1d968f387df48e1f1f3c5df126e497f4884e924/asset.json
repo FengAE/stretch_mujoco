@@ -1,0 +1,24 @@
+{
+  "asset_id": "e1d968f387df48e1f1f3c5df126e497f4884e924",
+  "display_name": "Risom Wastebasket",
+  "category": "props/trash_bins",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/e1d968f387df48e1f1f3c5df126e497f4884e924.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.15240000188350677,
+      -0.15239998698234558,
+      -3.001972446214171e-17
+    ],
+    [
+      0.15240000188350677,
+      0.15240000188350677,
+      0.35560426115989685
+    ]
+  ],
+  "material_part_count": 2
+}

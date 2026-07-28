@@ -1,0 +1,24 @@
+{
+  "asset_id": "d6f9b4561838f68f34d3fc36a7b700bc2c180253",
+  "display_name": "Gas Task Chair, Aluminum Frame and Remix 123",
+  "category": "furniture/chairs",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/d6f9b4561838f68f34d3fc36a7b700bc2c180253.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.30092108249664307,
+      -0.3065962493419647,
+      -2.3841859597695247e-09
+    ],
+    [
+      0.2992319166660309,
+      0.3058100640773773,
+      0.7458463311195374
+    ]
+  ],
+  "material_part_count": 4
+}

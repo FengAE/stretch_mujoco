@@ -1,0 +1,72 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/f/fbeea099466186ec2d4af811c7ab24169c822092.glb",
+  "source_size": 5620208,
+  "source_mtime_ns": 1784796106156272180,
+  "bounds": [
+    [
+      -0.2730579078197479,
+      -0.2768765091896057,
+      -0.0005455365171656013
+    ],
+    [
+      0.2730579674243927,
+      0.2768983542919159,
+      0.7044512033462524
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Green.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_White.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Glass_Door.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.08,
+      "shininess": 1.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Glass_Clear.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.99551289,
+      "reflectance": 0.0
+    }
+  ]
+}

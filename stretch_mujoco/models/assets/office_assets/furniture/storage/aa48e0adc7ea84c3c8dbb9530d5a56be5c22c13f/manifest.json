@@ -1,0 +1,124 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/a/aa48e0adc7ea84c3c8dbb9530d5a56be5c22c13f.glb",
+  "source_size": 803068,
+  "source_mtime_ns": 1784796052828272390,
+  "bounds": [
+    [
+      -1.0191468000411987,
+      -0.32077300548553467,
+      -3.400813000098424e-07
+    ],
+    [
+      1.0191470384597778,
+      0.32067298889160156,
+      0.9081000089645386
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_mig_1f.obj",
+      "texture": "textures/image_004.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_mig_00wood2.obj",
+      "texture": "textures/image_010.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_White.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_mig_3.obj",
+      "texture": "textures/image_015.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_mig_1ff.obj",
+      "texture": "textures/image_012.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_005_Metal___Stainless_dark.obj",
+      "texture": "textures/image_008.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.894888,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_006_mig_00wood2.obj",
+      "texture": "textures/image_020.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_007_mig_1.obj",
+      "texture": "textures/image_018.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

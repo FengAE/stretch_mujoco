@@ -1,0 +1,24 @@
+{
+  "asset_id": "fa26f3ac2b4003fae1a5025526aabaaaa8458d37",
+  "display_name": "Series 1 Task Chair",
+  "category": "furniture/chairs",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/fa26f3ac2b4003fae1a5025526aabaaaa8458d37.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.3283432722091675,
+      -0.3357982635498047,
+      -0.0004314034595154226
+    ],
+    [
+      0.32625988125801086,
+      0.3357991874217987,
+      0.9793210029602051
+    ]
+  ],
+  "material_part_count": 4
+}

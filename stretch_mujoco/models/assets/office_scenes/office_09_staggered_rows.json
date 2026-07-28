@@ -1,0 +1,389 @@
+{
+  "scene_id": "office_09_staggered_rows",
+  "title": "Staggered Rows Office",
+  "layout": "single_open_area",
+  "dimensions_m": [
+    20,
+    11
+  ],
+  "area_m2": 220,
+  "zones": [
+    {
+      "type": "work",
+      "bounds": [
+        -10.0,
+        3.0,
+        -5.5,
+        1.0
+      ]
+    },
+    {
+      "type": "meeting",
+      "bounds": [
+        3.0,
+        10.0,
+        -5.5,
+        1.0
+      ]
+    },
+    {
+      "type": "lounge",
+      "bounds": [
+        -10.0,
+        4.0,
+        1.0,
+        5.5
+      ]
+    },
+    {
+      "type": "snack",
+      "bounds": [
+        4.0,
+        10.0,
+        1.0,
+        5.5
+      ]
+    }
+  ],
+  "workstation_layout": "rows_x",
+  "meeting_layout": "boardroom",
+  "robot": {
+    "model": "Hello Robot Stretch",
+    "initial_pose": [
+      -8.7,
+      3.8,
+      -1.5707963267948966
+    ],
+    "minimum_clearance_m": 4.54820018061695,
+    "body": "base_link"
+  },
+  "asset_instance_count": 24,
+  "assets": [
+    {
+      "instance": 0,
+      "asset_id": "new_cb_desk_2400",
+      "name": "CB Desk 2400 Workstation Pod",
+      "category": "workstation_pods",
+      "position": [
+        -3.5,
+        -2.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 3.0794247792316884
+    },
+    {
+      "instance": 1,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        2.5,
+        0.5,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 2,
+      "asset_id": "procedural_Waste Bin",
+      "name": "Waste Bin",
+      "category": "props/trash_bins",
+      "position": [
+        -9.5,
+        -5.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.18
+    },
+    {
+      "instance": 3,
+      "asset_id": "procedural_Area Rug",
+      "name": "Area Rug",
+      "category": "decoration/rugs",
+      "position": [
+        6.5,
+        -2.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 4,
+      "asset_id": "new_teaming_table",
+      "name": "Teaming Meeting Table",
+      "category": "meeting_tables",
+      "position": [
+        6.5,
+        -2.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 1.6311335493901054
+    },
+    {
+      "instance": 5,
+      "asset_id": "new_imac_27",
+      "name": "iMac 27",
+      "category": "displays",
+      "position": [
+        6.5,
+        -2.25,
+        0.9928999366941336
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 6,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        8.833333333333334,
+        -2.25,
+        0.0
+      ],
+      "yaw": -1.5707963267948966,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 7,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        8.14991582276861,
+        -1.2246951672795061,
+        0.0
+      ],
+      "yaw": -0.7853981633974483,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 8,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        6.5,
+        -0.8,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 9,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        4.850084177231389,
+        -1.2246951672795061,
+        0.0
+      ],
+      "yaw": 0.7853981633974483,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 10,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        4.166666666666666,
+        -2.25,
+        0.0
+      ],
+      "yaw": 1.5707963267948966,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 11,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        4.8500841772313885,
+        -3.2753048327204937,
+        0.0
+      ],
+      "yaw": 2.356194490192345,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 12,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        6.5,
+        -3.7,
+        0.0
+      ],
+      "yaw": 3.141592653589793,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 13,
+      "asset_id": "new_stance_chair",
+      "name": "Stance Meeting Chair",
+      "category": "meeting_chairs",
+      "position": [
+        8.14991582276861,
+        -3.275304832720494,
+        0.0
+      ],
+      "yaw": 3.9269908169872414,
+      "collision_radius": 0.4739576892135551
+    },
+    {
+      "instance": 14,
+      "asset_id": "new_dry_wipe_module",
+      "name": "Double Dry Wipe Board",
+      "category": "whiteboards",
+      "position": [
+        9.65,
+        -2.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 1.0334516140661798
+    },
+    {
+      "instance": 15,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        3.45,
+        0.55,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 16,
+      "asset_id": "procedural_Area Rug",
+      "name": "Area Rug",
+      "category": "decoration/rugs",
+      "position": [
+        -3.0,
+        3.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.0
+    },
+    {
+      "instance": 17,
+      "asset_id": "5274751529e50c02430fb9b3ee3019ea9c091520",
+      "name": "Kendrick Stone Settee",
+      "category": "legacy_sofas",
+      "position": [
+        -3.0,
+        4.75,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.8768208492984692
+    },
+    {
+      "instance": 18,
+      "asset_id": "5274751529e50c02430fb9b3ee3019ea9c091520",
+      "name": "Kendrick Stone Settee",
+      "category": "legacy_sofas",
+      "position": [
+        -3.0,
+        1.75,
+        0.0
+      ],
+      "yaw": 3.141592653589793,
+      "collision_radius": 0.8768208492984692
+    },
+    {
+      "instance": 19,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        3.55,
+        5.05,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    },
+    {
+      "instance": 20,
+      "asset_id": "procedural_Snack Counter",
+      "name": "Snack Counter",
+      "category": "furniture/snack_counter",
+      "position": [
+        7.0,
+        3.25,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.95
+    },
+    {
+      "instance": 21,
+      "asset_id": "procedural_Snack Storage Cabinet",
+      "name": "Snack Storage Cabinet",
+      "category": "furniture/storage",
+      "position": [
+        4.65,
+        5.05,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.62
+    },
+    {
+      "instance": 22,
+      "asset_id": "procedural_Waste Bin",
+      "name": "Waste Bin",
+      "category": "props/trash_bins",
+      "position": [
+        9.55,
+        1.45,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.18
+    },
+    {
+      "instance": 23,
+      "asset_id": "procedural_Office Plant",
+      "name": "Office Plant",
+      "category": "props/plants",
+      "position": [
+        4.45,
+        1.45,
+        0.0
+      ],
+      "yaw": 0.0,
+      "collision_radius": 0.2
+    }
+  ],
+  "mjcf": "office_09_staggered_rows.xml",
+  "robot_include": "office_09_staggered_rows_robot.xml",
+  "preview": "office_09_staggered_rows.png",
+  "model": {
+    "textures": 47,
+    "materials": 124,
+    "meshes": 178,
+    "geoms": 311,
+    "robot_start_xyz": [
+      -8.7,
+      3.8,
+      0.0
+    ]
+  }
+}

@@ -2,9 +2,10 @@ from enum import Enum
 from functools import cache
 
 from stretch_mujoco.datamodels.status_stretch_joints import StatusStretchJoints
+from stretch_mujoco.robots.base import ActuatorType, RobotActuators
 
 
-class Actuators(Enum):
+class Actuators(RobotActuators):
     """
     An enum for the joints defined in the URDF.
     """
@@ -160,6 +161,36 @@ class Actuators(Enum):
         raise NotImplementedError(
             f"Get {'Position' if is_position else 'Velocity'}  for {self.name} is not implemented."
         )
+
+    # -- RobotActuators ABC interface -----------------------------------
+
+    @property
+    def has_position_control(self) -> bool:
+        return self not in (
+            Actuators.left_wheel_vel,
+            Actuators.right_wheel_vel,
+        )
+
+    @property
+    def has_velocity_control(self) -> bool:
+        return self in (Actuators.left_wheel_vel, Actuators.right_wheel_vel)
+
+    def actuator_type(self) -> ActuatorType:
+        if self in (Actuators.left_wheel_vel, Actuators.right_wheel_vel):
+            return ActuatorType.VELOCITY
+        return ActuatorType.POSITION
+
+    def is_base_actuator(self) -> bool:
+        return self in (
+            Actuators.base_rotate,
+            Actuators.base_translate,
+            Actuators.left_wheel_vel,
+            Actuators.right_wheel_vel,
+        )
+
+    @staticmethod
+    def all() -> list["Actuators"]:
+        return [a for a in Actuators]
 
     def get_position(self, status: StatusStretchJoints) -> float:
         if self in [Actuators.base_rotate, Actuators.base_translate]:

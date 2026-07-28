@@ -1,0 +1,46 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/9/9a0e617b83c901d346ce9fb020b49bf91442273c.glb",
+  "source_size": 948016,
+  "source_mtime_ns": 1784796070864272319,
+  "bounds": [
+    [
+      -0.6670182943344116,
+      -0.41331127285957336,
+      -2.8369424853735836e-07
+    ],
+    [
+      0.6670402884483337,
+      0.4088630974292755,
+      1.1534836292266846
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_mig_00wood.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Velvet_Emerald.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

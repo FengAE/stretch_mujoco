@@ -1,0 +1,33 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/e/e4d32d37fb98def0c95c79a2f337785c63829074.glb",
+  "source_size": 23104,
+  "source_mtime_ns": 1784796093830272229,
+  "bounds": [
+    [
+      -1.5239999294281006,
+      -0.38099998235702515,
+      -8.349987266561849e-17
+    ],
+    [
+      1.5239999294281006,
+      0.38099998235702515,
+      0.009999999776482582
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Rug.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

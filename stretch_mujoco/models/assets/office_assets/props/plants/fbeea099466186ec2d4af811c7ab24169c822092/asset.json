@@ -1,0 +1,24 @@
+{
+  "asset_id": "fbeea099466186ec2d4af811c7ab24169c822092",
+  "display_name": "White Orchids in Glass, 28''",
+  "category": "props/plants",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/fbeea099466186ec2d4af811c7ab24169c822092.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.2730579078197479,
+      -0.2768765091896057,
+      -0.0005455365171656013
+    ],
+    [
+      0.2730579674243927,
+      0.2768983542919159,
+      0.7044512033462524
+    ]
+  ],
+  "material_part_count": 4
+}

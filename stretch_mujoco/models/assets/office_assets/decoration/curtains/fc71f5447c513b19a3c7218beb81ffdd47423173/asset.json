@@ -1,0 +1,24 @@
+{
+  "asset_id": "fc71f5447c513b19a3c7218beb81ffdd47423173",
+  "display_name": "Slatted Blinds",
+  "category": "decoration/curtains",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/fc71f5447c513b19a3c7218beb81ffdd47423173.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.45337975025177,
+      -0.6170637011528015,
+      -0.0668279230594635
+    ],
+    [
+      0.45337975025177,
+      0.6084333658218384,
+      0.1646762639284134
+    ]
+  ],
+  "material_part_count": 2
+}

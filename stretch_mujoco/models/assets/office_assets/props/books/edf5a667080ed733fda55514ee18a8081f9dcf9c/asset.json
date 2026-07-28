@@ -1,0 +1,24 @@
+{
+  "asset_id": "edf5a667080ed733fda55514ee18a8081f9dcf9c",
+  "display_name": "Skyline - A3 Vang Sketchbook",
+  "category": "props/books",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/e/edf5a667080ed733fda55514ee18a8081f9dcf9c.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.14999999105930328,
+      -0.20847100019454956,
+      -4.6094577044186735e-08
+    ],
+    [
+      0.15000000596046448,
+      0.2084708958864212,
+      0.028305087238550186
+    ]
+  ],
+  "material_part_count": 3
+}

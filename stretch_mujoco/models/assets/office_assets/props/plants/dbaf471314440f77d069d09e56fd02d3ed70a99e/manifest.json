@@ -1,0 +1,98 @@
+{
+  "converter_version": 1,
+  "source": "/home/yjw/data/hssd-hab/objects/d/dbaf471314440f77d069d09e56fd02d3ed70a99e.glb",
+  "source_size": 2621948,
+  "source_mtime_ns": 1784796013144272547,
+  "bounds": [
+    [
+      -0.1999998688697815,
+      -0.19999974966049194,
+      -2.3383735826745275e-17
+    ],
+    [
+      0.1999998688697815,
+      0.19999974966049194,
+      0.7000021934509277
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_plastic_matte_creme2.obj",
+      "texture": null,
+      "rgba": [
+        0.78931,
+        0.77423,
+        0.06003,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_plastic_matte_white.obj",
+      "texture": null,
+      "rgba": [
+        0.02537,
+        0.05819,
+        0.02095,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Material__16.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Soil.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_Glass_Clear.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.99551289,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_005_plastic_matte_creme.obj",
+      "texture": null,
+      "rgba": [
+        0.9743,
+        0.85125,
+        0.72267,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

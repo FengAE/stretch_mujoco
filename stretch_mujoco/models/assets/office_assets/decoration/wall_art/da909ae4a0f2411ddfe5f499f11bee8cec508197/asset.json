@@ -1,0 +1,24 @@
+{
+  "asset_id": "da909ae4a0f2411ddfe5f499f11bee8cec508197",
+  "display_name": "Masai Mara Plains, Kenya Subject Framed Art Poster Print by James Urbach, 40x20",
+  "category": "decoration/wall_art",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/da909ae4a0f2411ddfe5f499f11bee8cec508197.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.20000000298023224,
+      -0.10000000149011612,
+      -2.2204460823375376e-17
+    ],
+    [
+      0.20000000298023224,
+      0.10000000149011612,
+      0.009999999776482582
+    ]
+  ],
+  "material_part_count": 1
+}

@@ -1,0 +1,24 @@
+<mujoco model="stance_chair">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_033" file="meshes/part_000_Crown_Ebony.obj" scale="0.99999994 0.999999762 0.999999762" />
+    <mesh name="object_mesh_035" file="meshes/part_002_Standard_18.obj" scale="0.99999994 0.999999762 0.999999762" />
+    <mesh name="object_mesh_034" file="meshes/part_001_Standard_6.obj" scale="0.99999994 0.999999762 0.999999762" />
+    <material name="object_007_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_007_part_001_texture" />
+    <material name="object_007_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_007_part_000_texture" />
+    <material name="object_007_part_002_material" rgba="0.00412 0.00412 0.00412 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_007_part_000_texture" type="2d" file="textures/image_001.png" />
+    <texture name="object_007_part_001_texture" type="2d" file="textures/image_000.png" />
+  </asset>
+
+  <worldbody>
+    <body name="object_010_2502dd408e62b2aa751080d4555d9b126f5a8d22" pos="-2.45858383 1.69427921 1.00986917e-07" quat="0.707106802 -1.49735681e-22 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_010_000" type="mesh" mesh="object_mesh_033" material="object_007_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_010_001" type="mesh" mesh="object_mesh_034" material="object_007_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_010_002" type="mesh" mesh="object_mesh_035" material="object_007_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>

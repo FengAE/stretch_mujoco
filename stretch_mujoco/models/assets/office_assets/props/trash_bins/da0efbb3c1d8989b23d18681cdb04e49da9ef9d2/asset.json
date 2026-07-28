@@ -1,0 +1,24 @@
+{
+  "asset_id": "da0efbb3c1d8989b23d18681cdb04e49da9ef9d2",
+  "display_name": "Nick Munro Traveller Waste Paper Bin. 30cm",
+  "category": "props/trash_bins",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/d/da0efbb3c1d8989b23d18681cdb04e49da9ef9d2.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.11628247052431107,
+      -0.11628247052431107,
+      -0.0013108813436701894
+    ],
+    [
+      0.11628247052431107,
+      0.11628247052431107,
+      0.30000001192092896
+    ]
+  ],
+  "material_part_count": 2
+}

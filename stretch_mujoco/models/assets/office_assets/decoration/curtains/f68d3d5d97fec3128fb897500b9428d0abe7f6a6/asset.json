@@ -1,0 +1,24 @@
+{
+  "asset_id": "f68d3d5d97fec3128fb897500b9428d0abe7f6a6",
+  "display_name": "Plain Blinds",
+  "category": "decoration/curtains",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/f/f68d3d5d97fec3128fb897500b9428d0abe7f6a6.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.3524230718612671,
+      -0.5959590077400208,
+      0.06230476498603821
+    ],
+    [
+      0.3524225652217865,
+      0.5959568619728088,
+      0.09980438649654388
+    ]
+  ],
+  "material_part_count": 1
+}

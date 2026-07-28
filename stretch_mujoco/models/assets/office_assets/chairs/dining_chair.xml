@@ -1,0 +1,30 @@
+<mujoco model="dining_chair">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_215" file="meshes/part_002_Fabric_Velvet_Black.obj" scale="0.999999881 0.99999994 0.999999881" />
+    <mesh name="object_mesh_214" file="meshes/part_001_Metal___Gold_Brushed_Marina.obj" scale="0.999999881 0.99999994 0.999999881" />
+    <mesh name="object_mesh_213" file="meshes/part_000_unicolor_black.obj" scale="0.999999881 0.99999994 0.999999881" />
+    <material name="object_051_part_000_material" rgba="0.00169 0.00169 0.00169 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_051_part_001_material" rgba="0.552002 0.320131 0.156443 1" specular="0.735064" shininess="0.904609" reflectance="0.311305" />
+    <material name="object_051_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_051_part_002_texture" />
+    <texture name="object_051_part_002_texture" type="2d" file="textures/image_000.png" />
+  </asset>
+
+  <worldbody>
+    <body name="object_087_0a7074a49b0a1174916e5fdb66045c9b9de21ff6" pos="-8.13424969 1.89067519 1.1269303e-07" quat="0.707106802 1.25607393e-15 -4.2146851e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_087_000" type="mesh" mesh="object_mesh_213" material="object_051_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_087_001" type="mesh" mesh="object_mesh_214" material="object_051_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_087_002" type="mesh" mesh="object_mesh_215" material="object_051_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_088_0a7074a49b0a1174916e5fdb66045c9b9de21ff6" pos="-6.96267128 1.90795672 1.1372309e-07" quat="0.707106802 1.25607393e-15 4.2146851e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_088_000" type="mesh" mesh="object_mesh_213" material="object_051_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_088_001" type="mesh" mesh="object_mesh_214" material="object_051_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_088_002" type="mesh" mesh="object_mesh_215" material="object_051_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>

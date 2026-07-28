@@ -1,0 +1,24 @@
+{
+  "asset_id": "9a0e617b83c901d346ce9fb020b49bf91442273c",
+  "display_name": "Tufted Curved Settee, Navy",
+  "category": "furniture/sofas",
+  "source": {
+    "dataset": "HSSD",
+    "render_asset": "/home/yjw/data/hssd-hab/objects/9/9a0e617b83c901d346ce9fb020b49bf91442273c.glb",
+    "license": "CC-BY-NC-4.0"
+  },
+  "coordinate_system": "MuJoCo Z-up",
+  "bounds_m": [
+    [
+      -0.6670182943344116,
+      -0.41331127285957336,
+      -2.8369424853735836e-07
+    ],
+    [
+      0.6670402884483337,
+      0.4088630974292755,
+      1.1534836292266846
+    ]
+  ],
+  "material_part_count": 2
+}

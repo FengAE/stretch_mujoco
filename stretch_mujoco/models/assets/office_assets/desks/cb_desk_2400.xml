@@ -1,0 +1,252 @@
+<mujoco model="cb_desk_2400">
+  <compiler angle="radian" balanceinertia="true"/>
+
+  <asset>
+    <mesh name="object_mesh_148" file="meshes/part_001_Material__0.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_156" file="meshes/part_002_Metal___Chrome.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_177" file="meshes/part_002_FINISH_FFFFFF.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_146" file="meshes/part_003_Material__2.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_157" file="meshes/part_003_Standard_5.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_169" file="meshes/part_001_Material__0.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_166" file="meshes/part_005_Standard_11.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_147" file="meshes/part_000_Material__0_1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_143" file="meshes/part_000_Fabric_Seethrough2.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_174" file="meshes/part_006_stainless_steel.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_144" file="meshes/part_001_Material__1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_171" file="meshes/part_003_Standard_5.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_149" file="meshes/part_002_Metal___Chrome.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_175" file="meshes/part_000_Standard_2.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_162" file="meshes/part_001_Material__0.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_153" file="meshes/part_006_stainless_steel.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_151" file="meshes/part_004_Glossy___White.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_155" file="meshes/part_001_Material__0.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_159" file="meshes/part_005_Standard_11.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_152" file="meshes/part_005_Standard_11.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_150" file="meshes/part_003_Standard_5.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_167" file="meshes/part_006_stainless_steel.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_165" file="meshes/part_004_Glossy___White.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_154" file="meshes/part_000_Material__0_1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_168" file="meshes/part_000_Material__0_1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_164" file="meshes/part_003_Standard_5.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_172" file="meshes/part_004_Glossy___White.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_161" file="meshes/part_000_Material__0_1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_163" file="meshes/part_002_Metal___Chrome.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_170" file="meshes/part_002_Metal___Chrome.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_160" file="meshes/part_006_stainless_steel.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_178" file="meshes/part_003_Metal___Stainless_steel_RADIAL.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_173" file="meshes/part_005_Standard_11.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_145" file="meshes/part_002_Material__3.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_176" file="meshes/part_001_Standard_1.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <mesh name="object_mesh_158" file="meshes/part_004_Glossy___White.obj" scale="0.999999881 0.999999881 0.999999881" />
+    <material name="object_039_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
+    <material name="object_038_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
+    <material name="object_037_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_036_part_001_material" rgba="0.03026 0.03026 0.03026 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_036_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_036_part_000_texture" />
+    <material name="object_037_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
+    <material name="object_041_part_001_material" rgba="0.92399 0.92399 0.92399 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_036_part_003_material" rgba="0.05459 0.05459 0.05459 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_041_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_041_part_002_texture" />
+    <material name="object_039_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
+    <material name="object_038_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
+    <material name="object_039_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
+    <material name="object_038_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
+    <material name="object_041_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_041_part_003_texture" />
+    <material name="object_041_part_000_material" rgba="0.00293 0.00293 0.00293 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_036_part_002_material" rgba="0.10616 0.10616 0.11926 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
+    <texture name="object_041_part_002_texture" type="2d" file="textures/image_001.png" />
+    <texture name="object_041_part_003_texture" type="2d" file="textures/image_003.png" />
+    <texture name="object_036_part_000_texture" type="2d" file="textures/image_000.png" />
+  </asset>
+
+  <worldbody>
+    <body name="object_058_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="4.70508032 5.65825035 -0.000430910915" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_058_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_058_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_058_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_058_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_059_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="6.55844199 6.81176473 -0.000430960907" quat="0.707105714 -1.83821958e-07 -1.75725928e-07 0.707107849">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_059_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_059_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_059_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_059_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_060_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="6.55844203 5.6628209 -0.000431029389" quat="0.707105714 -1.83821958e-07 -1.75725928e-07 0.707107849">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_060_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_060_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_060_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_060_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_061_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="4.70508593 6.80267186 -0.000430840912" quat="0.707146118 3.79738378e-08 -6.94208234e-09 -0.707067442">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_061_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_061_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_061_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_061_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_062_2e70722a552add06c4c800c85ee90a174fa05ec3_part_7" pos="4.90742063 6.83378978 0.697981865" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_062_000" type="mesh" mesh="object_mesh_147" material="object_037_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_001" type="mesh" mesh="object_mesh_148" material="object_037_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_002" type="mesh" mesh="object_mesh_149" material="object_037_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_003" type="mesh" mesh="object_mesh_150" material="object_037_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_004" type="mesh" mesh="object_mesh_151" material="object_037_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_005" type="mesh" mesh="object_mesh_152" material="object_037_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_006" type="mesh" mesh="object_mesh_153" material="object_037_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_063_2e70722a552add06c4c800c85ee90a174fa05ec3_part_8" pos="4.91161292 5.64630084 0.700800024" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_063_000" type="mesh" mesh="object_mesh_154" material="object_038_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_001" type="mesh" mesh="object_mesh_155" material="object_038_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_002" type="mesh" mesh="object_mesh_156" material="object_038_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_003" type="mesh" mesh="object_mesh_157" material="object_038_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_004" type="mesh" mesh="object_mesh_158" material="object_038_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_005" type="mesh" mesh="object_mesh_159" material="object_038_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_006" type="mesh" mesh="object_mesh_160" material="object_038_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_064_2e70722a552add06c4c800c85ee90a174fa05ec3_part_5" pos="6.38622202 5.62057086 0.694094451" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_064_000" type="mesh" mesh="object_mesh_161" material="object_039_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_001" type="mesh" mesh="object_mesh_162" material="object_039_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_002" type="mesh" mesh="object_mesh_163" material="object_039_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_003" type="mesh" mesh="object_mesh_164" material="object_039_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_004" type="mesh" mesh="object_mesh_165" material="object_039_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_005" type="mesh" mesh="object_mesh_166" material="object_039_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_006" type="mesh" mesh="object_mesh_167" material="object_039_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_065_2e70722a552add06c4c800c85ee90a174fa05ec3_part_6" pos="6.38246689 6.80759054 0.697047988" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_065_000" type="mesh" mesh="object_mesh_168" material="object_040_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_001" type="mesh" mesh="object_mesh_169" material="object_040_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_002" type="mesh" mesh="object_mesh_170" material="object_040_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_003" type="mesh" mesh="object_mesh_171" material="object_040_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_004" type="mesh" mesh="object_mesh_172" material="object_040_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_005" type="mesh" mesh="object_mesh_173" material="object_040_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_006" type="mesh" mesh="object_mesh_174" material="object_040_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_066_2e70722a552add06c4c800c85ee90a174fa05ec3_part_9" pos="5.63767627 6.24007951 3.33438204e-07" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_066_000" type="mesh" mesh="object_mesh_175" material="object_041_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_066_001" type="mesh" mesh="object_mesh_176" material="object_041_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_066_002" type="mesh" mesh="object_mesh_177" material="object_041_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_066_003" type="mesh" mesh="object_mesh_178" material="object_041_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_067_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="3.44336893 6.82190856 -0.000430841555" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_067_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_067_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_067_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_067_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_068_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="1.59000713 5.6683944 -0.000431029057" quat="0.707107807 -1.33579003e-07 2.25968756e-07 -0.707105756">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_068_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_068_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_068_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_068_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_069_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="1.59000722 6.81733822 -0.000430960575" quat="0.707107807 -1.33579003e-07 2.25968756e-07 -0.707105756">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_069_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_069_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_069_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_069_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_070_2e70722a552add06c4c800c85ee90a174fa05ec3_part_1" pos="3.44336319 5.67748705 -0.000430907978" quat="0.707067484 4.90865908e-08 -4.17535829e-09 0.707146076">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_070_000" type="mesh" mesh="object_mesh_143" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_070_001" type="mesh" mesh="object_mesh_144" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_070_002" type="mesh" mesh="object_mesh_145" material="object_036_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_070_003" type="mesh" mesh="object_mesh_146" material="object_036_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_071_2e70722a552add06c4c800c85ee90a174fa05ec3_part_7" pos="3.24102848 5.64636906 0.697981795" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_071_000" type="mesh" mesh="object_mesh_147" material="object_037_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_001" type="mesh" mesh="object_mesh_148" material="object_037_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_002" type="mesh" mesh="object_mesh_149" material="object_037_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_003" type="mesh" mesh="object_mesh_150" material="object_037_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_004" type="mesh" mesh="object_mesh_151" material="object_037_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_005" type="mesh" mesh="object_mesh_152" material="object_037_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_071_006" type="mesh" mesh="object_mesh_153" material="object_037_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_072_2e70722a552add06c4c800c85ee90a174fa05ec3_part_8" pos="3.23683634 6.833858 0.700800095" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_072_000" type="mesh" mesh="object_mesh_154" material="object_038_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_001" type="mesh" mesh="object_mesh_155" material="object_038_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_002" type="mesh" mesh="object_mesh_156" material="object_038_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_003" type="mesh" mesh="object_mesh_157" material="object_038_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_004" type="mesh" mesh="object_mesh_158" material="object_038_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_005" type="mesh" mesh="object_mesh_159" material="object_038_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_072_006" type="mesh" mesh="object_mesh_160" material="object_038_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_073_2e70722a552add06c4c800c85ee90a174fa05ec3_part_5" pos="1.76222723 6.85958816 0.694094525" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_073_000" type="mesh" mesh="object_mesh_161" material="object_039_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_001" type="mesh" mesh="object_mesh_162" material="object_039_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_002" type="mesh" mesh="object_mesh_163" material="object_039_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_003" type="mesh" mesh="object_mesh_164" material="object_039_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_004" type="mesh" mesh="object_mesh_165" material="object_039_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_005" type="mesh" mesh="object_mesh_166" material="object_039_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_073_006" type="mesh" mesh="object_mesh_167" material="object_039_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_074_2e70722a552add06c4c800c85ee90a174fa05ec3_part_6" pos="1.76598222 5.67256848 0.69704792" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_074_000" type="mesh" mesh="object_mesh_168" material="object_040_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_001" type="mesh" mesh="object_mesh_169" material="object_040_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_002" type="mesh" mesh="object_mesh_170" material="object_040_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_003" type="mesh" mesh="object_mesh_171" material="object_040_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_004" type="mesh" mesh="object_mesh_172" material="object_040_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_005" type="mesh" mesh="object_mesh_173" material="object_040_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_074_006" type="mesh" mesh="object_mesh_174" material="object_040_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+    <body name="object_075_2e70722a552add06c4c800c85ee90a174fa05ec3_part_9" pos="2.51077291 6.24007951 3.33438204e-07" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_075_000" type="mesh" mesh="object_mesh_175" material="object_041_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_075_001" type="mesh" mesh="object_mesh_176" material="object_041_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_075_002" type="mesh" mesh="object_mesh_177" material="object_041_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_075_003" type="mesh" mesh="object_mesh_178" material="object_041_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    </body>
+    
+  </worldbody>
+</mujoco>
