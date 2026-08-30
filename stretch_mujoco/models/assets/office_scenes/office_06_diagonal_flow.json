@@ -132,7 +132,7 @@
       "position": [
         6.25,
         -2.25,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 1.5707963267948966,
       "collision_radius": 0.0
@@ -348,16 +348,5 @@
   ],
   "mjcf": "office_06_diagonal_flow.xml",
   "robot_include": "office_06_diagonal_flow_robot.xml",
-  "preview": "office_06_diagonal_flow.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 300,
-    "robot_start_xyz": [
-      -9.2,
-      4.2,
-      0.0
-    ]
-  }
+  "preview": "office_06_diagonal_flow.png"
 }

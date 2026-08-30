@@ -158,6 +158,7 @@ def robot_init(
         evidence_enabled = bool(video_path or os.environ.get("STRECH_CODEX_EPISODE_DIR"))
         if evidence_enabled:
             cameras = camera_enum.all()
+            camera_hz = min(float(camera_hz), 10.0)
 
         sim = create_simulator(
             rt,
@@ -197,6 +198,7 @@ def robot_init(
             "base_actuators": base_actuators,
             "num_actuators": len(actuators),
             "video_path": video_path,
+            "camera_hz": camera_hz,
             "scene_xml": str(resolved_scene) if resolved_scene else None,
         }
     except Exception as exc:

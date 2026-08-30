@@ -1,0 +1,20 @@
+<mujoco model="001_bottle">
+  <asset>
+    <mesh name="001_bottle_visual" file="001_bottle_visual.obj"/>
+    <mesh name="001_bottle_collision" file="001_bottle_collision.stl"/>
+    <texture name="001_bottle_tex" type="2d" file="001_bottle.png"/>
+    <material name="001_bottle_mat" texture="001_bottle_tex"/>
+  </asset>
+  <worldbody>
+    <body name="001_bottle" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="001_bottle_visual" material="001_bottle_mat"
+            mass="0.487" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="001_bottle_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

@@ -27,9 +27,13 @@ class Algorithm(str, Enum):
     FMM = "fmm"
     FBE = "fbe"
     VLFM = "vlfm"
+    NAVDP = "navdp"
+    QWENS2 = "qwens2"
+    INTERVLAS2 = "internvlas2"
 
 
 _EXPLORATION_ALGORITHMS = {Algorithm.FBE, Algorithm.VLFM}
+_CLOSED_LOOP_ALGORITHMS = {Algorithm.NAVDP, Algorithm.QWENS2, Algorithm.INTERVLAS2}
 
 
 def _get_planner_registry() -> dict[Algorithm, type]:
@@ -43,12 +47,18 @@ def _get_planner_registry() -> dict[Algorithm, type]:
     _fmm = _load_module("FMM", "planner")
     from stretch_mujoco.navigations.FBE.planner import FBEPlanner
     from stretch_mujoco.navigations.VLFM.planner import VLFMPlanner
+    from stretch_mujoco.navigations.NavDP.planner import NavDPPlanner
+    from stretch_mujoco.navigations.QwenS2.planner import QwenS2Planner
+    from stretch_mujoco.navigations.InternVLAS2.planner import InternVLAS2Planner
 
     return {
         Algorithm.ASTAR: _astar.AStarPlanner,
         Algorithm.FMM: _fmm.FMMPlanner,
         Algorithm.FBE: FBEPlanner,
         Algorithm.VLFM: VLFMPlanner,
+        Algorithm.NAVDP: NavDPPlanner,
+        Algorithm.QWENS2: QwenS2Planner,
+        Algorithm.INTERVLAS2: InternVLAS2Planner,
     }
 
 
@@ -313,6 +323,12 @@ class NavigationController:
                 "without a fixed goal; "
                 "use step_exploration(robot_xy, robot_yaw) instead."
             )
+        if self.algorithm in _CLOSED_LOOP_ALGORITHMS:
+            raise RuntimeError(
+                f"{self.algorithm.value.upper()} is a closed-loop navigation "
+                "policy without grid-based planning; "
+                "use step_navdp(robot_xy, robot_yaw, rgb_bytes, depth_m, goal_xy) instead."
+            )
         return self._planner.plan(
             self.grid,
             np.asarray(start, dtype=float),
@@ -335,6 +351,100 @@ class NavigationController:
         """Return the stateful exploration planner owned by this controller."""
         if self.algorithm not in _EXPLORATION_ALGORITHMS:
             raise RuntimeError("explorer is only available for FBE or VLFM")
+        return self._planner
+
+    def step_navdp(
+        self,
+        robot_xy: tuple[float, float] | np.ndarray,
+        robot_yaw: float,
+        rgb_bytes: bytes,
+        depth_m: np.ndarray,
+        goal_xy: tuple[float, float] | np.ndarray,
+        **step_kwargs,
+    ) -> Any:
+        """Advance the NavDP closed loop once and return ``(v, w)``.
+
+        ``robot_xy`` and ``goal_xy`` are world ``(x, y)`` positions; ``rgb_bytes``
+        is the encoded RGB view and ``depth_m`` the aligned depth in metres.
+        """
+        if self.algorithm is not Algorithm.NAVDP:
+            raise RuntimeError("step_navdp() requires NAVDP")
+        return self._planner.step(
+            np.asarray(robot_xy, dtype=float),
+            float(robot_yaw),
+            rgb_bytes,
+            depth_m,
+            np.asarray(goal_xy, dtype=float),
+            **step_kwargs,
+        )
+
+    @property
+    def navdp(self) -> Any:
+        """Return the stateful NavDP planner owned by this controller."""
+        if self.algorithm is not Algorithm.NAVDP:
+            raise RuntimeError("navdp is only available for NAVDP")
+        return self._planner
+
+    def step_qwens2(
+        self,
+        robot_xy: tuple[float, float] | np.ndarray,
+        robot_yaw: float,
+        rgb_bytes: bytes,
+        depth_m: np.ndarray,
+        instruction: str | None = None,
+        **step_kwargs,
+    ) -> Any:
+        """Advance the QwenS2 closed loop once and return ``(v, w)``.
+
+        ``rgb_bytes`` is the encoded RGB view and ``depth_m`` the aligned depth
+        in metres.  ``instruction`` optionally overrides the task instruction.
+        """
+        if self.algorithm is not Algorithm.QWENS2:
+            raise RuntimeError("step_qwens2() requires QWENS2")
+        return self._planner.step(
+            np.asarray(robot_xy, dtype=float),
+            float(robot_yaw),
+            rgb_bytes,
+            depth_m,
+            instruction,
+            **step_kwargs,
+        )
+
+    @property
+    def qwens2(self) -> Any:
+        """Return the stateful QwenS2 planner owned by this controller."""
+        if self.algorithm is not Algorithm.QWENS2:
+            raise RuntimeError("qwens2 is only available for QWENS2")
+        return self._planner
+
+    def step_internvla(
+        self,
+        robot_xy: tuple[float, float] | np.ndarray,
+        robot_yaw: float,
+        rgb_bytes: bytes,
+        depth_m: np.ndarray,
+        **step_kwargs,
+    ) -> Any:
+        """Advance the InternVLA-N1 dual-system closed loop and return ``(v, w)``.
+
+        ``rgb_bytes`` is the encoded RGB view and ``depth_m`` the aligned depth
+        in metres.  ``step_kwargs`` may include an ``instruction`` override.
+        """
+        if self.algorithm is not Algorithm.INTERVLAS2:
+            raise RuntimeError("step_internvla() requires INTERVLAS2")
+        return self._planner.step(
+            np.asarray(robot_xy, dtype=float),
+            float(robot_yaw),
+            rgb_bytes,
+            depth_m,
+            **step_kwargs,
+        )
+
+    @property
+    def internvla(self) -> Any:
+        """Return the stateful InternVLA-S2 planner owned by this controller."""
+        if self.algorithm is not Algorithm.INTERVLAS2:
+            raise RuntimeError("internvla is only available for INTERVLAS2")
         return self._planner
 
     def is_free(self, point: tuple[float, float] | np.ndarray) -> bool:

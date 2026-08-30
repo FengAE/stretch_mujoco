@@ -41,36 +41,36 @@
     <material name="object_039_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="object_038_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="object_037_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_038_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_037_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_037_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_005_material" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_000_material" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_005_material" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_036_part_001_material" rgba="0.03026 0.03026 0.03026 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_039_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_005_material" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_036_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_036_part_000_texture" />
     <material name="object_037_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="object_041_part_001_material" rgba="0.92399 0.92399 0.92399 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_036_part_003_material" rgba="0.05459 0.05459 0.05459 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_038_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_040_part_005_material" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_041_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_041_part_002_texture" />
+    <material name="object_038_part_000_material" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_005_material" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_041_part_002_material" rgba="0.72 0.76 0.78 1" specular="0.1675" shininess="0" reflectance="0" texture="object_041_part_002_texture" />
     <material name="object_039_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_037_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="object_038_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_040_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="object_039_part_002_material" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
-    <material name="object_038_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_001_material" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_039_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_038_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_037_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_038_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="object_041_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_041_part_003_texture" />
     <material name="object_041_part_000_material" rgba="0.00293 0.00293 0.00293 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_037_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_039_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_040_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_039_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_037_part_001_material" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_000_material" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_000_material" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_001_material" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_040_part_003_material" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="object_040_part_001_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_001_material" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_036_part_002_material" rgba="0.10616 0.10616 0.11926 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_040_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="object_040_part_006_material" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />

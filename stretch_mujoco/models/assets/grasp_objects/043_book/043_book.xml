@@ -1,0 +1,20 @@
+<mujoco model="043_book">
+  <asset>
+    <mesh name="043_book_visual" file="043_book_visual.obj"/>
+    <mesh name="043_book_collision" file="043_book_collision.stl"/>
+    <texture name="043_book_tex" type="2d" file="043_book.png"/>
+    <material name="043_book_mat" texture="043_book_tex"/>
+  </asset>
+  <worldbody>
+    <body name="043_book" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="043_book_visual" material="043_book_mat"
+            mass="1.06" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="043_book_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

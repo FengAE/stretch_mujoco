@@ -1,0 +1,20 @@
+<mujoco model="035_apple">
+  <asset>
+    <mesh name="035_apple_visual" file="035_apple_visual.obj"/>
+    <mesh name="035_apple_collision" file="035_apple_collision.stl"/>
+    
+    <material name="035_apple_mat" rgba="0.8 0.03529 0.0549 1"/>
+  </asset>
+  <worldbody>
+    <body name="035_apple" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="035_apple_visual" material="035_apple_mat"
+            mass="0.147" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="035_apple_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

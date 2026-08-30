@@ -132,7 +132,7 @@
       "position": [
         6.0,
         -2.5,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 0.0,
       "collision_radius": 0.0
@@ -374,16 +374,5 @@
   ],
   "mjcf": "office_05_team_clusters.xml",
   "robot_include": "office_05_team_clusters_robot.xml",
-  "preview": "office_05_team_clusters.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 313,
-    "robot_start_xyz": [
-      -8.7,
-      3.7,
-      0.0
-    ]
-  }
+  "preview": "office_05_team_clusters.png"
 }

@@ -1,0 +1,20 @@
+<mujoco model="116_keyboard">
+  <asset>
+    <mesh name="116_keyboard_visual" file="116_keyboard_visual.obj"/>
+    <mesh name="116_keyboard_collision" file="116_keyboard_collision.stl"/>
+    <texture name="116_keyboard_tex" type="2d" file="116_keyboard.png"/>
+    <material name="116_keyboard_mat" texture="116_keyboard_tex"/>
+  </asset>
+  <worldbody>
+    <body name="116_keyboard" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="116_keyboard_visual" material="116_keyboard_mat"
+            mass="0.9092" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="116_keyboard_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

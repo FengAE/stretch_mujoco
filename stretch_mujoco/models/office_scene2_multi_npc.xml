@@ -1,0 +1,321 @@
+<mujoco model="Cross Axis Office - Multi-NPC Semantic Scene">
+  <!-- ============================================================
+       Scene wrapper that includes the generated Scene 2 and adds
+       properly-named semantic bodies, humanoid NPCs with distinct
+       appearances, and interaction sites for the multi-NPC simulation.
+       ============================================================ -->
+
+  <!-- Generated office environment (walls, floor, furniture, lights) -->
+  <include file="assets/office_scenes/office_02_cross_axis.xml"/>
+
+  <!-- Robot: we use a standalone copy so the semantic StretchRobot
+       binding resolves inside this model file. -->
+  <include file="stretch.xml"/>
+
+  <!-- SMPL-X humanoid mesh assets (animation frame OBs) -->
+  <include file="assets/humanoid/generated/smplx_humanoid_assets.xml"/>
+
+  <visual>
+    <headlight diffuse="0.65 0.65 0.65" ambient="0.25 0.25 0.25" specular="0.1 0.1 0.1"/>
+  </visual>
+
+  <asset>
+    <!-- ==========================================================
+         NPC-specific textures and materials.
+         Each NPC has a unique diffuse texture generated from the
+         base SMPL UV atlas by tools/generate_npc_textures.py.
+         ========================================================== -->
+    <texture name="npc_01_texture" type="2d"
+             file="humanoid/generated/animations/smplx_npc_01_diffuse.png"/>
+    <texture name="npc_02_texture" type="2d"
+             file="humanoid/generated/animations/smplx_npc_02_diffuse.png"/>
+    <texture name="npc_03_texture" type="2d"
+             file="humanoid/generated/animations/smplx_npc_03_diffuse.png"/>
+
+    <material name="npc_01_material" texture="npc_01_texture"
+              specular="0.1" shininess="0.12"/>
+    <material name="npc_02_material" texture="npc_02_texture"
+              specular="0.1" shininess="0.12"/>
+    <material name="npc_03_material" texture="npc_03_texture"
+              specular="0.1" shininess="0.12"/>
+  </asset>
+
+  <worldbody>
+    <!-- ==========================================================
+         HUMAN meshes for each NPC.
+
+         Each body mirrors the original humanoid_preview layout
+         but uses its own material for visual differentiation.
+         Only the idle_00 frame is visible by default.
+         ========================================================== -->
+
+    <!-- — employee_01 : Warm skin, navy suit — -->
+    <body name="employee_01_body" pos="-3 -2 0" euler="0 0 3.1416" mocap="true">
+      <geom name="em01_frame_idle_00_body" type="mesh" mesh="humanoid_idle_00_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 1"/>
+      <geom name="em01_frame_idle_01_body" type="mesh" mesh="humanoid_idle_01_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_idle_02_body" type="mesh" mesh="humanoid_idle_02_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_idle_03_body" type="mesh" mesh="humanoid_idle_03_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_00_body" type="mesh" mesh="humanoid_walk_00_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_01_body" type="mesh" mesh="humanoid_walk_01_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_02_body" type="mesh" mesh="humanoid_walk_02_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_03_body" type="mesh" mesh="humanoid_walk_03_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_04_body" type="mesh" mesh="humanoid_walk_04_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_05_body" type="mesh" mesh="humanoid_walk_05_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_06_body" type="mesh" mesh="humanoid_walk_06_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_walk_07_body" type="mesh" mesh="humanoid_walk_07_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_00_body" type="mesh" mesh="humanoid_sit_00_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_01_body" type="mesh" mesh="humanoid_sit_01_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_02_body" type="mesh" mesh="humanoid_sit_02_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_03_body" type="mesh" mesh="humanoid_sit_03_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_04_body" type="mesh" mesh="humanoid_sit_04_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_05_body" type="mesh" mesh="humanoid_sit_05_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_06_body" type="mesh" mesh="humanoid_sit_06_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_sit_07_body" type="mesh" mesh="humanoid_sit_07_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_00_body" type="mesh" mesh="humanoid_work_00_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_01_body" type="mesh" mesh="humanoid_work_01_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_02_body" type="mesh" mesh="humanoid_work_02_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_03_body" type="mesh" mesh="humanoid_work_03_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_04_body" type="mesh" mesh="humanoid_work_04_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_05_body" type="mesh" mesh="humanoid_work_05_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_06_body" type="mesh" mesh="humanoid_work_06_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_work_07_body" type="mesh" mesh="humanoid_work_07_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_00_body" type="mesh" mesh="humanoid_eat_00_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_01_body" type="mesh" mesh="humanoid_eat_01_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_02_body" type="mesh" mesh="humanoid_eat_02_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_03_body" type="mesh" mesh="humanoid_eat_03_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_04_body" type="mesh" mesh="humanoid_eat_04_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_05_body" type="mesh" mesh="humanoid_eat_05_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_06_body" type="mesh" mesh="humanoid_eat_06_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em01_frame_eat_07_body" type="mesh" mesh="humanoid_eat_07_body"
+            material="npc_01_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <!-- Collision proxies -->
+      <geom name="em01_collision_torso" type="capsule"
+            fromto="0 0 0.72 0 0 1.38" size="0.16" rgba="0 0 0 0"
+            friction="0.8 0.01 0.001"/>
+      <geom name="em01_collision_head" type="sphere" pos="0 0 1.58" size="0.12" rgba="0 0 0 0"/>
+      <geom name="em01_collision_arm_left" type="capsule"
+            fromto="0.18 0 1.37 0.25 0.05 0.87" size="0.055" rgba="0 0 0 0"/>
+      <geom name="em01_collision_arm_right" type="capsule"
+            fromto="-0.18 0 1.37 -0.25 0.05 0.87" size="0.055" rgba="0 0 0 0"/>
+      <geom name="em01_collision_leg_left" type="capsule"
+            fromto="0.10 0 0.88 0.12 -0.03 0.09" size="0.075" rgba="0 0 0 0"/>
+      <geom name="em01_collision_leg_right" type="capsule"
+            fromto="-0.10 0 0.88 -0.12 -0.03 0.09" size="0.075" rgba="0 0 0 0"/>
+      <site name="employee_01_head" pos="0 0 1.62" size="0.025" rgba="0 0 0 0"/>
+      <site name="employee_01_handover_site" pos="0 -0.42 1.02" size="0.025" rgba="0 0 0 0"/>
+    </body>
+
+    <!-- — employee_02 : Lighter skin, charcoal grey suit — -->
+    <body name="employee_02_body" pos="3 -2 0" euler="0 0 3.1416" mocap="true">
+      <geom name="em02_frame_idle_00_body" type="mesh" mesh="humanoid_idle_00_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 1"/>
+      <geom name="em02_frame_idle_01_body" type="mesh" mesh="humanoid_idle_01_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_idle_02_body" type="mesh" mesh="humanoid_idle_02_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_idle_03_body" type="mesh" mesh="humanoid_idle_03_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_00_body" type="mesh" mesh="humanoid_walk_00_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_01_body" type="mesh" mesh="humanoid_walk_01_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_02_body" type="mesh" mesh="humanoid_walk_02_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_03_body" type="mesh" mesh="humanoid_walk_03_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_04_body" type="mesh" mesh="humanoid_walk_04_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_05_body" type="mesh" mesh="humanoid_walk_05_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_06_body" type="mesh" mesh="humanoid_walk_06_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_walk_07_body" type="mesh" mesh="humanoid_walk_07_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_00_body" type="mesh" mesh="humanoid_sit_00_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_01_body" type="mesh" mesh="humanoid_sit_01_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_02_body" type="mesh" mesh="humanoid_sit_02_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_03_body" type="mesh" mesh="humanoid_sit_03_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_04_body" type="mesh" mesh="humanoid_sit_04_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_05_body" type="mesh" mesh="humanoid_sit_05_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_06_body" type="mesh" mesh="humanoid_sit_06_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_sit_07_body" type="mesh" mesh="humanoid_sit_07_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_00_body" type="mesh" mesh="humanoid_work_00_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_01_body" type="mesh" mesh="humanoid_work_01_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_02_body" type="mesh" mesh="humanoid_work_02_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_03_body" type="mesh" mesh="humanoid_work_03_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_04_body" type="mesh" mesh="humanoid_work_04_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_05_body" type="mesh" mesh="humanoid_work_05_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_06_body" type="mesh" mesh="humanoid_work_06_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_work_07_body" type="mesh" mesh="humanoid_work_07_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_00_body" type="mesh" mesh="humanoid_eat_00_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_01_body" type="mesh" mesh="humanoid_eat_01_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_02_body" type="mesh" mesh="humanoid_eat_02_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_03_body" type="mesh" mesh="humanoid_eat_03_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_04_body" type="mesh" mesh="humanoid_eat_04_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_05_body" type="mesh" mesh="humanoid_eat_05_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_06_body" type="mesh" mesh="humanoid_eat_06_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_frame_eat_07_body" type="mesh" mesh="humanoid_eat_07_body"
+            material="npc_02_material" mass="0" contype="0" conaffinity="0" group="2" rgba="1 1 1 0"/>
+      <geom name="em02_collision_torso" type="capsule"
+            fromto="0 0 0.72 0 0 1.38" size="0.16" rgba="0 0 0 0"
+            friction="0.8 0.01 0.001"/>
+      <geom name="em02_collision_head" type="sphere" pos="0 0 1.58" size="0.12" rgba="0 0 0 0"/>
+      <geom name="em02_collision_arm_left" type="capsule"
+            fromto="0.18 0 1.37 0.25 0.05 0.87" size="0.055" rgba="0 0 0 0"/>
+      <geom name="em02_collision_arm_right" type="capsule"
+            fromto="-0.18 0 1.37 -0.25 0.05 0.87" size="0.055" rgba="0 0 0 0"/>
+      <geom name="em02_collision_leg_left" type="capsule"
+            fromto="0.10 0 0.88 0.12 -0.03 0.09" size="0.075" rgba="0 0 0 0"/>
+      <geom name="em02_collision_leg_right" type="capsule"
+            fromto="-0.10 0 0.88 -0.12 -0.03 0.09" size="0.075" rgba="0 0 0 0"/>
+      <site name="employee_02_head" pos="0 0 1.62" size="0.025" rgba="0 0 0 0"/>
+      <site name="employee_02_handover_site" pos="0 -0.42 1.02" size="0.025" rgba="0 0 0 0"/>
+    </body>
+
+    <!-- ==========================================================
+         SEMANTIC ANCHOR BODIES
+         Empty bodies positioned at the key semantic locations so
+         the SemanticWorld can bind to stable, named entities.
+         These add no visible geometry of their own - the generated
+         Scene 2 already provides all visual furniture.
+         ========================================================== -->
+
+    <!-- Work zone (lower half, y < 0) -->
+    <body name="workstation_left" pos="-3 -3 0"/>
+    <body name="workstation_right" pos="3 -3 0"/>
+    <body name="chair_left" pos="-3 -3.6 0"/>
+    <body name="chair_right" pos="3 -3.6 0"/>
+
+    <!-- Meeting zone (upper left) -->
+    <body name="meeting_table" pos="-5.5 3 0"/>
+
+    <!-- Snack zone (upper right) -->
+    <body name="snack_counter" pos="6.8 3 0"/>
+    <body name="storage_cabinet" pos="5.2 5.5 0"/>
+
+    <!-- Snack items (positioned above the snack counter for grasping) -->
+    <body name="soda_can" pos="6.5 3 0.84"/>
+    <body name="cereal_box" pos="6.8 3 0.85"/>
+    <body name="bread_snack" pos="7.1 3 0.81"/>
+    <body name="lemon" pos="7.4 3 0.80"/>
+
+    <!-- Documents inside storage cabinet -->
+    <body name="document_report" pos="5.2 5.5 0.90"/>
+    <body name="document_invoice" pos="5.35 5.5 0.90"/>
+
+    <!-- Computer screens (positioned above workstations, matching
+         where iMac displays sit on the desk surface at ~0.74m) -->
+    <body name="computer_left" pos="-3 -3 0.74"/>
+    <body name="computer_right" pos="3 -3 0.74"/>
+
+    <!-- ==========================================================
+         INTERACTION SITES
+         Named sites that the SemanticWorld uses for agent positioning.
+         ========================================================== -->
+
+    <!-- Sit sites -->
+    <site name="chair_left_sit" pos="-3 -3.6 0.48" euler="0 0 3.1416"
+          size="0.025" rgba="0 0 0 0"/>
+    <site name="chair_right_sit" pos="3 -3.6 0.48" euler="0 0 3.1416"
+          size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Desk work sites -->
+    <site name="desk_left_work_site" pos="-3 -3.3 0.74" size="0.025" rgba="0 0 0 0"/>
+    <site name="desk_right_work_site" pos="3 -3.3 0.74" size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Meeting zone sites -->
+    <site name="meeting_table_place_site" pos="-5.5 3 0.74" size="0.025" rgba="0 0 0 0"/>
+    <site name="meeting_human_stand_site" pos="-5.5 2.3 0" euler="0 0 3.1416"
+          size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Snack zone sites -->
+    <site name="snack_place_site" pos="6.8 3 0.82" size="0.025" rgba="0 0 0 0"/>
+    <site name="snack_human_stand_site" pos="6.8 3.6 0" euler="0 0 0"
+          size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Storage cabinet sites -->
+    <site name="cabinet_open_site" pos="5.2 5.2 0.90" size="0.025" rgba="0 0 0 0"/>
+    <site name="cabinet_human_stand_site" pos="5.2 4.8 0" euler="0 0 3.1416"
+          size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Document grasp sites -->
+    <site name="document_report_grasp_site" pos="5.2 5.5 0.92" size="0.018" rgba="0 0 0 0"/>
+    <site name="document_invoice_grasp_site" pos="5.35 5.5 0.92" size="0.018" rgba="0 0 0 0"/>
+
+    <!-- Coffee machine (by the snack counter area) -->
+    <site name="coffee_machine_use_site" pos="6.8 3.48 1.05" size="0.025" rgba="0 0 0 0"/>
+    <site name="coffee_human_stand_site" pos="6.8 2.3 0" euler="0 0 3.1416"
+          size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Stretch robot handover sites -->
+    <site name="stretch_handover_site" pos="-0.7 -3.8 1.02" size="0.025" rgba="0 0 0 0"/>
+
+    <!-- Door -->
+    <body name="office_door" pos="-8 -6 0"/>
+    <site name="door_handle_site" pos="-8 -6 1.0" size="0.02" rgba="0 0 0 0"/>
+
+    <!-- Coffee bar (near snack counter) -->
+    <body name="coffee_bar" pos="6.8 3.48 0">
+      <geom name="coffee_machine_body" type="box" pos="0 0 0.6" size="0.20 0.17 0.15"
+            rgba="0.08 0.09 0.09 1" contype="0" conaffinity="0"/>
+    </body>
+  </worldbody>
+</mujoco>

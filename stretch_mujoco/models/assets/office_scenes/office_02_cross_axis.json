@@ -145,7 +145,7 @@
       "position": [
         -5.5,
         3.0,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 1.5707963267948966,
       "collision_radius": 0.0
@@ -361,16 +361,5 @@
   ],
   "mjcf": "office_02_cross_axis.xml",
   "robot_include": "office_02_cross_axis_robot.xml",
-  "preview": "office_02_cross_axis.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 399,
-    "robot_start_xyz": [
-      -7.7,
-      -0.7,
-      0.0
-    ]
-  }
+  "preview": "office_02_cross_axis.png"
 }

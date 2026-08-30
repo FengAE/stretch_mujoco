@@ -1,0 +1,20 @@
+<mujoco model="075_bread">
+  <asset>
+    <mesh name="075_bread_visual" file="075_bread_visual.obj"/>
+    <mesh name="075_bread_collision" file="075_bread_collision.stl"/>
+    <texture name="075_bread_tex" type="2d" file="075_bread.png"/>
+    <material name="075_bread_mat" texture="075_bread_tex"/>
+  </asset>
+  <worldbody>
+    <body name="075_bread" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="075_bread_visual" material="075_bread_mat"
+            mass="0.9058" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="075_bread_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

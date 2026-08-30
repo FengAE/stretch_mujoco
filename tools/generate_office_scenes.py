@@ -33,6 +33,7 @@ ZONE_COLORS = {
     "snack": "0.43 0.35 0.24 1",
     "circulation": "0.19 0.22 0.24 1",
 }
+DESK_SURFACE_HEIGHT_M = 0.74
 
 
 @dataclass(frozen=True)
@@ -286,6 +287,8 @@ def load_mjcf_asset(
     *,
     composite: bool = False,
     preserve_component_quats: bool = False,
+    z_scale: float = 1.0,
+    component_z_offsets: dict[int, float] | None = None,
 ) -> AssetInfo:
     source = OFFICE_ASSETS / relative_path
     root = ET.parse(source).getroot()
@@ -320,10 +323,11 @@ def load_mjcf_asset(
         attributes = dict(node.attrib)
         original_name = node.get("name")
         mesh_path = (source.parent / attributes["file"]).resolve()
-        scale = _values(attributes.get("scale"), (1.0, 1.0, 1.0))
+        scale = _values(attributes.get("scale"), (1.0, 1.0, 1.0)) * np.asarray((1.0, 1.0, z_scale))
         mesh_vertices[original_name] = _mesh_vertices(mesh_path, scale)
         attributes["name"] = mesh_names[original_name]
         attributes["file"] = str(mesh_path)
+        attributes["scale"] = numbers(scale)
         definitions.append(ImportedDefinition("mesh", attributes))
 
     bodies = root.findall("./worldbody/body")
@@ -331,8 +335,9 @@ def load_mjcf_asset(
         bodies = bodies[:1]
     raw_components = []
     all_vertices = []
-    for body in bodies:
-        pos = _values(body.get("pos"), (0.0, 0.0, 0.0))
+    for component_index, body in enumerate(bodies):
+        pos = _values(body.get("pos"), (0.0, 0.0, 0.0)) * np.asarray((1.0, 1.0, z_scale))
+        pos[2] += (component_z_offsets or {}).get(component_index, 0.0)
         source_quat = _values(body.get("quat"), (1.0, 0.0, 0.0, 0.0))
         quat = source_quat if preserve_component_quats else np.asarray((1.0, 0.0, 0.0, 0.0))
         rotation = _quat_matrix(quat)
@@ -375,7 +380,13 @@ def load_mjcf_asset(
 def load_assets() -> dict[str, list[AssetInfo]]:
     specifications = (
         ("desks/adjustable_desk.xml", "office_desks", "Adjustable Office Desk", False, False),
-        ("desks/cb_desk_2400.xml", "workstation_pods", "CB Desk 2400 Workstation Pod", True, True),
+        (
+            "desks/cb_desk_2400.xml",
+            "workstation_pods",
+            "CB Desk 2400 Workstation Pod",
+            True,
+            True,
+        ),
         ("desks/oak_square_table.xml", "office_desks", "Oak Square Table", False, False),
         ("desks/reception_desk.xml", "reception_desks", "Curved Reception Desk", False, False),
         ("chairs/office_chair.xml", "office_chairs", "Cornell Swivel Office Chair", False, False),
@@ -384,17 +395,27 @@ def load_assets() -> dict[str, list[AssetInfo]]:
         ("chairs/stance_chair.xml", "meeting_chairs", "Stance Meeting Chair", False, False),
         ("displays/imac_24.xml", "displays", "iMac 24", False, False),
         ("displays/imac_27.xml", "displays", "iMac 27", False, False),
-        ("meeting_table/teaming_table.xml", "meeting_tables", "Teaming Meeting Table", True, False),
+        (
+            "meeting_table/teaming_table.xml",
+            "meeting_tables",
+            "Teaming Meeting Table",
+            True,
+            False,
+            DESK_SURFACE_HEIGHT_M / 0.9778999366941336,
+        ),
         ("whiteboard/dry_wipe_module.xml", "whiteboards", "Double Dry Wipe Board", True, True),
     )
     by_category: dict[str, list[AssetInfo]] = defaultdict(list)
-    for relative_path, category, name, composite, preserve_quats in specifications:
+    for spec in specifications:
+        relative_path, category, name, composite, preserve_quats, *overrides = spec
         asset = load_mjcf_asset(
             relative_path,
             category,
             name,
             composite=composite,
             preserve_component_quats=preserve_quats,
+            z_scale=overrides[0] if overrides else 1.0,
+            component_z_offsets=overrides[1] if len(overrides) > 1 else None,
         )
         by_category[category].append(asset)
     legacy_registry = ET.parse(OFFICE_ASSETS / "mjcf" / "office_assets.xml").getroot()
@@ -501,18 +522,6 @@ def add_open_shell(world: ET.Element, spec: SceneSpec) -> None:
     add_wall_segment(world, "left_wall", "x", -half_width, -half_depth, half_depth)
     add_wall_segment(world, "right_wall", "x", half_width, -half_depth, half_depth)
     for zone in spec.zones:
-        xmin, xmax, ymin, ymax = zone.bounds
-        ET.SubElement(
-            world,
-            "geom",
-            name=f"zone_{zone.zone_type}",
-            type="box",
-            pos=numbers((*zone.center, 0.007)),
-            size=numbers(((xmax - xmin) / 2, (ymax - ymin) / 2, 0.007)),
-            rgba=ZONE_COLORS[zone.zone_type],
-            contype="0",
-            conaffinity="0",
-        )
         ET.SubElement(
             world,
             "site",
@@ -729,7 +738,7 @@ def furnish_meeting_zone(furnisher: Furnisher, zone: Zone, style: str, variant: 
         "displays",
         cx,
         cy,
-        z=table_height + 0.015,
+        z=table_height - 0.015,
         yaw=table_yaw,
         asset=display,
     )

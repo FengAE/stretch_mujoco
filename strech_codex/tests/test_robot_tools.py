@@ -75,6 +75,7 @@ def test_robot_init_invalid_type():
 def test_robot_init_passes_scene_and_cameras(monkeypatch):
     """Configured scene and camera names should reach the simulator factory."""
     captured = {}
+    monkeypatch.setenv("STRECH_CODEX_EPISODE_DIR", "/tmp/test-episode")
 
     class Actuators:
         @staticmethod
@@ -108,6 +109,7 @@ def test_robot_init_passes_scene_and_cameras(monkeypatch):
         "overhead_camera",
         "overhead_depth",
     ]
+    assert captured["camera_hz"] == 10.0
 
 
 def test_robot_init_failure_does_not_publish_state(monkeypatch):

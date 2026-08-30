@@ -1,0 +1,20 @@
+<mujoco model="017_calculator">
+  <asset>
+    <mesh name="017_calculator_visual" file="017_calculator_visual.obj"/>
+    <mesh name="017_calculator_collision" file="017_calculator_collision.stl"/>
+    <texture name="017_calculator_tex" type="2d" file="017_calculator.png"/>
+    <material name="017_calculator_mat" texture="017_calculator_tex"/>
+  </asset>
+  <worldbody>
+    <body name="017_calculator" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="017_calculator_visual" material="017_calculator_mat"
+            mass="0.1535" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="017_calculator_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

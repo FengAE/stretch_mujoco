@@ -1,0 +1,136 @@
+<mujoco model="pick_scene_neutral">
+  <include file="_stretch_fixed.xml"/>
+  <include file="_docking_fixed.xml"/>
+
+  <statistic center="0 0 .75" extent="1.2" meansize="0.05"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="-120" elevation="-20" offwidth="960" offheight="540"/>
+  </visual>
+
+  <asset>
+    <material name="floor" rgba=".1 .1 .1 1" reflectance="0.1"/>
+    <texture type="2d" name="table_tex" file="table_textures/neutral.png"/>
+    <material name="table_mat" texture="table_tex" texrepeat="1 1"/>
+    <mesh name="001_bottle_visual" file="grasp_objects/001_bottle/001_bottle_visual.obj" />
+    <mesh name="001_bottle_collision" file="grasp_objects/001_bottle/001_bottle_collision.stl" />
+    <texture name="001_bottle_tex" type="2d" file="grasp_objects/001_bottle/001_bottle.png" />
+    <material name="001_bottle_mat" texture="001_bottle_tex" />
+    <mesh name="017_calculator_visual" file="grasp_objects/017_calculator/017_calculator_visual.obj" />
+    <mesh name="017_calculator_collision" file="grasp_objects/017_calculator/017_calculator_collision.stl" />
+    <texture name="017_calculator_tex" type="2d" file="grasp_objects/017_calculator/017_calculator.png" />
+    <material name="017_calculator_mat" texture="017_calculator_tex" />
+    <mesh name="025_chips_tub_visual" file="grasp_objects/025_chips-tub/025_chips-tub_visual.obj" />
+    <mesh name="025_chips_tub_collision" file="grasp_objects/025_chips-tub/025_chips-tub_collision.stl" />
+    <texture name="025_chips_tub_tex" type="2d" file="grasp_objects/025_chips-tub/025_chips-tub.png" />
+    <material name="025_chips_tub_mat" texture="025_chips_tub_tex" />
+    <mesh name="035_apple_visual" file="grasp_objects/035_apple/035_apple_visual.obj" />
+    <mesh name="035_apple_collision" file="grasp_objects/035_apple/035_apple_collision.stl" />
+    <material name="035_apple_mat" rgba="0.8 0.03529 0.0549 1" />
+    <mesh name="038_milk_box_visual" file="grasp_objects/038_milk-box/038_milk-box_visual.obj" />
+    <mesh name="038_milk_box_collision" file="grasp_objects/038_milk-box/038_milk-box_collision.stl" />
+    <texture name="038_milk_box_tex" type="2d" file="grasp_objects/038_milk-box/038_milk-box.png" />
+    <material name="038_milk_box_mat" texture="038_milk_box_tex" />
+    <mesh name="043_book_visual" file="grasp_objects/043_book/043_book_visual.obj" />
+    <mesh name="043_book_collision" file="grasp_objects/043_book/043_book_collision.stl" />
+    <texture name="043_book_tex" type="2d" file="grasp_objects/043_book/043_book.png" />
+    <material name="043_book_mat" texture="043_book_tex" />
+    <mesh name="069_vagetable_visual" file="grasp_objects/069_vagetable/069_vagetable_visual.obj" />
+    <mesh name="069_vagetable_collision" file="grasp_objects/069_vagetable/069_vagetable_collision.stl" />
+    <texture name="069_vagetable_tex" type="2d" file="grasp_objects/069_vagetable/069_vagetable.png" />
+    <material name="069_vagetable_mat" texture="069_vagetable_tex" />
+    <mesh name="071_can_visual" file="grasp_objects/071_can/071_can_visual.obj" />
+    <mesh name="071_can_collision" file="grasp_objects/071_can/071_can_collision.stl" />
+    <texture name="071_can_tex" type="2d" file="grasp_objects/071_can/071_can.png" />
+    <material name="071_can_mat" texture="071_can_tex" />
+    <mesh name="075_bread_visual" file="grasp_objects/075_bread/075_bread_visual.obj" />
+    <mesh name="075_bread_collision" file="grasp_objects/075_bread/075_bread_collision.stl" />
+    <texture name="075_bread_tex" type="2d" file="grasp_objects/075_bread/075_bread.png" />
+    <material name="075_bread_mat" texture="075_bread_tex" />
+    <mesh name="092_notebook_visual" file="grasp_objects/092_notebook/092_notebook_visual.obj" />
+    <mesh name="092_notebook_collision" file="grasp_objects/092_notebook/092_notebook_collision.stl" />
+    <texture name="092_notebook_tex" type="2d" file="grasp_objects/092_notebook/092_notebook.png" />
+    <material name="092_notebook_mat" texture="092_notebook_tex" />
+    <mesh name="101_milk_tea_visual" file="grasp_objects/101_milk-tea/101_milk-tea_visual.obj" />
+    <mesh name="101_milk_tea_collision" file="grasp_objects/101_milk-tea/101_milk-tea_collision.stl" />
+    <texture name="101_milk_tea_tex" type="2d" file="grasp_objects/101_milk-tea/101_milk-tea.png" />
+    <material name="101_milk_tea_mat" texture="101_milk_tea_tex" />
+    <mesh name="116_keyboard_visual" file="grasp_objects/116_keyboard/116_keyboard_visual.obj" />
+    <mesh name="116_keyboard_collision" file="grasp_objects/116_keyboard/116_keyboard_collision.stl" />
+    <texture name="116_keyboard_tex" type="2d" file="grasp_objects/116_keyboard/116_keyboard.png" />
+    <material name="116_keyboard_mat" texture="116_keyboard_tex" />
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <camera name="office_overview" mode="targetbody" target="table"
+            pos="1.35 0.25 1.45" fovy="55"/>
+    <geom name="floor" size="0 0 0.05" type="plane" material="floor"/>
+    <body name="table" pos="0 -1 .24">
+      <geom type="box" size=".6 .5 .24" mass="1" material="table_mat"/>
+    </body>
+    <body name="001_bottle" pos="-0.0955 -1.0615 0.7342" quat="0.999998 -0.000252 -0.001758 -0.000001">
+      <freejoint />
+      <geom type="mesh" mesh="001_bottle_visual" material="001_bottle_mat" mass="0.487" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="001_bottle_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="017_calculator" pos="0.2063 -1.2028 0.4812" quat="0.706745 0.707466 -0.001382 -0.001226">
+      <freejoint />
+      <geom type="mesh" mesh="017_calculator_visual" material="017_calculator_mat" mass="0.1535" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="017_calculator_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="025_chips-tub" pos="-0.3596 -1.2404 0.4812" quat="0.999984 0.000210 0.005667 -0.000004">
+      <freejoint />
+      <geom type="mesh" mesh="025_chips_tub_visual" material="025_chips_tub_mat" mass="0.3835" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="025_chips_tub_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="035_apple" pos="0.1159 -0.7570 0.5185" quat="0.999996 0.001816 -0.002006 0.000052">
+      <freejoint />
+      <geom type="mesh" mesh="035_apple_visual" material="035_apple_mat" mass="0.147" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="035_apple_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="038_milk-box" pos="0.3967 -0.7846 0.4816" quat="0.904270 -0.001345 0.003417 0.426946">
+      <freejoint />
+      <geom type="mesh" mesh="038_milk_box_visual" material="038_milk_box_mat" mass="0.8473" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="038_milk_box_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="043_book" pos="-0.3409 -0.8077 0.6009" quat="1.000000 -0.000536 -0.000008 0.000010">
+      <freejoint />
+      <geom type="mesh" mesh="043_book_visual" material="043_book_mat" mass="1.06" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="043_book_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="069_vagetable" pos="-0.1695 -1.2564 0.4916" quat="0.917861 0.379558 0.107313 0.044164">
+      <freejoint />
+      <geom type="mesh" mesh="069_vagetable_visual" material="069_vagetable_mat" mass="0.3619" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="069_vagetable_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="071_can" pos="0.3885 -1.2986 0.4804" quat="0.999952 0.000408 0.009802 0.000025">
+      <freejoint />
+      <geom type="mesh" mesh="071_can_visual" material="071_can_mat" mass="0.1571" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="071_can_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="075_bread" pos="0.1968 -0.9460 0.4860" quat="0.679691 0.672996 -0.177532 -0.231472">
+      <freejoint />
+      <geom type="mesh" mesh="075_bread_visual" material="075_bread_mat" mass="0.9058" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="075_bread_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="092_notebook" pos="-0.0072 -0.9474 0.4812" quat="0.697133 0.696474 -0.120344 -0.120194">
+      <freejoint />
+      <geom type="mesh" mesh="092_notebook_visual" material="092_notebook_mat" mass="0.2039" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="092_notebook_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="101_milk-tea" pos="-0.3420 -0.9494 0.6617" quat="0.999921 0.011826 -0.003922 0.001470">
+      <freejoint />
+      <geom type="mesh" mesh="101_milk_tea_visual" material="101_milk_tea_mat" mass="0.4837" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="101_milk_tea_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+    <body name="116_keyboard" pos="-0.3931 -0.8830 0.5472" quat="0.988076 0.153965 0.000026 0.000086">
+      <freejoint />
+      <geom type="mesh" mesh="116_keyboard_visual" material="116_keyboard_mat" mass="0.9092" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="116_keyboard_collision" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+    </body>
+  </worldbody>
+</mujoco>
+

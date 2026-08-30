@@ -1,0 +1,20 @@
+<mujoco model="038_milk-box">
+  <asset>
+    <mesh name="038_milk_box_visual" file="038_milk-box_visual.obj"/>
+    <mesh name="038_milk_box_collision" file="038_milk-box_collision.stl"/>
+    <texture name="038_milk_box_tex" type="2d" file="038_milk-box.png"/>
+    <material name="038_milk_box_mat" texture="038_milk_box_tex"/>
+  </asset>
+  <worldbody>
+    <body name="038_milk-box" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="038_milk_box_visual" material="038_milk_box_mat"
+            mass="0.8473" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="038_milk_box_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

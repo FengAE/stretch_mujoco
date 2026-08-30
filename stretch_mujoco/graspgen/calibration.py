@@ -35,10 +35,17 @@ def rotated_d435i_optical_pose(raw_optical_pose: np.ndarray) -> np.ndarray:
     return pose @ transform
 
 
-def world_to_base_pose(base_xyt: tuple[float, float, float] | np.ndarray) -> np.ndarray:
+def planar_world_from_base(
+    base_xyt: tuple[float, float, float] | np.ndarray,
+) -> np.ndarray:
+    """Return the 4x4 planar world-from-base transform for base pose (x, y, theta).
+
+    The base lives in the z=0 plane; the transform maps a point in the base frame
+    into the world frame. Inverse of :func:`world_to_base_pose`.
+    """
     x, y, theta = np.asarray(base_xyt, dtype=float)[:3]
     cosine, sine = np.cos(theta), np.sin(theta)
-    world_from_base = np.array(
+    return np.array(
         [
             [cosine, -sine, 0.0, x],
             [sine, cosine, 0.0, y],
@@ -46,4 +53,8 @@ def world_to_base_pose(base_xyt: tuple[float, float, float] | np.ndarray) -> np.
             [0.0, 0.0, 0.0, 1.0],
         ]
     )
-    return np.linalg.inv(world_from_base)
+
+
+def world_to_base_pose(base_xyt: tuple[float, float, float] | np.ndarray) -> np.ndarray:
+    """Return the 4x4 base-from-world transform for base pose (x, y, theta)."""
+    return np.linalg.inv(planar_world_from_base(base_xyt))

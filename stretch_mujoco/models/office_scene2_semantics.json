@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "scene": "office_scene2_multi_npc.xml",
+  "objects": {
+    "employee_01": {
+      "type": "Employee",
+      "binding": {"kind": "body", "name": "employee_01_body"},
+      "attributes": {"display_name": "Alex Chen", "department": "Operations"}
+    },
+    "employee_02": {
+      "type": "Employee",
+      "binding": {"kind": "body", "name": "employee_02_body"},
+      "attributes": {"display_name": "Jordan Taylor", "department": "Product"}
+    },
+    "stretch_3": {
+      "type": "StretchRobot",
+      "binding": {"kind": "body", "name": "base_link"},
+      "attributes": {"mobile": true, "manipulator": true}
+    },
+    "workstation_left": {
+      "type": "Workstation",
+      "binding": {"kind": "body", "name": "workstation_left"},
+      "attributes": {"zone": "work"}
+    },
+    "workstation_right": {
+      "type": "Workstation",
+      "binding": {"kind": "body", "name": "workstation_right"},
+      "attributes": {"zone": "work"}
+    },
+    "chair_left": {
+      "type": "Chair",
+      "binding": {"kind": "body", "name": "chair_left"},
+      "attributes": {"movable": false}
+    },
+    "chair_right": {
+      "type": "Chair",
+      "binding": {"kind": "body", "name": "chair_right"},
+      "attributes": {"movable": false}
+    },
+    "computer_left": {
+      "type": "Computer",
+      "binding": {"kind": "body", "name": "computer_left"},
+      "attributes": {"powered": true}
+    },
+    "computer_right": {
+      "type": "Computer",
+      "binding": {"kind": "body", "name": "computer_right"},
+      "attributes": {"powered": true}
+    },
+    "document_report": {
+      "type": "Document",
+      "binding": {"kind": "body", "name": "document_report"},
+      "attributes": {
+        "location": "storage_cabinet",
+        "owner": "employee_01",
+        "graspable": true,
+        "confidential": true
+      }
+    },
+    "document_invoice": {
+      "type": "Document",
+      "binding": {"kind": "body", "name": "document_invoice"},
+      "attributes": {
+        "location": "storage_cabinet",
+        "owner": "employee_01",
+        "graspable": true,
+        "confidential": false
+      }
+    },
+    "storage_cabinet": {
+      "type": "StorageCabinet",
+      "binding": {"kind": "body", "name": "storage_cabinet"},
+      "attributes": {"open": true, "zone": "office"}
+    },
+    "snack_counter": {
+      "type": "Counter",
+      "binding": {"kind": "body", "name": "snack_counter"},
+      "attributes": {"purpose": "snack_display", "zone": "break"}
+    },
+    "coffee_bar": {
+      "type": "Counter",
+      "binding": {"kind": "body", "name": "coffee_bar"},
+      "attributes": {"purpose": "beverage_service", "zone": "break"}
+    },
+    "soda_can": {
+      "type": "Snack",
+      "binding": {"kind": "body", "name": "soda_can"},
+      "attributes": {"graspable": true, "category": "drink"}
+    },
+    "cereal_box": {
+      "type": "Snack",
+      "binding": {"kind": "body", "name": "cereal_box"},
+      "attributes": {"graspable": true, "category": "cereal"}
+    },
+    "bread_snack": {
+      "type": "Snack",
+      "binding": {"kind": "body", "name": "bread_snack"},
+      "attributes": {"graspable": true, "category": "bakery"}
+    },
+    "lemon": {
+      "type": "Snack",
+      "binding": {"kind": "body", "name": "lemon"},
+      "attributes": {"graspable": true, "category": "fruit"}
+    },
+    "meeting_table": {
+      "type": "MeetingTable",
+      "binding": {"kind": "body", "name": "meeting_table"},
+      "attributes": {"capacity": 4, "zone": "meeting"}
+    },
+    "coffee_machine": {
+      "type": "CoffeeMachine",
+      "binding": {"kind": "geom", "name": "coffee_machine_body"},
+      "attributes": {"powered": true, "available": true}
+    },
+    "office_door": {
+      "type": "Door",
+      "binding": {"kind": "body", "name": "office_door"},
+      "attributes": {"open": false, "locked": false}
+    }
+  },
+  "relations": [
+    {"subject": "document_report", "relation": "INSIDE", "object": "storage_cabinet"},
+    {"subject": "document_invoice", "relation": "INSIDE", "object": "storage_cabinet"},
+    {"subject": "computer_left", "relation": "ON", "object": "workstation_left"},
+    {"subject": "computer_right", "relation": "ON", "object": "workstation_right"},
+    {"subject": "soda_can", "relation": "ON", "object": "snack_counter"},
+    {"subject": "cereal_box", "relation": "ON", "object": "snack_counter"},
+    {"subject": "bread_snack", "relation": "ON", "object": "snack_counter"},
+    {"subject": "lemon", "relation": "ON", "object": "snack_counter"},
+    {"subject": "coffee_machine", "relation": "ON", "object": "coffee_bar"},
+    {"subject": "chair_left", "relation": "NEAR", "object": "workstation_left"},
+    {"subject": "chair_right", "relation": "NEAR", "object": "workstation_right"},
+    {"subject": "employee_01", "relation": "NEAR", "object": "workstation_left"},
+    {"subject": "employee_02", "relation": "NEAR", "object": "workstation_right"},
+    {"subject": "workstation_left", "relation": "BELONGS_TO", "object": "employee_01"},
+    {"subject": "workstation_right", "relation": "BELONGS_TO", "object": "employee_02"},
+    {"subject": "document_report", "relation": "BELONGS_TO", "object": "employee_01"},
+    {"subject": "document_invoice", "relation": "BELONGS_TO", "object": "employee_01"},
+    {"subject": "document_report", "relation": "REQUESTED_BY", "object": "employee_01"},
+    {"subject": "chair_left", "relation": "RESERVED_BY", "object": "employee_01"},
+    {"subject": "chair_right", "relation": "RESERVED_BY", "object": "employee_02"},
+    {"subject": "document_report", "relation": "ALLOWED_FOR", "object": "employee_01"},
+    {"subject": "document_report", "relation": "ALLOWED_FOR", "object": "employee_02"},
+    {"subject": "document_invoice", "relation": "ALLOWED_FOR", "object": "employee_01"},
+    {"subject": "document_invoice", "relation": "ALLOWED_FOR", "object": "employee_02"}
+  ],
+  "interaction_points": {
+    "chair_left_sit": {
+      "role": "chair_sit_site",
+      "owner": "chair_left",
+      "site": "chair_left_sit"
+    },
+    "chair_right_sit": {
+      "role": "chair_sit_site",
+      "owner": "chair_right",
+      "site": "chair_right_sit"
+    },
+    "desk_left_work": {
+      "role": "desk_work_site",
+      "owner": "workstation_left",
+      "site": "desk_left_work_site"
+    },
+    "desk_right_work": {
+      "role": "desk_work_site",
+      "owner": "workstation_right",
+      "site": "desk_right_work_site"
+    },
+    "cabinet_open": {
+      "role": "cabinet_open_site",
+      "owner": "storage_cabinet",
+      "site": "cabinet_open_site"
+    },
+    "document_report_grasp": {
+      "role": "document_grasp_site",
+      "owner": "document_report",
+      "site": "document_report_grasp_site"
+    },
+    "document_invoice_grasp": {
+      "role": "document_grasp_site",
+      "owner": "document_invoice",
+      "site": "document_invoice_grasp_site"
+    },
+    "snack_place": {
+      "role": "snack_place_site",
+      "owner": "snack_counter",
+      "site": "snack_place_site",
+      "attributes": {"surface": "snack_counter"}
+    },
+    "employee_01_handover": {
+      "role": "handover_site",
+      "owner": "employee_01",
+      "site": "employee_01_handover_site"
+    },
+    "employee_02_handover": {
+      "role": "handover_site",
+      "owner": "employee_02",
+      "site": "employee_02_handover_site"
+    },
+    "meeting_table_place": {
+      "role": "meeting_place_site",
+      "owner": "meeting_table",
+      "site": "meeting_table_place_site"
+    },
+    "meeting_human_stand": {
+      "role": "human_stand_site",
+      "owner": "meeting_table",
+      "site": "meeting_human_stand_site"
+    },
+    "snack_human_stand": {
+      "role": "human_stand_site",
+      "owner": "snack_counter",
+      "site": "snack_human_stand_site"
+    },
+    "cabinet_human_stand": {
+      "role": "human_stand_site",
+      "owner": "storage_cabinet",
+      "site": "cabinet_human_stand_site"
+    },
+    "coffee_human_stand": {
+      "role": "human_stand_site",
+      "owner": "coffee_machine",
+      "site": "coffee_human_stand_site"
+    },
+    "coffee_machine_use": {
+      "role": "coffee_use_site",
+      "owner": "coffee_machine",
+      "site": "coffee_machine_use_site"
+    },
+    "office_door_handle": {
+      "role": "door_handle_site",
+      "owner": "office_door",
+      "site": "door_handle_site"
+    }
+  }
+}

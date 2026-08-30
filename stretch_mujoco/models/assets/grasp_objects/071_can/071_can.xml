@@ -1,0 +1,20 @@
+<mujoco model="071_can">
+  <asset>
+    <mesh name="071_can_visual" file="071_can_visual.obj"/>
+    <mesh name="071_can_collision" file="071_can_collision.stl"/>
+    <texture name="071_can_tex" type="2d" file="071_can.png"/>
+    <material name="071_can_mat" texture="071_can_tex"/>
+  </asset>
+  <worldbody>
+    <body name="071_can" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="071_can_visual" material="071_can_mat"
+            mass="0.1571" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="071_can_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

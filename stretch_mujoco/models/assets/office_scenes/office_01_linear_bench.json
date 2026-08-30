@@ -132,7 +132,7 @@
       "position": [
         5.0,
         3.25,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 0.0,
       "collision_radius": 0.0
@@ -361,16 +361,5 @@
   ],
   "mjcf": "office_01_linear_bench.xml",
   "robot_include": "office_01_linear_bench_robot.xml",
-  "preview": "office_01_linear_bench.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 309,
-    "robot_start_xyz": [
-      -0.7,
-      -3.8,
-      0.0
-    ]
-  }
+  "preview": "office_01_linear_bench.png"
 }

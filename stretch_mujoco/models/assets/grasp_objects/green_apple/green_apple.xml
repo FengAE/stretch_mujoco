@@ -1,0 +1,20 @@
+<mujoco model="green_apple">
+  <asset>
+    <mesh name="green_apple_visual" file="green_apple_visual.obj"/>
+    <mesh name="green_apple_collision" file="green_apple_collision.stl"/>
+    <texture name="green_apple_tex" type="2d" file="green_apple.png"/>
+    <material name="green_apple_mat" texture="green_apple_tex"/>
+  </asset>
+  <worldbody>
+    <body name="green_apple" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="green_apple_visual" material="green_apple_mat"
+            mass="0.1014" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="green_apple_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

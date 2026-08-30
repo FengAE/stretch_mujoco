@@ -1,0 +1,20 @@
+<mujoco model="069_vagetable">
+  <asset>
+    <mesh name="069_vagetable_visual" file="069_vagetable_visual.obj"/>
+    <mesh name="069_vagetable_collision" file="069_vagetable_collision.stl"/>
+    <texture name="069_vagetable_tex" type="2d" file="069_vagetable.png"/>
+    <material name="069_vagetable_mat" texture="069_vagetable_tex"/>
+  </asset>
+  <worldbody>
+    <body name="069_vagetable" pos="0 0 0">
+      <freejoint/>
+      <geom type="mesh" mesh="069_vagetable_visual" material="069_vagetable_mat"
+            mass="0.3619" contype="0" conaffinity="0"/>
+      <geom type="mesh" mesh="069_vagetable_collision" mass="0"
+            contype="1" conaffinity="1"
+            friction="0.5 .005 0.01"
+            rgba="0 0 0 0"/>
+    </body>
+  </worldbody>
+</mujoco>
+

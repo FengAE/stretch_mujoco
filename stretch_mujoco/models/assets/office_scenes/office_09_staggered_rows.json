@@ -132,7 +132,7 @@
       "position": [
         6.5,
         -2.25,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 0.0,
       "collision_radius": 0.0
@@ -374,16 +374,5 @@
   ],
   "mjcf": "office_09_staggered_rows.xml",
   "robot_include": "office_09_staggered_rows_robot.xml",
-  "preview": "office_09_staggered_rows.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 311,
-    "robot_start_xyz": [
-      -8.7,
-      3.8,
-      0.0
-    ]
-  }
+  "preview": "office_09_staggered_rows.png"
 }

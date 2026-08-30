@@ -66,7 +66,7 @@
       "category": "workstation_pods",
       "position": [
         -6.25,
-        -1.3750202154861746,
+        -1.3750202154861741,
         0.0
       ],
       "yaw": 1.5707963267948966,
@@ -79,7 +79,7 @@
       "category": "workstation_pods",
       "position": [
         -6.25,
-        1.3750202154861746,
+        1.3750202154861741,
         0.0
       ],
       "yaw": 1.5707963267948966,
@@ -145,7 +145,7 @@
       "position": [
         1.5,
         -2.5,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 0.0,
       "collision_radius": 0.0
@@ -387,16 +387,5 @@
   ],
   "mjcf": "office_03_long_gallery.xml",
   "robot_include": "office_03_long_gallery_robot.xml",
-  "preview": "office_03_long_gallery.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 408,
-    "robot_start_xyz": [
-      9.2,
-      3.5,
-      0.0
-    ]
-  }
+  "preview": "office_03_long_gallery.png"
 }

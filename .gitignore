@@ -27,6 +27,24 @@ MUJOCO_LOG.TXT
 *.png
 *.jpg
 /output/
+.DS_Store
+
+# Experiment data and evaluation outputs. Keep these outside the source repo.
+/datasets/
+/evaluations/
+/internvla_trajectory/
+*.npz
+*.jsonl
+*.log
+
+# Local model/checkpoint files.
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+
+# Local diagnostic dumps and generated recordings.
+/yjw@*
 
 # Temp runtime XML 
 stretch_temp_abs.xml
@@ -41,9 +59,13 @@ stretch_mujoco/models/assets/humanoid/generated/*
 
 # Local LLM credentials must never be committed.
 **/*.local.json
+.env
+.env.*
+!.env.example
 
 # strech_codex — only source code is committed
 strech_codex/build/
 strech_codex/.pytest_cache/
 strech_codex/src/*.egg-info/
 strech_codex/src/strech_codex/logs/
+vscode-mp4-viewer/

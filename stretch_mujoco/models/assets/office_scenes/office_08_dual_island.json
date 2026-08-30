@@ -145,7 +145,7 @@
       "position": [
         -6.5,
         2.5,
-        0.9928999366941336
+        0.725
       ],
       "yaw": 1.5707963267948966,
       "collision_radius": 0.0
@@ -361,16 +361,5 @@
   ],
   "mjcf": "office_08_dual_island.xml",
   "robot_include": "office_08_dual_island_robot.xml",
-  "preview": "office_08_dual_island.png",
-  "model": {
-    "textures": 47,
-    "materials": 124,
-    "meshes": 178,
-    "geoms": 399,
-    "robot_start_xyz": [
-      -8.7,
-      -2.2,
-      0.0
-    ]
-  }
+  "preview": "office_08_dual_island.png"
 }

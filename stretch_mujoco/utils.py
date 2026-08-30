@@ -199,7 +199,9 @@ class URDFmodel:
 
     def get_transform(self, cfg: dict, link_name: str) -> np.ndarray:
         """
-        Get transformation matrix of the link w.r.t. the base_link
+        Get transformation matrix of the link. If the config contains a base pose
+        (``base_x``, ``base_y``, ``base_theta``), the result is the world-frame pose
+        of the link; otherwise it is the pose w.r.t. the base_link at the origin.
         """
         lk_cfg = {
             "joint_wrist_yaw": cfg["wrist_yaw"],
@@ -216,7 +218,15 @@ class URDFmodel:
         if "gripper" in cfg.keys():
             lk_cfg["joint_gripper_finger_left"] = cfg["gripper"]
             lk_cfg["joint_gripper_finger_right"] = cfg["gripper"]
-        return self.urdf.link_fk(lk_cfg, link=link_name)  # type: ignore
+        pose = self.urdf.link_fk(lk_cfg, link=link_name)  # type: ignore
+        if "base_x" in cfg:
+            from stretch_mujoco.graspgen.calibration import planar_world_from_base
+
+            world_from_base = planar_world_from_base(
+                (cfg["base_x"], cfg.get("base_y", 0.0), cfg.get("base_theta", 0.0))
+            )
+            return world_from_base @ pose
+        return pose
 
 
 def replace_xml_tag_value(xml_str: str, tag: str, attribute: str, pattern: str, value: str) -> str:

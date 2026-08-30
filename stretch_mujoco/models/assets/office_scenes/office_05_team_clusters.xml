@@ -49,36 +49,36 @@
     <material name="new_cb_desk_2400_material_000" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="new_cb_desk_2400_material_001" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="new_cb_desk_2400_material_002" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_003" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_004" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_005" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_003" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_004" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_005" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_006" rgba="0.03026 0.03026 0.03026 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_007" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_007" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_008" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="new_cb_desk_2400_texture_002" />
     <material name="new_cb_desk_2400_material_009" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="new_cb_desk_2400_material_010" rgba="0.92399 0.92399 0.92399 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_011" rgba="0.05459 0.05459 0.05459 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_012" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_013" rgba="0.01266 0.01266 0.01266 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_014" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="new_cb_desk_2400_texture_000" />
+    <material name="new_cb_desk_2400_material_012" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_013" rgba="0.20 0.20 0.22 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_014" rgba="0.72 0.76 0.78 1" specular="0.1675" shininess="0" reflectance="0" texture="new_cb_desk_2400_texture_000" />
     <material name="new_cb_desk_2400_material_015" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_016" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="new_cb_desk_2400_material_017" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_018" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
     <material name="new_cb_desk_2400_material_019" rgba="0.874524 0.874524 0.874524 1" specular="0.632896" shininess="1" reflectance="0.296161" />
-    <material name="new_cb_desk_2400_material_020" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_020" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_021" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_022" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_023" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_024" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
     <material name="new_cb_desk_2400_material_025" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="new_cb_desk_2400_texture_001" />
     <material name="new_cb_desk_2400_material_026" rgba="0.00293 0.00293 0.00293 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_027" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_028" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_029" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_030" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_027" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_028" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_029" rgba="0.18 0.18 0.20 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_030" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_031" rgba="0.7519 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
-    <material name="new_cb_desk_2400_material_032" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="new_cb_desk_2400_material_032" rgba="0.25 0.22 0.19 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_033" rgba="0.10616 0.10616 0.11926 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_034" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_cb_desk_2400_material_035" rgba="0.411117 0.411117 0.411117 1" specular="0.693134" shininess="0.949234" reflectance="0.334495" />
@@ -196,10 +196,10 @@
     <material name="new_teaming_table_material_001" rgba="1 1 1 1" specular="0.1675" shininess="0.917531" reflectance="0" texture="new_teaming_table_texture_001" />
     <material name="new_teaming_table_material_002" rgba="0.00018 0.00018 0.00018 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_teaming_table_material_003" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="new_teaming_table_texture_000" />
-    <mesh name="new_teaming_table_mesh_000" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_003_Material__4.obj" scale="1 0.999999881 0.999999881" />
-    <mesh name="new_teaming_table_mesh_001" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_000_Material__24.obj" scale="1 0.999999881 0.999999881" />
-    <mesh name="new_teaming_table_mesh_002" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_001_Material__3.obj" scale="1 0.999999881 0.999999881" />
-    <mesh name="new_teaming_table_mesh_003" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_002_Metal___Stainless_steel_2017.obj" scale="1 0.999999881 0.999999881" />
+    <mesh name="new_teaming_table_mesh_000" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_003_Material__4.obj" scale="1 0.999999881 0.75672355" />
+    <mesh name="new_teaming_table_mesh_001" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_000_Material__24.obj" scale="1 0.999999881 0.75672355" />
+    <mesh name="new_teaming_table_mesh_002" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_001_Material__3.obj" scale="1 0.999999881 0.75672355" />
+    <mesh name="new_teaming_table_mesh_003" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/meeting_table/meshes/part_002_Metal___Stainless_steel_2017.obj" scale="1 0.999999881 0.75672355" />
     <material name="new_dry_wipe_module_material_000" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
     <material name="new_dry_wipe_module_material_001" rgba="0.21764 0.21764 0.21764 1" specular="0.1675" shininess="0" reflectance="0" />
     <mesh name="new_dry_wipe_module_mesh_000" file="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets/office_assets/whiteboard/meshes/part_000_Arch___Design__mi__2.obj" scale="0.999999881 0.999999821 0.999999881" />
@@ -232,16 +232,12 @@
     <geom name="back_wall_0" type="box" pos="0 6 1.4" size="10 0.07 1.4" material="scene_wall" />
     <geom name="left_wall_0" type="box" pos="-10 0 1.4" size="0.07 6 1.4" material="scene_wall" />
     <geom name="right_wall_0" type="box" pos="10 0 1.4" size="0.07 6 1.4" material="scene_wall" />
-    <geom name="zone_work" type="box" pos="-4 -2.5 0.007" size="6 3.5 0.007" rgba="0.22 0.34 0.41 1" contype="0" conaffinity="0" />
     <site name="zone_work_center" pos="-4 -2.5 0.025" size="0.015" rgba="0 0 0 0" />
     <light name="light_work" pos="-4 -2.5 2.7" dir="0 0 -1" diffuse="0.52 0.51 0.48" attenuation="0.15 0.05 0.02" castshadow="false" />
-    <geom name="zone_meeting" type="box" pos="6 -2.5 0.007" size="4 3.5 0.007" rgba="0.34 0.29 0.40 1" contype="0" conaffinity="0" />
     <site name="zone_meeting_center" pos="6 -2.5 0.025" size="0.015" rgba="0 0 0 0" />
     <light name="light_meeting" pos="6 -2.5 2.7" dir="0 0 -1" diffuse="0.52 0.51 0.48" attenuation="0.15 0.05 0.02" castshadow="false" />
-    <geom name="zone_lounge" type="box" pos="-3 3.5 0.007" size="7 2.5 0.007" rgba="0.29 0.40 0.35 1" contype="0" conaffinity="0" />
     <site name="zone_lounge_center" pos="-3 3.5 0.025" size="0.015" rgba="0 0 0 0" />
     <light name="light_lounge" pos="-3 3.5 2.7" dir="0 0 -1" diffuse="0.52 0.51 0.48" attenuation="0.15 0.05 0.02" castshadow="false" />
-    <geom name="zone_snack" type="box" pos="7 3.5 0.007" size="3 2.5 0.007" rgba="0.43 0.35 0.24 1" contype="0" conaffinity="0" />
     <site name="zone_snack_center" pos="7 3.5 0.025" size="0.015" rgba="0 0 0 0" />
     <light name="light_snack" pos="7 3.5 2.7" dir="0 0 -1" diffuse="0.52 0.51 0.48" attenuation="0.15 0.05 0.02" castshadow="false" />
     <body name="asset_000_new_cb_d" pos="-4 -2.5 0" euler="0 0 0">
@@ -314,7 +310,7 @@
         <geom name="asset_visual_000_042" type="mesh" mesh="new_cb_desk_2400_mesh_032" material="new_cb_desk_2400_material_013" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_000_043" type="mesh" mesh="new_cb_desk_2400_mesh_009" material="new_cb_desk_2400_material_035" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
       </body>
-      <body name="asset_component_000_08" pos="1.5634517 4.33969314e-08 3.33438204e-07" quat="0.707106802 0 4.21468498e-08 -0.70710676">
+      <body name="asset_component_000_08" pos="1.5634517 4.33969305e-08 3.33438204e-07" quat="0.707106802 0 4.21468498e-08 -0.70710676">
         <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
         <geom name="asset_visual_000_044" type="mesh" mesh="new_cb_desk_2400_mesh_013" material="new_cb_desk_2400_material_026" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_000_045" type="mesh" mesh="new_cb_desk_2400_mesh_034" material="new_cb_desk_2400_material_010" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
@@ -389,7 +385,7 @@
         <geom name="asset_visual_000_090" type="mesh" mesh="new_cb_desk_2400_mesh_032" material="new_cb_desk_2400_material_013" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_000_091" type="mesh" mesh="new_cb_desk_2400_mesh_009" material="new_cb_desk_2400_material_035" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
       </body>
-      <body name="asset_component_000_17" pos="-1.56345166 4.33969314e-08 3.33438204e-07" quat="0.707106802 0 -4.21468498e-08 0.70710676">
+      <body name="asset_component_000_17" pos="-1.56345166 4.33969305e-08 3.33438204e-07" quat="0.707106802 0 -4.21468498e-08 0.70710676">
         <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
         <geom name="asset_visual_000_092" type="mesh" mesh="new_cb_desk_2400_mesh_013" material="new_cb_desk_2400_material_026" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_000_093" type="mesh" mesh="new_cb_desk_2400_mesh_034" material="new_cb_desk_2400_material_010" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
@@ -406,23 +402,23 @@
     <geom name="procedural_rug_003" type="box" pos="6 -2.5 0.018" size="2.4 1.8 0.015" material="lounge_rug" contype="0" conaffinity="0" />
     <body name="asset_004_new_team" pos="6 -2.5 0" euler="0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <body name="asset_component_004_00" pos="0.800100011 1.49999982e-08 2.50642369e-08" quat="1 0 0 0">
+      <body name="asset_component_004_00" pos="0.800100011 1.49999982e-08 1.89667006e-08" quat="1 0 0 0">
         <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
         <geom name="asset_visual_004_000" type="mesh" mesh="new_teaming_table_mesh_001" material="new_teaming_table_material_003" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_001" type="mesh" mesh="new_teaming_table_mesh_002" material="new_teaming_table_material_000" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_002" type="mesh" mesh="new_teaming_table_mesh_003" material="new_teaming_table_material_001" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_003" type="mesh" mesh="new_teaming_table_mesh_000" material="new_teaming_table_material_002" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
       </body>
-      <body name="asset_component_004_01" pos="-0.800100012 1.49999982e-08 2.50642369e-08" quat="1 0 0 0">
+      <body name="asset_component_004_01" pos="-0.800100012 1.49999982e-08 1.89667006e-08" quat="1 0 0 0">
         <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
         <geom name="asset_visual_004_004" type="mesh" mesh="new_teaming_table_mesh_001" material="new_teaming_table_material_003" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_005" type="mesh" mesh="new_teaming_table_mesh_002" material="new_teaming_table_material_000" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_006" type="mesh" mesh="new_teaming_table_mesh_003" material="new_teaming_table_material_001" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
         <geom name="asset_visual_004_007" type="mesh" mesh="new_teaming_table_mesh_000" material="new_teaming_table_material_002" mass="0" shellinertia="true" contype="0" conaffinity="0" group="2" />
       </body>
-      <geom name="asset_collision_004" type="box" pos="0 0 0.488949968" size="1.60020004 0.316158957 0.488949968" rgba="0 0 0 0" friction="0.9 0.01 0.001" />
+      <geom name="asset_collision_004" type="box" pos="0 0 0.37" size="1.60020004 0.316158957 0.37" rgba="0 0 0 0" friction="0.9 0.01 0.001" />
     </body>
-    <body name="asset_005_new_imac" pos="6 -2.5 0.992899937" euler="0 0 0">
+    <body name="asset_005_new_imac" pos="6 -2.5 0.725" euler="0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
       <body name="asset_component_005_00" pos="4.61999944e-07 -7.37499912e-07 -0.000588115991" quat="1 0 0 0">
         <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
