@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 os.environ.setdefault("MUJOCO_GL", "egl")
 
@@ -34,6 +34,7 @@ ZONE_COLORS = {
     "circulation": "0.19 0.22 0.24 1",
 }
 DESK_SURFACE_HEIGHT_M = 0.74
+MONITOR_DESK_EDGE_MARGIN_M = 0.03
 
 
 @dataclass(frozen=True)
@@ -258,26 +259,177 @@ def _values(text: str | None, default: tuple[float, ...]) -> np.ndarray:
     return np.asarray([float(value) for value in text.split()] if text else default, dtype=float)
 
 
-def _quat_matrix(quat: np.ndarray) -> np.ndarray:
-    quat = quat / np.linalg.norm(quat)
-    w, x, y, z = quat
-    return np.asarray(
-        (
-            (1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)),
-            (2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)),
-            (2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)),
+def _compile_part_boxes(
+    definitions: tuple["ImportedDefinition", ...],
+    raw_components: list[tuple[np.ndarray, np.ndarray, tuple["AssetPart", ...]]],
+    yaw: float = 0.0,
+) -> dict[tuple[int, int], tuple[np.ndarray, np.ndarray]]:
+    """Compile *raw_components* standalone and return MuJoCo's true world-space
+    (lo, hi) box per individual (component_index, part_index).
+
+    Mesh vertex data is not simply the raw OBJ coordinates: MuJoCo's mesh
+    compiler can recenter a mesh relative to its own inertial frame, so
+    hand-parsing the source OBJ file can disagree with what MuJoCo actually
+    renders at a given body pose. Asking MuJoCo to compile the real geometry
+    and reading the result back is the only way to get boxes that match
+    reality, so every bounds/placement computation in this module goes
+    through this probe instead of computing bounds from raw mesh files.
+
+    Returning one box per part (rather than a single aggregate box) matters
+    because a composite's components are often a grab-bag of unrelated
+    sub-meshes - guessing which one is "the surface" from geometry alone is
+    unreliable. Callers hand every candidate box to settle_z_offset() so
+    physics, not a heuristic, decides what something actually rests on.
+    """
+    root = ET.Element("mujoco", model="probe")
+    ET.SubElement(root, "compiler", angle="radian", balanceinertia="true")
+    assets = ET.SubElement(root, "asset")
+    for definition in definitions:
+        ET.SubElement(assets, definition.tag, definition.attributes)
+    world = ET.SubElement(root, "worldbody")
+    body = ET.SubElement(world, "body", name="probe", euler=numbers((0, 0, yaw)))
+    ET.SubElement(body, "inertial", pos="0 0 0", mass="0.001", diaginertia="0.001 0.001 0.001")
+    for component_index, (pos, quat, parts) in enumerate(raw_components):
+        visual = ET.SubElement(
+            body,
+            "body",
+            name=f"probe_component_{component_index:02d}",
+            pos=numbers(pos),
+            quat=numbers(quat),
         )
+        ET.SubElement(
+            visual, "inertial", pos="0 0 0", mass="0.001", diaginertia="0.001 0.001 0.001"
+        )
+        for part_index, part in enumerate(parts):
+            ET.SubElement(
+                visual,
+                "geom",
+                name=f"probe_geom_{component_index:02d}_{part_index:03d}",
+                type="mesh",
+                mesh=part.mesh,
+                material=part.material,
+                mass="0",
+                shellinertia="true",
+                contype="0",
+                conaffinity="0",
+            )
+    model = mujoco.MjModel.from_xml_string(ET.tostring(root, encoding="unicode"))
+    data = mujoco.MjData(model)
+    mujoco.mj_forward(model, data)
+    boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]] = {}
+    for gid in range(model.ngeom):
+        name = model.geom(gid).name
+        if not name.startswith("probe_geom_"):
+            continue
+        component_index, part_index = (int(token) for token in name.split("_")[2:4])
+        meshid = model.geom_dataid[gid]
+        vadr, vnum = model.mesh_vertadr[meshid], model.mesh_vertnum[meshid]
+        verts = model.mesh_vert[vadr : vadr + vnum]
+        xmat = data.geom_xmat[gid].reshape(3, 3)
+        xpos = data.geom_xpos[gid]
+        world = verts @ xmat.T + xpos
+        boxes[(component_index, part_index)] = (world.min(axis=0), world.max(axis=0))
+    return boxes
+
+
+def _compile_bbox(
+    definitions: tuple["ImportedDefinition", ...],
+    raw_components: list[tuple[np.ndarray, np.ndarray, tuple["AssetPart", ...]]],
+    yaw: float = 0.0,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Compile *raw_components* standalone and return MuJoCo's true aggregate
+    world bbox, by collapsing _compile_part_boxes()'s per-part boxes into one.
+    """
+    boxes = _compile_part_boxes(definitions, raw_components, yaw=yaw)
+    if not boxes:
+        raise ValueError("no mesh geoms found while probing bbox")
+    los, his = zip(*boxes.values())
+    return np.minimum.reduce(los), np.maximum.reduce(his)
+
+
+def settle_z_offset(
+    support_boxes: list[tuple[np.ndarray, np.ndarray]],
+    mover_lo: np.ndarray,
+    mover_hi: np.ndarray,
+    *,
+    drop_clearance: float = 0.3,
+    settle_time: float = 1.2,
+) -> tuple[float, bool]:
+    """Drop a box shaped like [mover_lo, mover_hi] straight down onto
+    support_boxes under gravity and real contact/friction, and return the z
+    offset that needs to be added to the mover's current position so it
+    actually rests on whatever is beneath its footprint - plus whether
+    contact force was actually present at rest (the thing this whole function
+    exists to guarantee, instead of eyeballing a render).
+
+    support_boxes are candidate world-space (lo, hi) AABBs - e.g. every
+    sub-part of a desk, not just the one a human guesses is "the worktop".
+    Physics resolves which one the mover's footprint actually lands on.
+    """
+    root = ET.Element("mujoco", model="settle")
+    ET.SubElement(root, "compiler", angle="radian")
+    ET.SubElement(root, "option", timestep="0.002", gravity="0 0 -9.81", cone="elliptic")
+    world = ET.SubElement(root, "worldbody")
+    highest_support_z = max(float(hi[2]) for _, hi in support_boxes)
+    friction = "1.0 0.01 0.0001"
+    for index, (lo, hi) in enumerate(support_boxes):
+        center = (lo + hi) / 2
+        half_size = np.maximum((hi - lo) / 2, 0.004)
+        ET.SubElement(
+            world,
+            "geom",
+            name=f"support_{index:03d}",
+            type="box",
+            pos=numbers(center),
+            size=numbers(half_size),
+            friction=friction,
+            contype="1",
+            conaffinity="1",
+        )
+    mover_half_size = np.maximum((mover_hi - mover_lo) / 2, 0.004)
+    mover_center_xy = (mover_lo[:2] + mover_hi[:2]) / 2
+    drop_start_z = highest_support_z + drop_clearance + mover_half_size[2]
+    body = ET.SubElement(
+        world,
+        "body",
+        name="mover",
+        pos=numbers((mover_center_xy[0], mover_center_xy[1], drop_start_z)),
     )
-
-
-def _mesh_vertices(path: Path, scale: np.ndarray) -> np.ndarray:
-    vertices = []
-    for line in path.read_text(errors="ignore").splitlines():
-        if line.startswith("v "):
-            vertices.append([float(value) for value in line.split()[1:4]])
-    if not vertices:
-        raise ValueError(f"No vertices found in {path}")
-    return np.asarray(vertices) * scale
+    ET.SubElement(body, "joint", name="drop", type="slide", axis="0 0 1", damping="0.4")
+    ET.SubElement(
+        body,
+        "geom",
+        name="mover_geom",
+        type="box",
+        size=numbers(mover_half_size),
+        friction=friction,
+        contype="1",
+        conaffinity="1",
+        mass="1.0",
+    )
+    model = mujoco.MjModel.from_xml_string(ET.tostring(root, encoding="unicode"))
+    data = mujoco.MjData(model)
+    mujoco.mj_resetData(model, data)
+    joint_id = model.joint("drop").id
+    dof_adr = model.jnt_dofadr[joint_id]
+    for _ in range(int(settle_time / model.opt.timestep)):
+        mujoco.mj_step(model, data)
+        if abs(data.qvel[dof_adr]) < 1e-4 and data.time > 0.3:
+            break
+    settled_body_z = drop_start_z + data.qpos[model.jnt_qposadr[joint_id]]
+    settled_mover_bottom = settled_body_z - mover_half_size[2]
+    mover_id = model.geom("mover_geom").id
+    force = np.zeros(6)
+    has_contact = False
+    for i in range(data.ncon):
+        contact = data.contact[i]
+        if contact.geom1 == mover_id or contact.geom2 == mover_id:
+            mujoco.mj_contactForce(model, data, i, force)
+            if abs(force[0]) > 1e-6:
+                has_contact = True
+                break
+    offset = settled_mover_bottom - float(mover_lo[2])
+    return offset, has_contact
 
 
 def load_mjcf_asset(
@@ -289,6 +441,7 @@ def load_mjcf_asset(
     preserve_component_quats: bool = False,
     z_scale: float = 1.0,
     component_z_offsets: dict[int, float] | None = None,
+    calibrate_component_z_offsets: "Callable[[tuple[ImportedDefinition, ...], list[tuple[np.ndarray, np.ndarray, tuple[AssetPart, ...]]]], dict[int, float]] | None" = None,
 ) -> AssetInfo:
     source = OFFICE_ASSETS / relative_path
     root = ET.parse(source).getroot()
@@ -306,7 +459,6 @@ def load_mjcf_asset(
         for index, node in enumerate(root.findall("./asset/mesh"))
     }
     definitions: list[ImportedDefinition] = []
-    mesh_vertices: dict[str, np.ndarray] = {}
     for node in root.findall("./asset/texture"):
         attributes = dict(node.attrib)
         attributes["name"] = texture_names[node.get("name")]
@@ -324,7 +476,6 @@ def load_mjcf_asset(
         original_name = node.get("name")
         mesh_path = (source.parent / attributes["file"]).resolve()
         scale = _values(attributes.get("scale"), (1.0, 1.0, 1.0)) * np.asarray((1.0, 1.0, z_scale))
-        mesh_vertices[original_name] = _mesh_vertices(mesh_path, scale)
         attributes["name"] = mesh_names[original_name]
         attributes["file"] = str(mesh_path)
         attributes["scale"] = numbers(scale)
@@ -333,32 +484,32 @@ def load_mjcf_asset(
     bodies = root.findall("./worldbody/body")
     if not composite:
         bodies = bodies[:1]
-    raw_components = []
-    all_vertices = []
+    unshifted_components = []
     for component_index, body in enumerate(bodies):
         pos = _values(body.get("pos"), (0.0, 0.0, 0.0)) * np.asarray((1.0, 1.0, z_scale))
-        pos[2] += (component_z_offsets or {}).get(component_index, 0.0)
         source_quat = _values(body.get("quat"), (1.0, 0.0, 0.0, 0.0))
         quat = source_quat if preserve_component_quats else np.asarray((1.0, 0.0, 0.0, 0.0))
-        rotation = _quat_matrix(quat)
-        parts = []
-        for geom in body.findall("geom"):
-            original_mesh = geom.get("mesh")
-            transformed = mesh_vertices[original_mesh] @ rotation.T + pos
-            all_vertices.append(transformed)
-            parts.append(
-                AssetPart(
-                    mesh=mesh_names[original_mesh],
-                    material=material_names[geom.get("material")],
-                )
+        parts = tuple(
+            AssetPart(
+                mesh=mesh_names[geom.get("mesh")],
+                material=material_names[geom.get("material")],
             )
-        raw_components.append((pos, quat, tuple(parts)))
-    combined = np.vstack(all_vertices)
-    minimum = combined.min(axis=0)
-    maximum = combined.max(axis=0)
-    floor_origin = 0.0 if min(pos[2] for pos, _, _ in raw_components) < 0.1 else minimum[2]
+            for geom in body.findall("geom")
+        )
+        unshifted_components.append((pos, quat, parts))
+
+    offsets = dict(component_z_offsets or {})
+    if calibrate_component_z_offsets is not None:
+        offsets.update(calibrate_component_z_offsets(tuple(definitions), unshifted_components))
+
+    raw_components = []
+    for component_index, (pos, quat, parts) in enumerate(unshifted_components):
+        pos = pos.copy()
+        pos[2] += offsets.get(component_index, 0.0)
+        raw_components.append((pos, quat, parts))
+    minimum, maximum = _compile_bbox(tuple(definitions), raw_components)
     origin = np.asarray(
-        ((minimum[0] + maximum[0]) / 2, (minimum[1] + maximum[1]) / 2, floor_origin)
+        ((minimum[0] + maximum[0]) / 2, (minimum[1] + maximum[1]) / 2, minimum[2])
     )
     components = tuple(
         AssetComponent(
@@ -375,6 +526,113 @@ def load_mjcf_asset(
         )
     )
     return AssetInfo(prefix, name, category, bounds, components, tuple(definitions))
+
+
+def measure_top_z(asset: AssetInfo, yaw: float = 0.0) -> float:
+    """Return the true world-space top z of *asset* when placed at yaw, per
+    MuJoCo's own compiled geometry (see ``_compile_bbox``). Use this instead
+    of ``asset.bounds`` when something needs to sit flush on top of it."""
+    raw_components = [
+        (np.asarray(component.pos), np.asarray(component.quat), component.parts)
+        for component in asset.components
+    ]
+    _, hi = _compile_bbox(asset.definitions, raw_components, yaw=yaw)
+    return float(hi[2])
+
+
+def _calibrate_cb_desk_monitor_offsets(
+    definitions: tuple[ImportedDefinition, ...],
+    unshifted_components: list[tuple[np.ndarray, np.ndarray, tuple[AssetPart, ...]]],
+) -> dict[int, float]:
+    """cb_desk_2400-specific: the source asset's monitor/laptop components
+    (7-part bodies) are authored floating above the desk. Rather than guess
+    which desk sub-mesh is "the surface", drop each monitor's real footprint
+    onto every sub-part box of its nearest desk component and let MuJoCo's
+    contact solver decide what it actually lands on (settle_z_offset). Only
+    accepted if real contact force was measured.
+
+    "Nearest desk component" has to mean the worktop, not just any 4-part
+    body: the same file also has four floor-to-shoulder corner leg/pedestal
+    bundles per desk that also happen to have 4 parts and sit closer to a
+    monitor's XY position than the shared worktop does. Matching by raw
+    distance picks one of those, and the settle sim then (correctly, given
+    that AABB) rests the monitor on top of the taller pedestal instead of the
+    desk. The worktop is reliably identifiable by plan area alone - it is
+    almost an order of magnitude larger than any corner bundle - so restrict
+    the distance search to components whose footprint clears that gap.
+
+    Each worktop seats 2 users per long edge. The outer seat's laptop on
+    every edge (verified by rendering from that seat's own chair - it looks
+    straight at the laptop's hinge/back, not its screen) is a mirrored
+    duplicate of the inner seat's laptop that also got authored with its
+    footprint hanging halfway off the desk's short edge. Both symptoms come
+    from the same authoring slip, so the same geometric signal - this
+    monitor's footprint barely overlapping its worktop - both identifies the
+    outer seat and is the correction: mirroring is a 180 degree yaw, which
+    only makes sense for the monitor whose footprint is on the wrong side of
+    the mirror line to begin with. The inner seat's already-correct monitor
+    always has strong overlap and is left untouched.
+    """
+    desk_indices = [i for i, (_, _, parts) in enumerate(unshifted_components) if len(parts) == 4]
+    monitor_indices = [i for i, (_, _, parts) in enumerate(unshifted_components) if len(parts) == 7]
+    if not desk_indices or not monitor_indices:
+        return {}
+    worktop_bounds = {}
+    for desk_index in desk_indices:
+        worktop_bounds[desk_index] = _compile_bbox(definitions, [unshifted_components[desk_index]])
+    max_footprint = max((hi[0] - lo[0]) * (hi[1] - lo[1]) for lo, hi in worktop_bounds.values())
+    worktop_indices = [
+        index
+        for index, (lo, hi) in worktop_bounds.items()
+        if (hi[0] - lo[0]) * (hi[1] - lo[1]) > max_footprint / 2
+    ]
+    part_boxes = _compile_part_boxes(definitions, unshifted_components)
+    offsets: dict[int, float] = {}
+    for monitor_index in monitor_indices:
+        monitor_pos = unshifted_components[monitor_index][0]
+        nearest_desk = min(
+            worktop_indices,
+            key=lambda d: np.hypot(
+                unshifted_components[d][0][0] - monitor_pos[0],
+                unshifted_components[d][0][1] - monitor_pos[1],
+            ),
+        )
+        worktop_lo, worktop_hi = worktop_bounds[nearest_desk]
+        mover_lo, mover_hi = _compile_bbox(definitions, [unshifted_components[monitor_index]])
+        overlap_x = max(0.0, min(mover_hi[0], worktop_hi[0]) - max(mover_lo[0], worktop_lo[0]))
+        overlap_y = max(0.0, min(mover_hi[1], worktop_hi[1]) - max(mover_lo[1], worktop_lo[1]))
+        mover_area = (mover_hi[0] - mover_lo[0]) * (mover_hi[1] - mover_lo[1])
+        if overlap_x * overlap_y < 0.7 * mover_area:
+            pos, quat, parts = unshifted_components[monitor_index]
+            flipped_quat = np.zeros(4)
+            mujoco.mju_mulQuat(flipped_quat, np.array((0.0, 0.0, 0.0, 1.0)), quat)
+            unshifted_components[monitor_index] = (pos, flipped_quat, parts)
+            mover_lo, mover_hi = _compile_bbox(definitions, [unshifted_components[monitor_index]])
+        # Every monitor on this worktop sits near one of its short ends (2
+        # users per long edge, side by side along x), each authored with its
+        # own leftover gap to that end - from a few cm to, for the outer
+        # seat above, an outright overhang. Re-anchor every one of them (not
+        # just the ones that were overhanging) to the same fixed margin from
+        # its own nearest end, so all 4 monitors on a desk read as evenly
+        # placed instead of at whatever gap each happened to be authored at.
+        monitor_center_x = (mover_lo[0] + mover_hi[0]) / 2
+        worktop_center_x = (worktop_lo[0] + worktop_hi[0]) / 2
+        if monitor_center_x < worktop_center_x:
+            nudge_x = (worktop_lo[0] + MONITOR_DESK_EDGE_MARGIN_M) - mover_lo[0]
+        else:
+            nudge_x = (worktop_hi[0] - MONITOR_DESK_EDGE_MARGIN_M) - mover_hi[0]
+        monitor_pos[0] += nudge_x
+        mover_lo[0] += nudge_x
+        mover_hi[0] += nudge_x
+        support_boxes = [box for (ci, _pi), box in part_boxes.items() if ci == nearest_desk]
+        offset, has_contact = settle_z_offset(support_boxes, mover_lo, mover_hi)
+        if not has_contact:
+            raise ValueError(
+                f"cb_desk_2400 monitor component {monitor_index}: settle simulation reported "
+                "no contact force at rest - refusing to place it on an unverified guess"
+            )
+        offsets[monitor_index] = offset
+    return offsets
 
 
 def load_assets() -> dict[str, list[AssetInfo]]:
@@ -416,6 +674,11 @@ def load_assets() -> dict[str, list[AssetInfo]]:
             preserve_component_quats=preserve_quats,
             z_scale=overrides[0] if overrides else 1.0,
             component_z_offsets=overrides[1] if len(overrides) > 1 else None,
+            calibrate_component_z_offsets=(
+                _calibrate_cb_desk_monitor_offsets
+                if relative_path == "desks/cb_desk_2400.xml"
+                else None
+            ),
         )
         by_category[category].append(asset)
     legacy_registry = ET.parse(OFFICE_ASSETS / "mjcf" / "office_assets.xml").getroot()
@@ -423,26 +686,39 @@ def load_assets() -> dict[str, list[AssetInfo]]:
     for metadata_path in sorted((OFFICE_ASSETS / "furniture" / "sofas").glob("*/asset.json")):
         data = json.loads(metadata_path.read_text(encoding="utf-8"))
         asset_id = data["asset_id"]
-        bounds = np.asarray(data["bounds_m"], dtype=float)
-        center = bounds.mean(axis=0)
+        static_bounds = np.asarray(data["bounds_m"], dtype=float)
+        center_xy = static_bounds.mean(axis=0)[:2]
         prefix = f"office_{asset_id}_part_"
         definitions = tuple(
             ImportedDefinition(node.tag, dict(node.attrib))
             for node in registry_definitions
             if node.get("name", "").startswith(prefix)
         )
+        parts = tuple(
+            AssetPart(
+                mesh=f"{prefix}{part_index:03d}_mesh",
+                material=f"{prefix}{part_index:03d}_material",
+            )
+            for part_index in range(int(data["material_part_count"]))
+        )
+        # asset.json's bounds_m comes from a separate extraction tool and can
+        # disagree with what MuJoCo actually renders (see _compile_bbox), so
+        # measure the true bbox instead of trusting it for floor anchoring.
+        probe_pos = np.asarray((-center_xy[0], -center_xy[1], 0.0))
+        probe_quat = np.asarray((1.0, 0.0, 0.0, 0.0))
+        minimum, maximum = _compile_bbox(definitions, [(probe_pos, probe_quat, parts)])
         components = (
             AssetComponent(
-                pos=(-float(center[0]), -float(center[1]), -float(bounds[0, 2])),
+                pos=(-float(center_xy[0]), -float(center_xy[1]), -float(minimum[2])),
                 quat=(1.0, 0.0, 0.0, 0.0),
-                parts=tuple(
-                    AssetPart(
-                        mesh=f"{prefix}{part_index:03d}_mesh",
-                        material=f"{prefix}{part_index:03d}_material",
-                    )
-                    for part_index in range(int(data["material_part_count"]))
-                ),
+                parts=parts,
             ),
+        )
+        bounds = np.asarray(
+            (
+                (minimum[0], minimum[1], 0.0),
+                (maximum[0], maximum[1], maximum[2] - minimum[2]),
+            )
         )
         by_category["legacy_sofas"].append(
             AssetInfo(
@@ -703,7 +979,12 @@ def furnish_work_zone(furnisher: Furnisher, zone: Zone, style: str, variant: int
     size = pod.bounds[1] - pod.bounds[0]
     cx, cy = zone.center
     yaw = math.pi / 2 if style == "rows_y" else 0.0
-    long_size = float(size[1] if style == "rows_y" else size[0])
+    # A "rows_y" placement rotates the pod 90 degrees, so its footprint along
+    # the offset axis (world y) is governed by the pod's pre-rotation *x*
+    # extent, not its y extent - using size[1] here understated a
+    # ~5.6m-wide pod's spacing need as its ~2.4m depth, letting two pods
+    # overlap into what looked like one 8-monitor desk.
+    long_size = float(size[0])
     available = zone.depth if style == "rows_y" else zone.width
     count = max(1, min(2, int((available - 0.8) // (long_size + 0.45))))
     offsets = (np.arange(count) - (count - 1) / 2) * (long_size + 0.35)
@@ -733,12 +1014,12 @@ def furnish_meeting_zone(furnisher: Furnisher, zone: Zone, style: str, variant: 
         table_yaw = 0.0
         chair_count, rx, ry = 6, min(2.2, zone.width / 3), min(1.4, zone.depth / 3)
     furnisher.place("meeting_tables", cx, cy, yaw=table_yaw, collision=True, asset=table)
-    table_height = float((table.bounds[1] - table.bounds[0])[2])
+    table_top_z = measure_top_z(table, table_yaw)
     furnisher.place(
         "displays",
         cx,
         cy,
-        z=table_height - 0.015,
+        z=table_top_z - 0.015,
         yaw=table_yaw,
         asset=display,
     )
@@ -824,6 +1105,46 @@ def add_trash_bin(furnisher: Furnisher, x: float, y: float) -> None:
     furnisher.record_procedural("Waste Bin", "props/trash_bins", x, y, 0.18)
 
 
+def place_on_surface(
+    body: ET.Element,
+    *,
+    y: float,
+    surface_top_z: float,
+    items: list[dict[str, Any]],
+    axis: str = "x",
+    margin: float = 0.02,
+) -> None:
+    """Lay out ``items`` side by side along ``axis``, resting on ``surface_top_z``.
+
+    Each item is ``{"mesh", "material", "width", "lift"}``: ``width`` is the
+    slot it occupies (only needs to be roughly right - it drives spacing, not
+    the render) and ``lift`` is how far above the surface that mesh's own
+    center sits (varies per mesh since each one's pivot is in a different
+    place). To add a new item, append one more dict to ``items`` - every
+    position is recomputed from the list, nothing needs to be hand-solved or
+    moved to make room.
+    """
+    total_width = sum(item["width"] for item in items) + margin * (len(items) - 1)
+    cursor = -total_width / 2
+    for item in items:
+        center = cursor + item["width"] / 2
+        along = (center, y) if axis == "x" else (y, center)
+        ET.SubElement(
+            body,
+            "geom",
+            type="mesh",
+            mesh=item["mesh"],
+            material=item["material"],
+            pos=numbers((along[0], along[1], surface_top_z + item["lift"])),
+            mass="0",
+            shellinertia="true",
+            contype="0",
+            conaffinity="0",
+            group="2",
+        )
+        cursor += item["width"] + margin
+
+
 def add_snack_counter(furnisher: Furnisher, zone: Zone, variant: int) -> None:
     cx, cy = zone.center
     yaw = math.pi / 2 if variant % 3 == 1 else 0.0
@@ -853,26 +1174,17 @@ def add_snack_counter(furnisher: Furnisher, zone: Zone, variant: int) -> None:
             size="0.04 0.34 0.35",
             material="snack_counter_metal",
         )
-    snack_specs = (
-        ("snack_can_mesh", "snack_soda", -0.52, 0.84),
-        ("snack_cereal_mesh", "snack_cereal", -0.17, 0.84),
-        ("snack_bread_mesh", "snack_bread", 0.18, 0.81),
-        ("snack_lemon_mesh", "snack_lemon", 0.52, 0.81),
+    place_on_surface(
+        body,
+        y=-0.03,
+        surface_top_z=0.74,
+        items=[
+            {"mesh": "snack_can_mesh", "material": "snack_soda", "width": 0.325, "lift": 0.10},
+            {"mesh": "snack_cereal_mesh", "material": "snack_cereal", "width": 0.325, "lift": 0.10},
+            {"mesh": "snack_bread_mesh", "material": "snack_bread", "width": 0.325, "lift": 0.07},
+            {"mesh": "snack_lemon_mesh", "material": "snack_lemon", "width": 0.325, "lift": 0.07},
+        ],
     )
-    for mesh, material, x, z in snack_specs:
-        ET.SubElement(
-            body,
-            "geom",
-            type="mesh",
-            mesh=mesh,
-            material=material,
-            pos=numbers((x, -0.03, z)),
-            mass="0",
-            shellinertia="true",
-            contype="0",
-            conaffinity="0",
-            group="2",
-        )
     ET.SubElement(
         body, "site", name="snack_pickup_site", pos="0 -0.48 0.82", size="0.02", rgba="0 0 0 0"
     )
@@ -1139,6 +1451,30 @@ Open a scene with:
 The viewer starts in free-camera mode. Use left-drag to rotate, right-drag to pan, and the mouse
 wheel to zoom. The scenes reference the centralized `office_assets` library and include a
 scene-specific generated Stretch XML that sets the robot's initial freejoint pose.
+
+## Adding or moving a placed object
+
+Don't hand-compute world coordinates. Two tools do that for you:
+
+- **Placing something on top of a surface** (a monitor on a table, a snack on the counter): use
+  `measure_top_z(asset, yaw)` to get the surface's true rendered height instead of trusting
+  `AssetInfo.bounds` for it — see `furnish_meeting_zone()`. For several small items on the same
+  surface (like the snack counter), use `place_on_surface()`: give each item a `width` (its
+  spacing slot) and a `lift` (how far its own mesh center sits above the surface); adding an item
+  is one more dict in the list, and every position is recomputed automatically.
+- **Moving something**: prefer offsets relative to `zone.center` / `zone.bounds` over hardcoded
+  absolute coordinates, matching the existing `furnish_*_zone()` functions.
+
+After any change, regenerate and audit before committing:
+
+```bash
+.venv/bin/python tools/generate_office_scenes.py
+.venv/bin/python tools/audit_office_scenes.py
+```
+
+`audit_office_scenes.py` compiles all ten scenes and flags any placed object whose visual mesh
+doesn't actually rest on its supporting surface (floating) or sinks into it (penetrating). A clean
+run prints `ok` for every scene — that's the bar, not a visual spot-check.
 """,
         encoding="utf-8",
     )

@@ -1,5 +1,5 @@
 <mujoco model="stretch">
-  <compiler angle="radian" assetdir="/home/yjw/stretch_mujoco/stretch_mujoco/models/assets" />
+  <compiler angle="radian" assetdir="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets" />
   <option integrator="implicitfast" impratio="20" cone="elliptic">
     <flag multiccd="enable" />
   </option>

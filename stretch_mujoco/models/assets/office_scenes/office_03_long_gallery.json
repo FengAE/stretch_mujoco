@@ -57,7 +57,7 @@
     "minimum_clearance_m": 2.488469347902923,
     "body": "base_link"
   },
-  "asset_instance_count": 25,
+  "asset_instance_count": 24,
   "assets": [
     {
       "instance": 0,
@@ -66,27 +66,14 @@
       "category": "workstation_pods",
       "position": [
         -6.25,
-        -1.3750202154861741,
+        0.0,
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 3.0794247792316884
+      "collision_radius": 3.07085545822203
     },
     {
       "instance": 1,
-      "asset_id": "new_cb_desk_2400",
-      "name": "CB Desk 2400 Workstation Pod",
-      "category": "workstation_pods",
-      "position": [
-        -6.25,
-        1.3750202154861741,
-        0.0
-      ],
-      "yaw": 1.5707963267948966,
-      "collision_radius": 3.0794247792316884
-    },
-    {
-      "instance": 2,
       "asset_id": "procedural_Office Plant",
       "name": "Office Plant",
       "category": "props/plants",
@@ -99,7 +86,7 @@
       "collision_radius": 0.2
     },
     {
-      "instance": 3,
+      "instance": 2,
       "asset_id": "procedural_Waste Bin",
       "name": "Waste Bin",
       "category": "props/trash_bins",
@@ -112,7 +99,7 @@
       "collision_radius": 0.18
     },
     {
-      "instance": 4,
+      "instance": 3,
       "asset_id": "procedural_Area Rug",
       "name": "Area Rug",
       "category": "decoration/rugs",
@@ -125,7 +112,7 @@
       "collision_radius": 0.0
     },
     {
-      "instance": 5,
+      "instance": 4,
       "asset_id": "new_teaming_table",
       "name": "Teaming Meeting Table",
       "category": "meeting_tables",
@@ -135,23 +122,23 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 1.6311335493901054
+      "collision_radius": 1.6295808579126012
     },
     {
-      "instance": 6,
+      "instance": 5,
       "asset_id": "new_imac_27",
       "name": "iMac 27",
       "category": "displays",
       "position": [
         1.5,
         -2.5,
-        0.725
+        0.6836258878081257
       ],
       "yaw": 0.0,
       "collision_radius": 0.0
     },
     {
-      "instance": 7,
+      "instance": 6,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -161,10 +148,10 @@
         0.0
       ],
       "yaw": -1.5707963267948966,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 8,
+      "instance": 7,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -174,10 +161,10 @@
         0.0
       ],
       "yaw": -0.7853981633974483,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 9,
+      "instance": 8,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -187,10 +174,10 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 10,
+      "instance": 9,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -200,10 +187,10 @@
         0.0
       ],
       "yaw": 0.7853981633974483,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 11,
+      "instance": 10,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -213,10 +200,10 @@
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 12,
+      "instance": 11,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -226,10 +213,10 @@
         0.0
       ],
       "yaw": 2.356194490192345,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 13,
+      "instance": 12,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -239,10 +226,10 @@
         0.0
       ],
       "yaw": 3.141592653589793,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 14,
+      "instance": 13,
       "asset_id": "new_stance_chair",
       "name": "Stance Meeting Chair",
       "category": "meeting_chairs",
@@ -252,10 +239,10 @@
         0.0
       ],
       "yaw": 3.9269908169872414,
-      "collision_radius": 0.4739576892135551
+      "collision_radius": 0.473957669258622
     },
     {
-      "instance": 15,
+      "instance": 14,
       "asset_id": "new_dry_wipe_module",
       "name": "Double Dry Wipe Board",
       "category": "whiteboards",
@@ -265,10 +252,10 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 1.0334516140661798
+      "collision_radius": 1.0307877559748173
     },
     {
-      "instance": 16,
+      "instance": 15,
       "asset_id": "procedural_Office Plant",
       "name": "Office Plant",
       "category": "props/plants",
@@ -281,7 +268,7 @@
       "collision_radius": 0.2
     },
     {
-      "instance": 17,
+      "instance": 16,
       "asset_id": "procedural_Area Rug",
       "name": "Area Rug",
       "category": "decoration/rugs",
@@ -294,7 +281,7 @@
       "collision_radius": 0.0
     },
     {
-      "instance": 18,
+      "instance": 17,
       "asset_id": "5274751529e50c02430fb9b3ee3019ea9c091520",
       "name": "Kendrick Stone Settee",
       "category": "legacy_sofas",
@@ -304,10 +291,10 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 0.8768208492984692
+      "collision_radius": 0.8821421375205482
     },
     {
-      "instance": 19,
+      "instance": 18,
       "asset_id": "5274751529e50c02430fb9b3ee3019ea9c091520",
       "name": "Kendrick Stone Settee",
       "category": "legacy_sofas",
@@ -317,10 +304,10 @@
         0.0
       ],
       "yaw": 3.141592653589793,
-      "collision_radius": 0.8768208492984692
+      "collision_radius": 0.8821421375205482
     },
     {
-      "instance": 20,
+      "instance": 19,
       "asset_id": "procedural_Office Plant",
       "name": "Office Plant",
       "category": "props/plants",
@@ -333,7 +320,7 @@
       "collision_radius": 0.2
     },
     {
-      "instance": 21,
+      "instance": 20,
       "asset_id": "procedural_Snack Counter",
       "name": "Snack Counter",
       "category": "furniture/snack_counter",
@@ -346,7 +333,7 @@
       "collision_radius": 0.95
     },
     {
-      "instance": 22,
+      "instance": 21,
       "asset_id": "procedural_Snack Storage Cabinet",
       "name": "Snack Storage Cabinet",
       "category": "furniture/storage",
@@ -359,7 +346,7 @@
       "collision_radius": 0.62
     },
     {
-      "instance": 23,
+      "instance": 22,
       "asset_id": "procedural_Waste Bin",
       "name": "Waste Bin",
       "category": "props/trash_bins",
@@ -372,7 +359,7 @@
       "collision_radius": 0.18
     },
     {
-      "instance": 24,
+      "instance": 23,
       "asset_id": "procedural_Office Plant",
       "name": "Office Plant",
       "category": "props/plants",
@@ -387,5 +374,16 @@
   ],
   "mjcf": "office_03_long_gallery.xml",
   "robot_include": "office_03_long_gallery_robot.xml",
-  "preview": "office_03_long_gallery.png"
+  "preview": "office_03_long_gallery.png",
+  "model": {
+    "textures": 47,
+    "materials": 124,
+    "meshes": 178,
+    "geoms": 307,
+    "robot_start_xyz": [
+      9.2,
+      3.5,
+      0.0
+    ]
+  }
 }

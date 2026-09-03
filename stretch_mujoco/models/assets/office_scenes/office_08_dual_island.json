@@ -54,7 +54,7 @@
       -2.2,
       1.5707963267948966
     ],
-    "minimum_clearance_m": 2.315564047455505,
+    "minimum_clearance_m": 2.3419181501588393,
     "body": "base_link"
   },
   "asset_instance_count": 23,
@@ -65,12 +65,12 @@
       "name": "CB Desk 2400 Workstation Pod",
       "category": "workstation_pods",
       "position": [
-        -3.010984565079762,
+        -2.99302534949987,
         -3.0,
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 3.0794247792316884
+      "collision_radius": 3.07085545822203
     },
     {
       "instance": 1,
@@ -78,12 +78,12 @@
       "name": "CB Desk 2400 Workstation Pod",
       "category": "workstation_pods",
       "position": [
-        3.010984565079762,
+        2.99302534949987,
         -3.0,
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 3.0794247792316884
+      "collision_radius": 3.07085545822203
     },
     {
       "instance": 2,
@@ -135,7 +135,7 @@
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 1.6311335493901054
+      "collision_radius": 1.6295808579126012
     },
     {
       "instance": 6,
@@ -145,7 +145,7 @@
       "position": [
         -6.5,
         2.5,
-        0.725
+        0.6836258878081258
       ],
       "yaw": 1.5707963267948966,
       "collision_radius": 0.0
@@ -161,7 +161,7 @@
         0.0
       ],
       "yaw": -1.5707963267948966,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 8,
@@ -174,7 +174,7 @@
         0.0
       ],
       "yaw": -0.5235987755982989,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 9,
@@ -187,7 +187,7 @@
         0.0
       ],
       "yaw": 0.5235987755982987,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 10,
@@ -200,7 +200,7 @@
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 11,
@@ -213,7 +213,7 @@
         0.0
       ],
       "yaw": 2.617993877991494,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 12,
@@ -226,7 +226,7 @@
         0.0
       ],
       "yaw": 3.6651914291880923,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 13,
@@ -239,7 +239,7 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 1.0334516140661798
+      "collision_radius": 1.0307877559748173
     },
     {
       "instance": 14,
@@ -278,7 +278,7 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 0.9843407519043301
+      "collision_radius": 0.9871709321717168
     },
     {
       "instance": 17,
@@ -291,7 +291,7 @@
         0.0
       ],
       "yaw": 3.141592653589793,
-      "collision_radius": 0.9843407519043301
+      "collision_radius": 0.9871709321717168
     },
     {
       "instance": 18,
@@ -361,5 +361,16 @@
   ],
   "mjcf": "office_08_dual_island.xml",
   "robot_include": "office_08_dual_island_robot.xml",
-  "preview": "office_08_dual_island.png"
+  "preview": "office_08_dual_island.png",
+  "model": {
+    "textures": 47,
+    "materials": 124,
+    "meshes": 178,
+    "geoms": 395,
+    "robot_start_xyz": [
+      -8.7,
+      -2.2,
+      0.0
+    ]
+  }
 }

@@ -54,7 +54,7 @@
       4.2,
       -1.0471975511965976
     ],
-    "minimum_clearance_m": 4.701073360488904,
+    "minimum_clearance_m": 4.709642681498562,
     "body": "base_link"
   },
   "asset_instance_count": 22,
@@ -70,7 +70,7 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 3.0794247792316884
+      "collision_radius": 3.07085545822203
     },
     {
       "instance": 1,
@@ -122,7 +122,7 @@
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 1.6311335493901054
+      "collision_radius": 1.6295808579126012
     },
     {
       "instance": 5,
@@ -132,7 +132,7 @@
       "position": [
         6.25,
         -2.25,
-        0.725
+        0.6836258878081258
       ],
       "yaw": 1.5707963267948966,
       "collision_radius": 0.0
@@ -148,7 +148,7 @@
         0.0
       ],
       "yaw": -1.5707963267948966,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 7,
@@ -161,7 +161,7 @@
         0.0
       ],
       "yaw": -0.5235987755982989,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 8,
@@ -174,7 +174,7 @@
         0.0
       ],
       "yaw": 0.5235987755982987,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 9,
@@ -187,7 +187,7 @@
         0.0
       ],
       "yaw": 1.5707963267948966,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 10,
@@ -200,7 +200,7 @@
         0.0
       ],
       "yaw": 2.617993877991494,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 11,
@@ -213,7 +213,7 @@
         0.0
       ],
       "yaw": 3.6651914291880923,
-      "collision_radius": 0.38487387816883323
+      "collision_radius": 0.39023436089338864
     },
     {
       "instance": 12,
@@ -226,7 +226,7 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 1.0334516140661798
+      "collision_radius": 1.0307877559748173
     },
     {
       "instance": 13,
@@ -265,7 +265,7 @@
         0.0
       ],
       "yaw": 0.0,
-      "collision_radius": 0.8768208492984692
+      "collision_radius": 0.8821421375205482
     },
     {
       "instance": 16,
@@ -278,7 +278,7 @@
         0.0
       ],
       "yaw": 3.141592653589793,
-      "collision_radius": 0.8768208492984692
+      "collision_radius": 0.8821421375205482
     },
     {
       "instance": 17,
@@ -348,5 +348,16 @@
   ],
   "mjcf": "office_06_diagonal_flow.xml",
   "robot_include": "office_06_diagonal_flow_robot.xml",
-  "preview": "office_06_diagonal_flow.png"
+  "preview": "office_06_diagonal_flow.png",
+  "model": {
+    "textures": 47,
+    "materials": 124,
+    "meshes": 178,
+    "geoms": 296,
+    "robot_start_xyz": [
+      -9.2,
+      4.2,
+      0.0
+    ]
+  }
 }
