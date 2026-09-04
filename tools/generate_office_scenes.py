@@ -1005,39 +1005,47 @@ class Furnisher:
         collision_radius = 0.0
         if collision:
             collision_radius = float(np.linalg.norm(dimensions[:2]) / 2)
-            if asset.asset_id == "new_cb_desk_2400":
-                for worktop_index, (worktop_lo, worktop_hi) in enumerate(
-                    cb_desk_worktop_boxes(asset)
-                ):
-                    center = (worktop_lo + worktop_hi) / 2
-                    half_size = np.maximum((worktop_hi - worktop_lo) / 2, 0.01)
+            # Use the imported mesh parts themselves as collision geometry.
+            # MuJoCo compiles mesh geoms to convex collision hulls, preserving
+            # legs/chairs/openings instead of collapsing an entire asset into
+            # one world-space AABB.  The same geoms are consumed by the
+            # polygon occupancy backend (their compiled vertices are projected
+            # to XY), so physics and navigation share one source of truth.
+            collision_part_index = 0
+            for component_index, component in enumerate(asset.components):
+                collision_body = ET.SubElement(
+                    body,
+                    "body",
+                    name=f"collision_component_{index:03d}_{component_index:02d}",
+                    pos=numbers(component.pos),
+                    quat=numbers(component.quat),
+                )
+                # This body only groups static collision geoms; it still
+                # needs a tiny inertial because MuJoCo requires every moving
+                # body in the kinematic tree to have positive mass.
+                ET.SubElement(
+                    collision_body,
+                    "inertial",
+                    pos="0 0 0",
+                    mass="0.001",
+                    diaginertia="0.001 0.001 0.001",
+                )
+                for part_index, part in enumerate(component.parts):
                     ET.SubElement(
-                        body,
+                        collision_body,
                         "geom",
-                        name=f"asset_collision_{index:03d}_{worktop_index}",
-                        type="box",
-                        pos=numbers(center),
-                        size=numbers(half_size),
+                        name=(f"nav_collision_{index:03d}_{collision_part_index:03d}"),
+                        type="mesh",
+                        mesh=part.mesh,
+                        mass="0",
+                        shellinertia="true",
+                        contype="1",
+                        conaffinity="1",
+                        group="3",
                         rgba="0 0 0 0",
                         friction="0.9 0.01 0.001",
                     )
-            else:
-                ET.SubElement(
-                    body,
-                    "geom",
-                    name=f"asset_collision_{index:03d}",
-                    type="box",
-                    pos=numbers((0, 0, max(0.02, dimensions[2] / 2))),
-                    size=numbers(
-                        (
-                            max(0.03, dimensions[0] / 2),
-                            max(0.03, dimensions[1] / 2),
-                            max(0.02, dimensions[2] / 2),
-                        )
-                    ),
-                    rgba="0 0 0 0",
-                    friction="0.9 0.01 0.001",
-                )
+                    collision_part_index += 1
         self.placements.append(
             {
                 "instance": index,

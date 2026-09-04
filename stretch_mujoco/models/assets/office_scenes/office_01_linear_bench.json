@@ -541,7 +541,7 @@
     "textures": 63,
     "materials": 141,
     "meshes": 208,
-    "geoms": 316,
+    "geoms": 438,
     "robot_start_xyz": [
       -0.7,
       -3.8,
