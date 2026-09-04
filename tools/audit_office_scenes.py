@@ -24,6 +24,11 @@ import numpy as np
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SCENES_DIR = PROJECT_ROOT / "stretch_mujoco" / "models" / "assets" / "office_scenes"
+# Some valid grasp objects (notably the notebook) are very thin along one
+# axis.  A 2 cm overlap requirement rejects their entire footprint even when
+# they are fully on a desk, so use a smaller geometric contact threshold and
+# rely on the z-gap test for the actual support decision.
+MIN_FOOTPRINT_OVERLAP_M = 0.005
 
 
 def _top_level_asset_body(model: mujoco.MjModel, body_id: int) -> int:
@@ -99,7 +104,11 @@ def audit_scene(xml_path: Path, tolerance: float) -> list[tuple[str, str, float,
                 continue
             overlap_x = min(hi[0], ohi[0]) - max(lo[0], olo[0])
             overlap_y = min(hi[1], ohi[1]) - max(lo[1], olo[1])
-            if overlap_x > 0.02 and overlap_y > 0.02 and ohi[2] <= lo[2] + 0.08:
+            if (
+                overlap_x > MIN_FOOTPRINT_OVERLAP_M
+                and overlap_y > MIN_FOOTPRINT_OVERLAP_M
+                and ohi[2] <= lo[2] + 0.08
+            ):
                 if ohi[2] > best_support_z:
                     best_support_z = float(ohi[2])
                     support_name = other_name

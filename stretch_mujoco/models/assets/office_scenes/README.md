@@ -18,12 +18,10 @@ scene-specific generated Stretch XML that sets the robot's initial freejoint pos
 
 Don't hand-compute world coordinates. Two tools do that for you:
 
-- **Placing something on top of a surface** (a monitor on a table, a snack on the counter): use
-  `measure_top_z(asset, yaw)` to get the surface's true rendered height instead of trusting
-  `AssetInfo.bounds` for it — see `furnish_meeting_zone()`. For several small items on the same
-  surface (like the snack counter), use `place_on_surface()`: give each item a `width` (its
-  spacing slot) and a `lift` (how far its own mesh center sits above the surface); adding an item
-  is one more dict in the list, and every position is recomputed automatically.
+- **Placing something on top of a surface** (a monitor on a table or a graspable item on the
+  counter): use `measure_top_z(asset, yaw)` for imported furniture. For an `InteractiveAsset`,
+  call `Furnisher.place_interactive()` with `z=surface_top_z - asset.mesh_min_z`; this is the
+  actual mesh offset used by the workstation and snack-zone placers.
 - **Moving something**: prefer offsets relative to `zone.center` / `zone.bounds` over hardcoded
   absolute coordinates, matching the existing `furnish_*_zone()` functions.
 

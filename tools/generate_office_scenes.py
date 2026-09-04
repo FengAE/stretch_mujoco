@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import random
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from dataclasses import dataclass
@@ -18,6 +19,14 @@ import cv2
 import mujoco
 import numpy as np
 
+from office_interactive_assets import (
+    INTERACTIVE_ROTATION_CORRECTIONS,
+    InteractiveAsset,
+    corrected_interactive_collision_bounds,
+    interactive_euler,
+    load_interactive_assets,
+)
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MODELS_ROOT = PROJECT_ROOT / "stretch_mujoco" / "models"
@@ -25,6 +34,27 @@ OFFICE_ASSETS = MODELS_ROOT / "assets" / "office_assets"
 SNACK_ASSETS = MODELS_ROOT / "assets" / "office_snacks"
 STRETCH_XML = MODELS_ROOT / "stretch.xml"
 DEFAULT_OUTPUT = MODELS_ROOT / "assets" / "office_scenes"
+
+# Interactive-object pools are deliberately role-specific.  This prevents a
+# desk from receiving food packaging intended for the snack counter and makes
+# the generated scenes easier to use for task-conditioned grasping.
+WORKSTATION_INTERACTIVE_ASSET_IDS = (
+    "017_calculator",
+    "043_book",
+    "116_keyboard",
+    "101_milk-tea",
+    "snack_soda_can",
+)
+SNACK_ZONE_INTERACTIVE_ASSET_IDS = (
+    "001_bottle",
+    "025_chips-tub",
+    "035_apple",
+    "038_milk-box",
+    "071_can",
+    "green_apple",
+    "075_bread",
+)
+SNACK_DUPLICATE_PROBABILITY = 0.15
 
 ZONE_COLORS = {
     "work": "0.22 0.34 0.41 1",
@@ -840,6 +870,60 @@ def validate_zone_floor(spec: SceneSpec) -> None:
         )
 
 
+def _asset_part_boxes(asset: AssetInfo) -> dict[tuple[int, int], tuple[np.ndarray, np.ndarray]]:
+    """Return the compiled, asset-local bounds of every imported mesh part."""
+    components = [
+        (np.asarray(component.pos), np.asarray(component.quat), component.parts)
+        for component in asset.components
+    ]
+    return _compile_part_boxes(asset.definitions, components)
+
+
+def _component_boxes(
+    part_boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]],
+) -> dict[int, tuple[np.ndarray, np.ndarray]]:
+    """Merge part bounds into one box per imported asset component."""
+    boxes: dict[int, tuple[np.ndarray, np.ndarray]] = {}
+    for (component_index, _), (lo, hi) in part_boxes.items():
+        old = boxes.get(component_index)
+        boxes[component_index] = (
+            (lo.copy(), hi.copy())
+            if old is None
+            else (np.minimum(old[0], lo), np.maximum(old[1], hi))
+        )
+    return boxes
+
+
+def _xy_overlaps(
+    first: tuple[np.ndarray, np.ndarray],
+    second: tuple[np.ndarray, np.ndarray],
+    *,
+    minimum: float = 0.015,
+) -> bool:
+    """Whether two axis-aligned boxes overlap enough to count as a collision."""
+    return bool(np.all(np.minimum(first[1][:2], second[1][:2]) - np.maximum(first[0][:2], second[0][:2]) > minimum))
+
+
+def cb_desk_worktop_boxes(
+    pod: AssetInfo,
+    part_boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]] | None = None,
+) -> tuple[tuple[np.ndarray, np.ndarray], ...]:
+    """Return the real local boxes of the two cb_desk_2400 worktop halves."""
+    if pod.asset_id != "new_cb_desk_2400":
+        raise ValueError(f"Expected cb_desk_2400, got {pod.asset_id}")
+    component_boxes = _component_boxes(part_boxes or _asset_part_boxes(pod))
+    areas = {
+        component_index: float((hi[0] - lo[0]) * (hi[1] - lo[1]))
+        for component_index, (lo, hi) in component_boxes.items()
+    }
+    largest_area = max(areas.values())
+    return tuple(
+        component_boxes[component_index]
+        for component_index in sorted(areas)
+        if areas[component_index] >= largest_area * 0.99
+    )
+
+
 class Furnisher:
     def __init__(self, world: ET.Element, asset_pool: dict[str, list[AssetInfo]]) -> None:
         self.world = world
@@ -921,22 +1005,39 @@ class Furnisher:
         collision_radius = 0.0
         if collision:
             collision_radius = float(np.linalg.norm(dimensions[:2]) / 2)
-            ET.SubElement(
-                body,
-                "geom",
-                name=f"asset_collision_{index:03d}",
-                type="box",
-                pos=numbers((0, 0, max(0.02, dimensions[2] / 2))),
-                size=numbers(
-                    (
-                        max(0.03, dimensions[0] / 2),
-                        max(0.03, dimensions[1] / 2),
-                        max(0.02, dimensions[2] / 2),
+            if asset.asset_id == "new_cb_desk_2400":
+                for worktop_index, (worktop_lo, worktop_hi) in enumerate(
+                    cb_desk_worktop_boxes(asset)
+                ):
+                    center = (worktop_lo + worktop_hi) / 2
+                    half_size = np.maximum((worktop_hi - worktop_lo) / 2, 0.01)
+                    ET.SubElement(
+                        body,
+                        "geom",
+                        name=f"asset_collision_{index:03d}_{worktop_index}",
+                        type="box",
+                        pos=numbers(center),
+                        size=numbers(half_size),
+                        rgba="0 0 0 0",
+                        friction="0.9 0.01 0.001",
                     )
-                ),
-                rgba="0 0 0 0",
-                friction="0.9 0.01 0.001",
-            )
+            else:
+                ET.SubElement(
+                    body,
+                    "geom",
+                    name=f"asset_collision_{index:03d}",
+                    type="box",
+                    pos=numbers((0, 0, max(0.02, dimensions[2] / 2))),
+                    size=numbers(
+                        (
+                            max(0.03, dimensions[0] / 2),
+                            max(0.03, dimensions[1] / 2),
+                            max(0.02, dimensions[2] / 2),
+                        )
+                    ),
+                    rgba="0 0 0 0",
+                    friction="0.9 0.01 0.001",
+                )
         self.placements.append(
             {
                 "instance": index,
@@ -973,9 +1074,192 @@ class Furnisher:
         )
         self.instance_count += 1
 
+    def place_interactive(
+        self,
+        asset: InteractiveAsset,
+        x: float,
+        y: float,
+        *,
+        z: float,
+        yaw: float = 0.0,
+        support: str | None = None,
+    ) -> str:
+        """Place a real freejoint object with visual/collision meshes."""
+        index = self.instance_count
+        self.instance_count += 1
+        object_id = f"{asset.asset_id}_{index:03d}"
+        body = ET.SubElement(
+            self.world,
+            "body",
+            name=object_id,
+            pos=numbers((x, y, z)),
+            euler=numbers((0.0, 0.0, yaw)),
+        )
+        ET.SubElement(body, "freejoint", name=f"{object_id}_freejoint")
+        orientation = ET.SubElement(
+            body,
+            "body",
+            name=f"{object_id}_orientation",
+            euler=numbers(interactive_euler(asset.asset_id)),
+        )
+        visual_attrs = {
+            "name": f"{object_id}_visual",
+            "type": "mesh",
+            "mesh": asset.visual_mesh,
+            "mass": numbers((asset.mass_kg,)),
+            "contype": "0",
+            "conaffinity": "0",
+            "group": "2",
+        }
+        if asset.material:
+            visual_attrs["material"] = asset.material
+        ET.SubElement(orientation, "geom", **visual_attrs)
+        ET.SubElement(
+            orientation,
+            "geom",
+            name=f"{object_id}_collision",
+            type="mesh",
+            mesh=asset.collision_mesh,
+            mass="0",
+            contype="1",
+            conaffinity="1",
+            friction=asset.friction,
+            rgba="0 0 0 0",
+        )
+        ET.SubElement(
+            orientation,
+            "site",
+            name=f"{object_id}_grasp_site",
+            pos=numbers((0, 0, max(0.01, asset.height * 0.5))),
+            size="0.018",
+            rgba="0 0 0 0",
+        )
+        self.placements.append(
+            {
+                "instance": index,
+                "asset_id": asset.asset_id,
+                "name": asset.name,
+                "category": "interactive_objects",
+                "object_id": object_id,
+                "body": object_id,
+                "position": [x, y, z],
+                "yaw": yaw,
+                "euler_correction": list(
+                    INTERACTIVE_ROTATION_CORRECTIONS.get(
+                        asset.asset_id, (0.0, 0.0, 0.0)
+                    )
+                ),
+                "mass_kg": asset.mass_kg,
+                "dynamic": True,
+                "graspable": True,
+                "support": support,
+                "grasp_site": f"{object_id}_grasp_site",
+                "collision_radius": float(np.linalg.norm((asset.bounds[1] - asset.bounds[0])[:2]) / 2),
+            }
+        )
+        return object_id
 
-def furnish_work_zone(furnisher: Furnisher, zone: Zone, style: str, variant: int) -> None:
+
+def _place_random_workstation_objects(
+    furnisher: Furnisher,
+    pod: AssetInfo,
+    pod_instance_index: int,
+    x: float,
+    y: float,
+    yaw: float,
+    selected_assets: tuple[InteractiveAsset, ...],
+    rng: random.Random,
+) -> None:
+    """Place selected work objects on one pod's free desk edge.
+
+    Candidates are tested against the pod's monitor component AABBs in pod-local
+    coordinates, so the generated object footprint cannot overlap an existing
+    monitor. The front edge (local y=-1.0) is preferred because it is visible
+    and reachable by Stretch; the rear edge is a fallback for unusually wide
+    objects.
+    """
+    if not selected_assets:
+        return
+    part_boxes = _asset_part_boxes(pod)
+    monitor_boxes = [
+        box for (component_index, _), box in part_boxes.items()
+        if len(pod.components[component_index].parts) == 7
+    ]
+    # Generate candidates from the actual worktop extent. The outer strips are
+    # tried first because the monitor row occupies the middle of the desk.
+    candidates = []
+    for worktop_lo, worktop_hi in cb_desk_worktop_boxes(pod, part_boxes):
+        x_positions = np.linspace(worktop_lo[0] + 0.14, worktop_hi[0] - 0.14, 5)
+        y_positions = (
+            worktop_lo[1] + 0.13,
+            worktop_hi[1] - 0.13,
+            worktop_lo[1] + 0.42,
+            worktop_hi[1] - 0.42,
+        )
+        candidates.extend(
+            (float(local_x), float(local_y), worktop_lo, worktop_hi)
+            for local_y in y_positions
+            for local_x in x_positions
+        )
+    placed_boxes: list[tuple[np.ndarray, np.ndarray]] = []
+    support = f"asset_{pod_instance_index:03d}_{pod.asset_id[:8]}"
+    for asset in selected_assets:
+        # These boxes are checked in the unrotated pod frame.  The pod yaw is
+        # applied only when converting the accepted local position to world
+        # coordinates below.
+        corrected_bounds = corrected_interactive_collision_bounds(asset)
+        candidate_order = list(candidates)
+        rng.shuffle(candidate_order)
+        for local_x, local_y, worktop_lo, worktop_hi in candidate_order:
+            object_box = (
+                corrected_bounds[0, :2] + (local_x, local_y),
+                corrected_bounds[1, :2] + (local_x, local_y),
+            )
+            lo, hi = object_box
+            if lo[0] < worktop_lo[0] + 0.05 or hi[0] > worktop_hi[0] - 0.05:
+                continue
+            if lo[1] < worktop_lo[1] + 0.05 or hi[1] > worktop_hi[1] - 0.05:
+                continue
+            if any(_xy_overlaps(object_box, box) for box in monitor_boxes):
+                continue
+            if any(_xy_overlaps(object_box, old) for old in placed_boxes):
+                continue
+            # Place the corrected mesh on the compiled CB-desk worktop.  Do
+            # not use pod.bounds[1, 2] here: that aggregate bbox includes the
+            # monitors and would float objects roughly 25 cm above the desk.
+            local_z = float(worktop_hi[2] - corrected_bounds[0, 2])
+            world_xy = np.asarray((x, y)) + np.asarray(
+                (math.cos(yaw) * local_x - math.sin(yaw) * local_y,
+                 math.sin(yaw) * local_x + math.cos(yaw) * local_y)
+            )
+            furnisher.place_interactive(
+                asset,
+                float(world_xy[0]),
+                float(world_xy[1]),
+                z=local_z,
+                yaw=yaw,
+                support=support,
+            )
+            placed_boxes.append(object_box)
+            break
+        else:
+            raise ValueError(
+                f"Could not place workstation object {asset.asset_id} on pod {pod_instance_index}"
+            )
+
+
+def furnish_work_zone(
+    furnisher: Furnisher,
+    zone: Zone,
+    style: str,
+    variant: int,
+    interactive_assets: tuple[InteractiveAsset, ...] = (),
+) -> None:
     pod = furnisher.select("workstation_pods", variant)
+    if pod.asset_id != "new_cb_desk_2400":
+        raise ValueError(
+            f"Interactive workstation objects must be placed on cb_desk_2400, got {pod.asset_id}"
+        )
     size = pod.bounds[1] - pod.bounds[0]
     cx, cy = zone.center
     yaw = math.pi / 2 if style == "rows_y" else 0.0
@@ -988,10 +1272,28 @@ def furnish_work_zone(furnisher: Furnisher, zone: Zone, style: str, variant: int
     available = zone.depth if style == "rows_y" else zone.width
     count = max(1, min(2, int((available - 0.8) // (long_size + 0.45))))
     offsets = (np.arange(count) - (count - 1) / 2) * (long_size + 0.35)
-    for offset in offsets:
+    pod_placements: list[tuple[int, float, float]] = []
+    for pod_index, offset in enumerate(offsets):
         x = cx if style == "rows_y" else cx + float(offset)
         y = cy + float(offset) if style == "rows_y" else cy
+        pod_instance_index = furnisher.instance_count
         furnisher.place("workstation_pods", x, y, yaw=yaw, collision=True, asset=pod)
+        pod_placements.append((pod_instance_index, x, y))
+
+    asset_by_id = {asset.asset_id: asset for asset in interactive_assets}
+    available = [asset_by_id[asset_id] for asset_id in WORKSTATION_INTERACTIVE_ASSET_IDS if asset_id in asset_by_id]
+    if len(available) != len(WORKSTATION_INTERACTIVE_ASSET_IDS):
+        missing = sorted(set(WORKSTATION_INTERACTIVE_ASSET_IDS) - set(asset_by_id))
+        raise ValueError(f"Missing workstation interactive assets: {', '.join(missing)}")
+    rng = random.Random(1701 + variant * 31)
+    selected = tuple(rng.sample(available, rng.randint(2, 3)))
+    assigned: list[list[InteractiveAsset]] = [[] for _ in pod_placements]
+    for asset in selected:
+        assigned[rng.randrange(len(assigned))].append(asset)
+    for (pod_instance_index, x, y), assets_for_pod in zip(pod_placements, assigned):
+        _place_random_workstation_objects(
+            furnisher, pod, pod_instance_index, x, y, yaw, tuple(assets_for_pod), rng
+        )
     xmin, xmax, ymin, ymax = zone.bounds
     add_plant(furnisher, xmax - 0.5, ymax - 0.5)
     add_trash_bin(furnisher, xmin + 0.5, ymin + 0.5)
@@ -1105,47 +1407,12 @@ def add_trash_bin(furnisher: Furnisher, x: float, y: float) -> None:
     furnisher.record_procedural("Waste Bin", "props/trash_bins", x, y, 0.18)
 
 
-def place_on_surface(
-    body: ET.Element,
-    *,
-    y: float,
-    surface_top_z: float,
-    items: list[dict[str, Any]],
-    axis: str = "x",
-    margin: float = 0.02,
+def add_snack_counter(
+    furnisher: Furnisher,
+    zone: Zone,
+    variant: int,
+    interactive_assets: tuple[InteractiveAsset, ...] = (),
 ) -> None:
-    """Lay out ``items`` side by side along ``axis``, resting on ``surface_top_z``.
-
-    Each item is ``{"mesh", "material", "width", "lift"}``: ``width`` is the
-    slot it occupies (only needs to be roughly right - it drives spacing, not
-    the render) and ``lift`` is how far above the surface that mesh's own
-    center sits (varies per mesh since each one's pivot is in a different
-    place). To add a new item, append one more dict to ``items`` - every
-    position is recomputed from the list, nothing needs to be hand-solved or
-    moved to make room.
-    """
-    total_width = sum(item["width"] for item in items) + margin * (len(items) - 1)
-    cursor = -total_width / 2
-    for item in items:
-        center = cursor + item["width"] / 2
-        along = (center, y) if axis == "x" else (y, center)
-        ET.SubElement(
-            body,
-            "geom",
-            type="mesh",
-            mesh=item["mesh"],
-            material=item["material"],
-            pos=numbers((along[0], along[1], surface_top_z + item["lift"])),
-            mass="0",
-            shellinertia="true",
-            contype="0",
-            conaffinity="0",
-            group="2",
-        )
-        cursor += item["width"] + margin
-
-
-def add_snack_counter(furnisher: Furnisher, zone: Zone, variant: int) -> None:
     cx, cy = zone.center
     yaw = math.pi / 2 if variant % 3 == 1 else 0.0
     body = ET.SubElement(
@@ -1161,38 +1428,64 @@ def add_snack_counter(furnisher: Furnisher, zone: Zone, variant: int) -> None:
         name="snack_counter_top",
         type="box",
         pos="0 0 0.74",
-        size="0.85 0.38 0.04",
+        size="1.1 0.48 0.04",
         material="snack_counter_wood",
         friction="0.9 0.02 0.002",
     )
-    for x in (-0.70, 0.70):
+    for x in (-0.94, 0.94):
         ET.SubElement(
             body,
             "geom",
             type="box",
             pos=numbers((x, 0, 0.35)),
-            size="0.04 0.34 0.35",
+            size="0.04 0.44 0.35",
             material="snack_counter_metal",
         )
-    place_on_surface(
-        body,
-        y=-0.03,
-        surface_top_z=0.74,
-        items=[
-            {"mesh": "snack_can_mesh", "material": "snack_soda", "width": 0.325, "lift": 0.10},
-            {"mesh": "snack_cereal_mesh", "material": "snack_cereal", "width": 0.325, "lift": 0.10},
-            {"mesh": "snack_bread_mesh", "material": "snack_bread", "width": 0.325, "lift": 0.07},
-            {"mesh": "snack_lemon_mesh", "material": "snack_lemon", "width": 0.325, "lift": 0.07},
-        ],
+    asset_by_id = {asset.asset_id: asset for asset in interactive_assets}
+    missing = sorted(set(SNACK_ZONE_INTERACTIVE_ASSET_IDS) - set(asset_by_id))
+    if missing:
+        raise ValueError(f"Missing snack-zone interactive assets: {', '.join(missing)}")
+    rng = random.Random(4103 + variant * 47)
+    # Pick exactly five food-object types. Every selected type appears once;
+    # a small fraction receive a second instance, for a natural-looking but
+    # bounded snack display (five to ten objects total).
+    selected = rng.sample(
+        [asset_by_id[asset_id] for asset_id in SNACK_ZONE_INTERACTIVE_ASSET_IDS], 5
     )
+    snack_assets = [
+        asset
+        for asset in selected
+        for _ in range(1 + int(rng.random() < SNACK_DUPLICATE_PROBABILITY))
+    ]
+    slots = [(local_x, local_y) for local_y in (-0.18, 0.18) for local_x in (-0.82, -0.41, 0.0, 0.41, 0.82)]
+    rng.shuffle(slots)
+    for asset, (local_x, local_y) in zip(snack_assets, slots):
+        corrected_bounds = corrected_interactive_collision_bounds(asset, yaw)
+        world_xy = np.asarray((cx, cy)) + np.asarray(
+            (math.cos(yaw) * local_x - math.sin(yaw) * local_y,
+             math.sin(yaw) * local_x + math.cos(yaw) * local_y)
+        )
+        furnisher.place_interactive(
+            asset,
+            float(world_xy[0]),
+            float(world_xy[1]),
+            z=0.78 - corrected_bounds[0, 2],
+            yaw=yaw,
+            support="snack_counter",
+        )
     ET.SubElement(
-        body, "site", name="snack_pickup_site", pos="0 -0.48 0.82", size="0.02", rgba="0 0 0 0"
+        body, "site", name="snack_pickup_site", pos="0 -0.58 0.82", size="0.02", rgba="0 0 0 0"
     )
-    furnisher.record_procedural("Snack Counter", "furniture/snack_counter", cx, cy, 0.95, yaw=yaw)
+    furnisher.record_procedural("Snack Counter", "furniture/snack_counter", cx, cy, 1.2, yaw=yaw)
 
 
-def furnish_snack_zone(furnisher: Furnisher, zone: Zone, variant: int) -> None:
-    add_snack_counter(furnisher, zone, variant)
+def furnish_snack_zone(
+    furnisher: Furnisher,
+    zone: Zone,
+    variant: int,
+    interactive_assets: tuple[InteractiveAsset, ...] = (),
+) -> None:
+    add_snack_counter(furnisher, zone, variant, interactive_assets)
     xmin, xmax, ymin, ymax = zone.bounds
     cabinet_x, cabinet_y = xmin + 0.65, ymax - 0.45
     cabinet = ET.SubElement(
@@ -1284,6 +1577,20 @@ def add_imported_assets(root: ET.Element, asset_pool: dict[str, list[AssetInfo]]
                 ET.SubElement(assets, definition.tag, **definition.attributes)
 
 
+def add_interactive_assets(root: ET.Element, assets_pool: tuple[InteractiveAsset, ...]) -> None:
+    assets = root.find("asset")
+    if assets is None:
+        raise RuntimeError("scene has no asset section")
+    seen: set[str] = set()
+    for asset in assets_pool:
+        for definition in asset.definitions:
+            name = definition.attributes.get("name", "")
+            if name in seen:
+                continue
+            seen.add(name)
+            ET.SubElement(assets, definition.tag, **definition.attributes)
+
+
 def write_robot_include(spec: SceneSpec, output_dir: Path) -> Path:
     tree = ET.parse(STRETCH_XML)
     root = tree.getroot()
@@ -1327,6 +1634,7 @@ def build_scene(
     spec: SceneSpec,
     scene_index: int,
     asset_pool: dict[str, list[AssetInfo]],
+    interactive_assets: tuple[InteractiveAsset, ...],
     output_dir: Path,
 ) -> tuple[Path, Path]:
     validate_zone_floor(spec)
@@ -1345,14 +1653,17 @@ def build_scene(
     )
     add_scene_assets(root)
     add_imported_assets(root, asset_pool)
+    add_interactive_assets(root, interactive_assets)
     world = ET.SubElement(root, "worldbody")
     add_open_shell(world, spec)
     furnisher = Furnisher(world, asset_pool)
     zones = {zone.zone_type: zone for zone in spec.zones}
-    furnish_work_zone(furnisher, zones["work"], spec.work_style, scene_index)
+    furnish_work_zone(
+        furnisher, zones["work"], spec.work_style, scene_index, interactive_assets
+    )
     furnish_meeting_zone(furnisher, zones["meeting"], spec.meeting_style, scene_index)
     furnish_lounge_zone(furnisher, zones["lounge"], scene_index)
-    furnish_snack_zone(furnisher, zones["snack"], scene_index)
+    furnish_snack_zone(furnisher, zones["snack"], scene_index, interactive_assets)
     clearance = validate_layout(spec, furnisher.placements)
 
     center = ET.SubElement(world, "body", name="scene_center", pos="0 0 1")
@@ -1456,12 +1767,10 @@ scene-specific generated Stretch XML that sets the robot's initial freejoint pos
 
 Don't hand-compute world coordinates. Two tools do that for you:
 
-- **Placing something on top of a surface** (a monitor on a table, a snack on the counter): use
-  `measure_top_z(asset, yaw)` to get the surface's true rendered height instead of trusting
-  `AssetInfo.bounds` for it — see `furnish_meeting_zone()`. For several small items on the same
-  surface (like the snack counter), use `place_on_surface()`: give each item a `width` (its
-  spacing slot) and a `lift` (how far its own mesh center sits above the surface); adding an item
-  is one more dict in the list, and every position is recomputed automatically.
+- **Placing something on top of a surface** (a monitor on a table or a graspable item on the
+  counter): use `measure_top_z(asset, yaw)` for imported furniture. For an `InteractiveAsset`,
+  call `Furnisher.place_interactive()` with `z=surface_top_z - asset.mesh_min_z`; this is the
+  actual mesh offset used by the workstation and snack-zone placers.
 - **Moving something**: prefer offsets relative to `zone.center` / `zone.bounds` over hardcoded
   absolute coordinates, matching the existing `furnish_*_zone()` functions.
 
@@ -1491,11 +1800,12 @@ def main(output: Path, skip_previews: bool) -> None:
     for old_file in output.glob("office_*.*"):
         old_file.unlink()
     asset_pool = load_assets()
+    interactive_assets = load_interactive_assets()
     catalog = []
     preview_images = []
     for index, spec in enumerate(scene_specs(), start=1):
         click.echo(f"Generating {spec.scene_id}")
-        xml_path, manifest_path = build_scene(spec, index, asset_pool, output)
+        xml_path, manifest_path = build_scene(spec, index, asset_pool, interactive_assets, output)
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if not skip_previews:
             preview_path = output / f"{spec.scene_id}.png"
