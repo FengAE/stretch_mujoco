@@ -82,7 +82,7 @@
       "position": [
         -4.429979757156146,
         -1.5637275418570882,
-        0.7147287564050955
+        0.5495491979681812
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -4.719979757156146,
         -1.5637275418570882,
-        0.7130153513746014
+        0.5495491979602163
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -523,16 +523,5 @@
   ],
   "mjcf": "office_10_social_core.xml",
   "robot_include": "office_10_social_core_robot.xml",
-  "preview": "office_10_social_core.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 425,
-    "robot_start_xyz": [
-      8.5,
-      1.3,
-      0.0
-    ]
-  }
+  "preview": "office_10_social_core.png"
 }

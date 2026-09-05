@@ -95,7 +95,7 @@
       "position": [
         -8.719249636561214,
         -1.1598006823194145,
-        0.7133621889554705
+        0.5498713438507696
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -120,7 +120,7 @@
       "position": [
         -4.598049290575348,
         -1.1799797795614082,
-        0.7678662772064073
+        0.6059650023642938
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -562,16 +562,5 @@
   ],
   "mjcf": "office_09_staggered_rows.xml",
   "robot_include": "office_09_staggered_rows_robot.xml",
-  "preview": "office_09_staggered_rows.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 632,
-    "robot_start_xyz": [
-      -8.7,
-      3.8,
-      0.0
-    ]
-  }
+  "preview": "office_09_staggered_rows.png"
 }

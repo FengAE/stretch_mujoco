@@ -82,7 +82,7 @@
       "position": [
         -7.320020220438591,
         1.563727651500626,
-        0.7133621873162636
+        0.5498713438507696
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -5.449800682319413,
         1.563727651500626,
-        0.7130153497353944
+        0.5495491979602163
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -132,7 +132,7 @@
       "position": [
         -5.449800682319413,
         1.8949760589245215,
-        0.7128247538875178
+        0.5495491965288025
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -574,16 +574,5 @@
   ],
   "mjcf": "office_03_long_gallery.xml",
   "robot_include": "office_03_long_gallery_robot.xml",
-  "preview": "office_03_long_gallery.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 442,
-    "robot_start_xyz": [
-      9.2,
-      3.5,
-      0.0
-    ]
-  }
+  "preview": "office_03_long_gallery.png"
 }

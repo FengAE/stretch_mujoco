@@ -50,8 +50,10 @@ def instance_bounds(model: mujoco.MjModel, data: mujoco.MjData) -> dict[str, tup
     """World-space [min, max] xyz per placed instance.
 
     Covers visual (group 2) mesh geoms plus opaque box-primitive geoms
-    (procedural furniture like the snack counter mixes both), and skips the
-    invisible per-instance collision proxies (named ``asset_collision_*``).
+    (procedural furniture like the snack counter mixes both).  Support is
+    deliberately resolved separately from physical collision geometry below:
+    an aggregate visual AABB of a composite desk includes its legs, monitors
+    and worktop, so it cannot identify the actual tabletop height.
     """
     geom_world: dict[int, tuple[np.ndarray, np.ndarray]] = {}
     for gid in range(model.ngeom):
@@ -89,17 +91,56 @@ def instance_bounds(model: mujoco.MjModel, data: mujoco.MjData) -> dict[str, tup
     return {name: (b[0], b[1]) for name, b in inst_bounds.items()}
 
 
+def collision_support_boxes(
+    model: mujoco.MjModel, data: mujoco.MjData
+) -> list[tuple[str, str, np.ndarray, np.ndarray]]:
+    """Return world-space boxes of individual physical collision geoms.
+
+    This intentionally preserves each collision geom instead of merging the
+    whole furniture instance.  For example, a calculator on a CB desk is
+    supported by the worktop collision mesh at z=0.711 m, not by the desk's
+    aggregate visual AABB (whose monitors extend to z≈0.98 m).
+    """
+    supports: list[tuple[str, str, np.ndarray, np.ndarray]] = []
+    for gid in range(model.ngeom):
+        if model.geom_contype[gid] == 0 and model.geom_conaffinity[gid] == 0:
+            continue
+        xmat = data.geom_xmat[gid].reshape(3, 3)
+        xpos = data.geom_xpos[gid]
+        meshid = int(model.geom_dataid[gid])
+        if meshid >= 0:
+            vadr, vnum = model.mesh_vertadr[meshid], model.mesh_vertnum[meshid]
+            world = model.mesh_vert[vadr : vadr + vnum] @ xmat.T + xpos
+        elif model.geom_type[gid] == mujoco.mjtGeom.mjGEOM_BOX:
+            world = (_BOX_CORNERS * model.geom_size[gid]) @ xmat.T + xpos
+        else:
+            # The audit's generated office supports are mesh/box geoms. Other
+            # primitive types are irrelevant here and cannot safely be
+            # represented by the box-corner helper.
+            continue
+        body_id = int(model.geom_bodyid[gid])
+        top = _top_level_asset_body(model, body_id) if body_id else 0
+        top_name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_BODY, top) or "world"
+        geom_name = mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, gid) or f"geom_{gid}"
+        supports.append((top_name, geom_name, world.min(axis=0), world.max(axis=0)))
+    return supports
+
+
 def audit_scene(xml_path: Path, tolerance: float) -> list[tuple[str, str, float, float, float]]:
     model = mujoco.MjModel.from_xml_path(str(xml_path))
     data = mujoco.MjData(model)
     mujoco.mj_forward(model, data)
 
     instances = [(name, lo, hi) for name, (lo, hi) in instance_bounds(model, data).items()]
+    supports = collision_support_boxes(model, data)
     flagged = []
     for name, lo, hi in instances:
         best_support_z = 0.0  # floor
         support_name = "floor"
-        for other_name, olo, ohi in instances:
+        for other_name, geom_name, olo, ohi in supports:
+            # A placed object's own collision mesh is not a support. Static
+            # composite furniture may share one top-level body with its
+            # monitor meshes, which is also correctly excluded here.
             if other_name == name:
                 continue
             overlap_x = min(hi[0], ohi[0]) - max(lo[0], olo[0])
@@ -111,7 +152,7 @@ def audit_scene(xml_path: Path, tolerance: float) -> list[tuple[str, str, float,
             ):
                 if ohi[2] > best_support_z:
                     best_support_z = float(ohi[2])
-                    support_name = other_name
+                    support_name = f"{other_name}/{geom_name}"
         gap = float(lo[2] - best_support_z)
         if abs(gap) > tolerance:
             flagged.append((name, support_name, gap, float(lo[2]), float(hi[2])))

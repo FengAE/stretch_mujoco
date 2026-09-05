@@ -22,6 +22,7 @@ import numpy as np
 from office_interactive_assets import (
     INTERACTIVE_ROTATION_CORRECTIONS,
     InteractiveAsset,
+    corrected_interactive_bounds,
     corrected_interactive_collision_bounds,
     interactive_euler,
     load_interactive_assets,
@@ -296,20 +297,6 @@ def _compile_part_boxes(
 ) -> dict[tuple[int, int], tuple[np.ndarray, np.ndarray]]:
     """Compile *raw_components* standalone and return MuJoCo's true world-space
     (lo, hi) box per individual (component_index, part_index).
-
-    Mesh vertex data is not simply the raw OBJ coordinates: MuJoCo's mesh
-    compiler can recenter a mesh relative to its own inertial frame, so
-    hand-parsing the source OBJ file can disagree with what MuJoCo actually
-    renders at a given body pose. Asking MuJoCo to compile the real geometry
-    and reading the result back is the only way to get boxes that match
-    reality, so every bounds/placement computation in this module goes
-    through this probe instead of computing bounds from raw mesh files.
-
-    Returning one box per part (rather than a single aggregate box) matters
-    because a composite's components are often a grab-bag of unrelated
-    sub-meshes - guessing which one is "the surface" from geometry alone is
-    unreliable. Callers hand every candidate box to settle_z_offset() so
-    physics, not a heuristic, decides what something actually rests on.
     """
     root = ET.Element("mujoco", model="probe")
     ET.SubElement(root, "compiler", angle="radian", balanceinertia="true")
@@ -574,35 +561,7 @@ def _calibrate_cb_desk_monitor_offsets(
     definitions: tuple[ImportedDefinition, ...],
     unshifted_components: list[tuple[np.ndarray, np.ndarray, tuple[AssetPart, ...]]],
 ) -> dict[int, float]:
-    """cb_desk_2400-specific: the source asset's monitor/laptop components
-    (7-part bodies) are authored floating above the desk. Rather than guess
-    which desk sub-mesh is "the surface", drop each monitor's real footprint
-    onto every sub-part box of its nearest desk component and let MuJoCo's
-    contact solver decide what it actually lands on (settle_z_offset). Only
-    accepted if real contact force was measured.
-
-    "Nearest desk component" has to mean the worktop, not just any 4-part
-    body: the same file also has four floor-to-shoulder corner leg/pedestal
-    bundles per desk that also happen to have 4 parts and sit closer to a
-    monitor's XY position than the shared worktop does. Matching by raw
-    distance picks one of those, and the settle sim then (correctly, given
-    that AABB) rests the monitor on top of the taller pedestal instead of the
-    desk. The worktop is reliably identifiable by plan area alone - it is
-    almost an order of magnitude larger than any corner bundle - so restrict
-    the distance search to components whose footprint clears that gap.
-
-    Each worktop seats 2 users per long edge. The outer seat's laptop on
-    every edge (verified by rendering from that seat's own chair - it looks
-    straight at the laptop's hinge/back, not its screen) is a mirrored
-    duplicate of the inner seat's laptop that also got authored with its
-    footprint hanging halfway off the desk's short edge. Both symptoms come
-    from the same authoring slip, so the same geometric signal - this
-    monitor's footprint barely overlapping its worktop - both identifies the
-    outer seat and is the correction: mirroring is a 180 degree yaw, which
-    only makes sense for the monitor whose footprint is on the wrong side of
-    the mirror line to begin with. The inner seat's already-correct monitor
-    always has strong overlap and is left untouched.
-    """
+    """Align cb-desk monitors to the broad slab and correct mirrored laptops."""
     desk_indices = [i for i, (_, _, parts) in enumerate(unshifted_components) if len(parts) == 4]
     monitor_indices = [i for i, (_, _, parts) in enumerate(unshifted_components) if len(parts) == 7]
     if not desk_indices or not monitor_indices:
@@ -654,14 +613,38 @@ def _calibrate_cb_desk_monitor_offsets(
         monitor_pos[0] += nudge_x
         mover_lo[0] += nudge_x
         mover_hi[0] += nudge_x
-        support_boxes = [box for (ci, _pi), box in part_boxes.items() if ci == nearest_desk]
-        offset, has_contact = settle_z_offset(support_boxes, mover_lo, mover_hi)
-        if not has_contact:
-            raise ValueError(
-                f"cb_desk_2400 monitor component {monitor_index}: settle simulation reported "
-                "no contact force at rest - refusing to place it on an unverified guess"
-            )
-        offsets[monitor_index] = offset
+        # The worktop component contains raised perimeter rails.  Settling
+        # against every sub-part consequently selects a rail top and lifts
+        # the monitor by ~16 cm.  Use the broad desktop slab height instead,
+        # and anchor the monitor's *visual* mesh (not its collision hull) to
+        # that plane so the rendered asset visibly touches the desktop.
+        slab_candidates = [
+            float(hi[2])
+            for (ci, _pi), (lo, hi) in part_boxes.items()
+            if ci == nearest_desk
+            and (hi[0] - lo[0]) * (hi[1] - lo[1]) > 1.0
+            and hi[2] - lo[2] < 0.08
+            and hi[2] < 0.65
+        ]
+        if not slab_candidates:
+            candidates = [
+                float(hi[2])
+                for (ci, _pi), (lo, hi) in part_boxes.items()
+                if ci == nearest_desk
+                and (hi[0] - lo[0]) * (hi[1] - lo[1]) > 1.0
+                and hi[2] - lo[2] < 0.08
+            ]
+            if not candidates:
+                raise ValueError(f"cb_desk_2400 monitor component {monitor_index}: desktop slab not found")
+            slab_candidates = candidates
+        slab_z = max(slab_candidates)
+        visual_lo, _ = _compile_bbox(
+            definitions,
+            [(unshifted_components[monitor_index][0],
+              unshifted_components[monitor_index][1],
+              unshifted_components[monitor_index][2])],
+        )
+        offsets[monitor_index] = float(slab_z - visual_lo[2])
     return offsets
 
 
@@ -924,6 +907,49 @@ def cb_desk_worktop_boxes(
     )
 
 
+def cb_desk_worktop_component_indices(
+    pod: AssetInfo,
+    part_boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]] | None = None,
+) -> set[int]:
+    """Identify the broad four-part worktop components of cb_desk_2400."""
+    if pod.asset_id != "new_cb_desk_2400":
+        raise ValueError(f"Expected cb_desk_2400, got {pod.asset_id}")
+    component_boxes = _component_boxes(part_boxes or _asset_part_boxes(pod))
+    areas = {
+        ci: float((hi[0] - lo[0]) * (hi[1] - lo[1]))
+        for ci, (lo, hi) in component_boxes.items()
+        if len(pod.components[ci].parts) == 4
+    }
+    if not areas:
+        return set()
+    largest = max(areas.values())
+    return {ci for ci, area in areas.items() if area > largest / 2}
+
+
+def cb_desk_worktop_surface_z(
+    pod: AssetInfo,
+    part_boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]] | None = None,
+) -> float:
+    """Return the broad desktop slab's top z, excluding raised rails."""
+    boxes = part_boxes or _asset_part_boxes(pod)
+    worktop_indices = cb_desk_worktop_component_indices(pod, boxes)
+    surfaces: list[float] = []
+    for (component_index, _part_index), (lo, hi) in boxes.items():
+        if component_index not in worktop_indices:
+            continue
+        area = float((hi[0] - lo[0]) * (hi[1] - lo[1]))
+        if area < 1.0:
+            continue
+        thickness = float(hi[2] - lo[2])
+        # The actual slab is a broad thin layer. Rails/legs are either much
+        # thicker or extend to the aggregate rail height.
+        if thickness < 0.08 and hi[2] > 0.45:
+            surfaces.append(float(hi[2]))
+    if not surfaces:
+        raise ValueError("Could not identify CB-desk desktop surface layer")
+    return float(max(surfaces))
+
+
 class Furnisher:
     def __init__(self, world: ET.Element, asset_pool: dict[str, list[AssetInfo]]) -> None:
         self.world = world
@@ -1012,6 +1038,11 @@ class Furnisher:
             # polygon occupancy backend (their compiled vertices are projected
             # to XY), so physics and navigation share one source of truth.
             collision_part_index = 0
+            worktop_component_indices = (
+                cb_desk_worktop_component_indices(asset)
+                if asset.asset_id == "new_cb_desk_2400"
+                else set()
+            )
             for component_index, component in enumerate(asset.components):
                 collision_body = ET.SubElement(
                     body,
@@ -1031,6 +1062,14 @@ class Furnisher:
                     diaginertia="0.001 0.001 0.001",
                 )
                 for part_index, part in enumerate(component.parts):
+                    # This disconnected mesh becomes a large convex hull and
+                    # intersects props placed on the desktop.
+                    if (
+                        asset.asset_id == "new_cb_desk_2400"
+                        and component_index in worktop_component_indices
+                        and part_index == 1
+                    ):
+                        continue
                     ET.SubElement(
                         collision_body,
                         "geom",
@@ -1211,11 +1250,15 @@ def _place_random_workstation_objects(
         )
     placed_boxes: list[tuple[np.ndarray, np.ndarray]] = []
     support = f"asset_{pod_instance_index:03d}_{pod.asset_id[:8]}"
+    # Do not use worktop_hi[2] here: that is the top of the raised perimeter
+    # rail.  All candidate strips share the broad desktop plane.
+    worktop_surface_z = cb_desk_worktop_surface_z(pod, part_boxes)
     for asset in selected_assets:
         # These boxes are checked in the unrotated pod frame.  The pod yaw is
         # applied only when converting the accepted local position to world
         # coordinates below.
         corrected_bounds = corrected_interactive_collision_bounds(asset)
+        visual_bounds = corrected_interactive_bounds(asset)
         candidate_order = list(candidates)
         rng.shuffle(candidate_order)
         for local_x, local_y, worktop_lo, worktop_hi in candidate_order:
@@ -1235,7 +1278,9 @@ def _place_random_workstation_objects(
             # Place the corrected mesh on the compiled CB-desk worktop.  Do
             # not use pod.bounds[1, 2] here: that aggregate bbox includes the
             # monitors and would float objects roughly 25 cm above the desk.
-            local_z = float(worktop_hi[2] - corrected_bounds[0, 2])
+            # Collision meshes can extend below the visual mesh by a few mm;
+            # use the rendered mesh's true lowest point for visual contact.
+            local_z = float(worktop_surface_z - visual_bounds[0, 2])
             world_xy = np.asarray((x, y)) + np.asarray(
                 (math.cos(yaw) * local_x - math.sin(yaw) * local_y,
                  math.sin(yaw) * local_x + math.cos(yaw) * local_y)
@@ -1766,32 +1811,6 @@ Open a scene with:
 ```bash
 .venv/bin/python examples/generated_office_scene.py --scene 1
 ```
-
-The viewer starts in free-camera mode. Use left-drag to rotate, right-drag to pan, and the mouse
-wheel to zoom. The scenes reference the centralized `office_assets` library and include a
-scene-specific generated Stretch XML that sets the robot's initial freejoint pose.
-
-## Adding or moving a placed object
-
-Don't hand-compute world coordinates. Two tools do that for you:
-
-- **Placing something on top of a surface** (a monitor on a table or a graspable item on the
-  counter): use `measure_top_z(asset, yaw)` for imported furniture. For an `InteractiveAsset`,
-  call `Furnisher.place_interactive()` with `z=surface_top_z - asset.mesh_min_z`; this is the
-  actual mesh offset used by the workstation and snack-zone placers.
-- **Moving something**: prefer offsets relative to `zone.center` / `zone.bounds` over hardcoded
-  absolute coordinates, matching the existing `furnish_*_zone()` functions.
-
-After any change, regenerate and audit before committing:
-
-```bash
-.venv/bin/python tools/generate_office_scenes.py
-.venv/bin/python tools/audit_office_scenes.py
-```
-
-`audit_office_scenes.py` compiles all ten scenes and flags any placed object whose visual mesh
-doesn't actually rest on its supporting surface (floating) or sinks into it (penetrating). A clean
-run prints `ok` for every scene — that's the bar, not a visual spot-check.
 """,
         encoding="utf-8",
     )

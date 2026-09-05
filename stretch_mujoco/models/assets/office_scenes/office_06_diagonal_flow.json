@@ -82,7 +82,7 @@
       "position": [
         -5.482479169254961,
         -3.030020242843854,
-        0.7133621889554705
+        0.5498713438507696
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -3.01752075592327,
         -1.1799797795614082,
-        0.7147287547658885
+        0.5495491979681812
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -132,7 +132,7 @@
       "position": [
         -2.3550239410754785,
         -3.3401993176805864,
-        0.7678662772064073
+        0.6059650023642938
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -598,16 +598,5 @@
   ],
   "mjcf": "office_06_diagonal_flow.xml",
   "robot_include": "office_06_diagonal_flow_robot.xml",
-  "preview": "office_06_diagonal_flow.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 431,
-    "robot_start_xyz": [
-      -9.2,
-      4.2,
-      0.0
-    ]
-  }
+  "preview": "office_06_diagonal_flow.png"
 }

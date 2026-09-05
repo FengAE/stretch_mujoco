@@ -95,7 +95,7 @@
       "position": [
         -1.0980492905753487,
         -1.9299797795614082,
-        0.7147287547658885
+        0.5495491979681812
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -120,7 +120,7 @@
       "position": [
         1.7605461802449096,
         -1.9098006823194145,
-        0.7678662788456143
+        0.6059650023642938
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -536,16 +536,5 @@
   ],
   "mjcf": "office_08_dual_island.xml",
   "robot_include": "office_08_dual_island_robot.xml",
-  "preview": "office_08_dual_island.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 621,
-    "robot_start_xyz": [
-      -8.7,
-      -2.2,
-      0.0
-    ]
-  }
+  "preview": "office_08_dual_island.png"
 }

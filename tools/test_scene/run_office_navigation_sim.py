@@ -27,6 +27,11 @@ import imageio.v2 as imageio
 import mujoco
 import numpy as np
 
+FINAL_HOLD_SECONDS = 3.0
+FINAL_ALIGN_MAX_W = 0.8
+FINAL_ALIGN_ACCEL = 0.04
+FINAL_ALIGN_FRAME_HZ = 15.0
+
 from stretch_mujoco.enums.stretch_cameras import StretchCameras
 from stretch_mujoco.enums.stretch_sensors import StretchSensors
 from stretch_mujoco.navigations import Algorithm, NavigationController, NavigationPathError
@@ -104,6 +109,13 @@ def _front_lidar_minimum(values: np.ndarray) -> float | None:
     return float(finite.min()) if finite.size else None
 
 
+def _heading_error(position: np.ndarray, yaw: float, target: np.ndarray) -> float:
+    """Signed yaw error needed to face a target point."""
+    delta = np.asarray(target, dtype=float) - np.asarray(position, dtype=float)
+    desired = float(np.arctan2(delta[1], delta[0]))
+    return float(np.arctan2(np.sin(desired - yaw), np.cos(desired - yaw)))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scene", default="1", help="1..10 or scene id")
@@ -117,6 +129,8 @@ def main() -> int:
     parser.add_argument("--control-hz", type=float, default=30.0)
     parser.add_argument("--max-seconds", type=float, default=120.0)
     parser.add_argument("--goal-tolerance", type=float, default=0.15)
+    parser.add_argument("--final-yaw-tolerance", type=float, default=0.15,
+                        help="Heading tolerance at a grasp site, in radians")
     parser.add_argument("--waypoint-tolerance", type=float, default=0.16)
     parser.add_argument("--max-v", type=float, default=0.6)
     parser.add_argument("--max-w", type=float, default=1.25)
@@ -125,7 +139,7 @@ def main() -> int:
     parser.add_argument("--frame-hz", type=float, default=4.0)
     parser.add_argument("--gif-speed", type=float, default=4.0,
                         help="GIF playback speed multiplier")
-    parser.add_argument("--stuck-seconds", type=float, default=5.0,
+    parser.add_argument("--stuck-seconds", type=float, default=20.0,
                         help="Stop when progress toward a waypoint stalls")
     parser.add_argument("--warmup-seconds", type=float, default=2.0)
     parser.add_argument("--output-dir", type=Path, default=Path("output/office_nav_sim"))
@@ -164,6 +178,8 @@ def main() -> int:
         goal = _best_zone_point(nav, zone["bounds"], requested_goal) if zone else _free_near(nav, requested_goal)
     else:
         goal = _free_near(nav, requested_goal)
+    align_to_object = args.goal.endswith("_grasp_site")
+    success_tolerance = max(args.goal_tolerance, 0.25) if align_to_object else args.goal_tolerance
     if goal is None:
         raise RuntimeError(f"could not find free floor approach near {args.goal}")
     try:
@@ -190,7 +206,8 @@ def main() -> int:
     mujoco.MjModel.from_xml_path(str(wrapper))
     yaw0 = float(manifest["robot"]["initial_pose"][2])
     sim = Stretch3RobotSimulator(scene_xml_path=str(wrapper), cameras_to_use=cameras,
-                                  camera_hz=max(1.0, args.frame_hz),
+                                  camera_hz=max(1.0, args.frame_hz,
+                                                FINAL_ALIGN_FRAME_HZ if align_to_object else 0.0),
                                   start_translation=[float(start[0]), float(start[1]), 0.0],
                                   start_rotation_quat=[float(np.cos(yaw0 / 2.0)), 0.0, 0.0,
                                                        float(np.sin(yaw0 / 2.0))])
@@ -220,19 +237,71 @@ def main() -> int:
     previous_v = previous_w = 0.0
     best_distance = float("inf")
     last_progress = started
+    aligning_final = False
     try:
         while sim.is_running() and time.perf_counter() - started < args.max_seconds:
             now = time.perf_counter()
             x, y, yaw = sim.get_base_pose()
             position = np.array([x, y], dtype=float)
-            if wp_index >= len(path):
-                reached = float(np.linalg.norm(position - goal)) <= args.goal_tolerance
-                if reached:
-                    sim.set_base_velocity(0.0, 0.0, 0.0)
-                    break
-            target = np.asarray(path[min(wp_index, len(path) - 1)], dtype=float)
+            final_waypoint = wp_index >= len(path) - 1
+            target = np.asarray(path[-1] if final_waypoint else path[wp_index], dtype=float)
             error = target - position
             distance = float(np.linalg.norm(error))
+            if final_waypoint and distance <= success_tolerance:
+                if not align_to_object:
+                    reached = True
+                    sim.set_base_velocity(0.0, 0.0, 0.0)
+                    break
+                # Finish a grasp-site run facing the target object.
+                if not aligning_final:
+                    previous_v = previous_w = 0.0
+                    aligning_final = True
+                to_object = requested_goal - position
+                if np.linalg.norm(to_object) < 1e-6:
+                    to_object = requested_goal - goal
+                yaw_error = _heading_error(position, yaw, position + to_object)
+                if abs(yaw_error) <= args.final_yaw_tolerance and abs(previous_w) <= FINAL_ALIGN_ACCEL:
+                    reached = True
+                    sim.set_base_velocity(0.0, 0.0, 0.0)
+                    trace.append({"time_s": now - started, "pose": [x, y, yaw],
+                                  "target": target.tolist(), "waypoint": wp_index,
+                                  "distance_to_target_m": distance,
+                                  "distance_to_path_m": _distance_to_path(position, path),
+                                  "v": 0.0, "omega": 0.0,
+                                  "min_lidar_m": None,
+                                  "final_yaw_error_rad": abs(yaw_error)})
+                    break
+                v = 0.0
+                desired_w = float(np.clip(2.2 * yaw_error, -FINAL_ALIGN_MAX_W, FINAL_ALIGN_MAX_W))
+                w = previous_w + float(np.clip(
+                    desired_w - previous_w, -FINAL_ALIGN_ACCEL, FINAL_ALIGN_ACCEL
+                ))
+                previous_v, previous_w = float(v), float(w)
+                sim.set_base_velocity(v, w, 0.0)
+                if now >= next_frame:
+                    try:
+                        snapshot = sim.pull_camera_data()
+                        overview = snapshot.get_camera_data(
+                            StretchCameras.office_overview_rgb, auto_correct_rgb=False
+                        )
+                        d435 = snapshot.get_camera_data(
+                            StretchCameras.cam_d435i_rgb,
+                            auto_rotate=True,
+                            auto_correct_rgb=False,
+                        )
+                        frames.append(_side_by_side(overview, d435, label=f"{scene_id}  final-align"))
+                        next_frame = now + 1.0 / FINAL_ALIGN_FRAME_HZ
+                    except (ValueError, RuntimeError):
+                        pass
+                trace.append({"time_s": now - started, "pose": [x, y, yaw],
+                              "target": target.tolist(), "waypoint": wp_index,
+                              "distance_to_target_m": distance,
+                              "distance_to_path_m": _distance_to_path(position, path),
+                              "v": v, "omega": w, "min_lidar_m": None,
+                              "final_yaw_error_rad": abs(yaw_error)})
+                time.sleep(1.0 / args.control_hz)
+                continue
+            aligning_final = False
             # Do not call an in-place rotation "stuck"; only evaluate progress
             # while the base is actually translating toward its waypoint.
             if distance < best_distance - 0.05:
@@ -306,6 +375,30 @@ def main() -> int:
     finally:
         if sim.is_running():
             sim.set_base_velocity(0.0, 0.0, 0.0)
+            if reached:
+                # Keep the robot at the grasp pose and record those frames;
+                # sleeping alone would not extend the rendered GIF.
+                hold_frames = max(1, round(
+                    FINAL_HOLD_SECONDS * args.frame_hz * max(args.gif_speed, 0.1)
+                ))
+                for _ in range(hold_frames):
+                    frame = frames[-1] if frames else None
+                    try:
+                        snapshot = sim.pull_camera_data()
+                        overview = snapshot.get_camera_data(
+                            StretchCameras.office_overview_rgb, auto_correct_rgb=False
+                        )
+                        d435 = snapshot.get_camera_data(
+                            StretchCameras.cam_d435i_rgb,
+                            auto_rotate=True,
+                            auto_correct_rgb=False,
+                        )
+                        frame = _side_by_side(overview, d435, label=f"{scene_id}  final")
+                    except (ValueError, RuntimeError):
+                        pass
+                    if frame is not None:
+                        frames.append(frame)
+                    time.sleep(FINAL_HOLD_SECONDS / hold_frames)
             sim.stop()
 
     if not trace and not reached and not stopped_for_collision:
@@ -316,12 +409,16 @@ def main() -> int:
         collisions.append({"time_s": 0.0, "event": "simulator_stopped_before_first_tick"})
 
     if not stopped_for_collision and trace:
-        reached = bool(np.linalg.norm(np.asarray(trace[-1]["pose"][:2]) - goal) <= args.goal_tolerance)
+        reached = bool(np.linalg.norm(np.asarray(trace[-1]["pose"][:2]) - goal) <= success_tolerance)
     if frames:
         imageio.mimsave(gif_path, frames,
                         duration=1.0 / (args.frame_hz * max(args.gif_speed, 0.1)), loop=0)
     final_pose = trace[-1]["pose"] if trace else [float(start[0]), float(start[1]), float(manifest["robot"]["initial_pose"][2])]
     final_error = float(np.linalg.norm(np.asarray(final_pose[:2]) - goal))
+    final_yaw_error = (
+        abs(_heading_error(np.asarray(final_pose[:2]), final_pose[2], requested_goal))
+        if args.goal.endswith("_grasp_site") and trace else None
+    )
     report = {
         "scene_id": scene_id, "xml": str(xml_path), "goal_site": args.goal,
         "requested_goal": requested_goal.tolist(), "approach_goal": goal.tolist(),
@@ -330,6 +427,7 @@ def main() -> int:
         "path": [p.tolist() for p in path], "path_length_m": float(sum(np.linalg.norm(path[i+1]-path[i]) for i in range(len(path)-1))),
         "reached": reached, "stopped_for_collision": stopped_for_collision,
         "final_pose": final_pose, "final_error_m": final_error,
+        "final_yaw_error_rad": final_yaw_error,
         "collision_events": collisions, "trace_samples": len(trace),
         "gif": str(gif_path) if frames else None,
     }
