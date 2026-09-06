@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 from pathlib import Path
 import time
@@ -31,6 +32,7 @@ FINAL_HOLD_SECONDS = 3.0
 FINAL_ALIGN_MAX_W = 0.8
 FINAL_ALIGN_ACCEL = 0.04
 FINAL_ALIGN_FRAME_HZ = 15.0
+FINAL_ALIGN_TIMEOUT_SECONDS = 10.0
 
 from stretch_mujoco.enums.stretch_cameras import StretchCameras
 from stretch_mujoco.enums.stretch_sensors import StretchSensors
@@ -179,7 +181,7 @@ def main() -> int:
     else:
         goal = _free_near(nav, requested_goal)
     align_to_object = args.goal.endswith("_grasp_site")
-    success_tolerance = max(args.goal_tolerance, 0.25) if align_to_object else args.goal_tolerance
+    success_tolerance = max(args.goal_tolerance, 0.15) if align_to_object else args.goal_tolerance
     if goal is None:
         raise RuntimeError(f"could not find free floor approach near {args.goal}")
     try:
@@ -212,6 +214,21 @@ def main() -> int:
                                   start_rotation_quat=[float(np.cos(yaw0 / 2.0)), 0.0, 0.0,
                                                        float(np.sin(yaw0 / 2.0))])
     frames: list[np.ndarray] = []
+    frame_durations_ms: list[float] = []
+    gif_speed = max(args.gif_speed, 0.1)
+
+    def _gif_duration_ms(capture_hz: float) -> float:
+        """Return a GIF-safe duration, rounded up to its 10 ms granularity."""
+        requested_ms = 1000.0 / (capture_hz * gif_speed)
+        return float(max(10, math.ceil(requested_ms / 10.0) * 10))
+
+    navigation_frame_duration_ms = _gif_duration_ms(args.frame_hz)
+    final_align_frame_duration_ms = _gif_duration_ms(FINAL_ALIGN_FRAME_HZ)
+
+    def _append_frame(frame: np.ndarray, duration_ms: float) -> None:
+        frames.append(frame)
+        frame_durations_ms.append(duration_ms)
+
     trace: list[dict] = []
     collisions: list[dict] = []
     wp_index = 1
@@ -238,9 +255,18 @@ def main() -> int:
     best_distance = float("inf")
     last_progress = started
     aligning_final = False
+    final_align_deadline: float | None = None
     try:
-        while sim.is_running() and time.perf_counter() - started < args.max_seconds:
+        while sim.is_running():
             now = time.perf_counter()
+            # Navigation has a global time budget, but a grasp-site run that
+            # has already reached its approach pose needs a short, separate
+            # window to rotate toward the object.  Otherwise a long path can
+            # consume the entire budget just before final alignment begins.
+            if now - started >= args.max_seconds:
+                if (not aligning_final or final_align_deadline is None
+                        or now >= final_align_deadline):
+                    break
             x, y, yaw = sim.get_base_pose()
             position = np.array([x, y], dtype=float)
             final_waypoint = wp_index >= len(path) - 1
@@ -256,6 +282,7 @@ def main() -> int:
                 if not aligning_final:
                     previous_v = previous_w = 0.0
                     aligning_final = True
+                    final_align_deadline = now + FINAL_ALIGN_TIMEOUT_SECONDS
                 to_object = requested_goal - position
                 if np.linalg.norm(to_object) < 1e-6:
                     to_object = requested_goal - goal
@@ -289,7 +316,10 @@ def main() -> int:
                             auto_rotate=True,
                             auto_correct_rgb=False,
                         )
-                        frames.append(_side_by_side(overview, d435, label=f"{scene_id}  final-align"))
+                        _append_frame(
+                            _side_by_side(overview, d435, label=f"{scene_id}  final-align"),
+                            final_align_frame_duration_ms,
+                        )
                         next_frame = now + 1.0 / FINAL_ALIGN_FRAME_HZ
                     except (ValueError, RuntimeError):
                         pass
@@ -302,6 +332,7 @@ def main() -> int:
                 time.sleep(1.0 / args.control_hz)
                 continue
             aligning_final = False
+            final_align_deadline = None
             # Do not call an in-place rotation "stuck"; only evaluate progress
             # while the base is actually translating toward its waypoint.
             if distance < best_distance - 0.05:
@@ -366,8 +397,14 @@ def main() -> int:
                                                          auto_correct_rgb=False)
                     d435 = snapshot.get_camera_data(StretchCameras.cam_d435i_rgb,
                                                     auto_rotate=True, auto_correct_rgb=False)
-                    frames.append(_side_by_side(overview, d435,
-                                                label=f"{scene_id}  {args.goal}  wp {wp_index}/{len(path)-1}  d={distance:.2f}m"))
+                    _append_frame(
+                        _side_by_side(
+                            overview,
+                            d435,
+                            label=f"{scene_id}  {args.goal}  wp {wp_index}/{len(path)-1}  d={distance:.2f}m",
+                        ),
+                        navigation_frame_duration_ms,
+                    )
                     next_frame = now + 1.0 / args.frame_hz
                 except ValueError:
                     pass
@@ -397,7 +434,7 @@ def main() -> int:
                     except (ValueError, RuntimeError):
                         pass
                     if frame is not None:
-                        frames.append(frame)
+                        _append_frame(frame, navigation_frame_duration_ms)
                     time.sleep(FINAL_HOLD_SECONDS / hold_frames)
             sim.stop()
 
@@ -408,11 +445,18 @@ def main() -> int:
         # video/report.
         collisions.append({"time_s": 0.0, "event": "simulator_stopped_before_first_tick"})
 
-    if not stopped_for_collision and trace:
+    # Position alone is sufficient for zone navigation.  Grasp-site success
+    # also requires the final heading check above; do not overwrite a failed
+    # or timed-out final-alignment result merely because the base is nearby.
+    if not align_to_object and not stopped_for_collision and trace:
         reached = bool(np.linalg.norm(np.asarray(trace[-1]["pose"][:2]) - goal) <= success_tolerance)
     if frames:
+        # imageio's Pillow GIF writer expects ``duration`` in milliseconds
+        # (unlike the seconds-based control / camera timing above).  Passing
+        # seconds here produces sub-millisecond frames that are encoded as
+        # 0 ms, making the final alignment and hold appear to be skipped.
         imageio.mimsave(gif_path, frames,
-                        duration=1.0 / (args.frame_hz * max(args.gif_speed, 0.1)), loop=0)
+                        duration=frame_durations_ms)
     final_pose = trace[-1]["pose"] if trace else [float(start[0]), float(start[1]), float(manifest["robot"]["initial_pose"][2])]
     final_error = float(np.linalg.norm(np.asarray(final_pose[:2]) - goal))
     final_yaw_error = (
