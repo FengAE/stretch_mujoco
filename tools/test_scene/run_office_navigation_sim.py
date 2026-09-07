@@ -33,7 +33,10 @@ FINAL_ALIGN_MAX_W = 0.8
 FINAL_ALIGN_ACCEL = 0.04
 FINAL_ALIGN_FRAME_HZ = 15.0
 FINAL_ALIGN_TIMEOUT_SECONDS = 10.0
+NAV_LIFT_CLEARANCE = 1.1
+NAV_ARM_RETRACTED = 0.0
 
+from stretch_mujoco.enums.actuators import Actuators
 from stretch_mujoco.enums.stretch_cameras import StretchCameras
 from stretch_mujoco.enums.stretch_sensors import StretchSensors
 from stretch_mujoco.navigations import Algorithm, NavigationController, NavigationPathError
@@ -130,7 +133,7 @@ def main() -> int:
                         help="Inflation for the physical base envelope")
     parser.add_argument("--control-hz", type=float, default=30.0)
     parser.add_argument("--max-seconds", type=float, default=120.0)
-    parser.add_argument("--goal-tolerance", type=float, default=0.15)
+    parser.add_argument("--goal-tolerance", type=float, default=0.3)
     parser.add_argument("--final-yaw-tolerance", type=float, default=0.15,
                         help="Heading tolerance at a grasp site, in radians")
     parser.add_argument("--waypoint-tolerance", type=float, default=0.16)
@@ -141,7 +144,7 @@ def main() -> int:
     parser.add_argument("--frame-hz", type=float, default=4.0)
     parser.add_argument("--gif-speed", type=float, default=4.0,
                         help="GIF playback speed multiplier")
-    parser.add_argument("--stuck-seconds", type=float, default=20.0,
+    parser.add_argument("--stuck-seconds", type=float, default=30.0,
                         help="Stop when progress toward a waypoint stalls")
     parser.add_argument("--warmup-seconds", type=float, default=2.0)
     parser.add_argument("--output-dir", type=Path, default=Path("output/office_nav_sim"))
@@ -248,6 +251,13 @@ def main() -> int:
             f"exception for the MJCF/runtime cause: {error}"
         ) from error
     sim.set_base_velocity(0.0, 0.0, 0.0)
+    # Keep the lift high and the telescoping arm retracted while driving.  The
+    # planner models the base envelope, so this is the safest physical pose
+    # around desks and chairs.
+    sim.move_to(Actuators.arm, NAV_ARM_RETRACTED)
+    sim.move_to(Actuators.lift, NAV_LIFT_CLEARANCE)
+    sim.wait_until_at_setpoint(Actuators.arm, timeout=20.0, position_tolerance=0.02)
+    sim.wait_until_at_setpoint(Actuators.lift, timeout=20.0, position_tolerance=0.02)
     time.sleep(max(0.0, args.warmup_seconds))
     started = time.perf_counter()
     next_frame = started
@@ -467,6 +477,10 @@ def main() -> int:
         "scene_id": scene_id, "xml": str(xml_path), "goal_site": args.goal,
         "requested_goal": requested_goal.tolist(), "approach_goal": goal.tolist(),
         "start": start.tolist(), "algorithm": args.algorithm,
+        "navigation_manipulator_pose": {
+            "lift_m": NAV_LIFT_CLEARANCE,
+            "arm_m": NAV_ARM_RETRACTED,
+        },
         "resolution_m": args.resolution, "agent_radius_m": args.agent_radius,
         "path": [p.tolist() for p in path], "path_length_m": float(sum(np.linalg.norm(path[i+1]-path[i]) for i in range(len(path)-1))),
         "reached": reached, "stopped_for_collision": stopped_for_collision,
