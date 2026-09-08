@@ -574,5 +574,16 @@
   ],
   "mjcf": "office_03_long_gallery.xml",
   "robot_include": "office_03_long_gallery_robot.xml",
-  "preview": "office_03_long_gallery.png"
+  "preview": "office_03_long_gallery.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 440,
+    "robot_start_xyz": [
+      9.2,
+      3.5,
+      0.0
+    ]
+  }
 }

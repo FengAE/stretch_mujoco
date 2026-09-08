@@ -124,7 +124,9 @@ def _heading_error(position: np.ndarray, yaw: float, target: np.ndarray) -> floa
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scene", default="1", help="1..10 or scene id")
-    parser.add_argument("--goal", default="zone_snack_center", help="MuJoCo site name")
+    parser.add_argument("--goal", default="zone_snack_center", help="MuJoCo site name (use zone_home_center for HSSD homes)")
+    parser.add_argument("--scene-root", type=Path, default=None,
+                        help="Generated scene directory; defaults to office_scenes")
     parser.add_argument("--list-goals", action="store_true",
                         help="List valid zone/grasp site goals for the selected scene and exit")
     parser.add_argument("--algorithm", choices=("astar", "fmm"), default="astar")
@@ -150,6 +152,8 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, default=Path("output/office_nav_sim"))
     parser.add_argument("--headless", action="store_true", default=True)
     args = parser.parse_args()
+    if args.scene_root is not None:
+        os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
     if args.control_hz <= 0 or args.frame_hz <= 0:
         parser.error("control/frame rates must be positive")
 

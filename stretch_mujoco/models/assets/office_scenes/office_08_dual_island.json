@@ -536,5 +536,16 @@
   ],
   "mjcf": "office_08_dual_island.xml",
   "robot_include": "office_08_dual_island_robot.xml",
-  "preview": "office_08_dual_island.png"
+  "preview": "office_08_dual_island.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 617,
+    "robot_start_xyz": [
+      -8.7,
+      -2.2,
+      0.0
+    ]
+  }
 }

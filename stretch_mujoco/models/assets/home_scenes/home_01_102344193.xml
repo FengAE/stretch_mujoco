@@ -1,0 +1,1141 @@
+<mujoco model="home_01_102344193">
+  <include file="home_01_102344193_robot.xml" />
+  <compiler angle="radian" balanceinertia="true" />
+  <option gravity="0 0 0" />
+  <visual>
+    <headlight ambient="0.38 0.38 0.38" diffuse="0.68 0.68 0.68" specular="0.06 0.06 0.06" />
+    <rgba haze="0.78 0.83 0.86 1" />
+  </visual>
+  <asset>
+    <material name="habitat_stage_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_001_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="habitat_stage_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/textures/image_002.png" />
+    <material name="habitat_stage_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="habitat_stage_part_003_texture" />
+    <texture name="habitat_stage_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/textures/image_001.png" />
+    <material name="habitat_stage_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="habitat_stage_part_004_texture" />
+    <texture name="habitat_stage_part_005_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/textures/image_000.png" />
+    <material name="habitat_stage_part_005_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="habitat_stage_part_005_texture" />
+    <material name="habitat_stage_part_006_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_007_material" rgba="1 0.823529 0.317647 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_008_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_009_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_010_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_011_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_012_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_013_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_014_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_015_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_016_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_017_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_018_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_019_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_020_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_021_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_022_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_023_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_024_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_025_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_026_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_027_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_028_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_029_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_030_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_031_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_032_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_033_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_034_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_035_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_036_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_037_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_038_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_039_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_040_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_041_material" rgba="1 0.823529 0.317647 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_042_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_043_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_044_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_045_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="habitat_stage_part_046_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/textures/image_000.png" />
+    <material name="habitat_stage_part_046_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="habitat_stage_part_046_texture" />
+    <material name="habitat_stage_part_047_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_048_material" rgba="1 0.823529 0.317647 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_049_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_050_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_051_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_052_material" rgba="1 0.823529 0.317647 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_053_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_054_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_055_material" rgba="1 0.823529 0.317647 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_056_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_057_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_058_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_059_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_060_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_061_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_062_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_063_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_064_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="habitat_stage_part_065_material" rgba="0.552941 0.705882 0.815686 1" specular="0.1675" shininess="0" reflectance="0" />
+    <mesh name="habitat_stage_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_000_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_001_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_002" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_002_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_003" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_003_rs-2691.obj" />
+    <mesh name="habitat_stage_mesh_004" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_004_rs-13668.obj" />
+    <mesh name="habitat_stage_mesh_005" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_005_rs-13621.obj" />
+    <mesh name="habitat_stage_mesh_006" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_006_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_007" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_007_FFD251.obj" />
+    <mesh name="habitat_stage_mesh_008" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_008_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_009" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_009_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_010" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_010_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_011" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_011_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_012" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_012_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_013" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_013_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_014" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_014_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_015" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_015_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_016" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_016_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_017" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_017_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_018" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_018_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_019" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_019_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_020" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_020_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_021" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_021_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_022" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_022_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_023" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_023_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_024" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_024_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_025" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_025_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_026" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_026_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_027" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_027_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_028" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_028_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_029" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_029_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_030" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_030_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_031" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_031_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_032" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_032_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_033" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_033_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_034" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_034_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_035" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_035_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_036" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_036_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_037" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_037_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_038" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_038_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_039" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_039_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_040" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_040_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_041" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_041_FFD251.obj" />
+    <mesh name="habitat_stage_mesh_042" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_042_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_043" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_043_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_044" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_044_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_045" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_045_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_046" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_046_rs-13621.obj" />
+    <mesh name="habitat_stage_mesh_047" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_047_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_048" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_048_FFD251.obj" />
+    <mesh name="habitat_stage_mesh_049" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_049_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_050" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_050_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_051" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_051_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_052" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_052_FFD251.obj" />
+    <mesh name="habitat_stage_mesh_053" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_053_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_054" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_054_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_055" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_055_FFD251.obj" />
+    <mesh name="habitat_stage_mesh_056" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_056_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_057" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_057_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_058" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_058_8DB4D0.obj" />
+    <mesh name="habitat_stage_mesh_059" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_059_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_060" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_060_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_061" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_061_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_062" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_062_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_063" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_063_edge_color248248248255.obj" />
+    <mesh name="habitat_stage_mesh_064" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_064_FP_DOORFRAME.obj" />
+    <mesh name="habitat_stage_mesh_065" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/stage/meshes/part_065_8DB4D0.obj" />
+    <material name="object_000_part_000_material" rgba="0.22331 0.18355 0.09869 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_000_part_001_material" rgba="0.61207 0.42591 0.09869 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_000_part_002_material" rgba="0.89126 0.82773 0.66612 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_000_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/textures/image_002.png" />
+    <material name="object_000_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_000_part_003_texture" />
+    <texture name="object_000_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/textures/image_001.png" />
+    <material name="object_000_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_000_part_004_texture" />
+    <texture name="object_000_part_005_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/textures/image_000.png" />
+    <material name="object_000_part_005_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_000_part_005_texture" />
+    <material name="object_000_part_006_material" rgba="0.00412 0.00412 0.00412 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_001_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/textures/image_003.png" />
+    <material name="object_001_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_001_part_000_texture" />
+    <material name="object_001_part_001_material" rgba="0.02655 0.13321 0.04455 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_001_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/textures/image_001.png" />
+    <material name="object_001_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_001_part_002_texture" />
+    <material name="object_001_part_003_material" rgba="0.01733 0.01518 0.01518 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_002_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_002_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/8df45b4963699bb2f2340149b79a7229d3048184/textures/image_000.png" />
+    <material name="object_002_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_002_part_001_texture" />
+    <texture name="object_003_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/1d438cf2a0be5706ffdbd1489fbfb27f712589a0/textures/image_000.png" />
+    <material name="object_003_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_003_part_000_texture" />
+    <texture name="object_004_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2f4e1518e7dca8f8b31ced792313bd79e09e9011/textures/image_003.png" />
+    <material name="object_004_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.782362" reflectance="0" texture="object_004_part_000_texture" />
+    <texture name="object_004_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2f4e1518e7dca8f8b31ced792313bd79e09e9011/textures/image_001.png" />
+    <material name="object_004_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_004_part_001_texture" />
+    <texture name="object_005_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/0d2c009971e681c8943126c50ae416b50d666577/textures/image_001.png" />
+    <material name="object_005_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_005_part_000_texture" />
+    <material name="object_006_part_000_material" rgba="0.00064 0.00064 0.00064 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_006_part_001_material" rgba="0.618864 0.337804 0.11151 1" specular="0.566177" shininess="1" reflectance="0.22417" />
+    <texture name="object_006_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/670c0caf8cb7df8466c675d7c91f7877840f9513/textures/image_000.png" />
+    <material name="object_006_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_006_part_002_texture" />
+    <texture name="object_007_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7d1667de2aee96561ab58d921d0ad053a598ae58/textures/image_001.png" />
+    <material name="object_007_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_007_part_000_texture" />
+    <texture name="object_008_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e432bd2619cb6eb619e6bf72ffa6a39892c92b7d/textures/image_001.png" />
+    <material name="object_008_part_000_material" rgba="1 1 1 1" specular="0.155" shininess="0.917531" reflectance="0" texture="object_008_part_000_texture" />
+    <texture name="object_009_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/f1060281ecb9903623755e30cf227200b71742dc/textures/image_001.png" />
+    <material name="object_009_part_000_material" rgba="1 1 1 1" specular="0.085" shininess="0.646447" reflectance="0" texture="object_009_part_000_texture" />
+    <texture name="object_010_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_000.png" />
+    <material name="object_010_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_000_texture" />
+    <texture name="object_010_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_011.png" />
+    <material name="object_010_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_001_texture" />
+    <texture name="object_010_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_008.png" />
+    <material name="object_010_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_002_texture" />
+    <texture name="object_010_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_006.png" />
+    <material name="object_010_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_003_texture" />
+    <texture name="object_010_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_004.png" />
+    <material name="object_010_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_004_texture" />
+    <texture name="object_010_part_005_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/textures/image_002.png" />
+    <material name="object_010_part_005_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_010_part_005_texture" />
+    <texture name="object_011_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_003.png" />
+    <material name="object_011_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.917531" reflectance="0" texture="object_011_part_000_texture" />
+    <texture name="object_011_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_010.png" />
+    <material name="object_011_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_011_part_001_texture" />
+    <texture name="object_011_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_000.png" />
+    <material name="object_011_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_011_part_002_texture" />
+    <material name="object_011_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_011_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_008.png" />
+    <material name="object_011_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_011_part_004_texture" />
+    <material name="object_011_part_005_material" rgba="0.03026 0.03026 0.03026 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_011_part_006_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_006.png" />
+    <material name="object_011_part_006_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_011_part_006_texture" />
+    <texture name="object_011_part_007_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/textures/image_005.png" />
+    <material name="object_011_part_007_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_011_part_007_texture" />
+    <material name="object_011_part_008_material" rgba="0.769619 0.769619 0.769619 1" specular="0.696333" shininess="1" reflectance="0.33653" />
+    <material name="object_012_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_012_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/448d008ec31f9a6e35f96e2a165a4864fbaea2d4/textures/image_000.png" />
+    <material name="object_012_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_012_part_001_texture" />
+    <material name="object_013_part_000_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_013_part_001_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <texture name="object_013_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/88e330051d42588cce96aba4dec5a35d5336217c/textures/image_000.png" />
+    <material name="object_013_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_013_part_002_texture" />
+    <texture name="object_014_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/af5520efad641bdc90f485facab8e84bf3a7f20f/textures/image_001.png" />
+    <material name="object_014_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_014_part_000_texture" />
+    <texture name="object_015_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/textures/image_005.png" />
+    <material name="object_015_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_015_part_000_texture" />
+    <texture name="object_015_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/textures/image_003.png" />
+    <material name="object_015_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_015_part_001_texture" />
+    <texture name="object_015_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/textures/image_001.png" />
+    <material name="object_015_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_015_part_002_texture" />
+    <texture name="object_015_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/textures/image_000.png" />
+    <material name="object_015_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_015_part_003_texture" />
+    <texture name="object_016_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/textures/image_004.png" />
+    <material name="object_016_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_016_part_000_texture" />
+    <texture name="object_016_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/textures/image_002.png" />
+    <material name="object_016_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_016_part_001_texture" />
+    <material name="object_016_part_002_material" rgba="0.00604 0.00604 0.00604 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_016_part_003_material" rgba="0.01992 0.01992 0.01992 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_017_part_000_material" rgba="1 1 1 1" specular="0.766108" shininess="1" reflectance="0.292231" />
+    <material name="object_017_part_001_material" rgba="0.00064 0.00064 0.00064 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_018_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/textures/image_003.png" />
+    <material name="object_018_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_018_part_000_texture" />
+    <material name="object_018_part_001_material" rgba="0.74 0.74 0.74 1" specular="0.1675" shininess="1" reflectance="0" />
+    <texture name="object_018_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/textures/image_001.png" />
+    <material name="object_018_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_018_part_002_texture" />
+    <material name="object_018_part_003_material" rgba="0.21764 0.21764 0.21764 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_019_part_000_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <texture name="object_019_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/af59e299ef373a1247cf6f67ba1114c3631da76d/textures/image_001.png" />
+    <material name="object_019_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_019_part_001_texture" />
+    <texture name="object_020_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/690e8c1cacddc85ec161581ea595d10d9b496ca7/textures/image_004.png" />
+    <material name="object_020_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_020_part_000_texture" />
+    <material name="object_020_part_001_material" rgba="0.00716 0.00716 0.00716 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_020_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/690e8c1cacddc85ec161581ea595d10d9b496ca7/textures/image_001.png" />
+    <material name="object_020_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0.917531" reflectance="0" texture="object_020_part_002_texture" />
+    <material name="object_021_part_000_material" rgba="0.00064 0.00064 0.00064 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_021_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/dec7a995ecf6360cb68d15b80403d604a143e389/textures/image_000.png" />
+    <material name="object_021_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_021_part_001_texture" />
+    <material name="object_022_part_000_material" rgba="0.00169 0.00169 0.00169 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_022_part_001_material" rgba="0.777484 0.528973 0.231704 1" specular="0.519003" shininess="0.917531" reflectance="0.17794" />
+    <material name="object_022_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_022_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/79eb16e537f29ff752b46b20b1961c491665237f/textures/image_000.png" />
+    <material name="object_022_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_022_part_003_texture" />
+    <texture name="object_023_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/65a7263c49e050b733ccfac3208dca20e92498ab/textures/image_002.png" />
+    <material name="object_023_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_023_part_000_texture" />
+    <texture name="object_023_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/65a7263c49e050b733ccfac3208dca20e92498ab/textures/image_000.png" />
+    <material name="object_023_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_023_part_001_texture" />
+    <material name="object_024_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.992711" reflectance="0" />
+    <material name="object_024_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <texture name="object_024_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cbe7567842652e9e27eb421afc713a37d05f19d0/textures/image_001.png" />
+    <material name="object_024_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0.917531" reflectance="0" texture="object_024_part_002_texture" />
+    <material name="object_025_part_000_material" rgba="0.99632 0.98896 0.98159 1" specular="0.241284" shininess="0.985622" reflectance="0.0214991" />
+    <texture name="object_025_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/da6ab8a359f639f9bbd92f51bf7ffc89f65714ee/textures/image_001.png" />
+    <material name="object_025_part_001_material" rgba="1 1 1 1" specular="0.1825" shininess="0.925158" reflectance="0" texture="object_025_part_001_texture" />
+    <texture name="object_026_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5bb8abe60b296ee6bd0846dd445da915b0d9fc1e/textures/image_001.png" />
+    <material name="object_026_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_026_part_000_texture" />
+    <material name="object_027_part_000_material" rgba="0.7083 0.20471 0.00169 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_027_part_001_material" rgba="0.788617 0.788617 0.788617 1" specular="0.683593" shininess="1" reflectance="0.328423" />
+    <texture name="object_028_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fc4c24323baf711f6a78c9cbd02dd590e8778c8a/textures/image_001.png" />
+    <material name="object_028_part_000_material" rgba="1 1 1 1" specular="0.095" shininess="0.679144" reflectance="0" texture="object_028_part_000_texture" />
+    <texture name="object_029_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/textures/image_009.png" />
+    <material name="object_029_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_029_part_000_texture" />
+    <texture name="object_029_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/textures/image_007.png" />
+    <material name="object_029_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_029_part_001_texture" />
+    <material name="object_029_part_002_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_029_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/textures/image_003.png" />
+    <material name="object_029_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_029_part_003_texture" />
+    <texture name="object_029_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/textures/image_002.png" />
+    <material name="object_029_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_029_part_004_texture" />
+    <material name="object_030_part_000_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_030_part_001_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <material name="object_030_part_002_material" rgba="0.00049 0.00456 0.00037 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_030_part_003_material" rgba="0.00196 0.00196 0.00196 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_030_part_004_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <material name="object_030_part_005_material" rgba="1 1 1 1" specular="0.08" shininess="1" reflectance="0" />
+    <texture name="object_030_part_006_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/textures/image_004.png" />
+    <material name="object_030_part_006_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_030_part_006_texture" />
+    <material name="object_030_part_007_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <texture name="object_030_part_008_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/textures/image_002.png" />
+    <material name="object_030_part_008_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_030_part_008_texture" />
+    <texture name="object_031_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/49f223142cedeb34ba5f6831d20650038e2f174b/textures/image_003.png" />
+    <material name="object_031_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_031_part_000_texture" />
+    <texture name="object_031_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/49f223142cedeb34ba5f6831d20650038e2f174b/textures/image_001.png" />
+    <material name="object_031_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_031_part_001_texture" />
+    <material name="object_032_part_000_material" rgba="0.644021 0.552236 0.336193 1" specular="0.443563" shininess="0.917531" reflectance="0.165778" />
+    <texture name="object_032_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/293c42d04758bffcc63070066170cbb1f09918cc/textures/image_000.png" />
+    <material name="object_032_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_032_part_001_texture" />
+    <material name="object_032_part_002_material" rgba="0.85125 0.85125 0.85125 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_032_part_003_material" rgba="0.489921 0.340286 0.161119 1" specular="0.363957" shininess="0.917531" reflectance="0.118088" />
+    <texture name="object_033_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/textures/image_007.png" />
+    <material name="object_033_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.935296" reflectance="0" texture="object_033_part_000_texture" />
+    <texture name="object_033_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/textures/image_004.png" />
+    <material name="object_033_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_033_part_001_texture" />
+    <texture name="object_033_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/textures/image_001.png" />
+    <material name="object_033_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0.935296" reflectance="0" texture="object_033_part_002_texture" />
+    <material name="object_034_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_034_part_001_material" rgba="1 1 1 1" specular="0.08" shininess="1" reflectance="0" />
+    <material name="object_034_part_002_material" rgba="0.559281 0.330273 0.121094 1" specular="0.758616" shininess="1" reflectance="0.321425" />
+    <material name="object_034_part_003_material" rgba="0.00099 0.00099 0.00099 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_035_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3c163391afeb4130eadacb6ef9b6e5930329a32b/textures/image_002.png" />
+    <material name="object_035_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_035_part_000_texture" />
+    <material name="object_035_part_001_material" rgba="0.85917 0.85917 0.85917 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_035_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3c163391afeb4130eadacb6ef9b6e5930329a32b/textures/image_000.png" />
+    <material name="object_035_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_035_part_002_texture" />
+    <material name="object_036_part_000_material" rgba="0.74 0.74 0.74 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_036_part_001_material" rgba="0.82773 0.148 0.01518 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_037_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/00b285ed70673826ccb6941929a64abfaf5f9239/textures/image_001.png" />
+    <material name="object_037_part_000_material" rgba="1 1 1 1" specular="0.155" shininess="0.866028" reflectance="0" texture="object_037_part_000_texture" />
+    <material name="object_037_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_037_part_002_material" rgba="0.650636 0.650636 0.650636 1" specular="0.290864" shininess="0.980763" reflectance="0.0387313" />
+    <material name="object_037_part_003_material" rgba="0.496752 0.496752 0.496752 1" specular="0.758307" shininess="0.931405" reflectance="0.304377" />
+    <material name="object_038_part_000_material" rgba="0.00775 0.00775 0.00775 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_001_material" rgba="0.00837 0.44232 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_002_material" rgba="0.43134 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_038_part_003_material" rgba="0.74 0.74 0.74 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_038_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_000_material" rgba="0.788617 0.788617 0.788617 1" specular="0.683593" shininess="1" reflectance="0.328423" />
+    <material name="object_039_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_039_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_040_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_004.png" />
+    <material name="object_040_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_040_part_001_texture" />
+    <material name="object_040_part_002_material" rgba="0.00049 0.00049 0.00049 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_040_part_003_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_003.png" />
+    <material name="object_040_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_040_part_003_texture" />
+    <texture name="object_040_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_001.png" />
+    <material name="object_040_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_040_part_004_texture" />
+    <material name="object_040_part_005_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_006_material" rgba="0.79692 0.42591 0.21576 1" specular="0.304845" shininess="0.995513" reflectance="0" />
+    <material name="object_040_part_007_material" rgba="1 1 1 1" specular="0.766108" shininess="1" reflectance="0.292231" />
+    <material name="object_040_part_008_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_040_part_009_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_008.png" />
+    <material name="object_040_part_009_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_040_part_009_texture" />
+    <texture name="object_040_part_010_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_007.png" />
+    <material name="object_040_part_010_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_040_part_010_texture" />
+    <material name="object_040_part_011_material" rgba="0.803128 0.803128 0.803128 1" specular="0.674268" shininess="1" reflectance="0.322489" />
+    <material name="object_040_part_012_material" rgba="0.03703 0.03703 0.03703 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_040_part_013_material" rgba="0 0 0 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_040_part_014_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/textures/image_004.png" />
+    <material name="object_040_part_014_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_040_part_014_texture" />
+    <texture name="object_041_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/textures/image_002.png" />
+    <material name="object_041_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_041_part_000_texture" />
+    <material name="object_041_part_001_material" rgba="0.2011 0.2011 0.2011 1" specular="0.1675" shininess="0" reflectance="0" />
+    <texture name="object_041_part_002_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/textures/image_006.png" />
+    <material name="object_041_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_041_part_002_texture" />
+    <material name="object_041_part_003_material" rgba="1 1 1 1" specular="0.766108" shininess="1" reflectance="0.292231" />
+    <texture name="object_041_part_004_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/textures/image_005.png" />
+    <material name="object_041_part_004_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_041_part_004_texture" />
+    <texture name="object_041_part_005_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/textures/image_002.png" />
+    <material name="object_041_part_005_material" rgba="1 1 1 1" specular="0.1675" shininess="0.904609" reflectance="0" texture="object_041_part_005_texture" />
+    <texture name="object_042_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/468c7b290805e59fc57bfd0792437889e4fa4403/textures/image_004.png" />
+    <material name="object_042_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_042_part_000_texture" />
+    <texture name="object_042_part_001_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/468c7b290805e59fc57bfd0792437889e4fa4403/textures/image_002.png" />
+    <material name="object_042_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_042_part_001_texture" />
+    <texture name="object_043_part_000_texture" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/752f77d7c0349b81c201fcc71650970170382456/textures/image_000.png" />
+    <material name="object_043_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" texture="object_043_part_000_texture" />
+    <material name="object_043_part_001_material" rgba="0.19397 0.16687 0.10871 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_044_part_000_material" rgba="0.559281 0.330273 0.121094 1" specular="0.758616" shininess="1" reflectance="0.321425" />
+    <material name="object_045_part_000_material" rgba="0.8 0.8 0.8 1" specular="0.1675" shininess="0.9" reflectance="0" />
+    <material name="object_045_part_001_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_045_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_045_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_046_part_000_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_046_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_046_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_047_part_000_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_047_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_047_part_002_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_048_part_000_material" rgba="0.8 0.8 0.8 1" specular="0.1675" shininess="0.9" reflectance="0" />
+    <material name="object_048_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_048_part_002_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_048_part_003_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_049_part_000_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_049_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_049_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <material name="object_050_part_000_material" rgba="0.498039 0.498039 0.498039 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_050_part_001_material" rgba="1 1 1 1" specular="0.1675" shininess="0" reflectance="0" />
+    <material name="object_050_part_002_material" rgba="1 1 1 1" specular="0.1675" shininess="1" reflectance="0" />
+    <mesh name="object_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_000_mig_7.obj" scale="1 1 1" />
+    <mesh name="object_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_001_mig_6.obj" scale="1 1 1" />
+    <mesh name="object_mesh_002" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_002_mig_5.obj" scale="1 1 1" />
+    <mesh name="object_mesh_003" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_003_mig_4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_004" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_004_mig_3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_005" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_005_mig_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_006" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb47ce31bd4309c8b3c99a1d53db43f7046cb489/meshes/part_006_unicolor_black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_007" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/meshes/part_000_opaco.obj" scale="1 1 1" />
+    <mesh name="object_mesh_008" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/meshes/part_001_mig_04___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_009" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/meshes/part_002_Soil.obj" scale="1 1 1" />
+    <mesh name="object_mesh_010" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e4c49b444dda05bdac79ad01ec10f82b735b62a1/meshes/part_003_mig_03___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_011" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/8df45b4963699bb2f2340149b79a7229d3048184/meshes/part_000_wood_BLACK_texture.obj" scale="1 1 1" />
+    <mesh name="object_mesh_012" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/8df45b4963699bb2f2340149b79a7229d3048184/meshes/part_001_Standard_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_013" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/1d438cf2a0be5706ffdbd1489fbfb27f712589a0/meshes/part_000_TV_Screen2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_014" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2f4e1518e7dca8f8b31ced792313bd79e09e9011/meshes/part_000_Metal___Black_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_015" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2f4e1518e7dca8f8b31ced792313bd79e09e9011/meshes/part_001_Mint.obj" scale="1 1 1" />
+    <mesh name="object_mesh_016" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/0d2c009971e681c8943126c50ae416b50d666577/meshes/part_000_Rug.obj" scale="1 1 1" />
+    <mesh name="object_mesh_017" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/670c0caf8cb7df8466c675d7c91f7877840f9513/meshes/part_000_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_018" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/670c0caf8cb7df8466c675d7c91f7877840f9513/meshes/part_001_Metal___Chrome_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_019" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/670c0caf8cb7df8466c675d7c91f7877840f9513/meshes/part_002_Fabric.obj" scale="1 1 1" />
+    <mesh name="object_mesh_020" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7d1667de2aee96561ab58d921d0ad053a598ae58/meshes/part_000_NAVY.obj" scale="1 1 1" />
+    <mesh name="object_mesh_021" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/e432bd2619cb6eb619e6bf72ffa6a39892c92b7d/meshes/part_000_Shader1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_022" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/f1060281ecb9903623755e30cf227200b71742dc/meshes/part_000_Shader1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_023" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_000_Soil.obj" scale="1 1 1" />
+    <mesh name="object_mesh_024" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_001_trunk.obj" scale="1 1 1" />
+    <mesh name="object_mesh_025" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_002_leaf.obj" scale="1 1 1" />
+    <mesh name="object_mesh_026" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_003_Material__8.obj" scale="1 1 1" />
+    <mesh name="object_mesh_027" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_004_Material__9.obj" scale="1 1 1" />
+    <mesh name="object_mesh_028" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/95d1e189e93694bb8eee73a64b0d84a8be5a5057/meshes/part_005_Material__7.obj" scale="1 1 1" />
+    <mesh name="object_mesh_029" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_000_Metal___Black_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_030" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_001_Standard_8.obj" scale="1 1 1" />
+    <mesh name="object_mesh_031" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_002_Standard_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_032" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_003_wood_BLACK_texture.obj" scale="1 1 1" />
+    <mesh name="object_mesh_033" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_004_Metal___Stainless_steel.obj" scale="1 1 1" />
+    <mesh name="object_mesh_034" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_005_Standard_xxx.obj" scale="1 1 1" />
+    <mesh name="object_mesh_035" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_006_Material__oven.obj" scale="1 1 1" />
+    <mesh name="object_mesh_036" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_007_mig_21___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_037" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9494221acb244f996e96d36178eb6d964c41dd6c/meshes/part_008_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_038" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/448d008ec31f9a6e35f96e2a165a4864fbaea2d4/meshes/part_000_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_039" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/448d008ec31f9a6e35f96e2a165a4864fbaea2d4/meshes/part_001_Fabric.obj" scale="1 1 1" />
+    <mesh name="object_mesh_040" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/88e330051d42588cce96aba4dec5a35d5336217c/meshes/part_000_Standard_6.obj" scale="1 1 1" />
+    <mesh name="object_mesh_041" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/88e330051d42588cce96aba4dec5a35d5336217c/meshes/part_001_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_042" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/88e330051d42588cce96aba4dec5a35d5336217c/meshes/part_002_Linen_Weave_FIN.obj" scale="1 1 1" />
+    <mesh name="object_mesh_043" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/af5520efad641bdc90f485facab8e84bf3a7f20f/meshes/part_000_Rug.obj" scale="1 1 1" />
+    <mesh name="object_mesh_044" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/meshes/part_000_Soil_DARK.obj" scale="1 1 1" />
+    <mesh name="object_mesh_045" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/meshes/part_001_Standard_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_046" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/meshes/part_002_Standard_1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_047" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/ee7b9e4cf5c533737ebd058f7950ca632db5bc62/meshes/part_003_Standard_4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_048" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/meshes/part_000_Metal___Stainless_steel_BLACK.obj" scale="1 1 1" />
+    <mesh name="object_mesh_049" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/meshes/part_001_Metal___Stainless_steel.obj" scale="1 1 1" />
+    <mesh name="object_mesh_050" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/meshes/part_002_mig_09___Defaultx.obj" scale="1 1 1" />
+    <mesh name="object_mesh_051" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/b5d1b894bdc9d22be934ea4efeae007d9048add2/meshes/part_003_mig_09___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_052" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5308f862dcc5bd45f62aececd538135a03ff93d2/meshes/part_000_MIRROR.obj" scale="1 1 1" />
+    <mesh name="object_mesh_053" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5308f862dcc5bd45f62aececd538135a03ff93d2/meshes/part_001_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_054" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/meshes/part_000_Material__3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_055" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/meshes/part_001_Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_056" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/meshes/part_002_Metal___Stainless_steel.obj" scale="1 1 1" />
+    <mesh name="object_mesh_057" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cb3dd8f2c8de396606e0794f6effc921aff7235d/meshes/part_003_default_shd.obj" scale="1 1 1" />
+    <mesh name="object_mesh_058" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/af59e299ef373a1247cf6f67ba1114c3631da76d/meshes/part_000_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_059" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/af59e299ef373a1247cf6f67ba1114c3631da76d/meshes/part_001_Standard_1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_060" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/690e8c1cacddc85ec161581ea595d10d9b496ca7/meshes/part_000_Leather.obj" scale="1 1 1" />
+    <mesh name="object_mesh_061" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/690e8c1cacddc85ec161581ea595d10d9b496ca7/meshes/part_001_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_062" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/690e8c1cacddc85ec161581ea595d10d9b496ca7/meshes/part_002_Metal___Stainless_steel_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_063" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/dec7a995ecf6360cb68d15b80403d604a143e389/meshes/part_000_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_064" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/dec7a995ecf6360cb68d15b80403d604a143e389/meshes/part_001_Fabric.obj" scale="1 1 1" />
+    <mesh name="object_mesh_065" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/79eb16e537f29ff752b46b20b1961c491665237f/meshes/part_000_unicolor_black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_066" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/79eb16e537f29ff752b46b20b1961c491665237f/meshes/part_001_Metal___Gold_Brushed_Daniele2020.obj" scale="1 1 1" />
+    <mesh name="object_mesh_067" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/79eb16e537f29ff752b46b20b1961c491665237f/meshes/part_002_WHITE.obj" scale="1 1 1" />
+    <mesh name="object_mesh_068" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/79eb16e537f29ff752b46b20b1961c491665237f/meshes/part_003_TEXTURE.obj" scale="1 1 1" />
+    <mesh name="object_mesh_069" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/65a7263c49e050b733ccfac3208dca20e92498ab/meshes/part_000_mig_00wood.obj" scale="1 1 1" />
+    <mesh name="object_mesh_070" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/65a7263c49e050b733ccfac3208dca20e92498ab/meshes/part_001_Fabric.obj" scale="1 1 1" />
+    <mesh name="object_mesh_071" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cbe7567842652e9e27eb421afc713a37d05f19d0/meshes/part_000_MAT_SELFILL_0Glass.obj" scale="1 1 1" />
+    <mesh name="object_mesh_072" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cbe7567842652e9e27eb421afc713a37d05f19d0/meshes/part_001_Glass_Clear.obj" scale="1 1 1" />
+    <mesh name="object_mesh_073" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/cbe7567842652e9e27eb421afc713a37d05f19d0/meshes/part_002_Gold.obj" scale="1 1 1" />
+    <mesh name="object_mesh_074" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/da6ab8a359f639f9bbd92f51bf7ffc89f65714ee/meshes/part_000_Shader2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_075" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/da6ab8a359f639f9bbd92f51bf7ffc89f65714ee/meshes/part_001_Shader1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_076" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5bb8abe60b296ee6bd0846dd445da915b0d9fc1e/meshes/part_000_Wicker_NEW.obj" scale="1 1 1" />
+    <mesh name="object_mesh_077" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/782f0a9b9f354f0055c0ba551ebde2f459b83a09/meshes/part_000_unicolor_black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_078" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/782f0a9b9f354f0055c0ba551ebde2f459b83a09/meshes/part_001_Metal___Chrome_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_079" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fc4c24323baf711f6a78c9cbd02dd590e8778c8a/meshes/part_000_Shader1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_080" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/meshes/part_000_unicolor_creme_t.obj" scale="1 1 1" />
+    <mesh name="object_mesh_081" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/meshes/part_001_Metal___Stainless_steel_1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_082" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/meshes/part_002_Material__69.obj" scale="1 1 1" />
+    <mesh name="object_mesh_083" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/meshes/part_003_Standard_1_1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_084" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/2efebdcc1ba9514b0deb0dfb05951341432bd26a/meshes/part_004_Metal___Stainless_steel.obj" scale="1 1 1" />
+    <mesh name="object_mesh_085" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_000_Standard_10.obj" scale="1 1 1" />
+    <mesh name="object_mesh_086" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_001_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_087" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_002_Material__1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_088" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_003_Standard_4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_089" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_004_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_090" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_005_Glass_Door_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_091" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_006_Arch___Design__mi__2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_092" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_007_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_093" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/c26b16c8dfdba6600221a57542782292c15e983b/meshes/part_008_Metal___Chrome_BUMP.obj" scale="1 1 1" />
+    <mesh name="object_mesh_094" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/49f223142cedeb34ba5f6831d20650038e2f174b/meshes/part_000_Bahr.obj" scale="1 1 1" />
+    <mesh name="object_mesh_095" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/49f223142cedeb34ba5f6831d20650038e2f174b/meshes/part_001_DENIM.obj" scale="1 1 1" />
+    <mesh name="object_mesh_096" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/293c42d04758bffcc63070066170cbb1f09918cc/meshes/part_000_Metal___Stainless_steel_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_097" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/293c42d04758bffcc63070066170cbb1f09918cc/meshes/part_001_Door.obj" scale="1 1 1" />
+    <mesh name="object_mesh_098" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/293c42d04758bffcc63070066170cbb1f09918cc/meshes/part_002_White.obj" scale="1 1 1" />
+    <mesh name="object_mesh_099" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/293c42d04758bffcc63070066170cbb1f09918cc/meshes/part_003_Gold.obj" scale="1 1 1" />
+    <mesh name="object_mesh_100" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/meshes/part_000_Metal___steel__2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_101" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/meshes/part_001_WOOD.obj" scale="1 1 1" />
+    <mesh name="object_mesh_102" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/058936386adb57586905a14d68fbe70719cff89b/meshes/part_002_Metal___steel__bronze.obj" scale="1 1 1" />
+    <mesh name="object_mesh_103" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9d809de6424e746f09d2cc40255f635fc264eed8/meshes/part_000_MAT_SELFILL_0.obj" scale="1 1 1" />
+    <mesh name="object_mesh_104" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9d809de6424e746f09d2cc40255f635fc264eed8/meshes/part_001_Glass_Door.obj" scale="1 1 1" />
+    <mesh name="object_mesh_105" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9d809de6424e746f09d2cc40255f635fc264eed8/meshes/part_002_Metal___Gold.obj" scale="1 1 1" />
+    <mesh name="object_mesh_106" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/9d809de6424e746f09d2cc40255f635fc264eed8/meshes/part_003_mig_08___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_107" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3c163391afeb4130eadacb6ef9b6e5930329a32b/meshes/part_000_mig_08___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_108" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3c163391afeb4130eadacb6ef9b6e5930329a32b/meshes/part_001_mig_03___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_109" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3c163391afeb4130eadacb6ef9b6e5930329a32b/meshes/part_002_mig_07___Default.obj" scale="1 1 1" />
+    <mesh name="object_mesh_110" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/45260b2b621ba5473292bcfe8995535b336b4244/meshes/part_000_Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_111" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/45260b2b621ba5473292bcfe8995535b336b4244/meshes/part_001_orange.obj" scale="1 1 1" />
+    <mesh name="object_mesh_112" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/00b285ed70673826ccb6941929a64abfaf5f9239/meshes/part_000_Shader4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_113" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/00b285ed70673826ccb6941929a64abfaf5f9239/meshes/part_001_Shader3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_114" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/00b285ed70673826ccb6941929a64abfaf5f9239/meshes/part_002_Shader2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_115" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/00b285ed70673826ccb6941929a64abfaf5f9239/meshes/part_003_Shader1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_116" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/6cd2dc2611c27f758c972b4874efad8c8cbd5d29/meshes/part_000_unicolor_black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_117" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/6cd2dc2611c27f758c972b4874efad8c8cbd5d29/meshes/part_001_Arch___Design__mi__10.obj" scale="1 1 1" />
+    <mesh name="object_mesh_118" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/6cd2dc2611c27f758c972b4874efad8c8cbd5d29/meshes/part_002_Arch___Design__mi__9.obj" scale="1 1 1" />
+    <mesh name="object_mesh_119" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/6cd2dc2611c27f758c972b4874efad8c8cbd5d29/meshes/part_003_Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_120" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/6cd2dc2611c27f758c972b4874efad8c8cbd5d29/meshes/part_004_Material__97.obj" scale="1 1 1" />
+    <mesh name="object_mesh_121" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7ff8c2d48e8d49e2f1504bc83d16ef933cd7163b/meshes/part_000_Metal___Chrome_2017.obj" scale="1 1 1" />
+    <mesh name="object_mesh_122" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7ff8c2d48e8d49e2f1504bc83d16ef933cd7163b/meshes/part_001_AAA___PLASTIC_TOILET.obj" scale="1 1 1" />
+    <mesh name="object_mesh_123" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7ff8c2d48e8d49e2f1504bc83d16ef933cd7163b/meshes/part_002_AAA___CERAMIC_TOILET.obj" scale="1 1 1" />
+    <mesh name="object_mesh_124" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_000_Standard_3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_125" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_001_Material__4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_126" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_002_Material__28.obj" scale="1 1 1" />
+    <mesh name="object_mesh_127" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_003_xxxxxxxxxxxxxxx.obj" scale="1 1 1" />
+    <mesh name="object_mesh_128" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_004_Metal___Stainless_steel.obj" scale="1 1 1" />
+    <mesh name="object_mesh_129" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_005_Material__27.obj" scale="1 1 1" />
+    <mesh name="object_mesh_130" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_006_Material__3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_131" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_007_MIRROR.obj" scale="1 1 1" />
+    <mesh name="object_mesh_132" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_008_MAT_SELFILL_0.obj" scale="1 1 1" />
+    <mesh name="object_mesh_133" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_009_Material__5.obj" scale="1 1 1" />
+    <mesh name="object_mesh_134" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_010_Standard_1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_135" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_011_Metal___Chrome.obj" scale="1 1 1" />
+    <mesh name="object_mesh_136" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_012_Standard_2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_137" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_013_Material__27.obj" scale="1 1 1" />
+    <mesh name="object_mesh_138" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/fcaebfe141f5a16bffdb8599c50551150353010c/meshes/part_014_Material__4.obj" scale="1 1 1" />
+    <mesh name="object_mesh_139" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_000_Metal___Stainless_steel3.obj" scale="1 1 1" />
+    <mesh name="object_mesh_140" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_001_Black.obj" scale="1 1 1" />
+    <mesh name="object_mesh_141" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_002_mig_00wood.obj" scale="1 1 1" />
+    <mesh name="object_mesh_142" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_003_MIRROR.obj" scale="1 1 1" />
+    <mesh name="object_mesh_143" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_004_mig_00wood2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_144" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/7cb71427fd80d85e04a601e04c9b9db866d355c9/meshes/part_005_Metal___Stainless_steel2.obj" scale="1 1 1" />
+    <mesh name="object_mesh_145" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/468c7b290805e59fc57bfd0792437889e4fa4403/meshes/part_000_FINISH_721.obj" scale="1 1 1" />
+    <mesh name="object_mesh_146" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/468c7b290805e59fc57bfd0792437889e4fa4403/meshes/part_001_FINISH_461.obj" scale="1 1 1" />
+    <mesh name="object_mesh_147" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/752f77d7c0349b81c201fcc71650970170382456/meshes/part_000_WALNUT_WOOD1.obj" scale="1 1 1" />
+    <mesh name="object_mesh_148" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/752f77d7c0349b81c201fcc71650970170382456/meshes/part_001_Metal___Stainless_dark.obj" scale="1 1 1" />
+    <mesh name="object_mesh_149" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/f564f2a2e73741e74899b75e16df4d8555a0cae3/meshes/part_000_Metal___Gold.obj" scale="1 1 1" />
+    <mesh name="object_mesh_150" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/210-0/meshes/part_000_FP_DOORHANDLE.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_151" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/210-0/meshes/part_001_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_152" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/210-0/meshes/part_002_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_153" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/210-0/meshes/part_003_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_154" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/218-23/meshes/part_000_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_155" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/218-23/meshes/part_001_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_156" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/218-23/meshes/part_002_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_157" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3755-0/meshes/part_000_FP_DOORFRAME.obj" scale="-0.9999998 0.9999998 0.9999998" />
+    <mesh name="object_mesh_158" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3755-0/meshes/part_001_FP_GLASS.obj" scale="-0.9999998 0.9999998 0.9999998" />
+    <mesh name="object_mesh_159" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/3755-0/meshes/part_002_FP_GLASSBORDER.obj" scale="-0.9999998 0.9999998 0.9999998" />
+    <mesh name="object_mesh_160" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4076-2/meshes/part_000_FP_DOORHANDLE.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_161" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4076-2/meshes/part_001_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_162" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4076-2/meshes/part_002_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_163" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4076-2/meshes/part_003_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_164" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5775-0/meshes/part_000_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_165" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5775-0/meshes/part_001_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_166" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/5775-0/meshes/part_002_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_167" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_000_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_168" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_001_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
+    <mesh name="object_mesh_169" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_002_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+  </asset>
+  <worldbody>
+    <geom name="habitat_stage_visual_000" type="mesh" mesh="habitat_stage_mesh_000" material="habitat_stage_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_001" type="mesh" mesh="habitat_stage_mesh_001" material="habitat_stage_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_002" type="mesh" mesh="habitat_stage_mesh_002" material="habitat_stage_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_003" type="mesh" mesh="habitat_stage_mesh_003" material="habitat_stage_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_004" type="mesh" mesh="habitat_stage_mesh_004" material="habitat_stage_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_005" type="mesh" mesh="habitat_stage_mesh_005" material="habitat_stage_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_006" type="mesh" mesh="habitat_stage_mesh_006" material="habitat_stage_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_007" type="mesh" mesh="habitat_stage_mesh_007" material="habitat_stage_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_008" type="mesh" mesh="habitat_stage_mesh_008" material="habitat_stage_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_009" type="mesh" mesh="habitat_stage_mesh_009" material="habitat_stage_part_009_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_010" type="mesh" mesh="habitat_stage_mesh_010" material="habitat_stage_part_010_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_011" type="mesh" mesh="habitat_stage_mesh_011" material="habitat_stage_part_011_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_012" type="mesh" mesh="habitat_stage_mesh_012" material="habitat_stage_part_012_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_013" type="mesh" mesh="habitat_stage_mesh_013" material="habitat_stage_part_013_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_014" type="mesh" mesh="habitat_stage_mesh_014" material="habitat_stage_part_014_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_015" type="mesh" mesh="habitat_stage_mesh_015" material="habitat_stage_part_015_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_016" type="mesh" mesh="habitat_stage_mesh_016" material="habitat_stage_part_016_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_017" type="mesh" mesh="habitat_stage_mesh_017" material="habitat_stage_part_017_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_018" type="mesh" mesh="habitat_stage_mesh_018" material="habitat_stage_part_018_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_019" type="mesh" mesh="habitat_stage_mesh_019" material="habitat_stage_part_019_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_020" type="mesh" mesh="habitat_stage_mesh_020" material="habitat_stage_part_020_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_021" type="mesh" mesh="habitat_stage_mesh_021" material="habitat_stage_part_021_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_022" type="mesh" mesh="habitat_stage_mesh_022" material="habitat_stage_part_022_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_023" type="mesh" mesh="habitat_stage_mesh_023" material="habitat_stage_part_023_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_024" type="mesh" mesh="habitat_stage_mesh_024" material="habitat_stage_part_024_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_025" type="mesh" mesh="habitat_stage_mesh_025" material="habitat_stage_part_025_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_026" type="mesh" mesh="habitat_stage_mesh_026" material="habitat_stage_part_026_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_027" type="mesh" mesh="habitat_stage_mesh_027" material="habitat_stage_part_027_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_028" type="mesh" mesh="habitat_stage_mesh_028" material="habitat_stage_part_028_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_029" type="mesh" mesh="habitat_stage_mesh_029" material="habitat_stage_part_029_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_030" type="mesh" mesh="habitat_stage_mesh_030" material="habitat_stage_part_030_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_031" type="mesh" mesh="habitat_stage_mesh_031" material="habitat_stage_part_031_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_032" type="mesh" mesh="habitat_stage_mesh_032" material="habitat_stage_part_032_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_033" type="mesh" mesh="habitat_stage_mesh_033" material="habitat_stage_part_033_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_034" type="mesh" mesh="habitat_stage_mesh_034" material="habitat_stage_part_034_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_035" type="mesh" mesh="habitat_stage_mesh_035" material="habitat_stage_part_035_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_036" type="mesh" mesh="habitat_stage_mesh_036" material="habitat_stage_part_036_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_037" type="mesh" mesh="habitat_stage_mesh_037" material="habitat_stage_part_037_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_038" type="mesh" mesh="habitat_stage_mesh_038" material="habitat_stage_part_038_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_039" type="mesh" mesh="habitat_stage_mesh_039" material="habitat_stage_part_039_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_040" type="mesh" mesh="habitat_stage_mesh_040" material="habitat_stage_part_040_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_041" type="mesh" mesh="habitat_stage_mesh_041" material="habitat_stage_part_041_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_042" type="mesh" mesh="habitat_stage_mesh_042" material="habitat_stage_part_042_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_043" type="mesh" mesh="habitat_stage_mesh_043" material="habitat_stage_part_043_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_044" type="mesh" mesh="habitat_stage_mesh_044" material="habitat_stage_part_044_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_045" type="mesh" mesh="habitat_stage_mesh_045" material="habitat_stage_part_045_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_046" type="mesh" mesh="habitat_stage_mesh_046" material="habitat_stage_part_046_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_047" type="mesh" mesh="habitat_stage_mesh_047" material="habitat_stage_part_047_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_048" type="mesh" mesh="habitat_stage_mesh_048" material="habitat_stage_part_048_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_049" type="mesh" mesh="habitat_stage_mesh_049" material="habitat_stage_part_049_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_050" type="mesh" mesh="habitat_stage_mesh_050" material="habitat_stage_part_050_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_051" type="mesh" mesh="habitat_stage_mesh_051" material="habitat_stage_part_051_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_052" type="mesh" mesh="habitat_stage_mesh_052" material="habitat_stage_part_052_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_053" type="mesh" mesh="habitat_stage_mesh_053" material="habitat_stage_part_053_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_054" type="mesh" mesh="habitat_stage_mesh_054" material="habitat_stage_part_054_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_055" type="mesh" mesh="habitat_stage_mesh_055" material="habitat_stage_part_055_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_056" type="mesh" mesh="habitat_stage_mesh_056" material="habitat_stage_part_056_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_057" type="mesh" mesh="habitat_stage_mesh_057" material="habitat_stage_part_057_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_058" type="mesh" mesh="habitat_stage_mesh_058" material="habitat_stage_part_058_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_059" type="mesh" mesh="habitat_stage_mesh_059" material="habitat_stage_part_059_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_060" type="mesh" mesh="habitat_stage_mesh_060" material="habitat_stage_part_060_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_061" type="mesh" mesh="habitat_stage_mesh_061" material="habitat_stage_part_061_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_062" type="mesh" mesh="habitat_stage_mesh_062" material="habitat_stage_part_062_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_063" type="mesh" mesh="habitat_stage_mesh_063" material="habitat_stage_part_063_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_064" type="mesh" mesh="habitat_stage_mesh_064" material="habitat_stage_part_064_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_065" type="mesh" mesh="habitat_stage_mesh_065" material="habitat_stage_part_065_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <body name="hssd_object_000" pos="-0.66851 0.9038999 5.96046448e-08" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_000_000" type="mesh" mesh="object_mesh_000" material="object_000_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_001" type="mesh" mesh="object_mesh_001" material="object_000_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_002" type="mesh" mesh="object_mesh_002" material="object_000_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_003" type="mesh" mesh="object_mesh_003" material="object_000_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_004" type="mesh" mesh="object_mesh_004" material="object_000_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_005" type="mesh" mesh="object_mesh_005" material="object_000_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_006" type="mesh" mesh="object_mesh_006" material="object_000_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_000_collision" type="box" pos="1.49011612e-08 1.49011612e-08 0.851545872" size="0.285001114 0.207324162 0.848454175" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_000_grasp_site" pos="1.49011612e-08 1.49011612e-08 0.851545872" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_001" pos="1.375 6.5016994 3.57627869e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_001_000" type="mesh" mesh="object_mesh_007" material="object_001_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_001" type="mesh" mesh="object_mesh_008" material="object_001_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_002" type="mesh" mesh="object_mesh_009" material="object_001_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_003" type="mesh" mesh="object_mesh_010" material="object_001_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_001_collision" type="box" pos="5.96046448e-07 -0.000342607498 1.06227959" size="0.328323931 0.249051839 1.06270467" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_001_grasp_site" pos="5.96046448e-07 -0.000342607498 1.06227959" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_002" pos="-3.0107498 2.9946599 1.78813934e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_002_000" type="mesh" mesh="object_mesh_011" material="object_002_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_002_001" type="mesh" mesh="object_mesh_012" material="object_002_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_002_collision" type="box" pos="0.00130259991 1.49011612e-08 0.474229978" size="1.20072222 0.497575149 0.474230005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_002_grasp_site" pos="0.00130259991 1.49011612e-08 0.474229978" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_003" pos="-9.5699996 3.9581396 1.3167101" quat="0.50000025 0.49999985 0.49999995 0.49999995">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_003_000" type="mesh" mesh="object_mesh_013" material="object_003_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_003_collision" type="box" pos="2.98023224e-08 1.49011612e-08 0.039144453" size="0.629143327 0.401484028 0.0380931978" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_004" pos="0.13583 8.2346286 4.76837158e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_004_000" type="mesh" mesh="object_mesh_014" material="object_004_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_004_001" type="mesh" mesh="object_mesh_015" material="object_004_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_004_collision" type="box" pos="0.000200003386 -0.000208560377 0.944663141" size="0.199329138 0.0975312032 0.944631365" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_005" pos="2.0702099 7.8977594 4.70783561e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_005_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_005_collision" type="box" pos="0 0 0.0025499999" size="0.449999988 0.300000012 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_006" pos="0.80619 8.2375888 4.91039827e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_006_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_006_collision" type="box" pos="0 0 0.0025499999" size="0.449999988 0.300000012 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_007" pos="-2.0685501 7.6281795 4.76837158e-07" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_007_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_007_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_007_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_007_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_007_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_008" pos="-2.63402 8.1936492 4.76837158e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_008_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_008_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_008_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_008_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_008_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_009" pos="-3.42715 8.2059392 4.76837158e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_009_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_009_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_009_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_009_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_009_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_010" pos="-3.9926199 7.6404695 4.76837158e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_010_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_010_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_010_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_010_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_010_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_011" pos="1.50223 2.1884996 1.3038516e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_011_000" type="mesh" mesh="object_mesh_020" material="object_007_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_011_collision" type="box" pos="0 0 0.00995599995" size="1.52399993 1.21920002 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_012" pos="-0.3485 3.8310198 2.38418579e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_012_000" type="mesh" mesh="object_mesh_021" material="object_008_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_012_collision" type="box" pos="0 0 0.964997411" size="0.501499593 0.305000126 0.964997411" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_012_grasp_site" pos="0 0 0.964997411" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_013" pos="-4.4390301 0.9999998 1.3717199" quat="0 0 0.707106731 0.707106831">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_013_000" type="mesh" mesh="object_mesh_022" material="object_009_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_013_collision" type="box" pos="0 0 0.00500000501" size="0.190000102 0.152500406 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_014" pos="-9.1982603 1.4498898 1.1920929e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_014_000" type="mesh" mesh="object_mesh_023" material="object_010_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_001" type="mesh" mesh="object_mesh_024" material="object_010_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_002" type="mesh" mesh="object_mesh_025" material="object_010_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_003" type="mesh" mesh="object_mesh_026" material="object_010_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_004" type="mesh" mesh="object_mesh_027" material="object_010_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_005" type="mesh" mesh="object_mesh_028" material="object_010_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_014_collision" type="box" pos="-4.17232513e-07 2.98023224e-08 1.11007762" size="0.449890286 0.371737868 1.11011076" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_014_grasp_site" pos="-4.17232513e-07 2.98023224e-08 1.11007762" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_015" pos="-2.9401597 1.33885 1.1920929e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_015_000" type="mesh" mesh="object_mesh_029" material="object_011_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_001" type="mesh" mesh="object_mesh_030" material="object_011_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_002" type="mesh" mesh="object_mesh_031" material="object_011_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_003" type="mesh" mesh="object_mesh_032" material="object_011_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_004" type="mesh" mesh="object_mesh_033" material="object_011_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_005" type="mesh" mesh="object_mesh_034" material="object_011_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_006" type="mesh" mesh="object_mesh_035" material="object_011_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_007" type="mesh" mesh="object_mesh_036" material="object_011_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_008" type="mesh" mesh="object_mesh_037" material="object_011_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_015_collision" type="box" pos="-7.15255737e-07 -1.78813934e-07 1.20126581" size="1.18904948 0.298107386 1.20126581" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_015_grasp_site" pos="-7.15255737e-07 -1.78813934e-07 1.20126581" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_016" pos="-8.9873018 5.1310443 2.98023224e-07" quat="0.85749305 0 0 0.514495548">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_016_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_016_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_016_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_016_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_017" pos="-8.9739017 2.7488343 1.49011612e-07" quat="0.507128078 0 0 0.861870705">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_017_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_017_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_017_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_017_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_018" pos="2.8286242 1.177368 5.96046448e-08" quat="-0.30417481 0 0 0.952616232">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_018_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_018_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_018_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_018_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_019" pos="-6.9617052 3.9309346 2.38418579e-07" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_019_000" type="mesh" mesh="object_mesh_040" material="object_013_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_019_001" type="mesh" mesh="object_mesh_041" material="object_013_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_019_002" type="mesh" mesh="object_mesh_042" material="object_013_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_019_collision" type="box" pos="-0.000223755836 0.00304971635 0.380765676" size="1.01196766 0.384966835 0.380765676" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_019_grasp_site" pos="-0.000223755836 0.00304971635 0.380765676" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_020" pos="-8.3509998 3.9717898 2.36555934e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_020_000" type="mesh" mesh="object_mesh_043" material="object_014_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_020_collision" type="box" pos="0 0 0.00504999985" size="1.52399993 1.21899998 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_021" pos="-2.9632749 7.52774 0.7600004" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_021_000" type="mesh" mesh="object_mesh_044" material="object_015_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_021_001" type="mesh" mesh="object_mesh_045" material="object_015_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_021_002" type="mesh" mesh="object_mesh_046" material="object_015_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_021_003" type="mesh" mesh="object_mesh_047" material="object_015_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_021_collision" type="box" pos="0.0226083547 -0.0181409121 0.0816649213" size="0.30980368 0.310671151 0.0837353007" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_021_grasp_site" pos="0.0226083547 -0.0181409121 0.0816649213" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_022" pos="-3.1420502 1.3156297 0.8999999" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_022_000" type="mesh" mesh="object_mesh_048" material="object_016_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_022_001" type="mesh" mesh="object_mesh_049" material="object_016_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_022_002" type="mesh" mesh="object_mesh_050" material="object_016_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_022_003" type="mesh" mesh="object_mesh_051" material="object_016_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_022_collision" type="box" pos="5.58793545e-09 3.35276127e-08 0.17676028" size="0.0609600116 0.1081363 0.176710581" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_023" pos="0.3637799 0.6188948 1.7499997" quat="0 0 0.707106731 0.707106831">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_023_000" type="mesh" mesh="object_mesh_052" material="object_017_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_023_001" type="mesh" mesh="object_mesh_053" material="object_017_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_023_collision" type="box" pos="-7.4505806e-08 0 0.0127135688" size="0.457184002 0.457183987 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_024" pos="-4.44421 1.3761397 8.94069672e-08" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_024_000" type="mesh" mesh="object_mesh_054" material="object_018_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_024_001" type="mesh" mesh="object_mesh_055" material="object_018_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_024_002" type="mesh" mesh="object_mesh_056" material="object_018_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_024_003" type="mesh" mesh="object_mesh_057" material="object_018_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_024_collision" type="box" pos="0 0.000145167112 0.474999994" size="0.314999998 0.335273713 0.474999994" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_025" pos="3.17489 7.2782297 1.7500003" quat="0.500000175 0.499999975 -0.499999875 -0.499999975">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_025_000" type="mesh" mesh="object_mesh_058" material="object_019_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_025_001" type="mesh" mesh="object_mesh_059" material="object_019_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_025_collision" type="box" pos="0 -2.98023224e-08 0.0536704121" size="0.29823342 0.315296531 0.0537513362" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_026" pos="2.7662348 2.5058097 1.49011612e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_026_000" type="mesh" mesh="object_mesh_060" material="object_020_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_026_001" type="mesh" mesh="object_mesh_061" material="object_020_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_026_002" type="mesh" mesh="object_mesh_062" material="object_020_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_026_collision" type="box" pos="-0.00122122467 0.000803560019 0.422371821" size="0.298617169 0.302206606 0.422371848" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_026_grasp_site" pos="-0.00122122467 0.000803560019 0.422371821" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_027" pos="2.9550299 3.5847296 2.08616257e-07" quat="0.930622174 0 0 -0.365981378">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_027_000" type="mesh" mesh="object_mesh_063" material="object_021_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_027_001" type="mesh" mesh="object_mesh_064" material="object_021_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_027_collision" type="box" pos="0 -2.10851431e-05 0.361734065" size="0.376247406 0.402919427 0.361734" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_027_grasp_site" pos="0 -2.10851431e-05 0.361734065" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_028" pos="0.3286899 1.7441798 1.1920929e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_028_000" type="mesh" mesh="object_mesh_065" material="object_022_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_028_001" type="mesh" mesh="object_mesh_066" material="object_022_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_028_002" type="mesh" mesh="object_mesh_067" material="object_022_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_028_003" type="mesh" mesh="object_mesh_068" material="object_022_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_028_collision" type="box" pos="0 -7.35521317e-05 0.571791867" size="0.970341623 1.07960331 0.571733495" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_029" pos="-3.0490798 6.9918794 4.17232513e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_029_000" type="mesh" mesh="object_mesh_069" material="object_023_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_029_001" type="mesh" mesh="object_mesh_070" material="object_023_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_029_collision" type="box" pos="-2.98023224e-07 -4.63426113e-06 0.235449567" size="0.536998689 0.243325159 0.235449658" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_029_grasp_site" pos="-2.98023224e-07 -4.63426113e-06 0.235449567" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_030" pos="-2.98038 7.5307941 2.8000001" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_030_000" type="mesh" mesh="object_mesh_071" material="object_024_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_030_001" type="mesh" mesh="object_mesh_072" material="object_024_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_030_002" type="mesh" mesh="object_mesh_073" material="object_024_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_030_collision" type="box" pos="-1.78962946e-05 1.78962946e-05 -0.642036209" size="0.468277529 0.463946328 0.64203619" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_031" pos="3.12419 2.4333996 1.49011612e-07" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_031_000" type="mesh" mesh="object_mesh_074" material="object_025_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_031_001" type="mesh" mesh="object_mesh_075" material="object_025_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_031_collision" type="box" pos="-1.78813934e-07 0 0.400000044" size="0.565003157 0.282519728 0.399999968" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_031_grasp_site" pos="-1.78813934e-07 0 0.400000044" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_032" pos="4.8638701 8.6268501 5.06639481e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_032_000" type="mesh" mesh="object_mesh_076" material="object_026_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_032_collision" type="box" pos="5.06639481e-07 4.69386578e-07 0.275000006" size="0.165001586 0.165001564 0.275000006" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_033" pos="-3.3014402 3.5590796 2.08616257e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_033_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_033_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_033_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <site name="hssd_object_033_grasp_site" pos="0 0 0.425000101" size="0.025" rgba="0.9 0.2 0.1 0.35" />
+    </body>
+    <body name="hssd_object_034" pos="-3.8489103 3.5690798 2.08616257e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_034_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_034_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_034_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_035" pos="-2.7752099 3.5790097 2.08616257e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_035_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_035_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_035_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_036" pos="-2.2063999 3.5918998 2.08616257e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_036_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_036_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_036_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_037" pos="-3.0739901 1.2981199 7.72997737e-08" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_037_000" type="mesh" mesh="object_mesh_079" material="object_028_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_037_collision" type="box" pos="-2.23517418e-08 1.34110451e-07 0.0153019741" size="0.14551758 0.130067199 0.0153019432" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_038" pos="3.1733899 2.4807796 0.8" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_038_000" type="mesh" mesh="object_mesh_080" material="object_029_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_038_001" type="mesh" mesh="object_mesh_081" material="object_029_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_038_002" type="mesh" mesh="object_mesh_082" material="object_029_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_038_003" type="mesh" mesh="object_mesh_083" material="object_029_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_038_004" type="mesh" mesh="object_mesh_084" material="object_029_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_038_collision" type="box" pos="-4.61935997e-07 7.37607479e-07 0.245015799" size="0.322433963 0.233316176 0.244427682" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_039" pos="0.83862 8.9912586 4.76837158e-07" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_039_000" type="mesh" mesh="object_mesh_085" material="object_030_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_001" type="mesh" mesh="object_mesh_086" material="object_030_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_002" type="mesh" mesh="object_mesh_087" material="object_030_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_003" type="mesh" mesh="object_mesh_088" material="object_030_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_004" type="mesh" mesh="object_mesh_089" material="object_030_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_005" type="mesh" mesh="object_mesh_090" material="object_030_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_006" type="mesh" mesh="object_mesh_091" material="object_030_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_007" type="mesh" mesh="object_mesh_092" material="object_030_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_008" type="mesh" mesh="object_mesh_093" material="object_030_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_039_collision" type="box" pos="0 -3.57627869e-07 1.06216002" size="0.800112069 0.453671455 1.06216002" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_040" pos="0.2439348 5.5310297 3.29688191e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_040_000" type="mesh" mesh="object_mesh_094" material="object_031_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_040_001" type="mesh" mesh="object_mesh_095" material="object_031_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_040_collision" type="box" pos="-0.00107437372 0 0.00749999983" size="1.24501449 1.24501443 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_041" pos="1.5047998 0.8053098 5.96046448e-08" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_041_000" type="mesh" mesh="object_mesh_096" material="object_032_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_041_001" type="mesh" mesh="object_mesh_097" material="object_032_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_041_002" type="mesh" mesh="object_mesh_098" material="object_032_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_041_003" type="mesh" mesh="object_mesh_099" material="object_032_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_041_collision" type="box" pos="0 1.11758709e-07 0.368299991" size="0.304800004 0.227091797 0.368299991" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_042" pos="-9.3369102 3.9311096 2.38418579e-07" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_042_000" type="mesh" mesh="object_mesh_100" material="object_033_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_042_001" type="mesh" mesh="object_mesh_101" material="object_033_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_042_002" type="mesh" mesh="object_mesh_102" material="object_033_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_042_collision" type="box" pos="2.98023224e-08 -1.49011612e-08 0.371474981" size="0.614090234 0.233090192 0.371474981" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_043" pos="-2.1642699 2.9469997 2.7999999" quat="0.707106894 0 0 0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_043_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_043_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_043_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_043_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_043_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_044" pos="-2.7752099 2.98913 2.7999999" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_044_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_044_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_044_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_044_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_044_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_045" pos="-3.3440198 2.98913 2.7999999" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_045_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_045_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_045_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_045_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_045_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_046" pos="-3.8706998 2.9680597 2.7999999" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_046_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_046_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_046_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_046_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_046_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_047" pos="3.164925 2.1086597 0.7999999" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_047_000" type="mesh" mesh="object_mesh_107" material="object_035_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_047_001" type="mesh" mesh="object_mesh_108" material="object_035_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_047_002" type="mesh" mesh="object_mesh_109" material="object_035_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_047_collision" type="box" pos="1.17346644e-05 5.43892384e-07 0.179166297" size="0.0973065272 0.0973065272 0.179108223" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_048" pos="-1.4489099 1.4174398 5.96046448e-08" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_048_000" type="mesh" mesh="object_mesh_110" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_048_001" type="mesh" mesh="object_mesh_111" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_048_collision" type="box" pos="0.00541073084 -6.09457493e-05 0.840802622" size="0.296805114 0.376719832 0.839497733" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_049" pos="4.7381901 7.8226695 4.76837158e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_049_000" type="mesh" mesh="object_mesh_112" material="object_037_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_049_001" type="mesh" mesh="object_mesh_113" material="object_037_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_049_002" type="mesh" mesh="object_mesh_114" material="object_037_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_049_003" type="mesh" mesh="object_mesh_115" material="object_037_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_049_collision" type="box" pos="0 -0.0081782937 0.425000007" size="0.300500005 0.290678293 0.425000017" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_050" pos="4.0890245 7.8473086 4.76837158e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_050_000" type="mesh" mesh="object_mesh_116" material="object_038_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_050_001" type="mesh" mesh="object_mesh_117" material="object_038_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_050_002" type="mesh" mesh="object_mesh_118" material="object_038_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_050_003" type="mesh" mesh="object_mesh_119" material="object_038_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_050_004" type="mesh" mesh="object_mesh_120" material="object_038_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_050_collision" type="box" pos="0.000787422061 -0.00330629945 0.348646263" size="0.299452737 0.310450733 0.348293861" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_051" pos="2.8489198 9.0530786 5.36441803e-07" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_051_000" type="mesh" mesh="object_mesh_121" material="object_039_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_051_001" type="mesh" mesh="object_mesh_122" material="object_039_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_051_002" type="mesh" mesh="object_mesh_123" material="object_039_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_051_collision" type="box" pos="-4.35709953e-05 -1.34110451e-07 0.408482752" size="0.186189041 0.326052919 0.40846137" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_052" pos="2.1334199 7.2371597 4.76837158e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_052_000" type="mesh" mesh="object_mesh_124" material="object_040_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_001" type="mesh" mesh="object_mesh_125" material="object_040_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_002" type="mesh" mesh="object_mesh_126" material="object_040_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_003" type="mesh" mesh="object_mesh_127" material="object_040_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_004" type="mesh" mesh="object_mesh_128" material="object_040_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_005" type="mesh" mesh="object_mesh_129" material="object_040_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_006" type="mesh" mesh="object_mesh_130" material="object_040_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_007" type="mesh" mesh="object_mesh_131" material="object_040_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_008" type="mesh" mesh="object_mesh_132" material="object_040_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_009" type="mesh" mesh="object_mesh_133" material="object_040_part_009_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_010" type="mesh" mesh="object_mesh_134" material="object_040_part_010_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_011" type="mesh" mesh="object_mesh_135" material="object_040_part_011_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_012" type="mesh" mesh="object_mesh_136" material="object_040_part_012_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_013" type="mesh" mesh="object_mesh_137" material="object_040_part_013_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_014" type="mesh" mesh="object_mesh_138" material="object_040_part_014_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_052_collision" type="box" pos="0 1.34110451e-07 1.17110263" size="0.749306023 0.257164165 0.758577362" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_053" pos="1.7330192 3.7895669 2.38418579e-07" quat="0.916902009 0 0 -0.399112397">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_053_000" type="mesh" mesh="object_mesh_139" material="object_041_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_001" type="mesh" mesh="object_mesh_140" material="object_041_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_002" type="mesh" mesh="object_mesh_141" material="object_041_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_003" type="mesh" mesh="object_mesh_142" material="object_041_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_004" type="mesh" mesh="object_mesh_143" material="object_041_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_005" type="mesh" mesh="object_mesh_144" material="object_041_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_053_collision" type="box" pos="1.49011612e-08 0.000164985657 0.875987173" size="0.260000005 0.273941308 0.875748276" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_054" pos="-3.0294599 7.6002297 4.47034836e-07" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_054_000" type="mesh" mesh="object_mesh_145" material="object_042_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_054_001" type="mesh" mesh="object_mesh_146" material="object_042_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_054_collision" type="box" pos="5.71012497e-05 -5.71012497e-05 0.380399953" size="0.91434294 0.533342957 0.380399991" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_055" pos="-8.0443401 3.9462497 2.38418579e-07" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_055_000" type="mesh" mesh="object_mesh_147" material="object_043_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_055_001" type="mesh" mesh="object_mesh_148" material="object_043_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_055_collision" type="box" pos="0 -4.47034836e-08 0.228579714" size="0.457664728 0.456761643 0.228620276" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_056" pos="-0.352025 3.8528847 1.93" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_056_000" type="mesh" mesh="object_mesh_149" material="object_044_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_056_collision" type="box" pos="-0.000476837158 -4.77582216e-06 0.10547615" size="0.272826254 0.158587046 0.105849853" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_057" pos="-8.42247 6.9049997 1.1200002" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_057_000" type="mesh" mesh="object_mesh_150" material="object_045_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_057_001" type="mesh" mesh="object_mesh_151" material="object_045_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_057_002" type="mesh" mesh="object_mesh_152" material="object_045_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_057_003" type="mesh" mesh="object_mesh_153" material="object_045_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_057_collision" type="box" pos="0.000499993563 0 5.96046448e-08" size="0.894999951 0.103 1.09999996" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_058" pos="-6.7779598 6.9049997 1.4500004" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_058_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_058_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_058_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_058_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_059" pos="-9.6450004 2.6309897 1.45" quat="0.707106944 0 0 0.707106619">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_059_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_059_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_059_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_059_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_060" pos="-9.6450004 5.1801095 1.4500001" quat="0.707106944 0 0 0.707106619">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_060_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_060_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_060_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_060_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_061" pos="3.4817099 1.3458999 1.45" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_061_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_061_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_061_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_061_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_062" pos="3.4817099 3.4526095 1.45" quat="0.707106894 0 0 -0.707106669">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_062_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_062_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_062_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_063" pos="-8.0789899 0.9249997 1.12" quat="0 0 0 1">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_063_000" type="mesh" mesh="object_mesh_160" material="object_048_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_001" type="mesh" mesh="object_mesh_161" material="object_048_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_002" type="mesh" mesh="object_mesh_162" material="object_048_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_063_003" type="mesh" mesh="object_mesh_163" material="object_048_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_063_collision" type="box" pos="0 0 5.96046448e-08" size="0.49000001 0.115000002 1.09999996" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_064" pos="-4.476572 9.1193122 1.4500005" quat="0.94292041 0 0 0.333018169">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_064_000" type="mesh" mesh="object_mesh_164" material="object_049_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_001" type="mesh" mesh="object_mesh_165" material="object_049_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_064_002" type="mesh" mesh="object_mesh_166" material="object_049_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_064_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_065" pos="-1.5599917 9.1613168 1.4500005" quat="0.944082057 0 0 -0.329710584">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_065_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_065_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_065_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <body name="hssd_object_066" pos="-3.0095999 9.6252593 1.4500005" quat="1 0 0 0">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+      <geom name="object_visual_066_000" type="mesh" mesh="object_mesh_167" material="object_050_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_066_001" type="mesh" mesh="object_mesh_168" material="object_050_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_066_002" type="mesh" mesh="object_mesh_169" material="object_050_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="hssd_object_066_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+    </body>
+    <geom name="hssd_floor_collision" type="box" pos="-2.27056527 5.08458054 -0.06" size="7.449435 4.61568058 0.06" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <body name="scene_center" pos="-2.27056527 5.08458054 1">
+      <site size="0.01" rgba="0 0 0 0" />
+    </body>
+    <site name="zone_home_center" pos="-2.27056527 5.08458054 0.025" size="0.015" rgba="0 0 0 0" />
+    <camera name="habitat_overview" mode="targetbody" target="scene_center" pos="-2.27056527 -10.559233 11.1741525" fovy="48" />
+    <camera name="habitat_top" mode="targetbody" target="scene_center" pos="-2.27056527 5.08458054 18.6235875" fovy="45" />
+  </worldbody>
+  <statistic center="-2.27056527 5.08458054 1.39986155" extent="14.8989" />
+</mujoco>

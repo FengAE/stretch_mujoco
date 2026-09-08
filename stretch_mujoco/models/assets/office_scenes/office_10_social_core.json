@@ -523,5 +523,16 @@
   ],
   "mjcf": "office_10_social_core.xml",
   "robot_include": "office_10_social_core_robot.xml",
-  "preview": "office_10_social_core.png"
+  "preview": "office_10_social_core.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 423,
+    "robot_start_xyz": [
+      8.5,
+      1.3,
+      0.0
+    ]
+  }
 }

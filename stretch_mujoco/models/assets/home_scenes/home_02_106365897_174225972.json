@@ -1,0 +1,1238 @@
+{
+  "scene_id": "home_02_106365897_174225972",
+  "title": "Simplified Home 02",
+  "source_dataset": "HSSD",
+  "hssd_scene_id": "106365897_174225972",
+  "hssd_scene_split": "scenes-uncluttered",
+  "hssd_root": "/home/yjw/data/hssd-hab",
+  "layout": "imported_hssd_home",
+  "simplification": {
+    "uncluttered": true,
+    "stage_alpha": 1.0
+  },
+  "object_count": 90,
+  "unique_template_count": 64,
+  "category_counts": {
+    "decor": 3,
+    "seating_furniture": 12,
+    "storage_furniture": 9,
+    "default": 52,
+    "plant": 6,
+    "support_furniture": 4,
+    "floor_covering": 1,
+    "lighting": 3
+  },
+  "bounds_mujoco": [
+    [
+      -26.49134063720703,
+      4.414140224456787,
+      -0.21580000221729279
+    ],
+    [
+      -12.601070404052734,
+      24.636720657348633,
+      3.311850070953369
+    ]
+  ],
+  "zones": [
+    {
+      "type": "home",
+      "bounds": [
+        -26.49134063720703,
+        -12.601070404052734,
+        4.414140224456787,
+        24.636720657348633
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "object_id": "hssd_object_000",
+      "asset_id": "c607cb721e91c7b298b08b86ddd796f578947884",
+      "template_name": "c607cb721e91c7b298b08b86ddd796f578947884",
+      "name": "c607cb721e91c7b298b08b86ddd796f578947884",
+      "category": "decor",
+      "position": [
+        -23.41533851623535,
+        22.815138299978386,
+        1.8562512969308926
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_001",
+      "asset_id": "c2044eaad4095cf537a013c9147d4b4f2e3c0738",
+      "template_name": "c2044eaad4095cf537a013c9147d4b4f2e3c0738",
+      "name": "c2044eaad4095cf537a013c9147d4b4f2e3c0738",
+      "category": "seating_furniture",
+      "position": [
+        -17.495609283447266,
+        10.301949840667817,
+        6.140440973467776e-07
+      ],
+      "grasp_site": "hssd_object_001_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_002",
+      "asset_id": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "template_name": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "name": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "category": "seating_furniture",
+      "position": [
+        -17.43909454345703,
+        11.237749383583662,
+        6.698221000078775e-07
+      ],
+      "grasp_site": "hssd_object_002_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_003",
+      "asset_id": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "template_name": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "name": "ba333ed289c61c26505c64ecb49a00f130892956",
+      "category": "seating_furniture",
+      "position": [
+        -18.61779022216797,
+        9.118092947119862,
+        5.434807235360495e-07
+      ],
+      "grasp_site": "hssd_object_003_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_004",
+      "asset_id": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "template_name": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "name": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "category": "storage_furniture",
+      "position": [
+        -23.95366859436035,
+        21.873278267784144,
+        1.303749058934045e-06
+      ],
+      "grasp_site": "hssd_object_004_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_005",
+      "asset_id": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "template_name": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "name": "fc3183e8a0e448595f89cfd19f59205c6d22cb3c",
+      "category": "storage_furniture",
+      "position": [
+        -23.95366859436035,
+        19.036999521434268,
+        1.1346936616973835e-06
+      ],
+      "grasp_site": "hssd_object_005_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_006",
+      "asset_id": "074b112e6d9be8860fce202dd706de49598db82d",
+      "template_name": "074b112e6d9be8860fce202dd706de49598db82d",
+      "name": "074b112e6d9be8860fce202dd706de49598db82d",
+      "category": "default",
+      "position": [
+        -21.74333953857422,
+        9.601029661784153,
+        1.940810421718382
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_007",
+      "asset_id": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "template_name": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "name": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "category": "default",
+      "position": [
+        -14.140870094299316,
+        17.766268624885697,
+        1.058952193488949e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_008",
+      "asset_id": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "template_name": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "name": "097155b6ba7ff9445d0c64d18d2b997c48e8a35e",
+      "category": "default",
+      "position": [
+        -13.328350067138672,
+        16.957098903828864,
+        1.010721916827606e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_009",
+      "asset_id": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "template_name": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "name": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "category": "default",
+      "position": [
+        -14.149195671081543,
+        17.523825554619634,
+        1.0445014595461544e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_010",
+      "asset_id": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "template_name": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "name": "17d34f93062191a7fe920a15c58432935e5a902a",
+      "category": "default",
+      "position": [
+        -13.544304847717285,
+        16.98876470394339,
+        1.0126093457074603e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_011",
+      "asset_id": "6f12433d677e5a2227389fd4a53d30ca5ca65881",
+      "template_name": "6f12433d677e5a2227389fd4a53d30ca5ca65881",
+      "name": "6f12433d677e5a2227389fd4a53d30ca5ca65881",
+      "category": "default",
+      "position": [
+        -23.945911407470703,
+        11.534279135806571,
+        6.874966516079439e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_012",
+      "asset_id": "f359e92c249c96d0121f40252c856f99008f9c2e",
+      "template_name": "f359e92c249c96d0121f40252c856f99008f9c2e",
+      "name": "f359e92c249c96d0121f40252c856f99008f9c2e",
+      "category": "default",
+      "position": [
+        -21.13200569152832,
+        11.302639171871554,
+        1.940810403932936
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_013",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -24.368419647216797,
+        23.187439490113206,
+        1.3820791764374007e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_014",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -22.32761001586914,
+        23.949589255476553,
+        1.4275068451752304e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_015",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -23.36127281188965,
+        23.949589255476553,
+        1.4275068451752304e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_016",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -14.720410346984863,
+        17.741078272993605,
+        1.0574507314231596e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_017",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -16.24618911743164,
+        17.741078272993605,
+        1.0574507314231596e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_018",
+      "asset_id": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "template_name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "name": "1f818c0f00490e53b6c35e676fb2580e3fc76ec6",
+      "category": "default",
+      "position": [
+        -18.345809936523438,
+        23.949589255476553,
+        1.4275068451752304e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_019",
+      "asset_id": "385e406da2328968e6bec1aa8b018145eebefcad",
+      "template_name": "385e406da2328968e6bec1aa8b018145eebefcad",
+      "name": "385e406da2328968e6bec1aa8b018145eebefcad",
+      "category": "default",
+      "position": [
+        -15.91156005859375,
+        15.525638608596353,
+        9.254002293346275e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_020",
+      "asset_id": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "template_name": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "name": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "category": "plant",
+      "position": [
+        -25.348003387451172,
+        8.440219376074083,
+        5.030763077229494e-07
+      ],
+      "grasp_site": "hssd_object_020_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_021",
+      "asset_id": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "template_name": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "name": "deae2fd69a0752bc5da79083dad3a4b9f7317da6",
+      "category": "plant",
+      "position": [
+        -22.951784133911133,
+        5.7438699159699524,
+        3.4236134638376825e-07
+      ],
+      "grasp_site": "hssd_object_021_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_022",
+      "asset_id": "a3bb04e10a43d9fc0ec65d0505852cf64d1701b4",
+      "template_name": "a3bb04e10a43d9fc0ec65d0505852cf64d1701b4",
+      "name": "a3bb04e10a43d9fc0ec65d0505852cf64d1701b4",
+      "category": "plant",
+      "position": [
+        -13.511130332946777,
+        15.718688981611137,
+        9.369069289277832e-07
+      ],
+      "grasp_site": "hssd_object_022_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_023",
+      "asset_id": "xxxx1e87c2fex06a2x48c4x941dxbb43908ff514",
+      "template_name": "xxxx1e87c2fex06a2x48c4x941dxbb43908ff514",
+      "name": "xxxx1e87c2fex06a2x48c4x941dxbb43908ff514",
+      "category": "decor",
+      "position": [
+        -22.399330139160156,
+        5.355959457351574,
+        1.9408101686924653
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_024",
+      "asset_id": "0aeaf9f7a9abe99658bb779e0ab9422730429285",
+      "template_name": "0aeaf9f7a9abe99658bb779e0ab9422730429285",
+      "name": "0aeaf9f7a9abe99658bb779e0ab9422730429285",
+      "category": "support_furniture",
+      "position": [
+        -20.797950744628906,
+        15.658638974509245,
+        9.333276693723747e-07
+      ],
+      "grasp_site": "hssd_object_024_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_025",
+      "asset_id": "d11646ab8b4ec43840f2b4065dabd6c9a070e32e",
+      "template_name": "d11646ab8b4ec43840f2b4065dabd6c9a070e32e",
+      "name": "d11646ab8b4ec43840f2b4065dabd6c9a070e32e",
+      "category": "plant",
+      "position": [
+        -13.629289627075195,
+        15.282374424792806,
+        9.109005532081937e-07
+      ],
+      "grasp_site": "hssd_object_025_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_026",
+      "asset_id": "54ff94b631874019138af5091e41c386e6183749",
+      "template_name": "54ff94b631874019138af5091e41c386e6183749",
+      "name": "54ff94b631874019138af5091e41c386e6183749",
+      "category": "floor_covering",
+      "position": [
+        -21.86642074584961,
+        20.611088477904218,
+        1.228516680384928e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_027",
+      "asset_id": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "template_name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "category": "default",
+      "position": [
+        -13.583520889282227,
+        17.50655832847599,
+        1.0434722526042606e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_028",
+      "asset_id": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "template_name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "category": "default",
+      "position": [
+        -13.583539962768555,
+        13.609648847004792,
+        8.111983333947137e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_029",
+      "asset_id": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "template_name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "category": "default",
+      "position": [
+        -17.129369735717773,
+        17.969979168773875,
+        1.0710942888181307e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_030",
+      "asset_id": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "template_name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "category": "default",
+      "position": [
+        -24.133920669555664,
+        23.707937734845927,
+        1.4131032912700903e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_031",
+      "asset_id": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "template_name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "name": "d06dc7b6fa1496ac5d5fb849f12ac0d767121011",
+      "category": "default",
+      "position": [
+        -17.598390579223633,
+        23.722778813673244,
+        1.4139878885544022e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_032",
+      "asset_id": "41bafa470b4e4eb9ed3a8fb57a8d4ba5b321a939",
+      "template_name": "41bafa470b4e4eb9ed3a8fb57a8d4ba5b321a939",
+      "name": "41bafa470b4e4eb9ed3a8fb57a8d4ba5b321a939",
+      "category": "storage_furniture",
+      "position": [
+        -20.355833053588867,
+        17.898253327712155,
+        1.0668190952856094e-06
+      ],
+      "grasp_site": "hssd_object_032_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_033",
+      "asset_id": "ea122f67ee70695ce0780d45e7e208853c65228d",
+      "template_name": "ea122f67ee70695ce0780d45e7e208853c65228d_part_2",
+      "name": "ea122f67ee70695ce0780d45e7e208853c65228d_part_2",
+      "category": "storage_furniture",
+      "position": [
+        -18.590490341186523,
+        20.501087874109203,
+        1.2219601330798469e-06
+      ],
+      "grasp_site": "hssd_object_033_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_034",
+      "asset_id": "709a782aac7df3698f3d2c28eb8364fb942ffc9a",
+      "template_name": "709a782aac7df3698f3d2c28eb8364fb942ffc9a",
+      "name": "709a782aac7df3698f3d2c28eb8364fb942ffc9a",
+      "category": "plant",
+      "position": [
+        -23.82192039489746,
+        12.647343835392917,
+        7.538404815932154e-07
+      ],
+      "grasp_site": "hssd_object_034_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_035",
+      "asset_id": "xxxx32070234x8f71x4e7cx960fxfc5f84776d37",
+      "template_name": "xxxx32070234x8f71x4e7cx960fxfc5f84776d37",
+      "name": "xxxx32070234x8f71x4e7cx960fxfc5f84776d37",
+      "category": "default",
+      "position": [
+        -18.144309997558594,
+        6.0054899134939745,
+        0.5300002977544267
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_036",
+      "asset_id": "2b4203a9aef248701e998154b8c8c598fc45e916",
+      "template_name": "2b4203a9aef248701e998154b8c8c598fc45e916",
+      "name": "2b4203a9aef248701e998154b8c8c598fc45e916",
+      "category": "plant",
+      "position": [
+        -16.597780227661133,
+        13.601289892119723,
+        8.107001008283987e-07
+      ],
+      "grasp_site": "hssd_object_036_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_037",
+      "asset_id": "8e531698474c72b7231f116d2ab062b6d4eb680d",
+      "template_name": "8e531698474c72b7231f116d2ab062b6d4eb680d",
+      "name": "8e531698474c72b7231f116d2ab062b6d4eb680d",
+      "category": "lighting",
+      "position": [
+        -24.563819885253906,
+        5.6587495348423715,
+        3.1053001018434827
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_038",
+      "asset_id": "6ece1a15f0f508aab2371808d58eefa8420cf725",
+      "template_name": "6ece1a15f0f508aab2371808d58eefa8420cf725",
+      "name": "6ece1a15f0f508aab2371808d58eefa8420cf725",
+      "category": "default",
+      "position": [
+        -22.858240127563477,
+        10.15292963070093,
+        0.40000058728040777
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_039",
+      "asset_id": "3bd0e65f7e1c55fe38c4b6101e30f44fe392151a",
+      "template_name": "3bd0e65f7e1c55fe38c4b6101e30f44fe392151a",
+      "name": "3bd0e65f7e1c55fe38c4b6101e30f44fe392151a",
+      "category": "storage_furniture",
+      "position": [
+        -21.440889358520508,
+        9.698768962018516,
+        0.491350543941234
+      ],
+      "grasp_site": "hssd_object_039_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_040",
+      "asset_id": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "template_name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "category": "default",
+      "position": [
+        -15.336758613586426,
+        13.375148929646627,
+        7.972210482876108e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_041",
+      "asset_id": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "template_name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "category": "default",
+      "position": [
+        -13.349020004272461,
+        15.551268604322104,
+        9.269278962165117e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_042",
+      "asset_id": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "template_name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "category": "default",
+      "position": [
+        -20.32093048095703,
+        23.949589255476553,
+        1.4275068451752304e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_043",
+      "asset_id": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "template_name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "category": "default",
+      "position": [
+        -17.36387062072754,
+        19.735468641789566,
+        1.1763256679842016e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_044",
+      "asset_id": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "template_name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "name": "7eeffaeef1bc0f7b6e08691e30c7638787e5d372",
+      "category": "default",
+      "position": [
+        -17.36387062072754,
+        22.345018962322456,
+        1.3318669971340569e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_045",
+      "asset_id": "a2b12254f941598804f18e07dfa02b9a173997c8",
+      "template_name": "a2b12254f941598804f18e07dfa02b9a173997c8",
+      "name": "a2b12254f941598804f18e07dfa02b9a173997c8",
+      "category": "support_furniture",
+      "position": [
+        -18.859710693359375,
+        21.374388374424598,
+        1.2740129022859037e-06
+      ],
+      "grasp_site": "hssd_object_045_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_046",
+      "asset_id": "82f13d6382a3da7ae33a69db81eccb5baec5ec2f",
+      "template_name": "82f13d6382a3da7ae33a69db81eccb5baec5ec2f",
+      "name": "82f13d6382a3da7ae33a69db81eccb5baec5ec2f",
+      "category": "default",
+      "position": [
+        -23.343839645385742,
+        6.5446096334093795,
+        3.900891556440911e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_047",
+      "asset_id": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "template_name": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "name": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "category": "default",
+      "position": [
+        -18.41400909423828,
+        10.99298869977656,
+        3.1053004197889322
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_048",
+      "asset_id": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "template_name": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "name": "15fad5341bfbead54df27ce800a09727afcee8d7",
+      "category": "default",
+      "position": [
+        -24.62759017944336,
+        6.830719832419135,
+        3.10530017169836
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_049",
+      "asset_id": "xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e",
+      "template_name": "xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e",
+      "name": "xxxx1a9211bbxdbd2x4e77xb598xc693c6b7122e",
+      "category": "lighting",
+      "position": [
+        -18.824359893798828,
+        22.600948893967256,
+        1.347121610706381e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_050",
+      "asset_id": "f71449622324c9264a2aa5d67c54209512fcd993",
+      "template_name": "f71449622324c9264a2aa5d67c54209512fcd993",
+      "name": "f71449622324c9264a2aa5d67c54209512fcd993",
+      "category": "seating_furniture",
+      "position": [
+        -19.44961929321289,
+        22.098929041687825,
+        1.3171988939575385e-06
+      ],
+      "grasp_site": "hssd_object_050_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_051",
+      "asset_id": "d0aea1daeed26a22b41d634e7f06952209667a6d",
+      "template_name": "d0aea1daeed26a22b41d634e7f06952209667a6d",
+      "name": "d0aea1daeed26a22b41d634e7f06952209667a6d",
+      "category": "default",
+      "position": [
+        -18.887800216674805,
+        18.92403871273757,
+        1.1279606724201585e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_052",
+      "asset_id": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "template_name": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "name": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "category": "seating_furniture",
+      "position": [
+        -22.05678939819336,
+        6.126979462684403,
+        3.651964561868226e-07
+      ],
+      "grasp_site": "hssd_object_052_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_053",
+      "asset_id": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "template_name": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "name": "630c3e69c6ce46a560ff5ee4fc65e8b487adb2b8",
+      "category": "seating_furniture",
+      "position": [
+        -19.450380325317383,
+        16.826079319353084,
+        1.0029125405708328e-06
+      ],
+      "grasp_site": "hssd_object_053_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_054",
+      "asset_id": "e95529e06e74138d77422ac04f7c575cc3ff6f40",
+      "template_name": "e95529e06e74138d77422ac04f7c575cc3ff6f40",
+      "name": "e95529e06e74138d77422ac04f7c575cc3ff6f40",
+      "category": "seating_furniture",
+      "position": [
+        -17.90191078186035,
+        12.15960048677914,
+        7.247687108247192e-07
+      ],
+      "grasp_site": "hssd_object_054_grasp_site"
+    },
+    {
+      "object_id": "hssd_object_055",
+      "asset_id": "46e08ada1af32862e55de18a583e8f60e7fa7917",
+      "template_name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_1",
+      "name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_1",
+      "category": "default",
+      "position": [
+        -22.825469042861634,
+        23.37032540900459,
+        -0.0024283298216949325
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_056",
+      "asset_id": "46e08ada1af32862e55de18a583e8f60e7fa7917",
+      "template_name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_1",
+      "name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_1",
+      "category": "default",
+      "position": [
+        -23.91884420792175,
+        23.370325201660005,
+        -0.002428352289871065
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_057",
+      "asset_id": "46e08ada1af32862e55de18a583e8f60e7fa7917",
+      "template_name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_3",
+      "name": "46e08ada1af32862e55de18a583e8f60e7fa7917_part_3",
+      "category": "default",
+      "position": [
+        -23.417412042689634,
+        23.371020323731447,
+        -0.001700714885320425
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_058",
+      "asset_id": "3c40b7fc1cbfc95aeb116e2a65a45fe8e656bc21",
+      "template_name": "3c40b7fc1cbfc95aeb116e2a65a45fe8e656bc21",
+      "name": "3c40b7fc1cbfc95aeb116e2a65a45fe8e656bc21",
+      "category": "support_furniture",
+      "position": [
+        -18.159149169921875,
+        6.007979511739023,
+        3.5810350595966156e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_059",
+      "asset_id": "c51427dcd8e4dbfbaee0e6bdc26f489a12b6706c",
+      "template_name": "c51427dcd8e4dbfbaee0e6bdc26f489a12b6706c",
+      "name": "c51427dcd8e4dbfbaee0e6bdc26f489a12b6706c",
+      "category": "seating_furniture",
+      "position": [
+        -22.937089920043945,
+        10.165989269853242,
+        6.059402153368865e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_060",
+      "asset_id": "b2658c3d883d6c04665838f75e42a7f739e5f871",
+      "template_name": "b2658c3d883d6c04665838f75e42a7f739e5f871",
+      "name": "b2658c3d883d6c04665838f75e42a7f739e5f871",
+      "category": "decor",
+      "position": [
+        -17.024940490722656,
+        9.466829566872704,
+        2.0545603878659193
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_061",
+      "asset_id": "fd1c5635fdff4ff6387c551e98b5c4c19ca6f878",
+      "template_name": "fd1c5635fdff4ff6387c551e98b5c4c19ca6f878",
+      "name": "fd1c5635fdff4ff6387c551e98b5c4c19ca6f878",
+      "category": "default",
+      "position": [
+        -18.6881103515625,
+        5.359729447380914,
+        3.1946478884492535e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_062",
+      "asset_id": "c65b3c89025f610838382692f1e298ede78e35ab",
+      "template_name": "c65b3c89025f610838382692f1e298ede78e35ab",
+      "name": "c65b3c89025f610838382692f1e298ede78e35ab",
+      "category": "seating_furniture",
+      "position": [
+        -15.425500869750977,
+        16.016469000788334,
+        9.546560022499762e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_063",
+      "asset_id": "adb436deed01523e37d79e9278599bb2f67854f3",
+      "template_name": "adb436deed01523e37d79e9278599bb2f67854f3",
+      "name": "adb436deed01523e37d79e9278599bb2f67854f3",
+      "category": "lighting",
+      "position": [
+        -20.082599639892578,
+        7.820609871988864,
+        3.105300230700408
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_064",
+      "asset_id": "1a4e8fd1ea5f9e24545eaa3f414e763e0345a4c8",
+      "template_name": "1a4e8fd1ea5f9e24545eaa3f414e763e0345a4c8",
+      "name": "1a4e8fd1ea5f9e24545eaa3f414e763e0345a4c8",
+      "category": "seating_furniture",
+      "position": [
+        -21.74312400817871,
+        20.525519101290683,
+        1.223416347784223e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_065",
+      "asset_id": "32e14508cae3c49a0c16f419cca358cc890079d5",
+      "template_name": "32e14508cae3c49a0c16f419cca358cc890079d5",
+      "name": "32e14508cae3c49a0c16f419cca358cc890079d5",
+      "category": "default",
+      "position": [
+        -21.323415756225586,
+        17.44704323220644,
+        1.6848909713121856
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_066",
+      "asset_id": "99c73f5bb3a2d9f050d566fe3ff295ed455e28ee",
+      "template_name": "99c73f5bb3a2d9f050d566fe3ff295ed455e28ee",
+      "name": "99c73f5bb3a2d9f050d566fe3ff295ed455e28ee",
+      "category": "default",
+      "position": [
+        -23.093429565429688,
+        20.455137940934947,
+        1.2192213034722954e-06
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_067",
+      "asset_id": "17a563b45ad4ccdd0ec9e026cacb949657536e48",
+      "template_name": "17a563b45ad4ccdd0ec9e026cacb949657536e48",
+      "name": "17a563b45ad4ccdd0ec9e026cacb949657536e48",
+      "category": "storage_furniture",
+      "position": [
+        -22.507740020751953,
+        15.604518913953314,
+        9.301018621954427e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_068",
+      "asset_id": "74b2adf2702096462c456097b1d2ebc7e4b713c2",
+      "template_name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_1",
+      "name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_1",
+      "category": "storage_furniture",
+      "position": [
+        -20.77805332550971,
+        5.530962108169719,
+        0.5623114947284729
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_069",
+      "asset_id": "74b2adf2702096462c456097b1d2ebc7e4b713c2",
+      "template_name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_2",
+      "name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_2",
+      "category": "storage_furniture",
+      "position": [
+        -20.6770994476974,
+        5.53095977464213,
+        0.057922306067714216
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_070",
+      "asset_id": "74b2adf2702096462c456097b1d2ebc7e4b713c2",
+      "template_name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_11",
+      "name": "74b2adf2702096462c456097b1d2ebc7e4b713c2_part_11",
+      "category": "storage_furniture",
+      "position": [
+        -20.914560317993168,
+        5.530959790589832,
+        6.127925990899483e-08
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_071",
+      "asset_id": "be2676cebc67e106722cb9e8f6e0d662263e84e4",
+      "template_name": "be2676cebc67e106722cb9e8f6e0d662263e84e4",
+      "name": "be2676cebc67e106722cb9e8f6e0d662263e84e4",
+      "category": "default",
+      "position": [
+        -25.171180725097656,
+        7.7454805525850645,
+        4.616666444690054e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_072",
+      "asset_id": "bfd492e124c22b692fad51d1a5080bc5389aa196",
+      "template_name": "bfd492e124c22b692fad51d1a5080bc5389aa196",
+      "name": "bfd492e124c22b692fad51d1a5080bc5389aa196",
+      "category": "support_furniture",
+      "position": [
+        -18.804889678955078,
+        10.972298921805645,
+        6.540000185850658e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_073",
+      "asset_id": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "template_name": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "name": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "category": "seating_furniture",
+      "position": [
+        -19.123640060424805,
+        6.174339403251423,
+        3.6801932878915977e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_074",
+      "asset_id": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "template_name": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "name": "e129e1f4da860f37471cf8395a8e92253a532ed2",
+      "category": "seating_furniture",
+      "position": [
+        -17.87346076965332,
+        6.845539638665912,
+        4.0802598277878133e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_075",
+      "asset_id": "e2e7cbaa42af3908861dd4e8df74f5471847e1b9",
+      "template_name": "e2e7cbaa42af3908861dd4e8df74f5471847e1b9",
+      "name": "e2e7cbaa42af3908861dd4e8df74f5471847e1b9",
+      "category": "default",
+      "position": [
+        -22.272249221801758,
+        10.816048931118871,
+        6.446867928389111e-07
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_076",
+      "asset_id": "224-109",
+      "template_name": "224-109",
+      "name": "224-109",
+      "category": "default",
+      "position": [
+        -18.412790298461914,
+        18.994599071824524,
+        1.5440011889100163
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_077",
+      "asset_id": "224-109",
+      "template_name": "224-109",
+      "name": "224-109",
+      "category": "default",
+      "position": [
+        -18.412790298461914,
+        22.023018385945562,
+        1.5440013694178845
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_078",
+      "asset_id": "224-110",
+      "template_name": "224-110",
+      "name": "224-110",
+      "category": "default",
+      "position": [
+        -16.949939727783203,
+        7.178579287375214,
+        1.5440004846203124
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_079",
+      "asset_id": "224-110",
+      "template_name": "224-110",
+      "name": "224-110",
+      "category": "default",
+      "position": [
+        -16.949939727783203,
+        11.715588732982297,
+        1.5440007550471648
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_080",
+      "asset_id": "6161-9",
+      "template_name": "6161-9",
+      "name": "6161-9",
+      "category": "default",
+      "position": [
+        -17.68115997314453,
+        14.235789312136752,
+        1.5440007860535516
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_081",
+      "asset_id": "6161-10",
+      "template_name": "6161-10",
+      "name": "6161-10",
+      "category": "default",
+      "position": [
+        -18.417789459228516,
+        15.828148760071407,
+        1.5440008809655765
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_082",
+      "asset_id": "224-111",
+      "template_name": "224-111",
+      "name": "224-111",
+      "category": "default",
+      "position": [
+        -19.21548080444336,
+        22.889818642507777,
+        1.544001421083209
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_083",
+      "asset_id": "6161-11",
+      "template_name": "6161-11",
+      "name": "6161-11",
+      "category": "default",
+      "position": [
+        -21.18747901916504,
+        22.894817802976405,
+        1.5440014213811821
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_084",
+      "asset_id": "224-108",
+      "template_name": "224-108",
+      "name": "224-108",
+      "category": "default",
+      "position": [
+        -24.298410415649414,
+        14.126709004002208,
+        1.5440008987611407
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_085",
+      "asset_id": "224-108",
+      "template_name": "224-108",
+      "name": "224-108",
+      "category": "default",
+      "position": [
+        -24.298410415649414,
+        15.275898884540794,
+        1.5440009672581994
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_086",
+      "asset_id": "224-108",
+      "template_name": "224-108",
+      "name": "224-108",
+      "category": "default",
+      "position": [
+        -24.298410415649414,
+        16.403498533517137,
+        1.5440010344683799
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_087",
+      "asset_id": "3753-26",
+      "template_name": "3753-26",
+      "name": "3753-26",
+      "category": "default",
+      "position": [
+        -24.298410415649414,
+        20.6231485084802,
+        2.2500010951250715
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_088",
+      "asset_id": "220-52",
+      "template_name": "220-52",
+      "name": "220-52",
+      "category": "default",
+      "position": [
+        -25.884540557861328,
+        7.058099233978993,
+        1.5440004774391412
+      ],
+      "grasp_site": null
+    },
+    {
+      "object_id": "hssd_object_089",
+      "asset_id": "3753-27",
+      "template_name": "3753-27",
+      "name": "3753-27",
+      "category": "default",
+      "position": [
+        -24.298410415649414,
+        11.064059417601811,
+        2.250000525358928
+      ],
+      "grasp_site": null
+    }
+  ],
+  "robot": {
+    "model": "Hello Robot Stretch",
+    "initial_pose": [
+      -19.546205520629883,
+      14.52543044090271,
+      1.5707963267948966
+    ],
+    "body": "base_link"
+  },
+  "mjcf": "home_02_106365897_174225972.xml",
+  "robot_include": "home_02_106365897_174225972_robot.xml",
+  "preview": "home_02_106365897_174225972.png",
+  "model": {
+    "textures": 115,
+    "materials": 274,
+    "meshes": 378,
+    "geoms": 528
+  }
+}

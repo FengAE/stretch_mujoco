@@ -523,5 +523,16 @@
   ],
   "mjcf": "office_07_u_bench.xml",
   "robot_include": "office_07_u_bench_robot.xml",
-  "preview": "office_07_u_bench.png"
+  "preview": "office_07_u_bench.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 426,
+    "robot_start_xyz": [
+      -0.7,
+      -4.7,
+      0.0
+    ]
+  }
 }

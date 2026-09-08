@@ -574,5 +574,16 @@
   ],
   "mjcf": "office_05_team_clusters.xml",
   "robot_include": "office_05_team_clusters_robot.xml",
-  "preview": "office_05_team_clusters.png"
+  "preview": "office_05_team_clusters.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 444,
+    "robot_start_xyz": [
+      -8.7,
+      3.7,
+      0.0
+    ]
+  }
 }

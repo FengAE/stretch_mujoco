@@ -38,11 +38,12 @@ from stretch_mujoco.navigations import Algorithm, NavigationController, Navigati
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCENE_ROOT = ROOT / "stretch_mujoco" / "models" / "assets" / "office_scenes"
+DEFAULT_SCENE_ROOT = ROOT / "stretch_mujoco" / "models" / "assets" / "office_scenes"
 
 
 def _scene_paths(scene: str) -> list[tuple[Path, Path]]:
-    catalog = json.loads((SCENE_ROOT / "catalog.json").read_text(encoding="utf-8"))
+    scene_root = Path(os.environ.get("STRETCH_SCENE_ROOT", str(DEFAULT_SCENE_ROOT)))
+    catalog = json.loads((scene_root / "catalog.json").read_text(encoding="utf-8"))
     entries = catalog["scenes"]
     if scene.lower() != "all":
         if scene.isdigit():
@@ -54,7 +55,7 @@ def _scene_paths(scene: str) -> list[tuple[Path, Path]]:
             entries = [entry for entry in entries if entry["scene_id"] == scene]
             if not entries:
                 raise ValueError(f"unknown scene id: {scene}")
-    return [(SCENE_ROOT / e["mjcf"], SCENE_ROOT / e["manifest"]) for e in entries]
+    return [(scene_root / e["mjcf"], scene_root / e["manifest"]) for e in entries]
 
 
 def _is_descendant_of(model: mujoco.MjModel, body_id: int, ancestor_id: int) -> bool:
@@ -267,6 +268,8 @@ def run_scene(xml_path: Path, manifest_path: Path, args: argparse.Namespace, out
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scene", default="all", help="1..10, scene id, or all")
+    parser.add_argument("--scene-root", type=Path, default=None,
+                        help="Generated scene directory; defaults to office_scenes")
     parser.add_argument("--algorithm", choices=("astar", "fmm", "both"), default="both")
     parser.add_argument("--resolution", type=float, default=0.10, help="Grid resolution in metres")
     parser.add_argument("--agent-radius", type=float, default=0.30, help="Inflation radius in metres")
@@ -276,6 +279,8 @@ def main() -> int:
     parser.add_argument("--zones-only", dest="include_grasps", action="store_false",
                         help="Only test the four zone targets")
     args = parser.parse_args()
+    if args.scene_root is not None:
+        os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
     if args.resolution <= 0 or args.agent_radius < 0:
         parser.error("--resolution must be > 0 and --agent-radius must be >= 0")
     failures = 0

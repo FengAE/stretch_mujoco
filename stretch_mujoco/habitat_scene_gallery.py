@@ -55,6 +55,7 @@ class PreparedHabitatScene:
     unique_template_count: int
     bounds: np.ndarray
     category_counts: dict[str, int]
+    object_records: list[dict[str, Any]]
 
 
 def _scene_path(root: Path, scene_id: str, uncluttered: bool) -> Path:
@@ -192,6 +193,8 @@ def prepare_habitat_scene(
     uncluttered: bool = False,
     stage_alpha: float = 0.32,
     include_stage: bool = True,
+    include_collision: bool = False,
+    include_grasp_sites: bool = False,
     rebuild: bool = False,
     ktx_command: Path | None = None,
 ) -> PreparedHabitatScene:
@@ -265,6 +268,8 @@ def prepare_habitat_scene(
     }
 
     mesh_names: dict[tuple[str, tuple[float, ...], int], str] = {}
+    object_records: list[dict[str, Any]] = []
+    grasp_site_count = 0
     for index, instance in enumerate(instances):
         template_name = instance["template_name"]
         source_scale = np.asarray(instance.get("non_uniform_scale", (1, 1, 1)), dtype=float)
@@ -312,10 +317,11 @@ def prepare_habitat_scene(
         target_scale = source_scale[[0, 2, 1]]
         scale_key = tuple(round(float(value), 7) for value in target_scale)
         category_counts[template.category] = category_counts.get(template.category, 0) + 1
+        object_id = f"hssd_object_{index:03d}"
         body = ET.SubElement(
             world,
             "body",
-            name=f"object_{index:03d}_{_safe_name(template_name)[:48]}",
+            name=object_id,
             pos=_numbers(position),
             quat=_numbers(rotation),
         )
@@ -340,6 +346,50 @@ def prepare_habitat_scene(
                 shellinertia="true",
                 mass="0",
             )
+        local_bounds = np.asarray(template.asset.bounds, dtype=float)
+        local_center = local_bounds.mean(axis=0)
+        local_half = np.maximum((local_bounds[1] - local_bounds[0]) / 2.0, 0.015)
+        if include_collision:
+            ET.SubElement(
+                body,
+                "geom",
+                name=f"{object_id}_collision",
+                type="box",
+                pos=_numbers(local_center),
+                size=_numbers(local_half),
+                rgba="0 0 0 0",
+                contype="1",
+                conaffinity="1",
+                group="3",
+                mass="0.001",
+            )
+        # Keep the generated grasp benchmark tractable: expose a deterministic
+        # subset of primary furniture/props instead of hundreds of decorative
+        # wall, window, and lighting instances.
+        graspable = include_grasp_sites and grasp_site_count < 20 and template.category not in {
+            "default", "decor", "lighting", "floor_covering"
+        }
+        if graspable:
+            ET.SubElement(
+                body,
+                "site",
+                name=f"{object_id}_grasp_site",
+                pos=_numbers(local_center),
+                size="0.025",
+                rgba="0.9 0.2 0.1 0.35",
+            )
+            grasp_site_count += 1
+        object_records.append(
+            {
+                "object_id": object_id,
+                "asset_id": _template_base_id(template_name),
+                "template_name": template_name,
+                "name": template_name,
+                "category": template.category,
+                "position": position.tolist(),
+                "grasp_site": f"{object_id}_grasp_site" if graspable else None,
+            }
+        )
         all_bounds.append(
             _transform_bounds(template.asset.bounds, position, rotation, target_scale)
         )
@@ -350,6 +400,22 @@ def prepare_habitat_scene(
             np.max([item[1] for item in all_bounds], axis=0),
         )
     )
+    # HSSD stage meshes are visual-only in the gallery converter. Add a
+    # lightweight floor collider for navigation and physical Stretch tests.
+    floor_center = (bounds[0] + bounds[1]) / 2.0
+    floor_half = np.maximum((bounds[1] - bounds[0]) / 2.0, 1.0)
+    ET.SubElement(
+        world,
+        "geom",
+        name="hssd_floor_collision",
+        type="box",
+        pos=_numbers((floor_center[0], floor_center[1], -0.06)),
+        size=_numbers((floor_half[0], floor_half[1], 0.06)),
+        rgba="0 0 0 0",
+        contype="1",
+        conaffinity="1",
+        group="3",
+    )
     center = bounds.mean(axis=0)
     extent = bounds[1] - bounds[0]
     radius = max(float(extent[0]), float(extent[1]))
@@ -357,6 +423,14 @@ def prepare_habitat_scene(
         world, "body", name="scene_center", pos=_numbers((center[0], center[1], 1.0))
     )
     ET.SubElement(target, "site", size="0.01", rgba="0 0 0 0")
+    ET.SubElement(
+        world,
+        "site",
+        name="zone_home_center",
+        pos=_numbers((center[0], center[1], 0.025)),
+        size="0.015",
+        rgba="0 0 0 0",
+    )
     ET.SubElement(
         world,
         "camera",
@@ -388,6 +462,7 @@ def prepare_habitat_scene(
         unique_template_count=len(templates),
         bounds=bounds,
         category_counts=category_counts,
+        object_records=object_records,
     )
 
 

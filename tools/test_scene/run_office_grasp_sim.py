@@ -930,6 +930,8 @@ def run_object(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scene", default="1", help="1..10 or scene id")
+    parser.add_argument("--scene-root", type=Path, default=None,
+                        help="Generated scene directory; defaults to office_scenes")
     parser.add_argument("--nav-report-dir", type=Path, default=Path("output/office_nav_sim"))
     parser.add_argument("--object-id", default=None, help="comma-separated object ids to restrict to")
     parser.add_argument("--output-dir", type=Path, default=Path("output/office_grasp_sim"))
@@ -940,6 +942,8 @@ def main() -> int:
     parser.add_argument("--list", action="store_true", help="List discovered reports and exit")
     parser.add_argument("--dry-run", action="store_true", help="IK planning only, no motion")
     args = parser.parse_args()
+    if args.scene_root is not None:
+        os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
 
     xml_path, manifest_path = _scene_paths(args.scene)[0]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

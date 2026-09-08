@@ -586,5 +586,16 @@
   ],
   "mjcf": "office_02_cross_axis.xml",
   "robot_include": "office_02_cross_axis_robot.xml",
-  "preview": "office_02_cross_axis.png"
+  "preview": "office_02_cross_axis.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 621,
+    "robot_start_xyz": [
+      -7.7,
+      -0.7,
+      0.0
+    ]
+  }
 }

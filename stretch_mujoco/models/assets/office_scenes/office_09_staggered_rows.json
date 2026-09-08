@@ -562,5 +562,16 @@
   ],
   "mjcf": "office_09_staggered_rows.xml",
   "robot_include": "office_09_staggered_rows_robot.xml",
-  "preview": "office_09_staggered_rows.png"
+  "preview": "office_09_staggered_rows.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 628,
+    "robot_start_xyz": [
+      -8.7,
+      3.8,
+      0.0
+    ]
+  }
 }

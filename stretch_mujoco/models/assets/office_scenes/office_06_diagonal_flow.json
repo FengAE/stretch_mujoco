@@ -598,5 +598,16 @@
   ],
   "mjcf": "office_06_diagonal_flow.xml",
   "robot_include": "office_06_diagonal_flow_robot.xml",
-  "preview": "office_06_diagonal_flow.png"
+  "preview": "office_06_diagonal_flow.png",
+  "model": {
+    "textures": 63,
+    "materials": 141,
+    "meshes": 208,
+    "geoms": 429,
+    "robot_start_xyz": [
+      -9.2,
+      4.2,
+      0.0
+    ]
+  }
 }
