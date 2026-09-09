@@ -886,6 +886,25 @@ def _xy_overlaps(
     return bool(np.all(np.minimum(first[1][:2], second[1][:2]) - np.maximum(first[0][:2], second[0][:2]) > minimum))
 
 
+def _yaw_rotated_xy_bounds(bounds: np.ndarray, yaw: float) -> np.ndarray:
+    """Return the XY AABB of an existing axis-aligned box after yaw rotation."""
+    corners = np.asarray(
+        [
+            (bounds[x_index, 0], bounds[y_index, 1])
+            for x_index in (0, 1)
+            for y_index in (0, 1)
+        ]
+    )
+    rotation = np.asarray(
+        ((math.cos(yaw), -math.sin(yaw)), (math.sin(yaw), math.cos(yaw)))
+    )
+    rotated = corners @ rotation.T
+    result = bounds.copy()
+    result[0, :2] = rotated.min(axis=0)
+    result[1, :2] = rotated.max(axis=0)
+    return result
+
+
 def cb_desk_worktop_boxes(
     pod: AssetInfo,
     part_boxes: dict[tuple[int, int], tuple[np.ndarray, np.ndarray]] | None = None,
@@ -1523,21 +1542,73 @@ def add_snack_counter(
     if missing:
         raise ValueError(f"Missing snack-zone interactive assets: {', '.join(missing)}")
     rng = random.Random(4103 + variant * 47)
-    # Pick exactly five food-object types. Every selected type appears once;
-    # a small fraction receive a second instance, for a natural-looking but
-    # bounded snack display (five to ten objects total).
+    # Every selected type appears once; a small fraction receive a second
+    # instance for a natural-looking but bounded snack display.
     selected = rng.sample(
-        [asset_by_id[asset_id] for asset_id in SNACK_ZONE_INTERACTIVE_ASSET_IDS], 5
+        [asset_by_id[asset_id] for asset_id in SNACK_ZONE_INTERACTIVE_ASSET_IDS], 7
     )
     snack_assets = [
         asset
         for asset in selected
         for _ in range(1 + int(rng.random() < SNACK_DUPLICATE_PROBABILITY))
     ]
-    slots = [(local_x, local_y) for local_y in (-0.18, 0.18) for local_x in (-0.82, -0.41, 0.0, 0.41, 0.82)]
-    rng.shuffle(slots)
-    for asset, (local_x, local_y) in zip(snack_assets, slots):
-        corrected_bounds = corrected_interactive_collision_bounds(asset, yaw)
+    # Sample continuously in the counter's front band (negative local Y,
+    # where snack_pickup_site and the robot approach are located).  This keeps
+    # props reachable instead of allowing them to drift toward the far edge.
+    # Place larger footprints first so rejection sampling reliably finds room
+    # for every selected object.
+    counter_half_x, counter_half_y = 1.1, 0.48
+    edge_margin = 0.045
+    object_gap = 0.025
+    reachable_y = (-0.34, -0.08)
+    candidates = []
+    for asset in snack_assets:
+        relative_yaw = rng.uniform(-math.pi / 7, math.pi / 7)
+        # place_interactive uses the corrected collision AABB as its stable
+        # box collider. Rotate that exact box here so placement and runtime
+        # collision checks operate on identical geometry.
+        bounds = _yaw_rotated_xy_bounds(
+            corrected_interactive_collision_bounds(asset), relative_yaw
+        )
+        footprint_area = float(np.prod(bounds[1, :2] - bounds[0, :2]))
+        candidates.append((footprint_area, rng.random(), asset, relative_yaw, bounds))
+    candidates.sort(key=lambda item: (-item[0], item[1]))
+
+    placed_boxes: list[tuple[np.ndarray, np.ndarray]] = []
+    placements = []
+    for _area, _tie_breaker, asset, relative_yaw, corrected_bounds in candidates:
+        x_min = -counter_half_x + edge_margin - float(corrected_bounds[0, 0])
+        x_max = counter_half_x - edge_margin - float(corrected_bounds[1, 0])
+        y_min = max(
+            -counter_half_y + edge_margin - float(corrected_bounds[0, 1]),
+            reachable_y[0],
+        )
+        y_max = min(
+            counter_half_y - edge_margin - float(corrected_bounds[1, 1]),
+            reachable_y[1],
+        )
+        if x_min > x_max or y_min > y_max:
+            raise ValueError(f"Snack object {asset.asset_id} does not fit in reachable counter band")
+
+        for _attempt in range(1000):
+            local_x = rng.uniform(x_min, x_max)
+            local_y = rng.uniform(y_min, y_max)
+            object_box = (
+                corrected_bounds[0, :2] + (local_x, local_y),
+                corrected_bounds[1, :2] + (local_x, local_y),
+            )
+            if any(_xy_overlaps(object_box, old, minimum=-object_gap) for old in placed_boxes):
+                continue
+            placed_boxes.append(object_box)
+            placements.append((asset, relative_yaw, corrected_bounds, local_x, local_y))
+            break
+        else:
+            raise ValueError(
+                f"Could not place snack object {asset.asset_id} without overlap "
+                f"inside the reachable counter band"
+            )
+
+    for asset, relative_yaw, corrected_bounds, local_x, local_y in placements:
         world_xy = np.asarray((cx, cy)) + np.asarray(
             (math.cos(yaw) * local_x - math.sin(yaw) * local_y,
              math.sin(yaw) * local_x + math.cos(yaw) * local_y)
@@ -1547,7 +1618,7 @@ def add_snack_counter(
             float(world_xy[0]),
             float(world_xy[1]),
             z=0.78 - corrected_bounds[0, 2],
-            yaw=yaw,
+            yaw=yaw + relative_yaw,
             support="snack_counter",
         )
     ET.SubElement(
