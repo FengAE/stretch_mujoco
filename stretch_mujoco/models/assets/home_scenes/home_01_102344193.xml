@@ -1,7 +1,7 @@
 <mujoco model="home_01_102344193">
   <include file="home_01_102344193_robot.xml" />
   <compiler angle="radian" balanceinertia="true" />
-  <option gravity="0 0 0" />
+  <option gravity="0 0 -9.81" />
   <visual>
     <headlight ambient="0.38 0.38 0.38" diffuse="0.68 0.68 0.68" specular="0.06 0.06 0.06" />
     <rgba haze="0.78 0.83 0.86 1" />
@@ -559,575 +559,716 @@
     <mesh name="object_mesh_167" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_000_FP_GLASSBORDER.obj" scale="-1 0.9999998 0.9999998" />
     <mesh name="object_mesh_168" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_001_FP_DOORFRAME.obj" scale="-1 0.9999998 0.9999998" />
     <mesh name="object_mesh_169" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/home_scenes/_hssd_cache/102344193/converted/objects/4718-0/meshes/part_002_FP_GLASS.obj" scale="-1 0.9999998 0.9999998" />
+    <texture name="interactive_001_bottle_texture_000" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/001_bottle/001_bottle.png" />
+    <material name="interactive_001_bottle_material_000" texture="interactive_001_bottle_texture_000" />
+    <mesh name="interactive_001_bottle_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/001_bottle/001_bottle_visual.obj" />
+    <mesh name="interactive_001_bottle_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/001_bottle/001_bottle_collision.stl" />
+    <material name="interactive_035_apple_material_000" rgba="0.8 0.03529 0.0549 1" />
+    <mesh name="interactive_035_apple_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/035_apple/035_apple_visual.obj" />
+    <mesh name="interactive_035_apple_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/035_apple/035_apple_collision.stl" />
+    <texture name="interactive_071_can_texture_000" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/071_can/071_can.png" />
+    <material name="interactive_071_can_material_000" texture="interactive_071_can_texture_000" />
+    <mesh name="interactive_071_can_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/071_can/071_can_visual.obj" />
+    <mesh name="interactive_071_can_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/071_can/071_can_collision.stl" />
+    <texture name="interactive_043_book_texture_000" type="2d" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/043_book/043_book.png" />
+    <material name="interactive_043_book_material_000" texture="interactive_043_book_texture_000" />
+    <mesh name="interactive_043_book_mesh_000" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/043_book/043_book_visual.obj" />
+    <mesh name="interactive_043_book_mesh_001" file="/home/xyf/submodules/stretch_mujoco/stretch_mujoco/models/assets/grasp_objects/043_book/043_book_collision.stl" />
   </asset>
   <worldbody>
-    <geom name="habitat_stage_visual_000" type="mesh" mesh="habitat_stage_mesh_000" material="habitat_stage_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_001" type="mesh" mesh="habitat_stage_mesh_001" material="habitat_stage_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_002" type="mesh" mesh="habitat_stage_mesh_002" material="habitat_stage_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_003" type="mesh" mesh="habitat_stage_mesh_003" material="habitat_stage_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_004" type="mesh" mesh="habitat_stage_mesh_004" material="habitat_stage_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_005" type="mesh" mesh="habitat_stage_mesh_005" material="habitat_stage_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_006" type="mesh" mesh="habitat_stage_mesh_006" material="habitat_stage_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_007" type="mesh" mesh="habitat_stage_mesh_007" material="habitat_stage_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_008" type="mesh" mesh="habitat_stage_mesh_008" material="habitat_stage_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_009" type="mesh" mesh="habitat_stage_mesh_009" material="habitat_stage_part_009_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_010" type="mesh" mesh="habitat_stage_mesh_010" material="habitat_stage_part_010_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_011" type="mesh" mesh="habitat_stage_mesh_011" material="habitat_stage_part_011_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_012" type="mesh" mesh="habitat_stage_mesh_012" material="habitat_stage_part_012_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_013" type="mesh" mesh="habitat_stage_mesh_013" material="habitat_stage_part_013_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_014" type="mesh" mesh="habitat_stage_mesh_014" material="habitat_stage_part_014_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_015" type="mesh" mesh="habitat_stage_mesh_015" material="habitat_stage_part_015_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_016" type="mesh" mesh="habitat_stage_mesh_016" material="habitat_stage_part_016_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_017" type="mesh" mesh="habitat_stage_mesh_017" material="habitat_stage_part_017_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_018" type="mesh" mesh="habitat_stage_mesh_018" material="habitat_stage_part_018_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_019" type="mesh" mesh="habitat_stage_mesh_019" material="habitat_stage_part_019_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_020" type="mesh" mesh="habitat_stage_mesh_020" material="habitat_stage_part_020_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_021" type="mesh" mesh="habitat_stage_mesh_021" material="habitat_stage_part_021_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_022" type="mesh" mesh="habitat_stage_mesh_022" material="habitat_stage_part_022_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_023" type="mesh" mesh="habitat_stage_mesh_023" material="habitat_stage_part_023_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_024" type="mesh" mesh="habitat_stage_mesh_024" material="habitat_stage_part_024_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_025" type="mesh" mesh="habitat_stage_mesh_025" material="habitat_stage_part_025_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_026" type="mesh" mesh="habitat_stage_mesh_026" material="habitat_stage_part_026_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_027" type="mesh" mesh="habitat_stage_mesh_027" material="habitat_stage_part_027_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_028" type="mesh" mesh="habitat_stage_mesh_028" material="habitat_stage_part_028_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_029" type="mesh" mesh="habitat_stage_mesh_029" material="habitat_stage_part_029_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_030" type="mesh" mesh="habitat_stage_mesh_030" material="habitat_stage_part_030_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_031" type="mesh" mesh="habitat_stage_mesh_031" material="habitat_stage_part_031_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_032" type="mesh" mesh="habitat_stage_mesh_032" material="habitat_stage_part_032_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_033" type="mesh" mesh="habitat_stage_mesh_033" material="habitat_stage_part_033_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_034" type="mesh" mesh="habitat_stage_mesh_034" material="habitat_stage_part_034_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_035" type="mesh" mesh="habitat_stage_mesh_035" material="habitat_stage_part_035_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_036" type="mesh" mesh="habitat_stage_mesh_036" material="habitat_stage_part_036_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_037" type="mesh" mesh="habitat_stage_mesh_037" material="habitat_stage_part_037_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_038" type="mesh" mesh="habitat_stage_mesh_038" material="habitat_stage_part_038_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_039" type="mesh" mesh="habitat_stage_mesh_039" material="habitat_stage_part_039_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_040" type="mesh" mesh="habitat_stage_mesh_040" material="habitat_stage_part_040_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_041" type="mesh" mesh="habitat_stage_mesh_041" material="habitat_stage_part_041_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_042" type="mesh" mesh="habitat_stage_mesh_042" material="habitat_stage_part_042_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_043" type="mesh" mesh="habitat_stage_mesh_043" material="habitat_stage_part_043_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_044" type="mesh" mesh="habitat_stage_mesh_044" material="habitat_stage_part_044_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_045" type="mesh" mesh="habitat_stage_mesh_045" material="habitat_stage_part_045_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_046" type="mesh" mesh="habitat_stage_mesh_046" material="habitat_stage_part_046_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_047" type="mesh" mesh="habitat_stage_mesh_047" material="habitat_stage_part_047_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_048" type="mesh" mesh="habitat_stage_mesh_048" material="habitat_stage_part_048_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_049" type="mesh" mesh="habitat_stage_mesh_049" material="habitat_stage_part_049_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_050" type="mesh" mesh="habitat_stage_mesh_050" material="habitat_stage_part_050_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_051" type="mesh" mesh="habitat_stage_mesh_051" material="habitat_stage_part_051_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_052" type="mesh" mesh="habitat_stage_mesh_052" material="habitat_stage_part_052_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_053" type="mesh" mesh="habitat_stage_mesh_053" material="habitat_stage_part_053_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_054" type="mesh" mesh="habitat_stage_mesh_054" material="habitat_stage_part_054_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_055" type="mesh" mesh="habitat_stage_mesh_055" material="habitat_stage_part_055_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_056" type="mesh" mesh="habitat_stage_mesh_056" material="habitat_stage_part_056_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_057" type="mesh" mesh="habitat_stage_mesh_057" material="habitat_stage_part_057_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_058" type="mesh" mesh="habitat_stage_mesh_058" material="habitat_stage_part_058_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_059" type="mesh" mesh="habitat_stage_mesh_059" material="habitat_stage_part_059_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_060" type="mesh" mesh="habitat_stage_mesh_060" material="habitat_stage_part_060_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_061" type="mesh" mesh="habitat_stage_mesh_061" material="habitat_stage_part_061_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_062" type="mesh" mesh="habitat_stage_mesh_062" material="habitat_stage_part_062_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_063" type="mesh" mesh="habitat_stage_mesh_063" material="habitat_stage_part_063_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_064" type="mesh" mesh="habitat_stage_mesh_064" material="habitat_stage_part_064_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-    <geom name="habitat_stage_visual_065" type="mesh" mesh="habitat_stage_mesh_065" material="habitat_stage_part_065_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+    <geom name="habitat_stage_visual_000" type="mesh" mesh="habitat_stage_mesh_000" material="habitat_stage_part_000_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.64731964 4.70611813 2.79999995" quat="-0.0655474418 0.704062165 0.0655474418 0.704062165" />
+    <geom name="habitat_stage_visual_001" type="mesh" mesh="habitat_stage_mesh_001" material="habitat_stage_part_001_material" contype="0" conaffinity="0" group="2" mass="0" pos="-3.50083187e-08 -5.07676301e-09 8.26155366e-09" quat="1 -1.03298056e-09 -1.42343308e-09 -1.7100911e-09" />
+    <geom name="habitat_stage_visual_002" type="mesh" mesh="habitat_stage_mesh_002" material="habitat_stage_part_002_material" contype="0" conaffinity="0" group="2" mass="0" pos="8.39009254e-08 9.08464415e-11 -8.8095046e-09" quat="1 6.29545049e-10 -1.59990372e-11 2.64090317e-09" />
+    <geom name="habitat_stage_visual_003" type="mesh" mesh="habitat_stage_mesh_003" material="habitat_stage_part_003_material" contype="0" conaffinity="0" group="2" mass="0" pos="-3.22048728 4.2899027 5.52269931e-16" quat="0.0222124239 0.706757814 -0.0222124239 0.706757814" />
+    <geom name="habitat_stage_visual_004" type="mesh" mesh="habitat_stage_mesh_004" material="habitat_stage_part_004_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.165867 8.20129108 -4.01590902e-17" quat="0.0057013108 0.707083796 -0.0057013108 0.707083796" />
+    <geom name="habitat_stage_visual_005" type="mesh" mesh="habitat_stage_mesh_005" material="habitat_stage_part_005_material" contype="0" conaffinity="0" group="2" mass="0" pos="9.17723053e-08 -8.44546655e-12 2.36944413e-11" quat="1 2.61966542e-12 2.56623787e-14 -2.58380172e-11" />
+    <geom name="habitat_stage_visual_006" type="mesh" mesh="habitat_stage_mesh_006" material="habitat_stage_part_006_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.55875499e-09 -2.91256885e-09 -5.42030094e-08" quat="1 5.55111512e-17 -5.11055147e-17 9.58228401e-18" />
+    <geom name="habitat_stage_visual_007" type="mesh" mesh="habitat_stage_mesh_007" material="habitat_stage_part_007_material" contype="0" conaffinity="0" group="2" mass="0" pos="8.76382078e-10 2.16776996e-09 -5.09996267e-10" quat="1 1.2035276e-09 -2.61764117e-10 1.72166439e-09" />
+    <geom name="habitat_stage_visual_008" type="mesh" mesh="habitat_stage_mesh_008" material="habitat_stage_part_008_material" contype="0" conaffinity="0" group="2" mass="0" pos="-6.2244657e-08 -4.52752724e-08 1.89046804e-08" quat="1 -1.13711068e-09 9.30252313e-10 -1.65082655e-09" />
+    <geom name="habitat_stage_visual_009" type="mesh" mesh="habitat_stage_mesh_009" material="habitat_stage_part_009_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.99641639 9.62603213 2.79999995" quat="1 0 0 9.36387972e-11" />
+    <geom name="habitat_stage_visual_010" type="mesh" mesh="habitat_stage_mesh_010" material="habitat_stage_part_010_material" contype="0" conaffinity="0" group="2" mass="0" pos="-3.45989593e-09 -3.25260707e-09 -1.99199175e-08" quat="1 1.50802514e-10 2.45098023e-09 -1.32221511e-10" />
+    <geom name="habitat_stage_visual_011" type="mesh" mesh="habitat_stage_mesh_011" material="habitat_stage_part_011_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.11313678e-08 -1.68110148e-09 1.0906779e-08" quat="1 3.3220371e-10 -1.91200254e-09 -6.45201813e-11" />
+    <geom name="habitat_stage_visual_012" type="mesh" mesh="habitat_stage_mesh_012" material="habitat_stage_part_012_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.5334248 9.14146304 2.79999995" quat="0.232932119 0.667639594 -0.232932119 0.667639594" />
+    <geom name="habitat_stage_visual_013" type="mesh" mesh="habitat_stage_mesh_013" material="habitat_stage_part_013_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.08026804e-08 5.44129897e-09 1.06922864e-08" quat="1 -2.49229153e-10 -2.41251012e-10 1.9019217e-09" />
+    <geom name="habitat_stage_visual_014" type="mesh" mesh="habitat_stage_mesh_014" material="habitat_stage_part_014_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.10390511e-08 4.9051021e-09 -6.80935064e-09" quat="1 5.73575595e-10 4.75410709e-10 1.14847262e-09" />
+    <geom name="habitat_stage_visual_015" type="mesh" mesh="habitat_stage_mesh_015" material="habitat_stage_part_015_material" contype="0" conaffinity="0" group="2" mass="0" pos="-4.45072782 9.14146644 2.79999995" quat="1 0 0 -2.93711722e-11" />
+    <geom name="habitat_stage_visual_016" type="mesh" mesh="habitat_stage_mesh_016" material="habitat_stage_part_016_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.10806475e-09 2.7867042e-09 -2.83524049e-09" quat="1 7.17450536e-10 -1.17504876e-09 1.52555427e-10" />
+    <geom name="habitat_stage_visual_017" type="mesh" mesh="habitat_stage_mesh_017" material="habitat_stage_part_017_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.37670275e-08 5.65291813e-10 -3.33486105e-09" quat="1 -1.0508156e-09 2.30803492e-09 -6.29636607e-10" />
+    <geom name="habitat_stage_visual_018" type="mesh" mesh="habitat_stage_mesh_018" material="habitat_stage_part_018_material" contype="0" conaffinity="0" group="2" mass="0" pos="-5.04990095 7.78017688 2.79999995" quat="0.498639075 0.501357231 -0.498639075 0.501357231" />
+    <geom name="habitat_stage_visual_019" type="mesh" mesh="habitat_stage_mesh_019" material="habitat_stage_part_019_material" contype="0" conaffinity="0" group="2" mass="0" pos="-4.47427517e-09 2.14904619e-08 8.70659544e-09" quat="1 -1.134239e-09 -2.89493941e-10 -4.96726879e-10" />
+    <geom name="habitat_stage_visual_020" type="mesh" mesh="habitat_stage_mesh_020" material="habitat_stage_part_020_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.66891753e-09 1.14706298e-08 3.46764399e-08" quat="1 -9.04151028e-10 2.94569145e-10 -2.08679656e-10" />
+    <geom name="habitat_stage_visual_021" type="mesh" mesh="habitat_stage_mesh_021" material="habitat_stage_part_021_material" contype="0" conaffinity="0" group="2" mass="0" pos="-0.925019131 7.78992194 2.79999995" quat="0.500919574 0.499078732 -0.500919574 0.499078732" />
+    <geom name="habitat_stage_visual_022" type="mesh" mesh="habitat_stage_mesh_022" material="habitat_stage_part_022_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.99875244e-10 -1.78965909e-08 6.08774556e-08" quat="1 -2.92851631e-09 -1.04865932e-11 2.51095932e-11" />
+    <geom name="habitat_stage_visual_023" type="mesh" mesh="habitat_stage_mesh_023" material="habitat_stage_part_023_material" contype="0" conaffinity="0" group="2" mass="0" pos="-8.53205795e-09 2.52853445e-08 6.0380877e-08" quat="1 -9.48579531e-10 8.29013574e-11 -6.03670158e-10" />
+    <geom name="habitat_stage_visual_024" type="mesh" mesh="habitat_stage_mesh_024" material="habitat_stage_part_024_material" contype="0" conaffinity="0" group="2" mass="0" pos="-0.471299625 6.90387378 2.79999995" quat="0.00286979762 0.707100958 -0.00286979762 0.707100958" />
+    <geom name="habitat_stage_visual_025" type="mesh" mesh="habitat_stage_mesh_025" material="habitat_stage_part_025_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.71556718e-08 -1.00743414e-10 -7.82314769e-09" quat="1 3.29484783e-11 -6.37903806e-10 -1.21313781e-09" />
+    <geom name="habitat_stage_visual_026" type="mesh" mesh="habitat_stage_mesh_026" material="habitat_stage_part_026_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.49968182e-08 2.10236273e-09 -2.76270048e-08" quat="1 1.75405304e-10 -7.32311512e-10 9.11191456e-10" />
+    <geom name="habitat_stage_visual_027" type="mesh" mesh="habitat_stage_mesh_027" material="habitat_stage_part_027_material" contype="0" conaffinity="0" group="2" mass="0" pos="5.10652665 8.16110009 2.79999995" quat="0.5 0.5 -0.5 0.5" />
+    <geom name="habitat_stage_visual_028" type="mesh" mesh="habitat_stage_mesh_028" material="habitat_stage_part_028_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.61480251e-09 5.89709614e-10 6.0735218e-09" quat="1 1.00239266e-10 1.4854276e-10 9.48972641e-11" />
+    <geom name="habitat_stage_visual_029" type="mesh" mesh="habitat_stage_mesh_029" material="habitat_stage_part_029_material" contype="0" conaffinity="0" group="2" mass="0" pos="4.19605703 7.45431754 2.79999995" quat="0.00120800823 0.707105749 -0.00120800823 0.707105749" />
+    <geom name="habitat_stage_visual_030" type="mesh" mesh="habitat_stage_mesh_030" material="habitat_stage_part_030_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.05543103e-08 -3.22618376e-09 -4.11134304e-09" quat="1 6.59785087e-11 7.41425542e-10 2.62675373e-10" />
+    <geom name="habitat_stage_visual_031" type="mesh" mesh="habitat_stage_mesh_031" material="habitat_stage_part_031_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.2517335 7.16958755 2.79999995" quat="1 0 0 3.61819326e-10" />
+    <geom name="habitat_stage_visual_032" type="mesh" mesh="habitat_stage_mesh_032" material="habitat_stage_part_032_material" contype="0" conaffinity="0" group="2" mass="0" pos="9.18579079e-09 -4.25998081e-09 -1.00028358e-08" quat="1 -2.28019116e-10 -3.90130484e-11 7.13474178e-10" />
+    <geom name="habitat_stage_visual_033" type="mesh" mesh="habitat_stage_mesh_033" material="habitat_stage_part_033_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.95496333 6.90341711 2.79999995" quat="0.0171219463 0.706899455 -0.0171219463 0.706899455" />
+    <geom name="habitat_stage_visual_034" type="mesh" mesh="habitat_stage_mesh_034" material="habitat_stage_part_034_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.42962415e-08 5.37133005e-09 -1.40543931e-08" quat="1 -1.91210584e-10 -3.2852925e-10 -6.77695238e-10" />
+    <geom name="habitat_stage_visual_035" type="mesh" mesh="habitat_stage_mesh_035" material="habitat_stage_part_035_material" contype="0" conaffinity="0" group="2" mass="0" pos="4.1960569 8.86788216 2.79999995" quat="1 0 0 7.68329918e-11" />
+    <geom name="habitat_stage_visual_036" type="mesh" mesh="habitat_stage_mesh_036" material="habitat_stage_part_036_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.50953516e-08 3.59037777e-09 -3.30623536e-08" quat="1 5.87904981e-10 -2.12584915e-09 -1.56699504e-10" />
+    <geom name="habitat_stage_visual_037" type="mesh" mesh="habitat_stage_mesh_037" material="habitat_stage_part_037_material" contype="0" conaffinity="0" group="2" mass="0" pos="-0.0372174673 8.23148788 2.79999995" quat="0.499576017 0.500423624 -0.499576017 0.500423624" />
+    <geom name="habitat_stage_visual_038" type="mesh" mesh="habitat_stage_mesh_038" material="habitat_stage_part_038_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.40661867e-10 -3.03594216e-08 4.98072787e-08" quat="1 -2.06051737e-09 -5.02774648e-11 1.35517305e-10" />
+    <geom name="habitat_stage_visual_039" type="mesh" mesh="habitat_stage_mesh_039" material="habitat_stage_part_039_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.07052723 4.21215782 2.79999995" quat="-0.00880662381 0.707051938 0.00880662381 0.707051938" />
+    <geom name="habitat_stage_visual_040" type="mesh" mesh="habitat_stage_mesh_040" material="habitat_stage_part_040_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.12415846e-08 -1.02869793e-08 -2.07199999e-08" quat="1 2.54427252e-10 -6.90844994e-10 1.53699652e-09" />
+    <geom name="habitat_stage_visual_041" type="mesh" mesh="habitat_stage_mesh_041" material="habitat_stage_part_041_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.37402534e-08 -2.05374739e-09 1.63904105e-08" quat="1 1.82785286e-10 1.033044e-10 3.43153188e-11" />
+    <geom name="habitat_stage_visual_042" type="mesh" mesh="habitat_stage_mesh_042" material="habitat_stage_part_042_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.63902998 5.5580101 2.79999995" quat="0.5 0.5 -0.5 0.5" />
+    <geom name="habitat_stage_visual_043" type="mesh" mesh="habitat_stage_mesh_043" material="habitat_stage_part_043_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.68903122e-09 1.9682683e-08 -1.02584806e-08" quat="1 1.13999887e-10 7.56780216e-11 -2.71085117e-10" />
+    <geom name="habitat_stage_visual_044" type="mesh" mesh="habitat_stage_mesh_044" material="habitat_stage_part_044_material" contype="0" conaffinity="0" group="2" mass="0" pos="-5.30383134 0.924784042 2.79999995" quat="-5.27663643e-05 0.707106779 5.27663643e-05 0.707106779" />
+    <geom name="habitat_stage_visual_045" type="mesh" mesh="habitat_stage_mesh_045" material="habitat_stage_part_045_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.43647396e-08 -1.93061123e-10 3.12494775e-08" quat="1 2.74664186e-10 -7.20480777e-10 -6.56497918e-11" />
+    <geom name="habitat_stage_visual_046" type="mesh" mesh="habitat_stage_mesh_046" material="habitat_stage_part_046_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.35358186e-08 2.06671569e-10 -1.12150289e-10" quat="1 -1.40855394e-10 1.90371546e-10 7.12913835e-11" />
+    <geom name="habitat_stage_visual_047" type="mesh" mesh="habitat_stage_mesh_047" material="habitat_stage_part_047_material" contype="0" conaffinity="0" group="2" mass="0" pos="-0.927587273 0.723296256 2.79999995" quat="0.531473498 0.466407463 -0.531473498 0.466407463" />
+    <geom name="habitat_stage_visual_048" type="mesh" mesh="habitat_stage_mesh_048" material="habitat_stage_part_048_material" contype="0" conaffinity="0" group="2" mass="0" pos="2.86208057e-10 5.36707812e-09 5.93473981e-09" quat="1 -2.98604989e-10 2.59390653e-11 4.61229439e-10" />
+    <geom name="habitat_stage_visual_049" type="mesh" mesh="habitat_stage_mesh_049" material="habitat_stage_part_049_material" contype="0" conaffinity="0" group="2" mass="0" pos="-3.93814203e-10 -1.32701483e-09 1.11784071e-08" quat="1 6.65638589e-10 -8.15562922e-12 -3.85683067e-10" />
+    <geom name="habitat_stage_visual_050" type="mesh" mesh="habitat_stage_mesh_050" material="habitat_stage_part_050_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.27835493 0.543049045 2.79999995" quat="1.13086514e-10 0.707106781 -1.13086514e-10 0.707106781" />
+    <geom name="habitat_stage_visual_051" type="mesh" mesh="habitat_stage_mesh_051" material="habitat_stage_part_051_material" contype="0" conaffinity="0" group="2" mass="0" pos="-7.55587459e-09 4.05001588e-11 1.10739732e-08" quat="1 -6.04745759e-11 -2.89857677e-10 3.47712384e-11" />
+    <geom name="habitat_stage_visual_052" type="mesh" mesh="habitat_stage_mesh_052" material="habitat_stage_part_052_material" contype="0" conaffinity="0" group="2" mass="0" pos="4.81560058e-09 1.47711399e-10 7.90262711e-09" quat="1 -1.00566512e-10 -2.09509736e-09 1.17525904e-10" />
+    <geom name="habitat_stage_visual_053" type="mesh" mesh="habitat_stage_mesh_053" material="habitat_stage_part_053_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.48273256 2.37746 2.79999995" quat="0.5 0.5 -0.5 0.5" />
+    <geom name="habitat_stage_visual_054" type="mesh" mesh="habitat_stage_mesh_054" material="habitat_stage_part_054_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.4937088e-09 -6.13358475e-09 6.89835145e-09" quat="1 -3.32545507e-10 -2.68029158e-11 5.10788918e-11" />
+    <geom name="habitat_stage_visual_055" type="mesh" mesh="habitat_stage_mesh_055" material="habitat_stage_part_055_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.28958977e-09 3.22594675e-08 -8.05848455e-09" quat="1 -8.29736836e-10 -1.63549497e-10 -5.67418204e-11" />
+    <geom name="habitat_stage_visual_056" type="mesh" mesh="habitat_stage_mesh_056" material="habitat_stage_part_056_material" contype="0" conaffinity="0" group="2" mass="0" pos="-9.64562767 3.91500012 2.79999995" quat="0.5 0.5 -0.5 0.5" />
+    <geom name="habitat_stage_visual_057" type="mesh" mesh="habitat_stage_mesh_057" material="habitat_stage_part_057_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.78918755e-09 -2.01680437e-08 1.78935906e-08" quat="1 -3.6665715e-09 -3.90352648e-12 1.86943701e-11" />
+    <geom name="habitat_stage_visual_058" type="mesh" mesh="habitat_stage_mesh_058" material="habitat_stage_part_058_material" contype="0" conaffinity="0" group="2" mass="0" pos="-1.37688971e-09 7.55329799e-09 1.11588583e-09" quat="1 -1.15482547e-10 -1.25771383e-10 -3.64717125e-11" />
+    <geom name="habitat_stage_visual_059" type="mesh" mesh="habitat_stage_mesh_059" material="habitat_stage_part_059_material" contype="0" conaffinity="0" group="2" mass="0" pos="3.25144789 9.20378089 2.79999995" quat="0.510429352 0.489348421 -0.510429352 0.489348421" />
+    <geom name="habitat_stage_visual_060" type="mesh" mesh="habitat_stage_mesh_060" material="habitat_stage_part_060_material" contype="0" conaffinity="0" group="2" mass="0" pos="-4.45009452e-09 8.40380743e-09 2.55733171e-08" quat="1 -4.50327982e-10 1.56989257e-10 -1.87128063e-10" />
+    <geom name="habitat_stage_visual_061" type="mesh" mesh="habitat_stage_mesh_061" material="habitat_stage_part_061_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.60674 9.52107094 2.79999995" quat="-4.14720161e-11 0.707106781 4.14720161e-11 0.707106781" />
+    <geom name="habitat_stage_visual_062" type="mesh" mesh="habitat_stage_mesh_062" material="habitat_stage_part_062_material" contype="0" conaffinity="0" group="2" mass="0" pos="-2.22395391e-08 -1.363194e-10 2.1389249e-08" quat="1 -2.97086923e-10 -1.71436492e-10 1.43161397e-10" />
+    <geom name="habitat_stage_visual_063" type="mesh" mesh="habitat_stage_mesh_063" material="habitat_stage_part_063_material" contype="0" conaffinity="0" group="2" mass="0" pos="-7.34773097 6.90500019 2.79999995" quat="0.000376831634 0.707106681 -0.000376831634 0.707106681" />
+    <geom name="habitat_stage_visual_064" type="mesh" mesh="habitat_stage_mesh_064" material="habitat_stage_part_064_material" contype="0" conaffinity="0" group="2" mass="0" pos="1.93122531e-08 2.00689421e-09 -1.38187635e-08" quat="1 -9.66016859e-11 9.07039025e-10 7.4721752e-11" />
+    <geom name="habitat_stage_visual_065" type="mesh" mesh="habitat_stage_mesh_065" material="habitat_stage_part_065_material" contype="0" conaffinity="0" group="2" mass="0" pos="-3.4694458e-08 1.56017421e-09 -2.59981097e-08" quat="1 1.10729085e-10 1.55358869e-09 1.00566019e-10" />
+    <geom name="habitat_wall_collision_0000" type="box" pos="1.76601005 4.50266981 1.39999998" size="0.025 0.21665001 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0001" type="box" pos="1.76601005 4.50266981 1.39999998" size="0.025 0.21665001 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0002" type="box" pos="1.76601005 6.61466027 1.39999998" size="0.025 0.215340135 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0003" type="box" pos="1.76601005 6.61466027 1.39999998" size="0.025 0.215340135 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0004" type="box" pos="2.16501999 6.98000002 1.39999998" size="0.47400999 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0005" type="box" pos="1.37773002 6.98000002 1.39999998" size="0.313279985 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0006" type="box" pos="1.37773002 6.98000002 1.39999998" size="0.313279985 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0007" type="box" pos="1.37773002 6.98000002 0.530822395" size="0.313279985 0.025 0.530822395" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0008" type="box" pos="2.16501999 6.8300004 1.39999998" size="0.39900994 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0009" type="box" pos="2.16501999 4.2860198 1.39999998" size="0.39900994 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0010" type="box" pos="2.16501999 4.13602018 1.39999998" size="0.47400999 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0011" type="box" pos="-0.256369949 4.13602018 1.39999998" size="0.593629957 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0012" type="box" pos="-0.256369949 4.13602018 1.39999998" size="0.593629957 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0013" type="box" pos="-0.256369949 4.13602018 0.65413511" size="0.593629957 0.025 0.65413511" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0014" type="box" pos="1.50413501 4.13602018 1.39999998" size="0.186874985 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0015" type="box" pos="1.50413501 4.13602018 1.39999998" size="0.186874985 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0016" type="box" pos="-0.850000024 2.5305101 1.39999998" size="0.025 1.60551008 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0017" type="box" pos="-0.850000024 4.4131999 1.39999998" size="0.025 0.1271801 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0018" type="box" pos="-0.850000024 4.4131999 1.39999998" size="0.025 0.1271801 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0019" type="box" pos="1.34022999 6.8300004 1.39999998" size="0.27577996 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0020" type="box" pos="1.34022999 6.8300004 1.39999998" size="0.27577996 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0021" type="box" pos="-1 2.60550999 1.39999998" size="0.025 1.60550999 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0022" type="box" pos="-1 6.76269007 1.39999998" size="0.025 0.142310145 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0023" type="box" pos="-1 6.76269007 1.39999998" size="0.025 0.142310145 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0024" type="box" pos="-1 4.37569999 1.39999998" size="0.025 0.164680005 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0025" type="box" pos="-1 4.37569999 1.39999998" size="0.025 0.164680005 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0026" type="box" pos="-0.256369949 4.2860198 2.12597024" size="0.593629957 0.025 0.674029705" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0027" type="box" pos="-0.256369949 4.2860198 1.39999998" size="0.593629957 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0028" type="box" pos="-0.256369949 4.2860198 1.39999998" size="0.593629957 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0029" type="box" pos="1.46663499 4.2860198 1.39999998" size="0.14937496 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0030" type="box" pos="1.46663499 4.2860198 1.39999998" size="0.14937496 0.025 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0031" type="box" pos="1.61600995 4.50266981 1.39999998" size="0.025 0.21665001 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0032" type="box" pos="1.61600995 4.50266981 1.39999998" size="0.025 0.21665001 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0033" type="box" pos="1.61600995 6.61466027 1.39999998" size="0.025 0.215340135 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0034" type="box" pos="1.61600995 6.61466027 1.39999998" size="0.025 0.215340135 1.39999998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0035" type="box" pos="-2.26835739 9.70026016 1.4004999" size="0.151242615 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0036" type="box" pos="-2.2683034 9.70026016 1.4004999" size="0.151296615 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0037" type="box" pos="-3.73785889 9.70026016 1.40049995" size="0.13825905 0.025 1.3995" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0038" type="box" pos="-3.73790824 9.70026016 1.4004999" size="0.1382097 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0039" type="box" pos="-2.29449665 9.55026006 1.40049997" size="0.125103355 0.025 1.39949998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0040" type="box" pos="-2.29445195 9.55026006 1.4004999" size="0.12505865 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0041" type="box" pos="-5.12545967 7.83632063 1.4004999" size="0.025 0.855709315 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0042" type="box" pos="-5.12545967 7.83601499 1.4004999" size="0.025 0.856014965 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0043" type="box" pos="-4.97546005 7.72516513 1.4004999" size="0.025 0.89516473 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0044" type="box" pos="-4.97546005 7.72484565 1.4004999" size="0.025 0.89484525 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0045" type="box" pos="-0.850000024 7.83617711 1.4004999" size="0.025 0.85617709 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0046" type="box" pos="-0.850000024 7.83587146 1.4004999" size="0.025 0.85587144 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0047" type="box" pos="-1 7.76280952 1.4004999" size="0.025 0.857197045 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0048" type="box" pos="-1 7.76250339 1.4004999" size="0.025 0.857503175 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0049" type="box" pos="-0.480745014 6.98000002 1.4004999" size="0.36925501 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0050" type="box" pos="-0.480876874 6.98000002 1.4004999" size="0.369123149 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0051" type="box" pos="-0.443245012 6.8300004 1.4004999" size="0.406755012 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0052" type="box" pos="-0.443099785 6.8300004 1.4004999" size="0.406609785 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0053" type="box" pos="5.02887011 8.16132521 1.4004999" size="0.025 0.630524875 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0054" type="box" pos="5.02887011 8.16109991 1.4004999" size="0.025 0.63075018 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0055" type="box" pos="5.17886972 8.16109991 1.4004999" size="0.025 0.7807498 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0056" type="box" pos="5.17886972 8.16082096 1.4004999" size="0.025 0.78047085 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0057" type="box" pos="4.25191986 7.38035011 1.4004999" size="0.926949855 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0058" type="box" pos="4.25225091 7.38035011 1.4004999" size="0.92661881 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0059" type="box" pos="4.17692006 7.53034973 1.4004999" size="0.85195005 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0060" type="box" pos="4.17661583 7.53034973 1.4004999" size="0.851645825 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0061" type="box" pos="3.17496991 7.21775984 1.4004999" size="0.025 0.237590075 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0062" type="box" pos="3.17496991 7.21767497 1.4004999" size="0.025 0.23767495 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0063" type="box" pos="3.32497001 7.10517526 1.4004999" size="0.025 0.275174855 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0064" type="box" pos="3.32497001 7.10507703 1.4004999" size="0.025 0.27507663 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0065" type="box" pos="2.90699994 6.98000002 1.4004999" size="0.267969965 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0066" type="box" pos="2.90690434 6.98000002 1.4004999" size="0.26787436 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0067" type="box" pos="3.01950002 6.8300004 1.4004999" size="0.30546999 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0068" type="box" pos="3.01960909 6.8300004 1.4004999" size="0.305360915 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0069" type="box" pos="4.17692006 8.79184962 1.4004999" size="0.85195005 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0070" type="box" pos="4.17722428 8.79184962 1.4004999" size="0.85164583 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0071" type="box" pos="4.25191986 8.94184971 1.4004999" size="0.926949855 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0072" type="box" pos="4.25158894 8.94184971 1.4004999" size="0.92661893 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0073" type="box" pos="0.0385100022 8.21246505 1.4004999" size="0.025 1.23246503 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0074" type="box" pos="0.0385100022 8.21202493 1.4004999" size="0.025 1.23202491 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0075" type="box" pos="-0.111490004 8.28793169 1.4004999" size="0.025 1.30699802 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0076" type="box" pos="-0.111490004 8.28746486 1.4004999" size="0.025 1.30746484 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0077" type="box" pos="3.13537001 4.2860198 1.4004999" size="0.421339985 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0078" type="box" pos="3.13521957 4.2860198 1.4004999" size="0.421189545 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0079" type="box" pos="3.02286995 4.13602018 1.4004999" size="0.383839965 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0080" type="box" pos="3.02300691 4.13602018 1.4004999" size="0.383702995 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0081" type="box" pos="2.71403003 5.5580101 1.4004999" size="0.025 1.2719903 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0082" type="box" pos="2.71403003 5.55755567 1.4004999" size="0.025 1.27153588 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0083" type="box" pos="2.56402993 5.55846452 1.4004999" size="0.025 1.27153588 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0084" type="box" pos="2.56402993 5.5580101 1.4004999" size="0.025 1.2719903 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0085" type="box" pos="-9.14428949 0.850000024 1.4004999" size="0.57529974 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0086" type="box" pos="-9.14449501 0.850000024 1.4004999" size="0.57550526 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0087" type="box" pos="-4.29449511 0.850000024 1.74213457" size="3.29449511 0.025 1.05786538" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0088" type="box" pos="-4.29449511 0.850000024 1.40049997" size="3.29449511 0.025 1.39949998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0089" type="box" pos="-4.29331875 0.850000024 1.4004999" size="3.29331875 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0090" type="box" pos="-9.0694952 1 1.40049995" size="0.50050545 0.025 1.3995" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0091" type="box" pos="-9.06967354 1 1.4004999" size="0.50032711 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0092" type="box" pos="-4.29567152 1 1.4004999" size="3.29331869 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0093" type="box" pos="-4.29449511 1 1.4004999" size="3.29449511 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0094" type="box" pos="-4.2960254 1 1.07688106" size="3.29296482 0.025 1.07588111" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0095" type="box" pos="-0.850000024 0.771950007 1.4004999" size="0.025 0.153050006 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0096" type="box" pos="-0.850000024 0.771895319 1.4004999" size="0.025 0.152995318 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0097" type="box" pos="-1 0.659518078 1.4004999" size="0.025 0.190481946 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0098" type="box" pos="-1 0.659450025 1.4004999" size="0.025 0.190549999 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0099" type="box" pos="1.278355 0.468900025 1.4004999" size="2.278355 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0100" type="box" pos="1.27916857 0.468900025 1.4004999" size="2.27754143 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0101" type="box" pos="1.27835494 0.618900001 1.4004999" size="2.12835497 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0102" type="box" pos="1.27759498 0.618900001 1.4004999" size="2.12759501 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0103" type="box" pos="3.55671 0.637400031 1.4004999" size="0.025 0.168500066 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0104" type="box" pos="3.55671 0.63733986 1.4004999" size="0.025 0.168439895 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0105" type="box" pos="3.55671 2.39925503 2.2802887" size="0.025 0.513355015 0.519711255" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0106" type="box" pos="3.55671 2.39925503 1.90372366" size="0.025 0.513355015 0.896276295" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0107" type="box" pos="3.55671012 2.3997646 0.50422374" size="0.025 0.512845455 0.50322374" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0108" type="box" pos="3.55671012 2.39925503 0.88078878" size="0.025 0.513355015 0.87978878" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0109" type="box" pos="3.55671 4.13926244 1.40049997" size="0.025 0.14665246 1.39949998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0110" type="box" pos="3.55671 4.13931489 1.4004999" size="0.025 0.14670491 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0111" type="box" pos="3.40670991 2.39874614 0.50483308" size="0.025 0.512846115 0.50383308" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0112" type="box" pos="3.40670991 2.39925503 0.91351799" size="0.025 0.513355015 0.91251799" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0113" type="box" pos="3.40670991 2.39925503 1.904333" size="0.025 0.513355015 0.895666955" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0114" type="box" pos="-9.72000027 6.35005498 1.4004999" size="0.025 0.62994504 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0115" type="box" pos="-9.72000027 6.35028004 1.4004999" size="0.025 0.629719975 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0116" type="box" pos="-9.72000027 1.47071666 1.40049997" size="0.025 0.620273413 1.39949998" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0117" type="box" pos="-9.72000027 1.47049505 1.4004999" size="0.025 0.620495023 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0118" type="box" pos="-9.72000027 3.90485716 0.530579305" size="0.025 0.73386717 0.529579305" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0119" type="box" pos="-9.72000027 3.90555 0.866104278" size="0.025 0.734560015 0.865104282" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0120" type="box" pos="-9.72000027 3.90555 2.26560425" size="0.025 0.734560015 0.534395695" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0121" type="box" pos="-9.72000027 3.90555 1.93007934" size="0.025 0.734560015 0.86992061" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0122" type="box" pos="-9.57000065 6.27485681 1.40049996" size="0.025 0.554746865 1.39949999" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0123" type="box" pos="-9.57000065 6.27505517 1.4004999" size="0.025 0.55494523 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0124" type="box" pos="-9.57000065 1.54549504 1.4004999" size="0.025 0.545495035 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0125" type="box" pos="-9.57000065 1.54530024 1.4004999" size="0.025 0.545300245 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0126" type="box" pos="-9.57000065 3.90555 2.27866441" size="0.025 0.734560015 0.52133554" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0127" type="box" pos="-9.57000065 3.90555 1.92587405" size="0.025 0.734560015 0.874125895" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0128" type="box" pos="-9.57000065 3.90624845 0.52637414" size="0.025 0.73386157 0.52537414" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0129" type="box" pos="-9.57000065 3.90555 0.879164495" size="0.025 0.734560015 0.878164495" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0130" type="box" pos="3.17496991 9.15599299 1.4004999" size="0.025 0.288937095 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0131" type="box" pos="3.17496991 9.15588999 1.4004999" size="0.025 0.28904009 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0132" type="box" pos="3.32497001 9.26838971 1.4004999" size="0.025 0.326539995 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0133" type="box" pos="3.32497001 9.26827335 1.4004999" size="0.025 0.326423645 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0134" type="box" pos="1.60673996 9.44493008 1.4004999" size="1.56822995 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0135" type="box" pos="1.60729996 9.44493008 1.4004999" size="1.56766995 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0136" type="box" pos="1.60674 9.5949297 1.4004999" size="1.71823001 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0137" type="box" pos="1.60612643 9.5949297 1.4004999" size="1.71761644 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0138" type="box" pos="-5.65689945 6.98000026 1.4004999" size="0.53106022 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0139" type="box" pos="-5.65670967 6.98000002 1.4004999" size="0.53125 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0140" type="box" pos="-9.51898528 6.98000002 1.40049994" size="0.201014995 0.025 1.39950001" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0141" type="box" pos="-9.51905727 6.98000002 1.4004999" size="0.200942995 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0142" type="box" pos="-5.58170986 6.8300004 1.40049991" size="0.60624981 0.025 1.39950004" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0143" type="box" pos="-5.58149337 6.8300004 1.4004999" size="0.606033325 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0144" type="box" pos="-9.44394064 6.8300004 1.4004999" size="0.12597036 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
+    <geom name="habitat_wall_collision_0145" type="box" pos="-9.44398547 6.8300004 1.4004999" size="0.126015185 0.025 1.39950005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
     <body name="hssd_object_000" pos="-0.66851 0.9038999 5.96046448e-08" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_000_000" type="mesh" mesh="object_mesh_000" material="object_000_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_001" type="mesh" mesh="object_mesh_001" material="object_000_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_002" type="mesh" mesh="object_mesh_002" material="object_000_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_003" type="mesh" mesh="object_mesh_003" material="object_000_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_004" type="mesh" mesh="object_mesh_004" material="object_000_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_005" type="mesh" mesh="object_mesh_005" material="object_000_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_000_006" type="mesh" mesh="object_mesh_006" material="object_000_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_000_000" type="mesh" mesh="object_mesh_000" material="object_000_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_001" type="mesh" mesh="object_mesh_001" material="object_000_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_002" type="mesh" mesh="object_mesh_002" material="object_000_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_003" type="mesh" mesh="object_mesh_003" material="object_000_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_004" type="mesh" mesh="object_mesh_004" material="object_000_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_005" type="mesh" mesh="object_mesh_005" material="object_000_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_000_006" type="mesh" mesh="object_mesh_006" material="object_000_part_006_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_000_collision" type="box" pos="1.49011612e-08 1.49011612e-08 0.851545872" size="0.285001114 0.207324162 0.848454175" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_000_grasp_site" pos="1.49011612e-08 1.49011612e-08 0.851545872" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_001" pos="1.375 6.5016994 3.57627869e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_001_000" type="mesh" mesh="object_mesh_007" material="object_001_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_001_001" type="mesh" mesh="object_mesh_008" material="object_001_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_001_002" type="mesh" mesh="object_mesh_009" material="object_001_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_001_003" type="mesh" mesh="object_mesh_010" material="object_001_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_001_000" type="mesh" mesh="object_mesh_007" material="object_001_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_001_001" type="mesh" mesh="object_mesh_008" material="object_001_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_001_002" type="mesh" mesh="object_mesh_009" material="object_001_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_001_003" type="mesh" mesh="object_mesh_010" material="object_001_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_001_collision" type="box" pos="5.96046448e-07 -0.000342607498 1.06227959" size="0.328323931 0.249051839 1.06270467" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_001_grasp_site" pos="5.96046448e-07 -0.000342607498 1.06227959" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_002" pos="-3.0107498 2.9946599 1.78813934e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_002_000" type="mesh" mesh="object_mesh_011" material="object_002_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_002_001" type="mesh" mesh="object_mesh_012" material="object_002_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_002_000" type="mesh" mesh="object_mesh_011" material="object_002_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_002_001" type="mesh" mesh="object_mesh_012" material="object_002_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_002_collision" type="box" pos="0.00130259991 1.49011612e-08 0.474229978" size="1.20072222 0.497575149 0.474230005" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_002_grasp_site" pos="0.00130259991 1.49011612e-08 0.474229978" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_003" pos="-9.5699996 3.9581396 1.3167101" quat="0.50000025 0.49999985 0.49999995 0.49999995">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_003_000" type="mesh" mesh="object_mesh_013" material="object_003_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_003_000" type="mesh" mesh="object_mesh_013" material="object_003_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_003_collision" type="box" pos="2.98023224e-08 1.49011612e-08 0.039144453" size="0.629143327 0.401484028 0.0380931978" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_004" pos="0.13583 8.2346286 4.76837158e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_004_000" type="mesh" mesh="object_mesh_014" material="object_004_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_004_001" type="mesh" mesh="object_mesh_015" material="object_004_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_004_000" type="mesh" mesh="object_mesh_014" material="object_004_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_004_001" type="mesh" mesh="object_mesh_015" material="object_004_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_004_collision" type="box" pos="0.000200003386 -0.000208560377 0.944663141" size="0.199329138 0.0975312032 0.944631365" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_005" pos="2.0702099 7.8977594 4.70783561e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_005_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_005_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_005_collision" type="box" pos="0 0 0.0025499999" size="0.449999988 0.300000012 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_006" pos="0.80619 8.2375888 4.91039827e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_006_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_006_000" type="mesh" mesh="object_mesh_016" material="object_005_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_006_collision" type="box" pos="0 0 0.0025499999" size="0.449999988 0.300000012 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_007" pos="-2.0685501 7.6281795 4.76837158e-07" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_007_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_007_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_007_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_007_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_007_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_007_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_007_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_007_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_008" pos="-2.63402 8.1936492 4.76837158e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_008_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_008_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_008_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_008_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_008_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_008_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_008_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_008_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_009" pos="-3.42715 8.2059392 4.76837158e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_009_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_009_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_009_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_009_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_009_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_009_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_009_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_009_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_010" pos="-3.9926199 7.6404695 4.76837158e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_010_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_010_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_010_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_010_000" type="mesh" mesh="object_mesh_017" material="object_006_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_010_001" type="mesh" mesh="object_mesh_018" material="object_006_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_010_002" type="mesh" mesh="object_mesh_019" material="object_006_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_010_collision" type="box" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.263909653 0.301560596 0.516138549" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_010_grasp_site" pos="-1.93715096e-07 -4.47034836e-08 0.516138319" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_011" pos="1.50223 2.1884996 1.3038516e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_011_000" type="mesh" mesh="object_mesh_020" material="object_007_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_011_000" type="mesh" mesh="object_mesh_020" material="object_007_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_011_collision" type="box" pos="0 0 0.00995599995" size="1.52399993 1.21920002 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_012" pos="-0.3485 3.8310198 2.38418579e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_012_000" type="mesh" mesh="object_mesh_021" material="object_008_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_012_000" type="mesh" mesh="object_mesh_021" material="object_008_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_012_collision" type="box" pos="0 0 0.964997411" size="0.501499593 0.305000126 0.964997411" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_012_grasp_site" pos="0 0 0.964997411" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_013" pos="-4.4390301 0.9999998 1.3717199" quat="0 0 0.707106731 0.707106831">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_013_000" type="mesh" mesh="object_mesh_022" material="object_009_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_013_000" type="mesh" mesh="object_mesh_022" material="object_009_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_013_collision" type="box" pos="0 0 0.00500000501" size="0.190000102 0.152500406 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_014" pos="-9.1982603 1.4498898 1.1920929e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_014_000" type="mesh" mesh="object_mesh_023" material="object_010_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_014_001" type="mesh" mesh="object_mesh_024" material="object_010_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_014_002" type="mesh" mesh="object_mesh_025" material="object_010_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_014_003" type="mesh" mesh="object_mesh_026" material="object_010_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_014_004" type="mesh" mesh="object_mesh_027" material="object_010_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_014_005" type="mesh" mesh="object_mesh_028" material="object_010_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_014_000" type="mesh" mesh="object_mesh_023" material="object_010_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_014_001" type="mesh" mesh="object_mesh_024" material="object_010_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_014_002" type="mesh" mesh="object_mesh_025" material="object_010_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_014_003" type="mesh" mesh="object_mesh_026" material="object_010_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_014_004" type="mesh" mesh="object_mesh_027" material="object_010_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_014_005" type="mesh" mesh="object_mesh_028" material="object_010_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_014_collision" type="box" pos="-4.17232513e-07 2.98023224e-08 1.11007762" size="0.449890286 0.371737868 1.11011076" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_014_grasp_site" pos="-4.17232513e-07 2.98023224e-08 1.11007762" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_015" pos="-2.9401597 1.33885 1.1920929e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_015_000" type="mesh" mesh="object_mesh_029" material="object_011_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_001" type="mesh" mesh="object_mesh_030" material="object_011_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_002" type="mesh" mesh="object_mesh_031" material="object_011_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_003" type="mesh" mesh="object_mesh_032" material="object_011_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_004" type="mesh" mesh="object_mesh_033" material="object_011_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_005" type="mesh" mesh="object_mesh_034" material="object_011_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_006" type="mesh" mesh="object_mesh_035" material="object_011_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_007" type="mesh" mesh="object_mesh_036" material="object_011_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_015_008" type="mesh" mesh="object_mesh_037" material="object_011_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_015_000" type="mesh" mesh="object_mesh_029" material="object_011_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_001" type="mesh" mesh="object_mesh_030" material="object_011_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_002" type="mesh" mesh="object_mesh_031" material="object_011_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_003" type="mesh" mesh="object_mesh_032" material="object_011_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_004" type="mesh" mesh="object_mesh_033" material="object_011_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_005" type="mesh" mesh="object_mesh_034" material="object_011_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_006" type="mesh" mesh="object_mesh_035" material="object_011_part_006_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_007" type="mesh" mesh="object_mesh_036" material="object_011_part_007_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_015_008" type="mesh" mesh="object_mesh_037" material="object_011_part_008_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_015_collision" type="box" pos="-7.15255737e-07 -1.78813934e-07 1.20126581" size="1.18904948 0.298107386 1.20126581" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_015_grasp_site" pos="-7.15255737e-07 -1.78813934e-07 1.20126581" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_016" pos="-8.9873018 5.1310443 2.98023224e-07" quat="0.85749305 0 0 0.514495548">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_016_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_016_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_016_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_016_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_016_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_016_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_017" pos="-8.9739017 2.7488343 1.49011612e-07" quat="0.507128078 0 0 0.861870705">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_017_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_017_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_017_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_017_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_017_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_017_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_018" pos="2.8286242 1.177368 5.96046448e-08" quat="-0.30417481 0 0 0.952616232">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_018_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_018_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_018_000" type="mesh" mesh="object_mesh_038" material="object_012_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_018_001" type="mesh" mesh="object_mesh_039" material="object_012_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_018_collision" type="box" pos="0 1.13993883e-05 0.469270697" size="0.398780048 0.447698012 0.469270775" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_018_grasp_site" pos="0 1.13993883e-05 0.469270697" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_019" pos="-6.9617052 3.9309346 2.38418579e-07" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_019_000" type="mesh" mesh="object_mesh_040" material="object_013_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_019_001" type="mesh" mesh="object_mesh_041" material="object_013_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_019_002" type="mesh" mesh="object_mesh_042" material="object_013_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_019_000" type="mesh" mesh="object_mesh_040" material="object_013_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_019_001" type="mesh" mesh="object_mesh_041" material="object_013_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_019_002" type="mesh" mesh="object_mesh_042" material="object_013_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_019_collision" type="box" pos="-0.000223755836 0.00304971635 0.380765676" size="1.01196766 0.384966835 0.380765676" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_019_grasp_site" pos="-0.000223755836 0.00304971635 0.380765676" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_020" pos="-8.3509998 3.9717898 2.36555934e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_020_000" type="mesh" mesh="object_mesh_043" material="object_014_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_020_000" type="mesh" mesh="object_mesh_043" material="object_014_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_020_collision" type="box" pos="0 0 0.00504999985" size="1.52399993 1.21899998 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_021" pos="-2.9632749 7.52774 0.7600004" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_021_000" type="mesh" mesh="object_mesh_044" material="object_015_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_021_001" type="mesh" mesh="object_mesh_045" material="object_015_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_021_002" type="mesh" mesh="object_mesh_046" material="object_015_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_021_003" type="mesh" mesh="object_mesh_047" material="object_015_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_021_000" type="mesh" mesh="object_mesh_044" material="object_015_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_021_001" type="mesh" mesh="object_mesh_045" material="object_015_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_021_002" type="mesh" mesh="object_mesh_046" material="object_015_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_021_003" type="mesh" mesh="object_mesh_047" material="object_015_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_021_collision" type="box" pos="0.0226083547 -0.0181409121 0.0816649213" size="0.30980368 0.310671151 0.0837353007" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_021_grasp_site" pos="0.0226083547 -0.0181409121 0.0816649213" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_022" pos="-3.1420502 1.3156297 0.8999999" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_022_000" type="mesh" mesh="object_mesh_048" material="object_016_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_022_001" type="mesh" mesh="object_mesh_049" material="object_016_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_022_002" type="mesh" mesh="object_mesh_050" material="object_016_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_022_003" type="mesh" mesh="object_mesh_051" material="object_016_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_022_000" type="mesh" mesh="object_mesh_048" material="object_016_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_022_001" type="mesh" mesh="object_mesh_049" material="object_016_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_022_002" type="mesh" mesh="object_mesh_050" material="object_016_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_022_003" type="mesh" mesh="object_mesh_051" material="object_016_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_022_collision" type="box" pos="5.58793545e-09 3.35276127e-08 0.17676028" size="0.0609600116 0.1081363 0.176710581" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_023" pos="0.3637799 0.6188948 1.7499997" quat="0 0 0.707106731 0.707106831">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_023_000" type="mesh" mesh="object_mesh_052" material="object_017_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_023_001" type="mesh" mesh="object_mesh_053" material="object_017_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_023_000" type="mesh" mesh="object_mesh_052" material="object_017_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_023_001" type="mesh" mesh="object_mesh_053" material="object_017_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_023_collision" type="box" pos="-7.4505806e-08 0 0.0127135688" size="0.457184002 0.457183987 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_024" pos="-4.44421 1.3761397 8.94069672e-08" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_024_000" type="mesh" mesh="object_mesh_054" material="object_018_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_024_001" type="mesh" mesh="object_mesh_055" material="object_018_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_024_002" type="mesh" mesh="object_mesh_056" material="object_018_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_024_003" type="mesh" mesh="object_mesh_057" material="object_018_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_024_000" type="mesh" mesh="object_mesh_054" material="object_018_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_024_001" type="mesh" mesh="object_mesh_055" material="object_018_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_024_002" type="mesh" mesh="object_mesh_056" material="object_018_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_024_003" type="mesh" mesh="object_mesh_057" material="object_018_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_024_collision" type="box" pos="0 0.000145167112 0.474999994" size="0.314999998 0.335273713 0.474999994" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_025" pos="3.17489 7.2782297 1.7500003" quat="0.500000175 0.499999975 -0.499999875 -0.499999975">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_025_000" type="mesh" mesh="object_mesh_058" material="object_019_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_025_001" type="mesh" mesh="object_mesh_059" material="object_019_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_025_000" type="mesh" mesh="object_mesh_058" material="object_019_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_025_001" type="mesh" mesh="object_mesh_059" material="object_019_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_025_collision" type="box" pos="0 -2.98023224e-08 0.0536704121" size="0.29823342 0.315296531 0.0537513362" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_026" pos="2.7662348 2.5058097 1.49011612e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_026_000" type="mesh" mesh="object_mesh_060" material="object_020_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_026_001" type="mesh" mesh="object_mesh_061" material="object_020_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_026_002" type="mesh" mesh="object_mesh_062" material="object_020_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_026_000" type="mesh" mesh="object_mesh_060" material="object_020_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_026_001" type="mesh" mesh="object_mesh_061" material="object_020_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_026_002" type="mesh" mesh="object_mesh_062" material="object_020_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_026_collision" type="box" pos="-0.00122122467 0.000803560019 0.422371821" size="0.298617169 0.302206606 0.422371848" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_026_grasp_site" pos="-0.00122122467 0.000803560019 0.422371821" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_027" pos="2.9550299 3.5847296 2.08616257e-07" quat="0.930622174 0 0 -0.365981378">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_027_000" type="mesh" mesh="object_mesh_063" material="object_021_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_027_001" type="mesh" mesh="object_mesh_064" material="object_021_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_027_000" type="mesh" mesh="object_mesh_063" material="object_021_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_027_001" type="mesh" mesh="object_mesh_064" material="object_021_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_027_collision" type="box" pos="0 -2.10851431e-05 0.361734065" size="0.376247406 0.402919427 0.361734" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_027_grasp_site" pos="0 -2.10851431e-05 0.361734065" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_028" pos="0.3286899 1.7441798 1.1920929e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_028_000" type="mesh" mesh="object_mesh_065" material="object_022_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_028_001" type="mesh" mesh="object_mesh_066" material="object_022_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_028_002" type="mesh" mesh="object_mesh_067" material="object_022_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_028_003" type="mesh" mesh="object_mesh_068" material="object_022_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_028_000" type="mesh" mesh="object_mesh_065" material="object_022_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_028_001" type="mesh" mesh="object_mesh_066" material="object_022_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_028_002" type="mesh" mesh="object_mesh_067" material="object_022_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_028_003" type="mesh" mesh="object_mesh_068" material="object_022_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_028_collision" type="box" pos="0 -7.35521317e-05 0.571791867" size="0.970341623 1.07960331 0.571733495" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_029" pos="-3.0490798 6.9918794 4.17232513e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_029_000" type="mesh" mesh="object_mesh_069" material="object_023_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_029_001" type="mesh" mesh="object_mesh_070" material="object_023_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_029_000" type="mesh" mesh="object_mesh_069" material="object_023_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_029_001" type="mesh" mesh="object_mesh_070" material="object_023_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_029_collision" type="box" pos="-2.98023224e-07 -4.63426113e-06 0.235449567" size="0.536998689 0.243325159 0.235449658" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_029_grasp_site" pos="-2.98023224e-07 -4.63426113e-06 0.235449567" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_030" pos="-2.98038 7.5307941 2.8000001" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_030_000" type="mesh" mesh="object_mesh_071" material="object_024_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_030_001" type="mesh" mesh="object_mesh_072" material="object_024_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_030_002" type="mesh" mesh="object_mesh_073" material="object_024_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_030_000" type="mesh" mesh="object_mesh_071" material="object_024_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_030_001" type="mesh" mesh="object_mesh_072" material="object_024_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_030_002" type="mesh" mesh="object_mesh_073" material="object_024_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_030_collision" type="box" pos="-1.78962946e-05 1.78962946e-05 -0.642036209" size="0.468277529 0.463946328 0.64203619" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_031" pos="3.12419 2.4333996 1.49011612e-07" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_031_000" type="mesh" mesh="object_mesh_074" material="object_025_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_031_001" type="mesh" mesh="object_mesh_075" material="object_025_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_031_000" type="mesh" mesh="object_mesh_074" material="object_025_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_031_001" type="mesh" mesh="object_mesh_075" material="object_025_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_031_collision" type="box" pos="-1.78813934e-07 0 0.400000044" size="0.565003157 0.282519728 0.399999968" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_031_grasp_site" pos="-1.78813934e-07 0 0.400000044" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_032" pos="4.8638701 8.6268501 5.06639481e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_032_000" type="mesh" mesh="object_mesh_076" material="object_026_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_032_000" type="mesh" mesh="object_mesh_076" material="object_026_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_032_collision" type="box" pos="5.06639481e-07 4.69386578e-07 0.275000006" size="0.165001586 0.165001564 0.275000006" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_033" pos="-3.3014402 3.5590796 2.08616257e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_033_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_033_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_033_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_033_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_033_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
-      <site name="hssd_object_033_grasp_site" pos="0 0 0.425000101" size="0.025" rgba="0.9 0.2 0.1 0.35" />
     </body>
     <body name="hssd_object_034" pos="-3.8489103 3.5690798 2.08616257e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_034_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_034_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_034_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_034_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_034_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_035" pos="-2.7752099 3.5790097 2.08616257e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_035_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_035_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_035_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_035_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_035_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_036" pos="-2.2063999 3.5918998 2.08616257e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_036_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_036_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_036_000" type="mesh" mesh="object_mesh_077" material="object_027_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_036_001" type="mesh" mesh="object_mesh_078" material="object_027_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_036_collision" type="box" pos="0 0 0.425000101" size="0.194999143 0.205000252 0.425000101" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_037" pos="-3.0739901 1.2981199 7.72997737e-08" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_037_000" type="mesh" mesh="object_mesh_079" material="object_028_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_037_000" type="mesh" mesh="object_mesh_079" material="object_028_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_037_collision" type="box" pos="-2.23517418e-08 1.34110451e-07 0.0153019741" size="0.14551758 0.130067199 0.0153019432" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_038" pos="3.1733899 2.4807796 0.8" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_038_000" type="mesh" mesh="object_mesh_080" material="object_029_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_038_001" type="mesh" mesh="object_mesh_081" material="object_029_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_038_002" type="mesh" mesh="object_mesh_082" material="object_029_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_038_003" type="mesh" mesh="object_mesh_083" material="object_029_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_038_004" type="mesh" mesh="object_mesh_084" material="object_029_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_038_000" type="mesh" mesh="object_mesh_080" material="object_029_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_038_001" type="mesh" mesh="object_mesh_081" material="object_029_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_038_002" type="mesh" mesh="object_mesh_082" material="object_029_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_038_003" type="mesh" mesh="object_mesh_083" material="object_029_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_038_004" type="mesh" mesh="object_mesh_084" material="object_029_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_038_collision" type="box" pos="-4.61935997e-07 7.37607479e-07 0.245015799" size="0.322433963 0.233316176 0.244427682" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_039" pos="0.83862 8.9912586 4.76837158e-07" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_039_000" type="mesh" mesh="object_mesh_085" material="object_030_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_001" type="mesh" mesh="object_mesh_086" material="object_030_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_002" type="mesh" mesh="object_mesh_087" material="object_030_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_003" type="mesh" mesh="object_mesh_088" material="object_030_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_004" type="mesh" mesh="object_mesh_089" material="object_030_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_005" type="mesh" mesh="object_mesh_090" material="object_030_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_006" type="mesh" mesh="object_mesh_091" material="object_030_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_007" type="mesh" mesh="object_mesh_092" material="object_030_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_039_008" type="mesh" mesh="object_mesh_093" material="object_030_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_039_000" type="mesh" mesh="object_mesh_085" material="object_030_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_001" type="mesh" mesh="object_mesh_086" material="object_030_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_002" type="mesh" mesh="object_mesh_087" material="object_030_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_003" type="mesh" mesh="object_mesh_088" material="object_030_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_004" type="mesh" mesh="object_mesh_089" material="object_030_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_005" type="mesh" mesh="object_mesh_090" material="object_030_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_006" type="mesh" mesh="object_mesh_091" material="object_030_part_006_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_007" type="mesh" mesh="object_mesh_092" material="object_030_part_007_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_039_008" type="mesh" mesh="object_mesh_093" material="object_030_part_008_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_039_collision" type="box" pos="0 -3.57627869e-07 1.06216002" size="0.800112069 0.453671455 1.06216002" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_040" pos="0.2439348 5.5310297 3.29688191e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_040_000" type="mesh" mesh="object_mesh_094" material="object_031_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_040_001" type="mesh" mesh="object_mesh_095" material="object_031_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_040_000" type="mesh" mesh="object_mesh_094" material="object_031_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_040_001" type="mesh" mesh="object_mesh_095" material="object_031_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_040_collision" type="box" pos="-0.00107437372 0 0.00749999983" size="1.24501449 1.24501443 0.015" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_041" pos="1.5047998 0.8053098 5.96046448e-08" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_041_000" type="mesh" mesh="object_mesh_096" material="object_032_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_041_001" type="mesh" mesh="object_mesh_097" material="object_032_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_041_002" type="mesh" mesh="object_mesh_098" material="object_032_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_041_003" type="mesh" mesh="object_mesh_099" material="object_032_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_041_000" type="mesh" mesh="object_mesh_096" material="object_032_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_041_001" type="mesh" mesh="object_mesh_097" material="object_032_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_041_002" type="mesh" mesh="object_mesh_098" material="object_032_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_041_003" type="mesh" mesh="object_mesh_099" material="object_032_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_041_collision" type="box" pos="0 1.11758709e-07 0.368299991" size="0.304800004 0.227091797 0.368299991" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_042" pos="-9.3369102 3.9311096 2.38418579e-07" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_042_000" type="mesh" mesh="object_mesh_100" material="object_033_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_042_001" type="mesh" mesh="object_mesh_101" material="object_033_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_042_002" type="mesh" mesh="object_mesh_102" material="object_033_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_042_000" type="mesh" mesh="object_mesh_100" material="object_033_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_042_001" type="mesh" mesh="object_mesh_101" material="object_033_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_042_002" type="mesh" mesh="object_mesh_102" material="object_033_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_042_collision" type="box" pos="2.98023224e-08 -1.49011612e-08 0.371474981" size="0.614090234 0.233090192 0.371474981" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_043" pos="-2.1642699 2.9469997 2.7999999" quat="0.707106894 0 0 0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_043_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_043_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_043_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_043_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_043_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_043_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_043_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_043_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_043_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_044" pos="-2.7752099 2.98913 2.7999999" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_044_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_044_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_044_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_044_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_044_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_044_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_044_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_044_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_044_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_045" pos="-3.3440198 2.98913 2.7999999" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_045_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_045_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_045_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_045_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_045_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_045_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_045_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_045_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_045_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_046" pos="-3.8706998 2.9680597 2.7999999" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_046_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_046_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_046_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_046_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_046_000" type="mesh" mesh="object_mesh_103" material="object_034_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_046_001" type="mesh" mesh="object_mesh_104" material="object_034_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_046_002" type="mesh" mesh="object_mesh_105" material="object_034_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_046_003" type="mesh" mesh="object_mesh_106" material="object_034_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_046_collision" type="box" pos="4.47034836e-08 1.2665987e-07 -0.603030445" size="0.142849416 0.142849468 0.60317838" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_047" pos="3.164925 2.1086597 0.7999999" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_047_000" type="mesh" mesh="object_mesh_107" material="object_035_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_047_001" type="mesh" mesh="object_mesh_108" material="object_035_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_047_002" type="mesh" mesh="object_mesh_109" material="object_035_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_047_000" type="mesh" mesh="object_mesh_107" material="object_035_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_047_001" type="mesh" mesh="object_mesh_108" material="object_035_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_047_002" type="mesh" mesh="object_mesh_109" material="object_035_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_047_collision" type="box" pos="1.17346644e-05 5.43892384e-07 0.179166297" size="0.0973065272 0.0973065272 0.179108223" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_048" pos="-1.4489099 1.4174398 5.96046448e-08" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_048_000" type="mesh" mesh="object_mesh_110" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_048_001" type="mesh" mesh="object_mesh_111" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_048_000" type="mesh" mesh="object_mesh_110" material="object_036_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_048_001" type="mesh" mesh="object_mesh_111" material="object_036_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_048_collision" type="box" pos="0.00541073084 -6.09457493e-05 0.840802622" size="0.296805114 0.376719832 0.839497733" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_049" pos="4.7381901 7.8226695 4.76837158e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_049_000" type="mesh" mesh="object_mesh_112" material="object_037_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_049_001" type="mesh" mesh="object_mesh_113" material="object_037_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_049_002" type="mesh" mesh="object_mesh_114" material="object_037_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_049_003" type="mesh" mesh="object_mesh_115" material="object_037_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_049_000" type="mesh" mesh="object_mesh_112" material="object_037_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_049_001" type="mesh" mesh="object_mesh_113" material="object_037_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_049_002" type="mesh" mesh="object_mesh_114" material="object_037_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_049_003" type="mesh" mesh="object_mesh_115" material="object_037_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_049_collision" type="box" pos="0 -0.0081782937 0.425000007" size="0.300500005 0.290678293 0.425000017" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_050" pos="4.0890245 7.8473086 4.76837158e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_050_000" type="mesh" mesh="object_mesh_116" material="object_038_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_050_001" type="mesh" mesh="object_mesh_117" material="object_038_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_050_002" type="mesh" mesh="object_mesh_118" material="object_038_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_050_003" type="mesh" mesh="object_mesh_119" material="object_038_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_050_004" type="mesh" mesh="object_mesh_120" material="object_038_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_050_000" type="mesh" mesh="object_mesh_116" material="object_038_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_050_001" type="mesh" mesh="object_mesh_117" material="object_038_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_050_002" type="mesh" mesh="object_mesh_118" material="object_038_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_050_003" type="mesh" mesh="object_mesh_119" material="object_038_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_050_004" type="mesh" mesh="object_mesh_120" material="object_038_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_050_collision" type="box" pos="0.000787422061 -0.00330629945 0.348646263" size="0.299452737 0.310450733 0.348293861" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_051" pos="2.8489198 9.0530786 5.36441803e-07" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_051_000" type="mesh" mesh="object_mesh_121" material="object_039_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_051_001" type="mesh" mesh="object_mesh_122" material="object_039_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_051_002" type="mesh" mesh="object_mesh_123" material="object_039_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_051_000" type="mesh" mesh="object_mesh_121" material="object_039_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_051_001" type="mesh" mesh="object_mesh_122" material="object_039_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_051_002" type="mesh" mesh="object_mesh_123" material="object_039_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_051_collision" type="box" pos="-4.35709953e-05 -1.34110451e-07 0.408482752" size="0.186189041 0.326052919 0.40846137" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_052" pos="2.1334199 7.2371597 4.76837158e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_052_000" type="mesh" mesh="object_mesh_124" material="object_040_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_001" type="mesh" mesh="object_mesh_125" material="object_040_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_002" type="mesh" mesh="object_mesh_126" material="object_040_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_003" type="mesh" mesh="object_mesh_127" material="object_040_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_004" type="mesh" mesh="object_mesh_128" material="object_040_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_005" type="mesh" mesh="object_mesh_129" material="object_040_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_006" type="mesh" mesh="object_mesh_130" material="object_040_part_006_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_007" type="mesh" mesh="object_mesh_131" material="object_040_part_007_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_008" type="mesh" mesh="object_mesh_132" material="object_040_part_008_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_009" type="mesh" mesh="object_mesh_133" material="object_040_part_009_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_010" type="mesh" mesh="object_mesh_134" material="object_040_part_010_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_011" type="mesh" mesh="object_mesh_135" material="object_040_part_011_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_012" type="mesh" mesh="object_mesh_136" material="object_040_part_012_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_013" type="mesh" mesh="object_mesh_137" material="object_040_part_013_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_052_014" type="mesh" mesh="object_mesh_138" material="object_040_part_014_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_052_000" type="mesh" mesh="object_mesh_124" material="object_040_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_001" type="mesh" mesh="object_mesh_125" material="object_040_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_002" type="mesh" mesh="object_mesh_126" material="object_040_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_003" type="mesh" mesh="object_mesh_127" material="object_040_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_004" type="mesh" mesh="object_mesh_128" material="object_040_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_005" type="mesh" mesh="object_mesh_129" material="object_040_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_006" type="mesh" mesh="object_mesh_130" material="object_040_part_006_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_007" type="mesh" mesh="object_mesh_131" material="object_040_part_007_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_008" type="mesh" mesh="object_mesh_132" material="object_040_part_008_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_009" type="mesh" mesh="object_mesh_133" material="object_040_part_009_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_010" type="mesh" mesh="object_mesh_134" material="object_040_part_010_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_011" type="mesh" mesh="object_mesh_135" material="object_040_part_011_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_012" type="mesh" mesh="object_mesh_136" material="object_040_part_012_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_013" type="mesh" mesh="object_mesh_137" material="object_040_part_013_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_052_014" type="mesh" mesh="object_mesh_138" material="object_040_part_014_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_052_collision" type="box" pos="0 1.34110451e-07 1.17110263" size="0.749306023 0.257164165 0.758577362" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_053" pos="1.7330192 3.7895669 2.38418579e-07" quat="0.916902009 0 0 -0.399112397">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_053_000" type="mesh" mesh="object_mesh_139" material="object_041_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_053_001" type="mesh" mesh="object_mesh_140" material="object_041_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_053_002" type="mesh" mesh="object_mesh_141" material="object_041_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_053_003" type="mesh" mesh="object_mesh_142" material="object_041_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_053_004" type="mesh" mesh="object_mesh_143" material="object_041_part_004_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_053_005" type="mesh" mesh="object_mesh_144" material="object_041_part_005_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_053_000" type="mesh" mesh="object_mesh_139" material="object_041_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_053_001" type="mesh" mesh="object_mesh_140" material="object_041_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_053_002" type="mesh" mesh="object_mesh_141" material="object_041_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_053_003" type="mesh" mesh="object_mesh_142" material="object_041_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_053_004" type="mesh" mesh="object_mesh_143" material="object_041_part_004_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_053_005" type="mesh" mesh="object_mesh_144" material="object_041_part_005_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_053_collision" type="box" pos="1.49011612e-08 0.000164985657 0.875987173" size="0.260000005 0.273941308 0.875748276" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_054" pos="-3.0294599 7.6002297 4.47034836e-07" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_054_000" type="mesh" mesh="object_mesh_145" material="object_042_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_054_001" type="mesh" mesh="object_mesh_146" material="object_042_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_054_000" type="mesh" mesh="object_mesh_145" material="object_042_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_054_001" type="mesh" mesh="object_mesh_146" material="object_042_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_054_collision" type="box" pos="5.71012497e-05 -5.71012497e-05 0.380399953" size="0.91434294 0.533342957 0.380399991" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_055" pos="-8.0443401 3.9462497 2.38418579e-07" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_055_000" type="mesh" mesh="object_mesh_147" material="object_043_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_055_001" type="mesh" mesh="object_mesh_148" material="object_043_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_055_000" type="mesh" mesh="object_mesh_147" material="object_043_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_055_001" type="mesh" mesh="object_mesh_148" material="object_043_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_055_collision" type="box" pos="0 -4.47034836e-08 0.228579714" size="0.457664728 0.456761643 0.228620276" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_056" pos="-0.352025 3.8528847 1.93" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_056_000" type="mesh" mesh="object_mesh_149" material="object_044_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
+      <geom name="object_visual_056_000" type="mesh" mesh="object_mesh_149" material="object_044_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
       <geom name="hssd_object_056_collision" type="box" pos="-0.000476837158 -4.77582216e-06 0.10547615" size="0.272826254 0.158587046 0.105849853" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_057" pos="-8.42247 6.9049997 1.1200002" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_057_000" type="mesh" mesh="object_mesh_150" material="object_045_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_057_001" type="mesh" mesh="object_mesh_151" material="object_045_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_057_002" type="mesh" mesh="object_mesh_152" material="object_045_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_057_003" type="mesh" mesh="object_mesh_153" material="object_045_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_057_collision" type="box" pos="0.000499993563 0 5.96046448e-08" size="0.894999951 0.103 1.09999996" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_057_000" type="mesh" mesh="object_mesh_150" material="object_045_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_057_001" type="mesh" mesh="object_mesh_151" material="object_045_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_057_002" type="mesh" mesh="object_mesh_152" material="object_045_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_057_003" type="mesh" mesh="object_mesh_153" material="object_045_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_057_collision" type="box" pos="-0.000499993563 0 5.96046329e-08" size="0.015 0.10299998 1.09999974" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_058" pos="-6.7779598 6.9049997 1.4500004" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_058_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_058_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_058_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_058_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_058_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_058_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_058_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_058_collision" type="box" pos="2.98023224e-08 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_059" pos="-9.6450004 2.6309897 1.45" quat="0.707106944 0 0 0.707106619">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_059_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_059_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_059_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_059_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_059_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_059_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_059_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_059_collision" type="box" pos="-0 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_060" pos="-9.6450004 5.1801095 1.4500001" quat="0.707106944 0 0 0.707106619">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_060_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_060_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_060_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_060_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_060_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_060_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_060_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_060_collision" type="box" pos="-0 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_061" pos="3.4817099 1.3458999 1.45" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_061_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_061_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_061_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_061_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_061_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_061_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_061_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_061_collision" type="box" pos="-0 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_062" pos="3.4817099 3.4526095 1.45" quat="0.707106894 0 0 -0.707106669">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_062_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_062_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_062_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_062_collision" type="box" pos="0 -3.7252903e-09 0" size="0.540000081 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_062_000" type="mesh" mesh="object_mesh_157" material="object_047_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_062_001" type="mesh" mesh="object_mesh_158" material="object_047_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_062_002" type="mesh" mesh="object_mesh_159" material="object_047_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_062_collision" type="box" pos="-0 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_063" pos="-8.0789899 0.9249997 1.12" quat="0 0 0 1">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_063_000" type="mesh" mesh="object_mesh_160" material="object_048_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_063_001" type="mesh" mesh="object_mesh_161" material="object_048_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_063_002" type="mesh" mesh="object_mesh_162" material="object_048_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_063_003" type="mesh" mesh="object_mesh_163" material="object_048_part_003_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_063_collision" type="box" pos="0 0 5.96046448e-08" size="0.49000001 0.115000002 1.09999996" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_063_000" type="mesh" mesh="object_mesh_160" material="object_048_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_063_001" type="mesh" mesh="object_mesh_161" material="object_048_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_063_002" type="mesh" mesh="object_mesh_162" material="object_048_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_063_003" type="mesh" mesh="object_mesh_163" material="object_048_part_003_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_063_collision" type="box" pos="-0 0 5.96046329e-08" size="0.015 0.114999979 1.09999974" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_064" pos="-4.476572 9.1193122 1.4500005" quat="0.94292041 0 0 0.333018169">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_064_000" type="mesh" mesh="object_mesh_164" material="object_049_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_064_001" type="mesh" mesh="object_mesh_165" material="object_049_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_064_002" type="mesh" mesh="object_mesh_166" material="object_049_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_064_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_064_000" type="mesh" mesh="object_mesh_164" material="object_049_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_064_001" type="mesh" mesh="object_mesh_165" material="object_049_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_064_002" type="mesh" mesh="object_mesh_166" material="object_049_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_064_collision" type="box" pos="2.98023224e-08 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_065" pos="-1.5599917 9.1613168 1.4500005" quat="0.944082057 0 0 -0.329710584">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_065_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_065_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_065_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_065_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_065_000" type="mesh" mesh="object_mesh_154" material="object_046_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_065_001" type="mesh" mesh="object_mesh_155" material="object_046_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_065_002" type="mesh" mesh="object_mesh_156" material="object_046_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_065_collision" type="box" pos="2.98023224e-08 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <body name="hssd_object_066" pos="-3.0095999 9.6252593 1.4500005" quat="1 0 0 0">
       <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
-      <geom name="object_visual_066_000" type="mesh" mesh="object_mesh_167" material="object_050_part_000_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_066_001" type="mesh" mesh="object_mesh_168" material="object_050_part_001_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="object_visual_066_002" type="mesh" mesh="object_mesh_169" material="object_050_part_002_material" contype="0" conaffinity="0" group="2" shellinertia="true" mass="0" />
-      <geom name="hssd_object_066_collision" type="box" pos="-2.98023224e-08 -3.7252903e-09 0" size="0.589997441 0.0400000028 0.75" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
+      <geom name="object_visual_066_000" type="mesh" mesh="object_mesh_167" material="object_050_part_000_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_066_001" type="mesh" mesh="object_mesh_168" material="object_050_part_001_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="object_visual_066_002" type="mesh" mesh="object_mesh_169" material="object_050_part_002_material" contype="0" conaffinity="0" group="2" mass="0" />
+      <geom name="hssd_object_066_collision" type="box" pos="2.98023224e-08 -3.72528955e-09 0" size="0.015 0.0399999948 0.74999985" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" mass="0.001" />
     </body>
     <geom name="hssd_floor_collision" type="box" pos="-2.27056527 5.08458054 -0.06" size="7.449435 4.61568058 0.06" rgba="0 0 0 0" contype="1" conaffinity="1" group="3" />
     <body name="scene_center" pos="-2.27056527 5.08458054 1">
@@ -1135,7 +1276,39 @@
     </body>
     <site name="zone_home_center" pos="-2.27056527 5.08458054 0.025" size="0.015" rgba="0 0 0 0" />
     <camera name="habitat_overview" mode="targetbody" target="scene_center" pos="-2.27056527 -10.559233 11.1741525" fovy="48" />
-    <camera name="habitat_top" mode="targetbody" target="scene_center" pos="-2.27056527 5.08458054 18.6235875" fovy="45" />
+    <camera name="habitat_top" mode="targetbody" target="scene_center" pos="-2.27056527 5.08458054 18.6235875" orthographic="true" fovy="12.8503" />
+    <body name="001_bottle_home_00" pos="-3.02056527 4.43458054 0">
+      <freejoint name="001_bottle_home_00_freejoint" />
+      <body name="001_bottle_home_00_orientation" euler="3.14159265 0 0">
+        <geom name="001_bottle_home_00_visual" type="mesh" mesh="interactive_001_bottle_mesh_000" mass="0.487" contype="0" conaffinity="0" group="2" material="interactive_001_bottle_material_000" />
+        <geom name="001_bottle_home_00_collision" type="mesh" mesh="interactive_001_bottle_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+        <site name="001_bottle_home_00_grasp_site" pos="0 0 0.124999998" size="0.018" rgba="0 0 0 0" />
+      </body>
+    </body>
+    <body name="035_apple_home_01" pos="-2.52056527 5.73458054 0">
+      <freejoint name="035_apple_home_01_freejoint" />
+      <body name="035_apple_home_01_orientation" euler="0 0 0">
+        <geom name="035_apple_home_01_visual" type="mesh" mesh="interactive_035_apple_mesh_000" mass="0.147" contype="0" conaffinity="0" group="2" material="interactive_035_apple_material_000" />
+        <geom name="035_apple_home_01_collision" type="mesh" mesh="interactive_035_apple_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+        <site name="035_apple_home_01_grasp_site" pos="0 0 0.0381131368" size="0.018" rgba="0 0 0 0" />
+      </body>
+    </body>
+    <body name="071_can_home_02" pos="-2.02056527 4.43458054 0">
+      <freejoint name="071_can_home_02_freejoint" />
+      <body name="071_can_home_02_orientation" euler="0 0 0">
+        <geom name="071_can_home_02_visual" type="mesh" mesh="interactive_071_can_mesh_000" mass="0.1571" contype="0" conaffinity="0" group="2" material="interactive_071_can_material_000" />
+        <geom name="071_can_home_02_collision" type="mesh" mesh="interactive_071_can_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+        <site name="071_can_home_02_grasp_site" pos="0 0 0.0600000017" size="0.018" rgba="0 0 0 0" />
+      </body>
+    </body>
+    <body name="043_book_home_03" pos="-1.52056527 5.73458054 0">
+      <freejoint name="043_book_home_03_freejoint" />
+      <body name="043_book_home_03_orientation" euler="1.57079633 0 0">
+        <geom name="043_book_home_03_visual" type="mesh" mesh="interactive_043_book_mesh_000" mass="1.06" contype="0" conaffinity="0" group="2" material="interactive_043_book_material_000" />
+        <geom name="043_book_home_03_collision" type="mesh" mesh="interactive_043_book_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+        <site name="043_book_home_03_grasp_site" pos="0 0 0.120000001" size="0.018" rgba="0 0 0 0" />
+      </body>
+    </body>
   </worldbody>
   <statistic center="-2.27056527 5.08458054 1.39986155" extent="14.8989" />
 </mujoco>

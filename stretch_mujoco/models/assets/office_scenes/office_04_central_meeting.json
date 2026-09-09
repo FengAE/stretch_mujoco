@@ -95,7 +95,7 @@
       "position": [
         -5.219249636561214,
         3.9401993176805856,
-        0.6059650023642938
+        0.6079650023642938
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -120,7 +120,7 @@
       "position": [
         -1.4292976979992442,
         3.920020220438592,
-        0.5495491979681812
+        0.554827479923775
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -586,16 +586,5 @@
   ],
   "mjcf": "office_04_central_meeting.xml",
   "robot_include": "office_04_central_meeting_robot.xml",
-  "preview": "office_04_central_meeting.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 617,
-    "robot_start_xyz": [
-      9.2,
-      1.3,
-      0.0
-    ]
-  }
+  "preview": "office_04_central_meeting.png"
 }

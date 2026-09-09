@@ -95,7 +95,7 @@
       "position": [
         -1.4292976979992442,
         -2.219979779561408,
-        0.5495491979602163
+        0.5531140748932809
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -120,7 +120,7 @@
       "position": [
         -1.76054610542314,
         -3.800199317680587,
-        0.5495491965288025
+        0.5529234790454043
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -145,7 +145,7 @@
       "position": [
         1.429297807642782,
         -1.9098006823194145,
-        0.5495491979681812
+        0.554827479923775
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -586,16 +586,5 @@
   ],
   "mjcf": "office_02_cross_axis.xml",
   "robot_include": "office_02_cross_axis_robot.xml",
-  "preview": "office_02_cross_axis.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 621,
-    "robot_start_xyz": [
-      -7.7,
-      -0.7,
-      0.0
-    ]
-  }
+  "preview": "office_02_cross_axis.png"
 }

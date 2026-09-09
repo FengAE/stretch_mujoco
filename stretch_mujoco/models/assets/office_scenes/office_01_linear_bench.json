@@ -82,7 +82,7 @@
       "position": [
         -3.76752075592327,
         1.0700202204385918,
-        0.5495491965288025
+        0.5529234790454043
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -6.563727541857088,
         -0.7800202428438539,
-        0.5495491979681812
+        0.554827479923775
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -536,16 +536,5 @@
   ],
   "mjcf": "office_01_linear_bench.xml",
   "robot_include": "office_01_linear_bench_robot.xml",
-  "preview": "office_01_linear_bench.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 436,
-    "robot_start_xyz": [
-      -0.7,
-      -3.8,
-      0.0
-    ]
-  }
+  "preview": "office_01_linear_bench.png"
 }

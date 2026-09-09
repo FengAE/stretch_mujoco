@@ -25,7 +25,7 @@
   },
   "bounds_mujoco": [
     [
-      -26.794037778933042,
+      -26.794037778933046,
       -6.099194268840041,
       -0.08014737957832706
     ],
@@ -39,7 +39,7 @@
     {
       "type": "home",
       "bounds": [
-        -26.794037778933042,
+        -26.794037778933046,
         -0.9026398686356574,
         -6.099194268840041,
         8.457192810606667
@@ -123,7 +123,7 @@
         1.8048584662431852,
         0.009470099861540812
       ],
-      "grasp_site": "hssd_object_005_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_006",
@@ -188,7 +188,7 @@
         2.543507185965339,
         1.5160485133947077e-07
       ],
-      "grasp_site": "hssd_object_010_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_011",
@@ -201,7 +201,7 @@
         0.9166773011280682,
         5.463822816409447e-08
       ],
-      "grasp_site": "hssd_object_011_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_012",
@@ -214,7 +214,7 @@
         5.397779619826082,
         3.217327559923433e-07
       ],
-      "grasp_site": "hssd_object_012_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_013",
@@ -240,7 +240,7 @@
         0.2861849793085458,
         1.705795504847174e-08
       ],
-      "grasp_site": "hssd_object_014_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_015",
@@ -253,7 +253,7 @@
         0.2997349918046588,
         1.7865598778143976e-08
       ],
-      "grasp_site": "hssd_object_015_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_016",
@@ -305,7 +305,7 @@
         5.41924968843162,
         3.2301247188115667e-07
       ],
-      "grasp_site": "hssd_object_019_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_020",
@@ -318,7 +318,7 @@
         6.1177903343563855,
         3.646487414243893e-07
       ],
-      "grasp_site": "hssd_object_020_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_021",
@@ -331,7 +331,7 @@
         6.121549718287582,
         3.648728181815386e-07
       ],
-      "grasp_site": "hssd_object_021_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_022",
@@ -357,7 +357,7 @@
         0.5471799643528463,
         3.261446934743617e-08
       ],
-      "grasp_site": "hssd_object_023_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_024",
@@ -370,7 +370,7 @@
         1.328829924533963,
         7.920444033970853e-08
       ],
-      "grasp_site": "hssd_object_024_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_025",
@@ -383,7 +383,7 @@
         3.067171152402679,
         1.8281765790106874e-07
       ],
-      "grasp_site": "hssd_object_025_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_026",
@@ -396,7 +396,7 @@
         2.0089698786157353,
         0.40000010186255075
       ],
-      "grasp_site": "hssd_object_026_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_027",
@@ -526,7 +526,7 @@
         2.140729776577359,
         1.2759744549839525e-07
       ],
-      "grasp_site": "hssd_object_036_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_037",
@@ -539,7 +539,7 @@
         1.8847898313528333,
         1.1234223507017305e-07
       ],
-      "grasp_site": "hssd_object_037_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_038",
@@ -552,7 +552,7 @@
         0.9913899307614571,
         5.9091448179060535e-08
       ],
-      "grasp_site": "hssd_object_038_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_039",
@@ -591,7 +591,7 @@
         5.3148433378432,
         3.1678936807111313e-07
       ],
-      "grasp_site": "hssd_object_041_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_042",
@@ -604,7 +604,7 @@
         7.562083270425575,
         4.5073531396155886e-07
       ],
-      "grasp_site": "hssd_object_042_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_043",
@@ -643,7 +643,7 @@
         7.463349374333035,
         4.448503148068994e-07
       ],
-      "grasp_site": "hssd_object_045_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_046",
@@ -682,7 +682,7 @@
         6.7150397565936935,
         0.8400003239536424
       ],
-      "grasp_site": "hssd_object_048_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_049",
@@ -1892,12 +1892,72 @@
         1.1200003132891752
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -14.598338823784351,
+        0.5289992708833132,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -14.098338823784351,
+        1.8289992708833132,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -13.598338823784351,
+        0.5289992708833132,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        -13.098338823784351,
+        1.8289992708833132,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
     "model": "Hello Robot Stretch",
     "initial_pose": [
-      -13.84833882378435,
+      -13.848338823784351,
       1.1789992708833132,
       0.0
     ],
@@ -1907,9 +1967,9 @@
   "robot_include": "home_05_105515307_173104317_robot.xml",
   "preview": "home_05_105515307_173104317.png",
   "model": {
-    "textures": 215,
-    "materials": 493,
-    "meshes": 573,
-    "geoms": 817
+    "textures": 218,
+    "materials": 497,
+    "meshes": 581,
+    "geoms": 959
   }
 }

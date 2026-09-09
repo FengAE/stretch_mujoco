@@ -71,7 +71,7 @@
         5.1238999,
         1.7495702
       ],
-      "grasp_site": "hssd_object_001_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_002",
@@ -97,7 +97,7 @@
         1.9829125,
         1.1920928955078125e-07
       ],
-      "grasp_site": "hssd_object_003_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_004",
@@ -110,7 +110,7 @@
         1.9798563,
         1.1920928955078125e-07
       ],
-      "grasp_site": "hssd_object_004_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_005",
@@ -149,7 +149,7 @@
         3.2306966,
         1.7881393432617188e-07
       ],
-      "grasp_site": "hssd_object_007_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_008",
@@ -162,7 +162,7 @@
         2.079359,
         1.1920928955078125e-07
       ],
-      "grasp_site": "hssd_object_008_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_009",
@@ -357,7 +357,7 @@
         6.0199818,
         3.5762786865234375e-07
       ],
-      "grasp_site": "hssd_object_023_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_024",
@@ -370,7 +370,7 @@
         5.9971256,
         3.5762786865234375e-07
       ],
-      "grasp_site": "hssd_object_024_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_025",
@@ -383,7 +383,7 @@
         7.8843407,
         4.76837158203125e-07
       ],
-      "grasp_site": "hssd_object_025_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_026",
@@ -487,7 +487,7 @@
         6.0073838,
         3.5762786865234375e-07
       ],
-      "grasp_site": "hssd_object_033_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_034",
@@ -630,7 +630,7 @@
         9.1621875,
         0.7186048
       ],
-      "grasp_site": "hssd_object_044_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_045",
@@ -643,7 +643,7 @@
         8.9610681,
         2.980232238769531e-07
       ],
-      "grasp_site": "hssd_object_045_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_046",
@@ -682,7 +682,7 @@
         2.0283951,
         0.6559218
       ],
-      "grasp_site": "hssd_object_048_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_049",
@@ -695,7 +695,7 @@
         2.0981328,
         0.6560773
       ],
-      "grasp_site": "hssd_object_049_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_050",
@@ -708,7 +708,7 @@
         2.1728394,
         0.635352
       ],
-      "grasp_site": "hssd_object_050_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_051",
@@ -721,7 +721,7 @@
         2.0898056,
         1.0053795
       ],
-      "grasp_site": "hssd_object_051_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_052",
@@ -734,7 +734,7 @@
         2.0902328,
         0.9670783
       ],
-      "grasp_site": "hssd_object_052_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_053",
@@ -747,7 +747,7 @@
         2.089806,
         0.41973
       ],
-      "grasp_site": "hssd_object_053_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_054",
@@ -760,7 +760,7 @@
         2.0902333,
         0.381429
       ],
-      "grasp_site": "hssd_object_054_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_055",
@@ -773,7 +773,7 @@
         2.0901074,
         0.9312648
       ],
-      "grasp_site": "hssd_object_055_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_056",
@@ -786,7 +786,7 @@
         2.0901079,
         0.3456186
       ],
-      "grasp_site": "hssd_object_056_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_057",
@@ -1905,6 +1905,66 @@
         1.4500005
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -1.4040183346307797,
+        4.47611856296401,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -0.9040183346307797,
+        5.776118562964011,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -0.40401833463077974,
+        4.47611856296401,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        0.09598166536922026,
+        5.776118562964011,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
@@ -1920,9 +1980,9 @@
   "robot_include": "home_10_108294897_176710602_robot.xml",
   "preview": "home_10_108294897_176710602.png",
   "model": {
-    "textures": 186,
-    "materials": 486,
-    "meshes": 553,
-    "geoms": 798
+    "textures": 189,
+    "materials": 490,
+    "meshes": 561,
+    "geoms": 985
   }
 }

@@ -213,7 +213,7 @@
         2.9281600160503274,
         1.7453194800509664e-07
       ],
-      "grasp_site": "hssd_object_012_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_013",
@@ -278,7 +278,7 @@
         5.2996598899567005,
         3.158843639994302e-07
       ],
-      "grasp_site": "hssd_object_017_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_018",
@@ -343,7 +343,7 @@
         5.254349872210611,
         3.1318367632593436e-07
       ],
-      "grasp_site": "hssd_object_022_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_023",
@@ -421,7 +421,7 @@
         2.6337497594505557,
         0.7620001358836852
       ],
-      "grasp_site": "hssd_object_028_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_029",
@@ -447,7 +447,7 @@
         2.931869808920027,
         1.7475306890446518e-07
       ],
-      "grasp_site": "hssd_object_030_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_031",
@@ -473,7 +473,7 @@
         1.370040096638192,
         8.166075815552176e-08
       ],
-      "grasp_site": "hssd_object_032_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_033",
@@ -486,7 +486,7 @@
         1.3748698607164656,
         8.194863454491497e-08
       ],
-      "grasp_site": "hssd_object_033_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_034",
@@ -499,7 +499,7 @@
         1.370040096638192,
         8.166075815552176e-08
       ],
-      "grasp_site": "hssd_object_034_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_035",
@@ -512,7 +512,7 @@
         2.817865203746237,
         1.6795786450529704e-07
       ],
-      "grasp_site": "hssd_object_035_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_036",
@@ -525,7 +525,7 @@
         1.370040096638192,
         8.166075815552176e-08
       ],
-      "grasp_site": "hssd_object_036_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_037",
@@ -564,7 +564,7 @@
         2.87340981522739,
         1.7126858153915236e-07
       ],
-      "grasp_site": "hssd_object_039_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_040",
@@ -590,7 +590,7 @@
         8.435499642163506,
         5.027949896430073e-07
       ],
-      "grasp_site": "hssd_object_041_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_042",
@@ -694,7 +694,7 @@
         0.5606399440383925,
         3.341674670309658e-08
       ],
-      "grasp_site": "hssd_object_049_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_050",
@@ -759,7 +759,7 @@
         6.363329508106119,
         3.7928401752651553e-07
       ],
-      "grasp_site": "hssd_object_054_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_055",
@@ -941,7 +941,7 @@
         2.7138095668667717,
         1.6175566486253956e-07
       ],
-      "grasp_site": "hssd_object_068_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_069",
@@ -1019,7 +1019,7 @@
         1.07004005789517,
         1.7499999594712392
       ],
-      "grasp_site": "hssd_object_074_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_075",
@@ -1032,7 +1032,7 @@
         3.521630077264888,
         2.0990552229704917e-07
       ],
-      "grasp_site": "hssd_object_075_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_076",
@@ -1045,7 +1045,7 @@
         3.6121051542696136,
         2.1529825744437403e-07
       ],
-      "grasp_site": "hssd_object_076_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_077",
@@ -1071,7 +1071,7 @@
         3.9661550542023605,
         2.36401277220466e-07
       ],
-      "grasp_site": "hssd_object_078_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_079",
@@ -1162,7 +1162,7 @@
         8.419019197284001,
         5.018126785216737e-07
       ],
-      "grasp_site": "hssd_object_085_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_086",
@@ -1488,6 +1488,66 @@
         0.9199999615573908
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -8.705221145335456,
+        3.7180400848388673,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -8.205221145335456,
+        5.0180400848388675,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -7.7052211453354555,
+        3.7180400848388673,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        -7.2052211453354555,
+        5.0180400848388675,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
@@ -1503,9 +1563,9 @@
   "robot_include": "home_03_103997403_171030405_robot.xml",
   "preview": "home_03_103997403_171030405.png",
   "model": {
-    "textures": 203,
-    "materials": 442,
-    "meshes": 508,
-    "geoms": 668
+    "textures": 206,
+    "materials": 446,
+    "meshes": 516,
+    "geoms": 796
   }
 }

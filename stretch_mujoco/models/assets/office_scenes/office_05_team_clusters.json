@@ -82,7 +82,7 @@
       "position": [
         -5.232479169254961,
         -1.4098006823194145,
-        0.5495491979681812
+        0.554827479923775
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -2.1050239410754785,
         -1.719979779561408,
-        0.5495491979602163
+        0.5531140748932809
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -132,7 +132,7 @@
       "position": [
         -5.8949759144592155,
         -3.570020242843854,
-        0.6059650023642938
+        0.6079650023642938
       ],
       "yaw": 0.0,
       "euler_correction": [
@@ -574,16 +574,5 @@
   ],
   "mjcf": "office_05_team_clusters.xml",
   "robot_include": "office_05_team_clusters_robot.xml",
-  "preview": "office_05_team_clusters.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 444,
-    "robot_start_xyz": [
-      -8.7,
-      3.7,
-      0.0
-    ]
-  }
+  "preview": "office_05_team_clusters.png"
 }

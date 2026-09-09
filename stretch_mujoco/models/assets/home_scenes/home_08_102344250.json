@@ -71,7 +71,7 @@
         6.9552092,
         4.172325134277344e-07
       ],
-      "grasp_site": "hssd_object_001_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_002",
@@ -84,7 +84,7 @@
         7.0525393,
         4.172325134277344e-07
       ],
-      "grasp_site": "hssd_object_002_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_003",
@@ -97,7 +97,7 @@
         15.8191089,
         9.5367431640625e-07
       ],
-      "grasp_site": "hssd_object_003_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_004",
@@ -110,7 +110,7 @@
         13.844839,
         8.344650268554688e-07
       ],
-      "grasp_site": "hssd_object_004_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_005",
@@ -123,7 +123,7 @@
         8.174077,
         5.364418029785156e-07
       ],
-      "grasp_site": "hssd_object_005_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_006",
@@ -136,7 +136,7 @@
         5.7129096,
         3.5762786865234375e-07
       ],
-      "grasp_site": "hssd_object_006_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_007",
@@ -175,7 +175,7 @@
         0.7251099,
         5.960464477539063e-08
       ],
-      "grasp_site": "hssd_object_009_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_010",
@@ -188,7 +188,7 @@
         0.4723699,
         0.0
       ],
-      "grasp_site": "hssd_object_010_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_011",
@@ -201,7 +201,7 @@
         8.7704191,
         4.76837158203125e-07
       ],
-      "grasp_site": "hssd_object_011_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_012",
@@ -214,7 +214,7 @@
         15.642374,
         9.238719940185547e-07
       ],
-      "grasp_site": "hssd_object_012_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_013",
@@ -435,7 +435,7 @@
         4.8479094,
         2.980232238769531e-07
       ],
-      "grasp_site": "hssd_object_029_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_030",
@@ -448,7 +448,7 @@
         14.114109,
         8.344650268554688e-07
       ],
-      "grasp_site": "hssd_object_030_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_031",
@@ -500,7 +500,7 @@
         0.6799999,
         4.470348358154297e-08
       ],
-      "grasp_site": "hssd_object_034_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_035",
@@ -1072,7 +1072,7 @@
         0.5031899,
         2.9802322387695312e-08
       ],
-      "grasp_site": "hssd_object_078_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_079",
@@ -1111,7 +1111,7 @@
         15.0571393,
         8.940696716308594e-07
       ],
-      "grasp_site": "hssd_object_081_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_082",
@@ -1124,7 +1124,7 @@
         4.2242794,
         2.384185791015625e-07
       ],
-      "grasp_site": "hssd_object_082_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_083",
@@ -1137,7 +1137,7 @@
         9.0318794,
         5.364418029785156e-07
       ],
-      "grasp_site": "hssd_object_083_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_084",
@@ -1215,7 +1215,7 @@
         10.0815486,
         5.960464477539062e-07
       ],
-      "grasp_site": "hssd_object_089_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_090",
@@ -1228,7 +1228,7 @@
         10.0815486,
         5.960464477539062e-07
       ],
-      "grasp_site": "hssd_object_090_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_091",
@@ -1241,7 +1241,7 @@
         8.5784492,
         5.066394805908203e-07
       ],
-      "grasp_site": "hssd_object_091_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_092",
@@ -3114,6 +3114,66 @@
         1.4500008
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -10.098851680755615,
+        7.403340292693194,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -9.598851680755615,
+        8.703340292693195,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -9.098851680755615,
+        7.403340292693194,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        -8.598851680755615,
+        8.703340292693195,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
@@ -3129,9 +3189,9 @@
   "robot_include": "home_08_102344250_robot.xml",
   "preview": "home_08_102344250.png",
   "model": {
-    "textures": 138,
-    "materials": 425,
-    "meshes": 495,
-    "geoms": 1280
+    "textures": 141,
+    "materials": 429,
+    "meshes": 503,
+    "geoms": 1596
   }
 }

@@ -27,6 +27,10 @@ from stretch_mujoco.habitat_scene_gallery import (
     DEFAULT_HSSD_ROOT,
     prepare_habitat_scene,
 )
+try:
+    from office_interactive_assets import interactive_euler, load_interactive_assets
+except ModuleNotFoundError:
+    from tools.office_interactive_assets import interactive_euler, load_interactive_assets
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +53,7 @@ DEFAULT_SCENE_IDS = (
     "104862513_172226580",
     "108294897_176710602",
 )
+HOME_INTERACTIVE_IDS = ("001_bottle", "035_apple", "071_can", "043_book")
 
 
 def _numbers(values: tuple[float, ...] | np.ndarray) -> str:
@@ -115,6 +120,44 @@ def _render_preview(xml_path: Path, output_path: Path) -> dict[str, int]:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(output_path), cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
     return {"textures": model.ntex, "materials": model.nmat, "meshes": model.nmesh, "geoms": model.ngeom}
+
+
+def _add_interactive_objects(xml_path: Path, bounds: np.ndarray) -> list[dict]:
+    """Add a small office-compatible dynamic object set to an imported home."""
+    tree = ET.parse(xml_path)
+    root = tree.getroot()
+    assets_node = root.find("asset")
+    world = root.find("worldbody")
+    if assets_node is None or world is None:
+        raise RuntimeError(f"{xml_path}: missing asset/worldbody")
+    pool = {asset.asset_id: asset for asset in load_interactive_assets()}
+    selected = [pool[asset_id] for asset_id in HOME_INTERACTIVE_IDS if asset_id in pool]
+    existing = {node.get("name") for node in assets_node}
+    for asset in selected:
+        for definition in asset.definitions:
+            if definition.attributes.get("name") not in existing:
+                ET.SubElement(assets_node, definition.tag, **definition.attributes)
+                existing.add(definition.attributes.get("name"))
+    center = np.asarray(bounds, dtype=float).mean(axis=0)
+    records = []
+    for index, asset in enumerate(selected):
+        object_id = f"{asset.asset_id}_home_{index:02d}"
+        x = float(center[0] + (-0.75 + 0.5 * index))
+        y = float(center[1] + (0.65 if index % 2 else -0.65))
+        z = max(0.0, float(-asset.bounds[0, 2]))
+        body = ET.SubElement(world, "body", name=object_id, pos=_numbers((x, y, z)))
+        ET.SubElement(body, "freejoint", name=f"{object_id}_freejoint")
+        orientation = ET.SubElement(body, "body", name=f"{object_id}_orientation", euler=_numbers(interactive_euler(asset.asset_id)))
+        visual = {"name": f"{object_id}_visual", "type": "mesh", "mesh": asset.visual_mesh, "mass": str(asset.mass_kg), "contype": "0", "conaffinity": "0", "group": "2"}
+        if asset.material:
+            visual["material"] = asset.material
+        ET.SubElement(orientation, "geom", **visual)
+        ET.SubElement(orientation, "geom", name=f"{object_id}_collision", type="mesh", mesh=asset.collision_mesh, mass="0", contype="1", conaffinity="1", friction=asset.friction, rgba="0 0 0 0")
+        site = ET.SubElement(orientation, "site", name=f"{object_id}_grasp_site", pos=_numbers((0, 0, max(0.01, asset.height * 0.5))), size="0.018", rgba="0 0 0 0")
+        records.append({"object_id": object_id, "asset_id": asset.asset_id, "name": asset.name, "category": "interactive_objects", "position": [x, y, z], "mass_kg": asset.mass_kg, "dynamic": True, "graspable": True, "grasp_site": site.get("name")})
+    ET.indent(root, space="  ")
+    tree.write(xml_path, encoding="unicode", xml_declaration=False)
+    return records
 
 
 def _write_readme(output_dir: Path) -> None:
@@ -184,12 +227,13 @@ def generate(
             stage_alpha=1.0,
             include_stage=True,
             include_collision=True,
-            include_grasp_sites=True,
+            include_grasp_sites=False,
             rebuild=rebuild,
             ktx_command=ktx_command,
         )
         scene_xml = output / f"{scene_name}.xml"
         shutil.copy2(prepared.xml_path, scene_xml)
+        interactive_records = _add_interactive_objects(scene_xml, prepared.bounds)
         yaw = (index - 1) % 4 * (math.pi / 2)
         robot_xml, robot_start = _write_robot_include(output, scene_name, prepared.bounds, yaw)
         _add_robot_include(scene_xml, robot_xml, scene_name)
@@ -218,7 +262,7 @@ def generate(
                     ],
                 }
             ],
-            "assets": prepared.object_records,
+            "assets": prepared.object_records + interactive_records,
             "robot": {
                 "model": "Hello Robot Stretch",
                 "initial_pose": list(robot_start),

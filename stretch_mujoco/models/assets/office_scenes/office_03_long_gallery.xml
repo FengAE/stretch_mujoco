@@ -604,29 +604,26 @@
         <geom name="nav_collision_000_093" type="mesh" mesh="new_cb_desk_2400_mesh_031" mass="0" shellinertia="true" contype="1" conaffinity="1" group="3" rgba="0 0 0 0" friction="0.9 0.01 0.001" />
       </body>
     </body>
-    <body name="101_milk-tea_001" pos="-7.32002022 1.56372765 0.549871344" euler="0 0 1.57079633">
+    <body name="101_milk-tea_001" pos="-7.32002022 1.56372765 0.553460912" euler="0 0 1.57079633">
       <freejoint name="101_milk-tea_001_freejoint" />
-      <body name="101_milk-tea_001_orientation" euler="3.14159265 0 0">
-        <geom name="101_milk-tea_001_visual" type="mesh" mesh="interactive_101_milk_tea_mesh_000" mass="0.4837" contype="0" conaffinity="0" group="2" material="interactive_101_milk_tea_material_000" />
-        <geom name="101_milk-tea_001_collision" type="mesh" mesh="interactive_101_milk_tea_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="101_milk-tea_001_grasp_site" pos="0 0 0.0899999961" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-0.00161082575 -0.000102086736 0.0896670883" mass="0.4837" diaginertia="0.00182111239 0.00182200585 0.000938694343" />
+      <geom name="101_milk-tea_001_visual" type="mesh" mesh="interactive_101_milk_tea_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="3.14159265 0 0" material="interactive_101_milk_tea_material_000" />
+      <geom name="101_milk-tea_001_collision" type="box" pos="-0.00161082575 -0.000102086736 0.0896670883" size="0.0539791787 0.0539278248 0.0915788042" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="101_milk-tea_001_grasp_site" pos="0 0 0.0899999961" size="0.018" rgba="0 0 0 0" />
     </body>
-    <body name="043_book_002" pos="-5.44980068 1.56372765 0.549549198" euler="0 0 1.57079633">
+    <body name="043_book_002" pos="-5.44980068 1.56372765 0.553114075" euler="0 0 1.57079633">
       <freejoint name="043_book_002_freejoint" />
-      <body name="043_book_002_orientation" euler="1.57079633 0 0">
-        <geom name="043_book_002_visual" type="mesh" mesh="interactive_043_book_mesh_000" mass="1.06" contype="0" conaffinity="0" group="2" material="interactive_043_book_material_000" />
-        <geom name="043_book_002_collision" type="mesh" mesh="interactive_043_book_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="043_book_002_grasp_site" pos="0 0 0.120000001" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="0.000500078821 -0.000114280866 0.0284187636" mass="1.06" diaginertia="0.00549679303 0.00324223944 0.00810372586" />
+      <geom name="043_book_002_visual" type="mesh" mesh="interactive_043_book_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="1.57079633 0 0" material="interactive_043_book_material_000" />
+      <geom name="043_book_002_collision" type="box" pos="0.000500078821 -0.000114280866 0.0284187636" size="0.090978737 0.121069991 0.029983642" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="043_book_002_grasp_site" pos="0 0 0.120000001" size="0.018" rgba="0 0 0 0" />
     </body>
-    <body name="017_calculator_003" pos="-5.44980068 1.89497606 0.549549197" euler="0 0 1.57079633">
+    <body name="017_calculator_003" pos="-5.44980068 1.89497606 0.552923479" euler="0 0 1.57079633">
       <freejoint name="017_calculator_003_freejoint" />
-      <body name="017_calculator_003_orientation" euler="1.57079633 0 0">
-        <geom name="017_calculator_003_visual" type="mesh" mesh="interactive_017_calculator_mesh_000" mass="0.1535" contype="0" conaffinity="0" group="2" material="interactive_017_calculator_material_000" />
-        <geom name="017_calculator_003_collision" type="mesh" mesh="interactive_017_calculator_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="017_calculator_003_grasp_site" pos="0 0 0.074999999" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="6.90588593e-07 -8.19916101e-05 0.0285401818" mass="0.1535" diaginertia="0.000343282563 0.000149779868 0.000401486872" />
+      <geom name="017_calculator_003_visual" type="mesh" mesh="interactive_017_calculator_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="1.57079633 0 0" material="interactive_017_calculator_material_000" />
+      <geom name="017_calculator_003_collision" type="box" pos="6.90588593e-07 -8.19916101e-05 0.0285401818" size="0.0450823543 0.0762511003 0.0299144643" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="017_calculator_003_grasp_site" pos="0 0 0.074999999" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="procedural_plant_004" pos="-2.5 4.5 0">
       <geom type="cylinder" pos="0 0 0.2" size="0.18 0.2" material="plant_pot" />
@@ -862,43 +859,38 @@
     </body>
     <body name="025_chips-tub_023" pos="8.16 0.18 0.781644752" euler="0 0 0">
       <freejoint name="025_chips-tub_023_freejoint" />
-      <body name="025_chips-tub_023_orientation" euler="0 0 0">
-        <geom name="025_chips-tub_023_visual" type="mesh" mesh="interactive_025_chips_tub_mesh_000" mass="0.3835" contype="0" conaffinity="0" group="2" material="interactive_025_chips_tub_material_000" />
-        <geom name="025_chips-tub_023_collision" type="mesh" mesh="interactive_025_chips_tub_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="025_chips-tub_023_grasp_site" pos="0 0 0.0899999984" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-0.000925165981 3.25371912e-05 0.0898953397" mass="0.3835" diaginertia="0.00126194011 0.00128026864 0.000399827331" />
+      <geom name="025_chips-tub_023_visual" type="mesh" mesh="interactive_025_chips_tub_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="0 0 0" material="interactive_025_chips_tub_material_000" />
+      <geom name="025_chips-tub_023_collision" type="box" pos="-0.000925165981 3.25371912e-05 0.0898953397" size="0.0404419456 0.0386286503 0.0915400916" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="025_chips-tub_023_grasp_site" pos="0 0 0.0899999984" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="038_milk-box_024" pos="8.16 -0.18 0.781969052" euler="0 0 0">
       <freejoint name="038_milk-box_024_freejoint" />
-      <body name="038_milk-box_024_orientation" euler="0 0 0">
-        <geom name="038_milk-box_024_visual" type="mesh" mesh="interactive_038_milk_box_mesh_000" mass="0.8473" contype="0" conaffinity="0" group="2" material="interactive_038_milk_box_material_000" />
-        <geom name="038_milk-box_024_collision" type="mesh" mesh="interactive_038_milk_box_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="038_milk-box_024_grasp_site" pos="0 0 0.0999999954" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-0.000339759061 3.78531715e-05 0.0993369585" mass="0.8473" diaginertia="0.00382115859 0.00373476356 0.0017587476" />
+      <geom name="038_milk-box_024_visual" type="mesh" mesh="interactive_038_milk_box_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="0 0 0" material="interactive_038_milk_box_material_000" />
+      <geom name="038_milk-box_024_collision" type="box" pos="-0.000339759061 3.78531715e-05 0.0993369585" size="0.0544115313 0.0571533902 0.101306011" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="038_milk-box_024_grasp_site" pos="0 0 0.0999999954" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="035_apple_025" pos="6.93 -0.18 0.81879787" euler="0 0 0">
       <freejoint name="035_apple_025_freejoint" />
-      <body name="035_apple_025_orientation" euler="0 0 0">
-        <geom name="035_apple_025_visual" type="mesh" mesh="interactive_035_apple_mesh_000" mass="0.147" contype="0" conaffinity="0" group="2" material="interactive_035_apple_material_000" />
-        <geom name="035_apple_025_collision" type="mesh" mesh="interactive_035_apple_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="035_apple_025_grasp_site" pos="0 0 0.0381131368" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-1.27737938e-10 0.0403917779 4.35301743e-10" mass="0.147" diaginertia="0.000153701743 0.000154848468 0.000161033283" />
+      <geom name="035_apple_025_visual" type="mesh" mesh="interactive_035_apple_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="0 0 0" material="interactive_035_apple_material_000" />
+      <geom name="035_apple_025_collision" type="box" pos="-1.27737938e-10 0.0403917779 4.35301743e-10" size="0.0406804382 0.040391775 0.0387978708" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="035_apple_025_grasp_site" pos="0 0 0.0381131368" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="075_bread_026" pos="8.57 0.18 0.781832863" euler="0 0 0">
       <freejoint name="075_bread_026_freejoint" />
-      <body name="075_bread_026_orientation" euler="1.57079633 0 0">
-        <geom name="075_bread_026_visual" type="mesh" mesh="interactive_075_bread_mesh_000" mass="0.9058" contype="0" conaffinity="0" group="2" material="interactive_075_bread_material_000" />
-        <geom name="075_bread_026_collision" type="mesh" mesh="interactive_075_bread_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="075_bread_026_grasp_site" pos="0 0 0.0999999986" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-4.90846232e-06 7.36684974e-07 0.0420307086" mass="0.9058" diaginertia="0.00370505743 0.00364552918 0.00618873936" />
+      <geom name="075_bread_026_visual" type="mesh" mesh="interactive_075_bread_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="1.57079633 0 0" material="interactive_075_bread_material_000" />
+      <geom name="075_bread_026_collision" type="box" pos="-4.90846232e-06 7.36684974e-07 0.0420307086" size="0.100746916 0.101720687 0.0438635713" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="075_bread_026_grasp_site" pos="0 0 0.0999999986" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="071_can_027" pos="6.93 0.18 0.780922444" euler="0 0 0">
       <freejoint name="071_can_027_freejoint" />
-      <body name="071_can_027_orientation" euler="0 0 0">
-        <geom name="071_can_027_visual" type="mesh" mesh="interactive_071_can_mesh_000" mass="0.1571" contype="0" conaffinity="0" group="2" material="interactive_071_can_material_000" />
-        <geom name="071_can_027_collision" type="mesh" mesh="interactive_071_can_mesh_001" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
-        <site name="071_can_027_grasp_site" pos="0 0 0.0600000017" size="0.018" rgba="0 0 0 0" />
-      </body>
+      <inertial pos="-0.00113695649 4.89799773e-05 0.0598295839" mass="0.1571" diaginertia="0.000246437142 0.000248469285 0.000108355711" />
+      <geom name="071_can_027_visual" type="mesh" mesh="interactive_071_can_mesh_000" mass="0" contype="0" conaffinity="0" group="2" euler="0 0 0" material="interactive_071_can_material_000" />
+      <geom name="071_can_027_collision" type="box" pos="-0.00113695649 4.89799773e-05 0.0598295839" size="0.0324652075 0.0318619468 0.0607520278" mass="0" contype="1" conaffinity="1" friction="0.5 .005 0.01" rgba="0 0 0 0" />
+      <site name="071_can_027_grasp_site" pos="0 0 0.0600000017" size="0.018" rgba="0 0 0 0" />
     </body>
     <body name="snack_cabinet_029" pos="5.65 4.55 0">
       <geom type="box" pos="0 0 0.6" size="0.55 0.28 0.6" material="snack_cabinet" />

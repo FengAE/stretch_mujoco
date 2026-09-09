@@ -22,7 +22,6 @@ import numpy as np
 from office_interactive_assets import (
     INTERACTIVE_ROTATION_CORRECTIONS,
     InteractiveAsset,
-    corrected_interactive_bounds,
     corrected_interactive_collision_bounds,
     interactive_euler,
     load_interactive_assets,
@@ -1131,7 +1130,7 @@ class Furnisher:
         yaw: float = 0.0,
         support: str | None = None,
     ) -> str:
-        """Place a real freejoint object with visual/collision meshes."""
+        """Place a real freejoint object with a mesh visual and stable box collision."""
         index = self.instance_count
         self.instance_count += 1
         object_id = f"{asset.asset_id}_{index:03d}"
@@ -1143,30 +1142,45 @@ class Furnisher:
             euler=numbers((0.0, 0.0, yaw)),
         )
         ET.SubElement(body, "freejoint", name=f"{object_id}_freejoint")
-        orientation = ET.SubElement(
-            body,
-            "body",
-            name=f"{object_id}_orientation",
-            euler=numbers(interactive_euler(asset.asset_id)),
+        collision_bounds = corrected_interactive_collision_bounds(asset)
+        collision_size = np.maximum(collision_bounds[1] - collision_bounds[0], 0.004)
+        collision_center = (collision_bounds[0] + collision_bounds[1]) / 2
+        # Mesh-derived inertia and contact can be poorly conditioned for thin
+        # or non-watertight imported meshes (notably keyboards and cans),
+        # amplifying ordinary desk contacts into huge angular accelerations.
+        # Use the collision mesh's corrected AABB for both inertia and contact.
+        dx, dy, dz = collision_size
+        inertia = asset.mass_kg / 12.0 * np.asarray(
+            (dy * dy + dz * dz, dx * dx + dz * dz, dx * dx + dy * dy)
         )
+        ET.SubElement(
+            body,
+            "inertial",
+            pos=numbers(collision_center),
+            mass=numbers((asset.mass_kg,)),
+            diaginertia=numbers(np.maximum(inertia, 1e-6)),
+        )
+        orientation_euler = numbers(interactive_euler(asset.asset_id))
         visual_attrs = {
             "name": f"{object_id}_visual",
             "type": "mesh",
             "mesh": asset.visual_mesh,
-            "mass": numbers((asset.mass_kg,)),
+            "mass": "0",
             "contype": "0",
             "conaffinity": "0",
             "group": "2",
+            "euler": orientation_euler,
         }
         if asset.material:
             visual_attrs["material"] = asset.material
-        ET.SubElement(orientation, "geom", **visual_attrs)
+        ET.SubElement(body, "geom", **visual_attrs)
         ET.SubElement(
-            orientation,
+            body,
             "geom",
             name=f"{object_id}_collision",
-            type="mesh",
-            mesh=asset.collision_mesh,
+            type="box",
+            pos=numbers(collision_center),
+            size=numbers(collision_size / 2),
             mass="0",
             contype="1",
             conaffinity="1",
@@ -1174,7 +1188,7 @@ class Furnisher:
             rgba="0 0 0 0",
         )
         ET.SubElement(
-            orientation,
+            body,
             "site",
             name=f"{object_id}_grasp_site",
             pos=numbers((0, 0, max(0.01, asset.height * 0.5))),
@@ -1257,8 +1271,12 @@ def _place_random_workstation_objects(
         # These boxes are checked in the unrotated pod frame.  The pod yaw is
         # applied only when converting the accepted local position to world
         # coordinates below.
+        # The collision mesh is the geometry MuJoCo actually resolves against
+        # the desk.  Some imported grasp meshes have a slightly lower
+        # collision hull than their render mesh; anchoring from the visual
+        # bounds therefore starts the freejoint body interpenetrating the
+        # desktop and can produce an explosive contact impulse on frame one.
         corrected_bounds = corrected_interactive_collision_bounds(asset)
-        visual_bounds = corrected_interactive_bounds(asset)
         candidate_order = list(candidates)
         rng.shuffle(candidate_order)
         for local_x, local_y, worktop_lo, worktop_hi in candidate_order:
@@ -1280,7 +1298,13 @@ def _place_random_workstation_objects(
             # monitors and would float objects roughly 25 cm above the desk.
             # Collision meshes can extend below the visual mesh by a few mm;
             # use the rendered mesh's true lowest point for visual contact.
-            local_z = float(worktop_surface_z - visual_bounds[0, 2])
+            # Keep the collision hull (rather than merely the visible mesh)
+            # just above the desktop.  The tiny clearance avoids numerical
+            # penetration while remaining visually flush; the settling
+            # dynamics can then establish stable contact without launching
+            # the object.
+            collision_clearance = 0.002
+            local_z = float(worktop_surface_z - corrected_bounds[0, 2] + collision_clearance)
             world_xy = np.asarray((x, y)) + np.asarray(
                 (math.cos(yaw) * local_x - math.sin(yaw) * local_y,
                  math.sin(yaw) * local_x + math.cos(yaw) * local_y)

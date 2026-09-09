@@ -13,6 +13,7 @@ from typing import Any
 
 import mujoco
 import numpy as np
+import trimesh
 
 from stretch_mujoco.gltf_material_converter import (
     HABITAT_TO_MUJOCO,
@@ -185,6 +186,107 @@ def _transform_bounds(
     return np.stack((transformed.min(axis=0), transformed.max(axis=0)))
 
 
+def _add_stage_wall_collisions(world: ET.Element, stage_asset: ConvertedGltfAsset) -> int:
+    """Approximate structural HSSD wall components with non-degenerate boxes.
+
+    MuJoCo convexifies collision meshes. Several HSSD stage parts (ceilings,
+    floors and wall caps) are exactly planar, which makes QHull fail. Connected
+    component AABBs avoid that failure while preserving the vertical barriers
+    needed by the MuJoCo navigation grid.
+    """
+    count = 0
+    for part in stage_asset.parts:
+        loaded = trimesh.load(part.obj_path, force="mesh", process=False)
+        if not isinstance(loaded, trimesh.Trimesh) or loaded.is_empty:
+            continue
+        for component in loaded.split(only_watertight=False):
+            lo, hi = np.asarray(component.bounds, dtype=float)
+            extent = hi - lo
+            horizontal = np.sort(extent[:2])
+            # HSSD walls are tall, thin vertical components. Ignore floors,
+            # ceilings, trim, and large non-wall aggregates.
+            if extent[2] < 1.0 or horizontal[0] > 0.35 or horizontal[1] < 0.25:
+                continue
+            center = (lo + hi) / 2.0
+            half = np.maximum(extent / 2.0, (0.025, 0.025, 0.025))
+            ET.SubElement(
+                world,
+                "geom",
+                name=f"habitat_wall_collision_{count:04d}",
+                type="box",
+                pos=_numbers(center),
+                size=_numbers(half),
+                rgba="0 0 0 0",
+                contype="1",
+                conaffinity="1",
+                group="3",
+            )
+            count += 1
+    return count
+
+
+def _mesh_world_vertices(obj_path: Path) -> np.ndarray:
+    """World-space vertices MuJoCo renders for `obj_path` at pos=0, quat=identity."""
+    xml = (
+        f'<mujoco><asset><mesh name="m" file="{obj_path.resolve()}"/></asset>'
+        '<worldbody><geom name="g" type="mesh" mesh="m" mass="0" '
+        'contype="0" conaffinity="0"/></worldbody></mujoco>'
+    )
+    model = mujoco.MjModel.from_xml_string(xml)
+    data = mujoco.MjData(model)
+    mujoco.mj_forward(model, data)
+    return model.mesh_vert @ data.geom_xmat[0].reshape(3, 3).T + data.geom_xpos[0]
+
+
+def _stage_part_pose_correction(obj_path: Path) -> tuple[np.ndarray, np.ndarray] | None:
+    """geom pos/quat that reproduce this OBJ's own authored world coordinates.
+
+    MuJoCo derives each mesh's own center/orientation frame from its
+    volumetric inertia to place a mesh geom correctly, even for a massless,
+    non-colliding visual geom -- that frame is an asset-level property, not a
+    per-geom one. HSSD stage parts are routinely paper-thin (wall caps, trim,
+    door frames) or merge several disconnected islands under one material;
+    for those the inertia estimate is ill-posed and MuJoCo silently compiles
+    the wrong frame, which visibly displaces the geom (walls detached from
+    their doors, clusters of walls collapsed into a corner) -- reproduced
+    even compiling the single mesh in isolation, so it's a MuJoCo mesh-
+    compile quirk, not something introduced by scene assembly.
+
+    Rather than depend on MuJoCo's estimate, measure the actual rigid
+    transform it applied to this specific mesh (by compiling it alone and
+    comparing to its own OBJ file) and return the pose that cancels it out,
+    so the geom renders at its true authored position regardless of how
+    degenerate the source mesh is. MuJoCo also splits vertices at hard edges
+    to compute flat-shaded normals, appending duplicates rather than
+    reordering, so the file's own N vertices are reliably the compiled
+    array's first N entries in the same order -- verified empirically to
+    match to floating-point precision -- which lets this use an exact,
+    correspondence-based Kabsch fit instead of a symmetry-prone heuristic.
+    Returns None if the fit's residual isn't tiny, leaving the part
+    unmodified rather than risking making it worse.
+    """
+    raw_vertices = np.asarray(
+        trimesh.load(obj_path, force="mesh", process=False).vertices, dtype=float
+    )
+    compiled_vertices = _mesh_world_vertices(obj_path)
+    if len(compiled_vertices) < len(raw_vertices):
+        return None
+    compiled_vertices = compiled_vertices[: len(raw_vertices)]
+    raw_mean = raw_vertices.mean(axis=0)
+    compiled_mean = compiled_vertices.mean(axis=0)
+    covariance = (compiled_vertices - compiled_mean).T @ (raw_vertices - raw_mean)
+    u, _, vt = np.linalg.svd(covariance)
+    handedness = np.sign(np.linalg.det(vt.T @ u.T)) or 1.0
+    rotation = vt.T @ np.diag((1.0, 1.0, handedness)) @ u.T
+    translation = raw_mean - rotation @ compiled_mean
+    residual = float(np.abs(compiled_vertices @ rotation.T + translation - raw_vertices).max())
+    if residual > 0.005:
+        return None
+    quat = np.empty(4)
+    mujoco.mju_mat2Quat(quat, rotation.reshape(-1))
+    return translation, quat
+
+
 def prepare_habitat_scene(
     *,
     scene_id: str = DEFAULT_SCENE_ID,
@@ -236,7 +338,7 @@ def prepare_habitat_scene(
 
     root = ET.Element("mujoco", model=f"Habitat scene {scene_id}")
     ET.SubElement(root, "compiler", angle="radian", balanceinertia="true")
-    ET.SubElement(root, "option", gravity="0 0 0")
+    ET.SubElement(root, "option", gravity="0 0 -9.81" if include_collision else "0 0 0")
     visual = ET.SubElement(root, "visual")
     ET.SubElement(
         visual,
@@ -291,20 +393,30 @@ def prepare_habitat_scene(
 
     world = ET.SubElement(root, "worldbody")
     if stage_asset is not None:
-        for part_index, material_name in enumerate(stage_materials):
-            ET.SubElement(
-                world,
-                "geom",
-                name=f"habitat_stage_visual_{part_index:03d}",
-                type="mesh",
-                mesh=f"habitat_stage_mesh_{part_index:03d}",
-                material=material_name,
-                contype="0",
-                conaffinity="0",
-                group="2",
-                shellinertia="true",
-                mass="0",
-            )
+        for part_index, (material_name, part) in enumerate(zip(stage_materials, stage_asset.parts)):
+            geom_attributes = {
+                "name": f"habitat_stage_visual_{part_index:03d}",
+                "type": "mesh",
+                "mesh": f"habitat_stage_mesh_{part_index:03d}",
+                "material": material_name,
+                "contype": "0",
+                "conaffinity": "0",
+                "group": "2",
+                # NOT shellinertia: on a mesh geom it makes MuJoCo apply the
+                # mesh's own (frequently degenerate/wrong, see
+                # _stage_part_pose_correction) inertial-frame compensation a
+                # second time on top of this geom's pos/quat -- confirmed by
+                # a minimal repro -- which is moot anyway for a mass="0" geom.
+                "mass": "0",
+            }
+            correction = _stage_part_pose_correction(part.obj_path)
+            if correction is not None:
+                pos, quat = correction
+                geom_attributes["pos"] = _numbers(pos)
+                geom_attributes["quat"] = _numbers(quat)
+            ET.SubElement(world, "geom", **geom_attributes)
+        if include_collision:
+            _add_stage_wall_collisions(world, stage_asset)
 
     all_bounds = [stage_asset.bounds] if stage_asset is not None else []
     category_counts: dict[str, int] = {}
@@ -343,12 +455,11 @@ def prepare_habitat_scene(
                 contype="0",
                 conaffinity="0",
                 group="2",
-                shellinertia="true",
                 mass="0",
             )
         local_bounds = np.asarray(template.asset.bounds, dtype=float)
-        local_center = local_bounds.mean(axis=0)
-        local_half = np.maximum((local_bounds[1] - local_bounds[0]) / 2.0, 0.015)
+        local_center = local_bounds.mean(axis=0) * target_scale
+        local_half = np.maximum((local_bounds[1] - local_bounds[0]) / 2.0 * target_scale, 0.015)
         if include_collision:
             ET.SubElement(
                 body,
@@ -440,6 +551,16 @@ def prepare_habitat_scene(
         pos=_numbers((center[0], center[1] - radius * 1.05, max(10.0, radius * 0.75))),
         fovy="48",
     )
+    # habitat_top is meant to be a true top-down floor-plan view. A perspective
+    # camera makes the ~2.8 m tall opaque walls (and ceiling) visibly lean
+    # toward the image center relative to the floor and furniture near z=0,
+    # which reads as "misaligned" walls even though the geometry is correct.
+    # An orthographic projection removes that parallax entirely.
+    # MuJoCo's orthographic fovy is the *full* vertical extent of the view
+    # (in length units), not a half-extent, so match the wider of the two
+    # scene dimensions accounting for the render aspect ratio.
+    preview_aspect = 4.0 / 3.0  # matches the 640x480 preview renderer
+    top_full_extent = max(float(extent[1]), float(extent[0]) / preview_aspect)
     ET.SubElement(
         world,
         "camera",
@@ -447,7 +568,8 @@ def prepare_habitat_scene(
         mode="targetbody",
         target="scene_center",
         pos=_numbers((center[0], center[1], max(18.0, radius * 1.25))),
-        fovy="45",
+        orthographic="true",
+        fovy=f"{max(top_full_extent * 1.15, 3.0):.6g}",
     )
     ET.SubElement(root, "statistic", center=_numbers(center), extent=f"{radius:.6g}")
 

@@ -82,7 +82,7 @@
       "position": [
         -6.300199317680586,
         -1.2324791692549606,
-        0.6059650023642938
+        0.6079650023642938
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -107,7 +107,7 @@
       "position": [
         -4.699800682319413,
         1.2324792440767303,
-        0.5495491979602163
+        0.5531140748932809
       ],
       "yaw": 1.5707963267948966,
       "euler_correction": [
@@ -523,16 +523,5 @@
   ],
   "mjcf": "office_07_u_bench.xml",
   "robot_include": "office_07_u_bench_robot.xml",
-  "preview": "office_07_u_bench.png",
-  "model": {
-    "textures": 63,
-    "materials": 141,
-    "meshes": 208,
-    "geoms": 426,
-    "robot_start_xyz": [
-      -0.7,
-      -4.7,
-      0.0
-    ]
-  }
+  "preview": "office_07_u_bench.png"
 }

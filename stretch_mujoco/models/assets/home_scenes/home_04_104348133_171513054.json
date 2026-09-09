@@ -31,7 +31,7 @@
     [
       -3.8622498512268066,
       7.246000289916992,
-      3.068000355899293
+      3.0680003558992928
     ]
   ],
   "zones": [
@@ -83,7 +83,7 @@
         3.2440297337490307,
         1.2024401451104865
       ],
-      "grasp_site": "hssd_object_002_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_003",
@@ -135,7 +135,7 @@
         1.2300999623477438,
         7.331967566415187e-08
       ],
-      "grasp_site": "hssd_object_006_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_007",
@@ -174,7 +174,7 @@
         1.4706698971587429,
         8.76587620268765e-08
       ],
-      "grasp_site": "hssd_object_009_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_010",
@@ -213,7 +213,7 @@
         6.447939488414534,
         3.843271656478464e-07
       ],
-      "grasp_site": "hssd_object_012_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_013",
@@ -265,7 +265,7 @@
         2.114569776381856,
         1.2603818788647914e-07
       ],
-      "grasp_site": "hssd_object_016_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_017",
@@ -278,7 +278,7 @@
         4.587459691668151,
         1.2741301842528614
       ],
-      "grasp_site": "hssd_object_017_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_018",
@@ -291,7 +291,7 @@
         5.2147895029312465,
         0.9000002333396608
       ],
-      "grasp_site": "hssd_object_018_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_019",
@@ -304,7 +304,7 @@
         1.7660697838026351,
         1.0526596838644764e-07
       ],
-      "grasp_site": "hssd_object_019_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_020",
@@ -512,7 +512,7 @@
         5.3326894442623995,
         3.1785307896825543e-07
       ],
-      "grasp_site": "hssd_object_035_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_036",
@@ -525,7 +525,7 @@
         6.495749563232067,
         3.8717686834388587e-07
       ],
-      "grasp_site": "hssd_object_036_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_037",
@@ -538,7 +538,7 @@
         2.632249913677569,
         1.5689433041643497e-07
       ],
-      "grasp_site": "hssd_object_037_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_038",
@@ -551,7 +551,7 @@
         1.5019998847246185,
         8.952617491786441e-08
       ],
-      "grasp_site": "hssd_object_038_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_039",
@@ -590,7 +590,7 @@
         3.184029752669929,
         1.9050000476259044
       ],
-      "grasp_site": "hssd_object_041_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_042",
@@ -603,7 +603,7 @@
         5.023879591889383,
         1.905000157289507
       ],
-      "grasp_site": "hssd_object_042_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_043",
@@ -668,7 +668,7 @@
         3.104679637868415,
         1.8505333798657375e-07
       ],
-      "grasp_site": "hssd_object_047_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_048",
@@ -681,7 +681,7 @@
         3.8031096575790713,
         2.2668301369321853e-07
       ],
-      "grasp_site": "hssd_object_048_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_049",
@@ -694,7 +694,7 @@
         4.515889852291934,
         2.691680265343166e-07
       ],
-      "grasp_site": "hssd_object_049_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_050",
@@ -707,7 +707,7 @@
         5.220379518247853,
         3.1115888532440295e-07
       ],
-      "grasp_site": "hssd_object_050_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_051",
@@ -733,7 +733,7 @@
         1.412339960793254,
         8.418202668281083e-08
       ],
-      "grasp_site": "hssd_object_052_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_053",
@@ -785,7 +785,7 @@
         5.033069733794328,
         0.9000002225083179
       ],
-      "grasp_site": "hssd_object_056_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_057",
@@ -1371,6 +1371,66 @@
         1.5440004458820624
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -11.790526628494263,
+        3.378000052947503,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -11.290526628494263,
+        4.678000052947503,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -10.790526628494263,
+        3.378000052947503,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        -10.290526628494263,
+        4.678000052947503,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
@@ -1386,9 +1446,9 @@
   "robot_include": "home_04_104348133_171513054_robot.xml",
   "preview": "home_04_104348133_171513054.png",
   "model": {
-    "textures": 104,
-    "materials": 243,
-    "meshes": 317,
-    "geoms": 520
+    "textures": 107,
+    "materials": 247,
+    "meshes": 325,
+    "geoms": 655
   }
 }

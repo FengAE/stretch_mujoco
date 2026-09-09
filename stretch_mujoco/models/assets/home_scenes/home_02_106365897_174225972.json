@@ -70,7 +70,7 @@
         10.301949840667817,
         6.140440973467776e-07
       ],
-      "grasp_site": "hssd_object_001_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_002",
@@ -83,7 +83,7 @@
         11.237749383583662,
         6.698221000078775e-07
       ],
-      "grasp_site": "hssd_object_002_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_003",
@@ -96,7 +96,7 @@
         9.118092947119862,
         5.434807235360495e-07
       ],
-      "grasp_site": "hssd_object_003_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_004",
@@ -109,7 +109,7 @@
         21.873278267784144,
         1.303749058934045e-06
       ],
-      "grasp_site": "hssd_object_004_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_005",
@@ -122,7 +122,7 @@
         19.036999521434268,
         1.1346936616973835e-06
       ],
-      "grasp_site": "hssd_object_005_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_006",
@@ -317,7 +317,7 @@
         8.440219376074083,
         5.030763077229494e-07
       ],
-      "grasp_site": "hssd_object_020_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_021",
@@ -330,7 +330,7 @@
         5.7438699159699524,
         3.4236134638376825e-07
       ],
-      "grasp_site": "hssd_object_021_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_022",
@@ -343,7 +343,7 @@
         15.718688981611137,
         9.369069289277832e-07
       ],
-      "grasp_site": "hssd_object_022_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_023",
@@ -369,7 +369,7 @@
         15.658638974509245,
         9.333276693723747e-07
       ],
-      "grasp_site": "hssd_object_024_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_025",
@@ -382,7 +382,7 @@
         15.282374424792806,
         9.109005532081937e-07
       ],
-      "grasp_site": "hssd_object_025_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_026",
@@ -473,7 +473,7 @@
         17.898253327712155,
         1.0668190952856094e-06
       ],
-      "grasp_site": "hssd_object_032_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_033",
@@ -486,7 +486,7 @@
         20.501087874109203,
         1.2219601330798469e-06
       ],
-      "grasp_site": "hssd_object_033_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_034",
@@ -499,7 +499,7 @@
         12.647343835392917,
         7.538404815932154e-07
       ],
-      "grasp_site": "hssd_object_034_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_035",
@@ -525,7 +525,7 @@
         13.601289892119723,
         8.107001008283987e-07
       ],
-      "grasp_site": "hssd_object_036_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_037",
@@ -564,7 +564,7 @@
         9.698768962018516,
         0.491350543941234
       ],
-      "grasp_site": "hssd_object_039_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_040",
@@ -642,7 +642,7 @@
         21.374388374424598,
         1.2740129022859037e-06
       ],
-      "grasp_site": "hssd_object_045_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_046",
@@ -707,7 +707,7 @@
         22.098929041687825,
         1.3171988939575385e-06
       ],
-      "grasp_site": "hssd_object_050_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_051",
@@ -733,7 +733,7 @@
         6.126979462684403,
         3.651964561868226e-07
       ],
-      "grasp_site": "hssd_object_052_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_053",
@@ -746,7 +746,7 @@
         16.826079319353084,
         1.0029125405708328e-06
       ],
-      "grasp_site": "hssd_object_053_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_054",
@@ -759,7 +759,7 @@
         12.15960048677914,
         7.247687108247192e-07
       ],
-      "grasp_site": "hssd_object_054_grasp_site"
+      "grasp_site": null
     },
     {
       "object_id": "hssd_object_055",
@@ -1215,6 +1215,66 @@
         2.250000525358928
       ],
       "grasp_site": null
+    },
+    {
+      "object_id": "001_bottle_home_00",
+      "asset_id": "001_bottle",
+      "name": "001_bottle",
+      "category": "interactive_objects",
+      "position": [
+        -20.296205520629883,
+        13.87543044090271,
+        0.0
+      ],
+      "mass_kg": 0.487,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "001_bottle_home_00_grasp_site"
+    },
+    {
+      "object_id": "035_apple_home_01",
+      "asset_id": "035_apple",
+      "name": "035_apple",
+      "category": "interactive_objects",
+      "position": [
+        -19.796205520629883,
+        15.17543044090271,
+        0.0
+      ],
+      "mass_kg": 0.147,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "035_apple_home_01_grasp_site"
+    },
+    {
+      "object_id": "071_can_home_02",
+      "asset_id": "071_can",
+      "name": "071_can",
+      "category": "interactive_objects",
+      "position": [
+        -19.296205520629883,
+        13.87543044090271,
+        0.0
+      ],
+      "mass_kg": 0.1571,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "071_can_home_02_grasp_site"
+    },
+    {
+      "object_id": "043_book_home_03",
+      "asset_id": "043_book",
+      "name": "043_book",
+      "category": "interactive_objects",
+      "position": [
+        -18.796205520629883,
+        15.17543044090271,
+        0.0
+      ],
+      "mass_kg": 1.06,
+      "dynamic": true,
+      "graspable": true,
+      "grasp_site": "043_book_home_03_grasp_site"
     }
   ],
   "robot": {
@@ -1230,9 +1290,9 @@
   "robot_include": "home_02_106365897_174225972_robot.xml",
   "preview": "home_02_106365897_174225972.png",
   "model": {
-    "textures": 115,
-    "materials": 274,
-    "meshes": 378,
-    "geoms": 528
+    "textures": 118,
+    "materials": 278,
+    "meshes": 386,
+    "geoms": 650
   }
 }
