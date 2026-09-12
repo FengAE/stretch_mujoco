@@ -46,6 +46,8 @@ class ConvertedTemplate:
     source_glb: Path
     asset: ConvertedGltfAsset
     category: str
+    found_in: str = ""
+    semantic_name: str = ""
 
 
 @dataclass(frozen=True)
@@ -220,15 +222,16 @@ def _add_stage_wall_collisions(world: ET.Element, stage_asset: ConvertedGltfAsse
                 contype="1",
                 conaffinity="1",
                 group="3",
+                friction="1 0.01 0.001",
             )
             count += 1
     return count
 
 
-def _mesh_world_vertices(obj_path: Path) -> np.ndarray:
+def _mesh_world_vertices(obj_path: Path, scale: tuple[float, float, float] = (1.0, 1.0, 1.0)) -> np.ndarray:
     """World-space vertices MuJoCo renders for `obj_path` at pos=0, quat=identity."""
     xml = (
-        f'<mujoco><asset><mesh name="m" file="{obj_path.resolve()}"/></asset>'
+        f'<mujoco><asset><mesh name="m" file="{obj_path.resolve()}" scale="{_numbers(scale)}"/></asset>'
         '<worldbody><geom name="g" type="mesh" mesh="m" mass="0" '
         'contype="0" conaffinity="0"/></worldbody></mujoco>'
     )
@@ -238,17 +241,21 @@ def _mesh_world_vertices(obj_path: Path) -> np.ndarray:
     return model.mesh_vert @ data.geom_xmat[0].reshape(3, 3).T + data.geom_xpos[0]
 
 
-def _stage_part_pose_correction(obj_path: Path) -> tuple[np.ndarray, np.ndarray] | None:
+def _mesh_pose_correction(
+    obj_path: Path, scale: tuple[float, float, float] = (1.0, 1.0, 1.0)
+) -> tuple[np.ndarray, np.ndarray] | None:
     """geom pos/quat that reproduce this OBJ's own authored world coordinates.
 
     MuJoCo derives each mesh's own center/orientation frame from its
     volumetric inertia to place a mesh geom correctly, even for a massless,
     non-colliding visual geom -- that frame is an asset-level property, not a
-    per-geom one. HSSD stage parts are routinely paper-thin (wall caps, trim,
-    door frames) or merge several disconnected islands under one material;
-    for those the inertia estimate is ill-posed and MuJoCo silently compiles
-    the wrong frame, which visibly displaces the geom (walls detached from
-    their doors, clusters of walls collapsed into a corner) -- reproduced
+    per-geom one. HSSD stage parts and furniture/object parts alike are
+    routinely paper-thin (wall caps, trim, door frames, rugs, glass panes) or
+    merge several disconnected islands under one material (lamp posts,
+    mirrors); for those the inertia estimate is ill-posed and MuJoCo silently
+    compiles the wrong frame, which visibly displaces the geom (walls
+    detached from their doors, a lamp rendered a meter from its base, an
+    object floating above or sunk into the surface it sits on) -- reproduced
     even compiling the single mesh in isolation, so it's a MuJoCo mesh-
     compile quirk, not something introduced by scene assembly.
 
@@ -267,8 +274,8 @@ def _stage_part_pose_correction(obj_path: Path) -> tuple[np.ndarray, np.ndarray]
     """
     raw_vertices = np.asarray(
         trimesh.load(obj_path, force="mesh", process=False).vertices, dtype=float
-    )
-    compiled_vertices = _mesh_world_vertices(obj_path)
+    ) * np.asarray(scale, dtype=float)
+    compiled_vertices = _mesh_world_vertices(obj_path, scale)
     if len(compiled_vertices) < len(raw_vertices):
         return None
     compiled_vertices = compiled_vertices[: len(raw_vertices)]
@@ -309,6 +316,8 @@ def prepare_habitat_scene(
     scene = json.loads(scene_path.read_text(encoding="utf-8"))
     instances = scene.get("object_instances", [])
     categories = _semantic_categories(hssd_root)
+    with (hssd_root / "semantics" / "objects.csv").open(newline="", encoding="utf-8") as stream:
+        semantic_rows = list(csv.DictReader(stream))
 
     stage_config_path = hssd_root / f"{scene['stage_instance']['template_name']}.stage_config.json"
     stage_config = json.loads(stage_config_path.read_text(encoding="utf-8"))
@@ -331,9 +340,12 @@ def prepare_habitat_scene(
             cache_dir / "converted" / "objects" / _safe_name(template_name),
             ktx_command=ktx_command,
         )
-        raw_category = categories.get(_template_base_id(template_name), "default")
+        base_id = _template_base_id(template_name)
+        raw_category = categories.get(base_id, "default")
+        semantic_row = next((row for row in semantic_rows if row.get("id") == base_id), {})
         templates[template_name] = ConvertedTemplate(
-            template_name, source, converted, _material_category(raw_category)
+            template_name, source, converted, _material_category(raw_category),
+            semantic_row.get("foundIn", ""), semantic_row.get("name", "")
         )
 
     root = ET.Element("mujoco", model=f"Habitat scene {scene_id}")
@@ -370,6 +382,13 @@ def prepare_habitat_scene(
     }
 
     mesh_names: dict[tuple[str, tuple[float, ...], int], str] = {}
+    # Object instance meshes suffer the identical MuJoCo mesh-compile quirk
+    # documented on `_mesh_pose_correction`: multi-island or thin-shell props
+    # (lamp posts, rugs, mirror glass, ...) get silently displaced from their
+    # authored position. Correct each unique (template, scale, part) mesh once
+    # -- the correction is a property of the compiled mesh asset, so every
+    # instance sharing it needs the same local pos/quat fix-up.
+    mesh_corrections: dict[str, tuple[np.ndarray, np.ndarray] | None] = {}
     object_records: list[dict[str, Any]] = []
     grasp_site_count = 0
     for index, instance in enumerate(instances):
@@ -390,6 +409,9 @@ def prepare_habitat_scene(
                 file=str(part.obj_path.resolve()),
                 scale=_numbers(target_scale),
             )
+            mesh_corrections[mesh_name] = _mesh_pose_correction(
+                part.obj_path, tuple(float(v) for v in target_scale)
+            )
 
     world = ET.SubElement(root, "worldbody")
     if stage_asset is not None:
@@ -404,12 +426,12 @@ def prepare_habitat_scene(
                 "group": "2",
                 # NOT shellinertia: on a mesh geom it makes MuJoCo apply the
                 # mesh's own (frequently degenerate/wrong, see
-                # _stage_part_pose_correction) inertial-frame compensation a
+                # _mesh_pose_correction) inertial-frame compensation a
                 # second time on top of this geom's pos/quat -- confirmed by
                 # a minimal repro -- which is moot anyway for a mass="0" geom.
                 "mass": "0",
             }
-            correction = _stage_part_pose_correction(part.obj_path)
+            correction = _mesh_pose_correction(part.obj_path)
             if correction is not None:
                 pos, quat = correction
                 geom_attributes["pos"] = _numbers(pos)
@@ -445,18 +467,25 @@ def prepare_habitat_scene(
             diaginertia="0.001 0.001 0.001",
         )
         for part_index, material_name in enumerate(template_materials[template_name]):
-            ET.SubElement(
-                body,
-                "geom",
-                name=f"object_visual_{index:03d}_{part_index:03d}",
-                type="mesh",
-                mesh=mesh_names[(template_name, scale_key, part_index)],
-                material=material_name,
-                contype="0",
-                conaffinity="0",
-                group="2",
-                mass="0",
-            )
+            mesh_name = mesh_names[(template_name, scale_key, part_index)]
+            geom_attributes = {
+                "name": f"object_visual_{index:03d}_{part_index:03d}",
+                "type": "mesh",
+                "mesh": mesh_name,
+                "material": material_name,
+                "contype": "0",
+                "conaffinity": "0",
+                "group": "2",
+                # NOT shellinertia: see the identical note on the stage visual
+                # geoms above; this is likewise moot for a mass="0" geom.
+                "mass": "0",
+            }
+            correction = mesh_corrections.get(mesh_name)
+            if correction is not None:
+                pos, quat = correction
+                geom_attributes["pos"] = _numbers(pos)
+                geom_attributes["quat"] = _numbers(quat)
+            ET.SubElement(body, "geom", **geom_attributes)
         local_bounds = np.asarray(template.asset.bounds, dtype=float)
         local_center = local_bounds.mean(axis=0) * target_scale
         local_half = np.maximum((local_bounds[1] - local_bounds[0]) / 2.0 * target_scale, 0.015)
@@ -490,6 +519,24 @@ def prepare_habitat_scene(
                 rgba="0.9 0.2 0.1 0.35",
             )
             grasp_site_count += 1
+        semantic_text = (template.semantic_name + " " + template.found_in).lower()
+        # Kitchen islands/counters are HSSD-tagged "storage_furniture" (their
+        # defining feature is the cabinets below), but their flat top is just
+        # as usable a grasp surface as a "support_furniture" table/desk.
+        support_category_ok = template.category == "support_furniture" or (
+            template.category == "storage_furniture"
+            and any(token in semantic_text for token in ("island", "counter"))
+        )
+        # A "2 piece nesting" set, "3 piece" stacking tables, etc. are two or
+        # more separate tables of different heights merged into one HSSD
+        # instance/template. Its single AABB records only one flat top, but
+        # the actual surface height varies across its footprint -- an item
+        # anchored to that one height can end up hovering over the shorter
+        # piece or clipped into the taller one. Skip these rather than place
+        # anything on them.
+        is_multi_piece_set = any(
+            token in semantic_text for token in ("nesting", "2 piece", "3 piece", "piece set")
+        )
         object_records.append(
             {
                 "object_id": object_id,
@@ -497,13 +544,29 @@ def prepare_habitat_scene(
                 "template_name": template_name,
                 "name": template_name,
                 "category": template.category,
+                "semantic_name": template.semantic_name,
+                "found_in": template.found_in,
+                "support_surface": support_category_ok
+                and not is_multi_piece_set
+                and any(token in semantic_text
+                        for token in ("table", "desk", "counter", "console", "island")),
                 "position": position.tolist(),
+                # Furniture is frequently placed at a yaw other than 0/90/180/
+                # 270 degrees. Consumers that need the flat top surface (e.g.
+                # placing graspable objects on it) must sample candidate
+                # points in this body-local, axis-aligned frame and rotate
+                # them into world coordinates -- the world AABB in
+                # "bounds_mujoco" below is a looser box that can extend well
+                # past the table's actual (rotated) footprint.
+                "rotation": rotation.tolist(),
+                "local_bounds": (local_bounds * target_scale).tolist(),
                 "grasp_site": f"{object_id}_grasp_site" if graspable else None,
             }
         )
         all_bounds.append(
             _transform_bounds(template.asset.bounds, position, rotation, target_scale)
         )
+        object_records[-1]["bounds_mujoco"] = all_bounds[-1].tolist()
 
     bounds = np.stack(
         (
@@ -522,6 +585,7 @@ def prepare_habitat_scene(
         type="box",
         pos=_numbers((floor_center[0], floor_center[1], -0.06)),
         size=_numbers((floor_half[0], floor_half[1], 0.06)),
+        friction="1 0.01 0.001",
         rgba="0 0 0 0",
         contype="1",
         conaffinity="1",

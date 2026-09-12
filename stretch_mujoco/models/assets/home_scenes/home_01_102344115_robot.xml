@@ -206,7 +206,7 @@
     <mesh file="stretch/link_SG3_gripper_left_fingertip.stl" />
   </asset>
   <worldbody>
-    <body name="base_link" childclass="stretch" pos="-9.34885168 8.05334029 0" quat="-0.707106781 0 0 0.707106781">
+    <body name="base_link" childclass="stretch" pos="-3.77287976 3.49429499 0" quat="1 0 0 0">
       <freejoint />
       <geom mesh="base_link_0" material="Caster_Rollers_Red" density="100" class="visual" />
       <geom mesh="base_link_2" material="Lightbar_Green" density="100" class="visual" shellinertia="true" />
