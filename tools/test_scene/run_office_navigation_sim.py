@@ -44,18 +44,24 @@ from stretch_mujoco.robots.stretch3 import Stretch3RobotSimulator
 
 try:
     from test_office_navigation import (  # noqa: E402
-        _disable_robot_collision, _free_near, _scene_paths,
+        _approach_point, _disable_robot_collision, _free_near, _scene_paths, _floor_geom_name,
     )
 except ImportError:
     from tools.test_scene.test_office_navigation import (  # noqa: E402
-        _disable_robot_collision, _free_near, _scene_paths,
+        _approach_point, _disable_robot_collision, _free_near, _scene_paths, _floor_geom_name,
     )
 
 
 def _parse_goal(model: mujoco.MjModel, data: mujoco.MjData, goal: str) -> np.ndarray:
     site_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, goal)
     if site_id < 0:
-        raise ValueError(f"goal site not found: {goal}")
+        if goal == "zone_snack_center":
+            fallback = "zone_home_center"
+            site_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, fallback)
+            if site_id >= 0:
+                goal = fallback
+        if site_id < 0:
+            raise ValueError(f"goal site not found: {goal}")
     return data.site(goal).xpos[:2].copy()
 
 
@@ -131,8 +137,8 @@ def main() -> int:
                         help="List valid zone/grasp site goals for the selected scene and exit")
     parser.add_argument("--algorithm", choices=("astar", "fmm"), default="astar")
     parser.add_argument("--resolution", type=float, default=0.10)
-    parser.add_argument("--agent-radius", type=float, default=0.42,
-                        help="Inflation for the physical base envelope")
+    parser.add_argument("--agent-radius", type=float, default=0.30,
+                        help="Inflation for the physical base envelope (matches static navigation test)")
     parser.add_argument("--control-hz", type=float, default=30.0)
     parser.add_argument("--max-seconds", type=float, default=120.0)
     parser.add_argument("--goal-tolerance", type=float, default=0.3)
@@ -149,11 +155,16 @@ def main() -> int:
     parser.add_argument("--stuck-seconds", type=float, default=30.0,
                         help="Stop when progress toward a waypoint stalls")
     parser.add_argument("--warmup-seconds", type=float, default=2.0)
-    parser.add_argument("--output-dir", type=Path, default=Path("output/office_nav_sim"))
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help="Output directory (defaults to output/<scene family>_nav_sim)")
     parser.add_argument("--headless", action="store_true", default=True)
     args = parser.parse_args()
     if args.scene_root is not None:
         os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
+    if args.output_dir is None:
+        root_name = Path(os.environ.get("STRETCH_SCENE_ROOT", "office_scenes")).name
+        family = "home" if "home" in root_name.lower() else "office"
+        args.output_dir = Path("output") / f"{family}_nav_sim"
     if args.control_hz <= 0 or args.frame_hz <= 0:
         parser.error("control/frame rates must be positive")
 
@@ -171,11 +182,16 @@ def main() -> int:
         print(f"{scene_id} goals:")
         print("\n".join(f"  {name}" for name in _goal_names(plan_model)))
         return 0
+    if (mujoco.mj_name2id(plan_model, mujoco.mjtObj.mjOBJ_SITE, args.goal) < 0
+            and args.goal == "zone_snack_center"
+            and mujoco.mj_name2id(plan_model, mujoco.mjtObj.mjOBJ_SITE, "zone_home_center") >= 0):
+        args.goal = "zone_home_center"
     start = np.asarray(manifest["robot"]["initial_pose"][:2], dtype=float)
     requested_goal = _parse_goal(plan_model, plan_data, args.goal)
     nav = NavigationController(plan_model, plan_data, algorithm=Algorithm(args.algorithm),
                                 resolution=args.resolution, agent_radius=args.agent_radius,
-                                require_collision=True, planner_kwargs={"smoothing": False})
+                                require_collision=True, floor_geom_name=_floor_geom_name(plan_model),
+                                planner_kwargs={"smoothing": False})
     if not nav.is_free(start):
         raise RuntimeError(f"robot start is not free in planning grid: {start.tolist()}")
     # Zone targets are selected by the static test helper using manifest bounds
@@ -186,7 +202,10 @@ def main() -> int:
         zone = next((z for z in manifest.get("zones", []) if z.get("type") == zone_type), None)
         goal = _best_zone_point(nav, zone["bounds"], requested_goal) if zone else _free_near(nav, requested_goal)
     else:
-        goal = _free_near(nav, requested_goal)
+        # Keep physical simulation identical to the static navigation test:
+        # grasp sites need an approach point around the object, not merely
+        # the nearest free cell to the (usually tabletop) site itself.
+        goal = _approach_point(nav, requested_goal)
     align_to_object = args.goal.endswith("_grasp_site")
     success_tolerance = max(args.goal_tolerance, 0.15) if align_to_object else args.goal_tolerance
     if goal is None:

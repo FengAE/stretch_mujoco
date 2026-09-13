@@ -400,18 +400,33 @@ def _infer_world_grasp_poses(
     max_depth: float = 3.0,
 ) -> tuple[np.ndarray | None, np.ndarray | None, dict]:
     """Infer GraspGen poses and transform them from camera to world frame."""
-    response = client.infer(
-        rgb,
-        depth,
-        camera_k,
-        prompt,
-        candidate_top_k=200,
-        desired_approach_direction=tuple(approach_camera),
-        max_approach_angle_deg=max_approach_angle_deg,
-        approach_allow_opposite=True,
-        min_depth=min_depth,
-        max_depth=max_depth,
-    )
+    # Empty/invalid depth frames can make the GraspGen server construct a
+    # zero-length tensor and fail while reshaping it.  Treat that as a
+    # per-object no-grasp result so the batch continues with other objects.
+    rgb = np.asarray(rgb)
+    depth = np.asarray(depth)
+    valid_depth = np.isfinite(depth) & (depth >= min_depth) & (depth <= max_depth)
+    if rgb.size == 0 or depth.size == 0 or not valid_depth.any():
+        return None, None, {"status": "no_valid_depth", "num_grasps": 0}
+    try:
+        response = client.infer(
+            rgb,
+            depth,
+            camera_k,
+            prompt,
+            candidate_top_k=200,
+            desired_approach_direction=tuple(approach_camera),
+            max_approach_angle_deg=max_approach_angle_deg,
+            approach_allow_opposite=True,
+            min_depth=min_depth,
+            max_depth=max_depth,
+        )
+    except Exception as error:
+        return None, None, {
+            "status": "server_error",
+            "num_grasps": 0,
+            "error": str(error),
+        }
     if response.get("status") != "ok" or not response.get("num_grasps"):
         return None, None, response
     camera_tcp_poses = np.asarray(response["grasp_tcp_poses"], dtype=float)
@@ -932,9 +947,11 @@ def main() -> int:
     parser.add_argument("--scene", default="1", help="1..10 or scene id")
     parser.add_argument("--scene-root", type=Path, default=None,
                         help="Generated scene directory; defaults to office_scenes")
-    parser.add_argument("--nav-report-dir", type=Path, default=Path("output/office_nav_sim"))
+    parser.add_argument("--nav-report-dir", type=Path, default=None,
+                        help="Navigation report directory (defaults to output/<scene family>_nav_sim)")
     parser.add_argument("--object-id", default=None, help="comma-separated object ids to restrict to")
-    parser.add_argument("--output-dir", type=Path, default=Path("output/office_grasp_sim"))
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help="Output directory (defaults to output/<scene family>_grasp_sim)")
     parser.add_argument("--graspgen-host", default=os.getenv("GRASPGEN_HOST", "10.29.150.95"))
     parser.add_argument("--graspgen-port", type=int, default=5557)
     parser.add_argument("--debug", action="store_true",
@@ -944,6 +961,15 @@ def main() -> int:
     args = parser.parse_args()
     if args.scene_root is not None:
         os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
+    # Keep grasp tests aligned with run_office_navigation_sim.py.  The
+    # historical defaults were office-only, which made a home run silently
+    # search the wrong directory for navigation reports.
+    root_name = Path(os.environ.get("STRETCH_SCENE_ROOT", "office_scenes")).name
+    family = "home" if "home" in root_name.lower() else "office"
+    if args.nav_report_dir is None:
+        args.nav_report_dir = Path("output") / f"{family}_nav_sim"
+    if args.output_dir is None:
+        args.output_dir = Path("output") / f"{family}_grasp_sim"
 
     xml_path, manifest_path = _scene_paths(args.scene)[0]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

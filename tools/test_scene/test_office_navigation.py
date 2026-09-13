@@ -40,6 +40,12 @@ from stretch_mujoco.navigations import Algorithm, NavigationController, Navigati
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SCENE_ROOT = ROOT / "stretch_mujoco" / "models" / "assets" / "office_scenes"
 
+def _floor_geom_name(model: mujoco.MjModel) -> str:
+    for name in ("office_floor", "hssd_floor_collision"):
+        if mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, name) >= 0:
+            return name
+    return "office_floor"
+
 
 def _scene_paths(scene: str) -> list[tuple[Path, Path]]:
     scene_root = Path(os.environ.get("STRETCH_SCENE_ROOT", str(DEFAULT_SCENE_ROOT)))
@@ -211,16 +217,17 @@ def run_scene(xml_path: Path, manifest_path: Path, args: argparse.Namespace, out
     start = np.asarray(manifest["robot"]["initial_pose"][:2], dtype=float)
     algorithms = ["astar", "fmm"] if args.algorithm == "both" else [args.algorithm]
     # Build once to select targets using the requested algorithm's grid.
+    floor_geom_name = _floor_geom_name(model)
     target_nav = NavigationController(model, data, algorithm=Algorithm.ASTAR,
                                       resolution=args.resolution, agent_radius=args.agent_radius,
-                                      require_collision=True)
+                                      require_collision=True, floor_geom_name=floor_geom_name)
     targets = _targets(model, data, target_nav, args.include_grasps, manifest.get("zones"))
     results: dict[str, list[dict]] = {}
     scene_ok = bool(target_nav.is_free(start))
     for algorithm_name in algorithms:
         nav = NavigationController(model, data, algorithm=Algorithm(algorithm_name),
                                    resolution=args.resolution, agent_radius=args.agent_radius,
-                                   require_collision=True)
+                                   require_collision=True, floor_geom_name=floor_geom_name)
         entries: list[dict] = []
         for target in targets:
             t0 = time.perf_counter()
@@ -273,7 +280,8 @@ def main() -> int:
     parser.add_argument("--algorithm", choices=("astar", "fmm", "both"), default="both")
     parser.add_argument("--resolution", type=float, default=0.10, help="Grid resolution in metres")
     parser.add_argument("--agent-radius", type=float, default=0.30, help="Inflation radius in metres")
-    parser.add_argument("--output-dir", type=Path, default=ROOT / "output" / "office_navigation")
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help="Output directory (defaults to output/<scene family>_navigation)")
     parser.add_argument("--include-grasps", dest="include_grasps", action="store_true", default=True,
                         help="Include approach points for grasp sites (default: enabled)")
     parser.add_argument("--zones-only", dest="include_grasps", action="store_false",
@@ -281,6 +289,10 @@ def main() -> int:
     args = parser.parse_args()
     if args.scene_root is not None:
         os.environ["STRETCH_SCENE_ROOT"] = str(args.scene_root.resolve())
+    if args.output_dir is None:
+        root_name = Path(os.environ.get("STRETCH_SCENE_ROOT", str(DEFAULT_SCENE_ROOT))).name
+        family = "home" if "home" in root_name.lower() else "office"
+        args.output_dir = ROOT / "output" / f"{family}_navigation"
     if args.resolution <= 0 or args.agent_radius < 0:
         parser.error("--resolution must be > 0 and --agent-radius must be >= 0")
     failures = 0
