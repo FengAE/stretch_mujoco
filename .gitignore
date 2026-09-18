@@ -70,3 +70,4 @@ strech_codex/.pytest_cache/
 strech_codex/src/*.egg-info/
 strech_codex/src/strech_codex/logs/
 vscode-mp4-viewer/
+stretch_mujoco/models/assets/office_scenes/_hssd_cache/
