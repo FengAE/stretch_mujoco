@@ -1,0 +1,72 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/4/4073061b184b5326a920a0187f218d064eee2a31.glb",
+  "source_size": 2119120,
+  "source_mtime_ns": 1784796253281271599,
+  "bounds": [
+    [
+      -0.3749983012676239,
+      -0.45000073313713074,
+      -1.657477379909665e-17
+    ],
+    [
+      0.37499821186065674,
+      0.4500007629394531,
+      1.5000004768371582
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Soil.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_leaves.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_wood.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_unicolor_black.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

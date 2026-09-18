@@ -1,0 +1,59 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/d/d07c137b8cf1bddecae95ef376c297b65f204961.glb",
+  "source_size": 26344,
+  "source_mtime_ns": 1784796013910272544,
+  "bounds": [
+    [
+      -0.5968999862670898,
+      -0.6730999946594238,
+      -1.4945822238919245e-16
+    ],
+    [
+      0.5968999862670898,
+      0.6730999946594238,
+      0.044449999928474426
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Material__3.obj",
+      "texture": null,
+      "rgba": [
+        0.04455,
+        0.03561,
+        0.02422,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Glass.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Frame.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

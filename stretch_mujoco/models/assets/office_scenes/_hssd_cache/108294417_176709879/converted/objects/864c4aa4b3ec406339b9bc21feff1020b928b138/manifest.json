@@ -1,0 +1,111 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/8/864c4aa4b3ec406339b9bc21feff1020b928b138.glb",
+  "source_size": 300704,
+  "source_mtime_ns": 1784795958277272764,
+  "bounds": [
+    [
+      -2.5000483989715576,
+      -0.30002841353416443,
+      -6.283329445657312e-17
+    ],
+    [
+      2.5000553131103516,
+      0.3000289499759674,
+      2.3991000652313232
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_mig_04___Default.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_mig_21___Default.obj",
+      "texture": "textures/image_004.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Material__277.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Metal___Stainless_steel.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_Material__27.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_005_Metal___Stainless_steel.obj",
+      "texture": "textures/image_002.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_006_Chrome.obj",
+      "texture": null,
+      "rgba": [
+        0.74,
+        0.74,
+        0.74,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 1.0,
+      "reflectance": 0.0
+    }
+  ]
+}

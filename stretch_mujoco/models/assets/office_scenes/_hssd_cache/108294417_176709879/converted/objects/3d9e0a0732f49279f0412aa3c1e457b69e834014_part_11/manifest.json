@@ -1,0 +1,59 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/decomposed/3d9e0a0732f49279f0412aa3c1e457b69e834014/3d9e0a0732f49279f0412aa3c1e457b69e834014_part_11.glb",
+  "source_size": 135936,
+  "source_mtime_ns": 1784796233405271677,
+  "bounds": [
+    [
+      -1.5002636909484863,
+      -0.5999997854232788,
+      0.0
+    ],
+    [
+      1.500264048576355,
+      0.5999998450279236,
+      0.731876790523529
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_default_shd.obj",
+      "texture": null,
+      "rgba": [
+        0.21764,
+        0.21764,
+        0.21764,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_AAA___STEEL.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_FINISH_CB_DARK_OAK.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

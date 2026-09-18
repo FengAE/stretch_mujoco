@@ -1,0 +1,72 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/7/73cae0c00c31e895cbf8c6ac2bcc3ce718d03b21.glb",
+  "source_size": 1898980,
+  "source_mtime_ns": 1784796193717271834,
+  "bounds": [
+    [
+      -0.07095189392566681,
+      -0.08228864520788193,
+      4.999999873689376e-05
+    ],
+    [
+      0.070951908826828,
+      0.08228863030672073,
+      0.25091591477394104
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_Standard_1.obj",
+      "texture": null,
+      "rgba": [
+        0.01794,
+        0.01794,
+        0.01794,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_stainless_steel.obj",
+      "texture": "textures/image_004.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9492342,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_mig_00wood.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_unicolor_creme.obj",
+      "texture": null,
+      "rgba": [
+        0.94897,
+        0.9406,
+        0.92399,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

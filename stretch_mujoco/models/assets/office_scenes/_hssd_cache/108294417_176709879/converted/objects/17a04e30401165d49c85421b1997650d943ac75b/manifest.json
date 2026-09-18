@@ -1,0 +1,98 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/1/17a04e30401165d49c85421b1997650d943ac75b.glb",
+  "source_size": 2020412,
+  "source_mtime_ns": 1784796165948271944,
+  "bounds": [
+    [
+      -0.36977651715278625,
+      -0.39385220408439636,
+      0.00010098018537973985
+    ],
+    [
+      0.3814157247543335,
+      0.4005661904811859,
+      1.1131380796432495
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_x.obj",
+      "texture": null,
+      "rgba": [
+        0.00169,
+        0.00169,
+        0.00169,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Fabric_blue.obj",
+      "texture": "textures/image_007.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_unicolor_black.obj",
+      "texture": null,
+      "rgba": [
+        0.00169,
+        0.00169,
+        0.00169,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Metal_Brushed_leg.obj",
+      "texture": "textures/image_004.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9702301,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_unicolor_black2.obj",
+      "texture": null,
+      "rgba": [
+        0.03561,
+        0.03561,
+        0.03561,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_005_Walnut_wood.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

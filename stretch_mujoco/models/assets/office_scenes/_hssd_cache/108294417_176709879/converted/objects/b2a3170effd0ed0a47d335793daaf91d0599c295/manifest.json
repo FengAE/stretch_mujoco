@@ -1,0 +1,111 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/b/b2a3170effd0ed0a47d335793daaf91d0599c295.glb",
+  "source_size": 151820,
+  "source_mtime_ns": 1784796179356271891,
+  "bounds": [
+    [
+      -0.3608684539794922,
+      -0.33870604634284973,
+      0.09414221346378326
+    ],
+    [
+      0.36086902022361755,
+      0.33870580792427063,
+      1.0872989892959595
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_lambert2SG.obj",
+      "texture": null,
+      "rgba": [
+        0.47618,
+        0.42591,
+        0.3636,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_Metal___Stainless_steel.obj",
+      "texture": "textures/image_001.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.9046088,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_Standard_1.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_Standard_5.obj",
+      "texture": "textures/image_003.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_004_Standard_2.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_005_Material__0.obj",
+      "texture": null,
+      "rgba": [
+        0.31091,
+        0.31091,
+        0.31091,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_006_lambert3SG.obj",
+      "texture": null,
+      "rgba": [
+        0.89938,
+        0.89938,
+        0.89938,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

@@ -1,11 +1,16 @@
-# Generated open-plan office scenes
+# Generated simplified home scenes
 
-Ten textured, single-area MuJoCo offices. Every layout contains a multi-workstation work zone,
-a meeting zone, a lounge, a snack counter, and a Hello Robot Stretch placed at a scene-specific
-clear starting point. There are no internal room walls; floor bands and furniture define zones.
-
-Open a scene with:
+Ten scenes generated from ten different HSSD scene IDs. The script uses the
+HSSD `scenes-uncluttered` split, converts each stage/object to MuJoCo, and adds
+a Hello Robot Stretch include. Converted meshes and textures are stored in
+`_hssd_cache/`.
 
 ```bash
-.venv/bin/python examples/generated_office_scene.py --scene 1
+python examples/generated_home_scene.py --scene 1
+```
+
+Regenerate with a different dataset location using:
+
+```bash
+python tools/generate_home_scenes.py --hssd-root /path/to/hssd-hab
 ```

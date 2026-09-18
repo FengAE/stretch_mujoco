@@ -1,0 +1,72 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/9/977bf1533db4af5a5a9e2e203d76661ba33f221f.glb",
+  "source_size": 935356,
+  "source_mtime_ns": 1784796065424272341,
+  "bounds": [
+    [
+      -0.6767261028289795,
+      -0.5313097238540649,
+      -8.422558312304318e-05
+    ],
+    [
+      0.6762216687202454,
+      0.5137065649032593,
+      1.867796540260315
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_mig_09___Default.obj",
+      "texture": null,
+      "rgba": [
+        0.27583,
+        0.27583,
+        0.27583,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_mig_07___Default.obj",
+      "texture": "textures/image_000.png",
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_mig_08___Default.obj",
+      "texture": null,
+      "rgba": [
+        0.01347,
+        0.03288,
+        0.2011,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_mig_10___Default.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}

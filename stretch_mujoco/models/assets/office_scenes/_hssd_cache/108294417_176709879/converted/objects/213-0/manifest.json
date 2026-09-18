@@ -1,0 +1,72 @@
+{
+  "converter_version": 2,
+  "source": "/home/yjw/data/hssd-hab/objects/openings/213-0.glb",
+  "source_size": 97692,
+  "source_mtime_ns": 1784796154123271990,
+  "bounds": [
+    [
+      -0.9399974942207336,
+      -0.8999999761581421,
+      -1.0500025749206543
+    ],
+    [
+      0.9399979710578918,
+      0.8999999761581421,
+      1.1500051021575928
+    ]
+  ],
+  "parts": [
+    {
+      "obj": "meshes/part_000_FP_GLASS1.obj",
+      "texture": null,
+      "rgba": [
+        0.356863,
+        0.6,
+        0.6,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_001_FP_GLASS.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 1.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_002_FP_GLASSBORDER.obj",
+      "texture": null,
+      "rgba": [
+        0.498039,
+        0.498039,
+        0.498039,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    },
+    {
+      "obj": "meshes/part_003_FP_DOOR.obj",
+      "texture": null,
+      "rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "specular": 0.16749999999999998,
+      "shininess": 0.0,
+      "reflectance": 0.0
+    }
+  ]
+}
